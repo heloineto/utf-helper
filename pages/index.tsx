@@ -11,7 +11,7 @@ const Home: NextPage = () => {
       <div className="h-full w-full flex flex-col overflow-hidden">
         <div className="bg-red-200 h-2/3" ref={resizeRef}></div>
         <Divider resizeRef={resizeRef} />
-        <div className="bg-blue-200 flex-grow overflow-auto">
+        <div className="bg-blue-200 flex-grow flex overflow-auto">
           <Schedule />
         </div>
       </div>

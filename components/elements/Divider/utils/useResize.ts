@@ -14,13 +14,16 @@ const useResize = (
 
     const resizeStart = (e: MouseEvent) => {
       document.body.classList.add('select-none');
+
       setResizing(true);
     };
 
     const resize = (e: MouseEvent) => {
       if (!resizing) return;
 
-      const height = e.clientY - resizeElem.getBoundingClientRect().top;
+      const height = e.clientY; // - resizeElem.getBoundingClientRect().height;
+
+      console.log(height);
 
       resizeElem.style.height = `${height}px`;
     };
