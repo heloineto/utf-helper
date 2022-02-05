@@ -97,15 +97,15 @@ const Schedule = (props: Props) => {
       cellSpacing={0}
       cellPadding={2}
     >
-      <tbody className="bg-white divide-y divide-gray-200 text-center">
-        <tr className="divide-x divide-gray-100 border-b-1 shadow">
+      <tbody className="bg-white divide-y divide-gray-100 text-center">
+        <tr className="divide-x divide-gray-50 border-b-1 shadow">
           <td className="w-8" />
           <td className="font-bold w-16">Início</td>
           <td className="font-bold w-16">Térm.</td>
 
           {['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'].map(
             (day, index) => (
-              <td className="text-sm">
+              <td key={day} className="text-sm">
                 <span className="text-gray-600 font-medium">{day}</span>
                 <span className="text-gray-800 ml-1 font-bold">{index + 2}</span>
               </td>
@@ -113,12 +113,12 @@ const Schedule = (props: Props) => {
           )}
         </tr>
         {Object.entries(schedule).map(([timeCode, { start, end, days }]) => (
-          <tr className="divide-x divide-gray-100">
+          <tr key={timeCode} className="divide-x divide-gray-50">
             <td className="text-xs w-8">{timeCode}</td>
             <th>{start}</th>
             <th>{end}</th>
             {Object.entries(days).map(([dayCode, {}]) => (
-              <td></td>
+              <td key={dayCode}></td>
             ))}
           </tr>
         ))}

@@ -15,12 +15,12 @@ const CustomScrollBar = () => {
         border-radius: 1rem;
       }
 
-      *:hover > ::-webkit-scrollbar-thumb {
-        background: #d6d6d6;
+      ::-webkit-scrollbar-thumb {
+        background: #767676;
       }
 
-      ::-webkit-scrollbar-thumb:active {
-        background: #767676;
+      *:hover > ::-webkit-scrollbar-thumb {
+        background: #d6d6d6;
       }
     `}</style>
   );
