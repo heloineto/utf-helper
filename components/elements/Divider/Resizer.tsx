@@ -9,8 +9,7 @@ type Props = {
 
 const Resizer = ({ direction = 'horizontal', resizeRef }: Props) => {
   const handleRef = useRef<HTMLDivElement>(null);
-
-  const {} = useResize(resizeRef, handleRef);
+  useResize(resizeRef, handleRef);
 
   return (
     <div className="w-full h-2.5 bg-white ring-1 shadow ring-slate-700/5 flex items-center justify-center dark:bg-indigo-500 dark:text-white dark:highlight-white/10">

@@ -8,10 +8,10 @@ const Home: NextPage = () => {
 
   return (
     <MainShell>
-      <div className="bg-red-200" ref={resizeRef} style={{ height: `50%` }}></div>
-      <Divider resizeRef={resizeRef} />
-      <div className="bg-blue-200" style={{ height: `50%` }}>
-        {/* <Schedule /> */}
+      <div className="h-full w-full overflow-hidden">
+        <div className="bg-red-200 h-full" ref={resizeRef}></div>
+        <Divider resizeRef={resizeRef} />
+        <div className="bg-blue-200 h-full">{/* <Schedule /> */}</div>
       </div>
     </MainShell>
   );

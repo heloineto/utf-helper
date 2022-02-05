@@ -6,16 +6,8 @@ const useResize = (
 ) => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [resizing, setResizing] = useState(false);
-  const [style, setStyle] = useState<CSSProperties>();
-  console.log('HI');
-
-  // const [resizeElem, setResizeElem] = useState<HTMLDivElement | null>(null);
-  // const [handleElem, setHandleElem] = useState<HTMLDivElement | null>(null);
-  // const handleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    console.log(handleRef.current, resizeRef.current);
-
     const handleElem = handleRef.current;
     const resizeElem = resizeRef.current;
 
@@ -29,18 +21,15 @@ const useResize = (
         y: e.clientY - resizeElem.getBoundingClientRect().top,
       });
 
-      console.log(offset);
-
       setResizing(true);
     };
 
     const resize = (e: MouseEvent) => {
       if (!resizing) return;
 
-      setStyle({
-        left: e.pageX - offset.x,
-        top: e.pageY - offset.y,
-      });
+      const height = e.pageY - resizeElem.getBoundingClientRect().top;
+
+      resizeElem.style.height = `${height}px`;
     };
 
     const resizeEnd = () => {
@@ -58,8 +47,6 @@ const useResize = (
       window.removeEventListener('mouseup', resizeEnd);
     };
   }, [resizing, resizeRef, handleRef, offset.x, offset.y]);
-
-  return { style, setStyle, handleRef };
 };
 
 export default useResize;
