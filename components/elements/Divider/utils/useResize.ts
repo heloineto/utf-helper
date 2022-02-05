@@ -1,14 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
 
-const useResize = (resizeRef: RefObject<HTMLDivElement>) => {
+const useResize = (
+  resizeRef: RefObject<HTMLDivElement>,
+  handleRef: RefObject<HTMLDivElement>
+) => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [resizing, setResizing] = useState(false);
   const [style, setStyle] = useState<CSSProperties>();
+  console.log('HI');
+
   // const [resizeElem, setResizeElem] = useState<HTMLDivElement | null>(null);
   // const [handleElem, setHandleElem] = useState<HTMLDivElement | null>(null);
-  const handleRef = useRef<HTMLDivElement>(null);
+  // const handleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    console.log(handleRef.current, resizeRef.current);
+
     const handleElem = handleRef.current;
     const resizeElem = resizeRef.current;
 
