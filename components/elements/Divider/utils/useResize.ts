@@ -4,7 +4,6 @@ const useResize = (
   resizeRef: RefObject<HTMLDivElement>,
   handleRef: RefObject<HTMLDivElement>
 ) => {
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [resizing, setResizing] = useState(false);
 
   useEffect(() => {
@@ -15,19 +14,13 @@ const useResize = (
 
     const resizeStart = (e: MouseEvent) => {
       document.body.classList.add('select-none');
-
-      setOffset({
-        x: e.clientX - resizeElem.getBoundingClientRect().left,
-        y: e.clientY - resizeElem.getBoundingClientRect().top,
-      });
-
       setResizing(true);
     };
 
     const resize = (e: MouseEvent) => {
       if (!resizing) return;
 
-      const height = e.pageY - resizeElem.getBoundingClientRect().top;
+      const height = e.clientY - resizeElem.getBoundingClientRect().top;
 
       resizeElem.style.height = `${height}px`;
     };
@@ -46,7 +39,7 @@ const useResize = (
       window.removeEventListener('mousemove', resize);
       window.removeEventListener('mouseup', resizeEnd);
     };
-  }, [resizing, resizeRef, handleRef, offset.x, offset.y]);
+  }, [resizing, resizeRef, handleRef]);
 };
 
 export default useResize;
