@@ -8,10 +8,12 @@ const Home: NextPage = () => {
 
   return (
     <MainShell>
-      <div className="h-full w-full ">
-        <div className="bg-red-200 h-full" ref={resizeRef}></div>
+      <div className="h-full w-full flex flex-col overflow-hidden">
+        <div className="bg-red-200 h-2/3" ref={resizeRef}></div>
         <Divider resizeRef={resizeRef} />
-        <div className="bg-blue-200 h-full">{/* <Schedule /> */}</div>
+        <div className="bg-blue-200 flex-grow overflow-auto">
+          <Schedule />
+        </div>
       </div>
     </MainShell>
   );
