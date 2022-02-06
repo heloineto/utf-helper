@@ -1,7 +1,7 @@
 import classNames from 'clsx';
 import { GitHubIcon } from '@components/decoration/icons/outlined';
 import { IconButton } from '@mui/material';
-import { SwitchVerticalIcon } from '@heroicons/react/outline';
+import { SunIcon, SwitchVerticalIcon } from '@heroicons/react/outline';
 
 interface Props {}
 
@@ -48,7 +48,10 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
           </svg>
         </a>
       </div>
-      <div className="h-full flex items-center">
+      <div className="h-full flex items-center gap-x-1">
+        <IconButton className="group">
+          <SunIcon className="h-5 w-auto group-hover:text-gray-600" />
+        </IconButton>
         <IconButton className="group">
           <SwitchVerticalIcon className="h-5 w-auto group-hover:text-gray-600" />
         </IconButton>
