@@ -1,9 +1,11 @@
-type Props = {
-  schedule: TimeCodeObject;
-  setSchedule: Dispatch<SetStateAction<TimeCodeObject>>;
-};
+import { ScheduleContext } from '@lib/context';
+import { useContext } from 'react';
 
-const Schedule = ({ schedule, setSchedule }: Props) => {
+type Props = {};
+
+const Schedule = ({}: Props) => {
+  const { schedule, setSchedule } = useContext(ScheduleContext);
+
   return (
     <table
       className="bg-white border-slate-100 text-xs flex-grow"
@@ -24,16 +26,17 @@ const Schedule = ({ schedule, setSchedule }: Props) => {
             )
           )}
         </tr>
-        {Object.entries(schedule).map(([timeCode, { start, end, days }]) => (
-          <tr key={timeCode} className="divide-x divide-gray-50">
-            <td className="text-xs w-8">{timeCode}</td>
-            <th>{start}</th>
-            <th>{end}</th>
-            {Object.entries(days).map(([dayCode, {}]) => (
-              <td key={dayCode}></td>
-            ))}
-          </tr>
-        ))}
+        {schedule &&
+          Object.entries(schedule).map(([timeCode, { start, end, days }]) => (
+            <tr key={timeCode} className="divide-x divide-gray-50">
+              <td className="text-xs w-8">{timeCode}</td>
+              <th>{start}</th>
+              <th>{end}</th>
+              {Object.entries(days).map(([dayCode, {}]) => (
+                <td key={dayCode}></td>
+              ))}
+            </tr>
+          ))}
       </tbody>
     </table>
   );
