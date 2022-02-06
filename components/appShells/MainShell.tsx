@@ -2,13 +2,14 @@ import Navbar from '@components/navigation/Navbar';
 import { SettingsContext } from '@lib/context';
 import { useState } from 'react';
 import classNames from 'clsx';
+import useSettings from '@lib/hooks/useSettings';
 
 interface Props {
   children: ReactNode;
 }
 
 const MainShell = ({ children }: Props) => {
-  const [theme, setTheme] = useState<Theme>('light');
+  const { theme, setTheme } = useSettings();
 
   return (
     <SettingsContext.Provider value={{ theme, setTheme }}>

@@ -8,11 +8,11 @@ const Subjects = (props: Props) => {
   const subjects = useSubjects();
 
   return (
-    <div className="w-full bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
+    <div className="w-full transition-colors duration-500 bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
       {Object.entries(subjects).map(([subjectCode, subject]) => (
         <div key={subjectCode}>
-          <div className="bg-slate-100 dark:bg-slate-600 px-6 py-3 flex items-center gap-x-2 text-md h-12 w-full font-medium tracking-wider">
-            <span className="bg-slate-200 dark:bg-slate-500 rounded-md p-1 text-sm text-slate-500 dark:text-slate-300">
+          <div className="bg-slate-100 dark:bg-slate-600 px-6 py-3 flex items-center gap-x-2 text-md h-12 w-full font-medium tracking-wider transition-colors duration-500">
+            <span className="bg-slate-200 dark:bg-slate-500 rounded-md p-1 text-sm text-slate-500 dark:text-slate-300 transition-colors duration-500">
               {subject.code}
             </span>
             {/* <div className="h-full w-px rounded-full bg-slate-400 dark:bg-slate-800" /> */}
@@ -22,7 +22,7 @@ const Subjects = (props: Props) => {
           </div>
           <table className="w-full">
             <tbody className="w-full">
-              <tr className="bg-slate-50 dark:bg-slate-900 text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+              <tr className="bg-slate-50 dark:bg-slate-900 text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider transition-colors duration-500">
                 <SubjectsTableHeader className="w-[10%]">Turma</SubjectsTableHeader>
                 <SubjectsTableHeader className="w-[30%]">
                   Horário &amp; Local
