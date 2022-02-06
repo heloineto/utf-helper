@@ -10,7 +10,7 @@ import createEmotionCache from '../lib/createEmotionCache';
 import NoAutoCompleteBackground from '@components/styledJsx/NoAutoCompleteBackground';
 import CustomScrollBar from '@components/styledJsx/CustomScrollBar';
 import { SettingsContext } from '@lib/context';
-import useSettings from '@lib/hooks/useSettings';
+import { useSettings } from '@lib/hooks';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();

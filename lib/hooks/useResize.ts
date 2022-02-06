@@ -1,16 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-const useResize = (
-  resizeRef: RefObject<HTMLDivElement>,
-  handleRef: RefObject<HTMLDivElement>
-) => {
+const useResize = () => {
   const [resizing, setResizing] = useState(false);
+  const handleRef = useRef<HTMLDivElement>(null);
+  const resize1Ref = useRef<HTMLDivElement>(null);
+  const resize2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleElem = handleRef.current;
-    const resizeElem = resizeRef.current;
+    const resize1Elem = resize1Ref.current;
+    const resize2Elem = resize2Ref.current;
 
-    if (!resizeElem || !handleElem) return;
+    if (!resize1Elem || !resize2Elem || !handleElem) return;
 
     const resizeStart = (e: MouseEvent) => {
       document.body.classList.add('select-none');
@@ -21,9 +22,9 @@ const useResize = (
     const resize = (e: MouseEvent) => {
       if (!resizing) return;
 
-      const height = e.clientY - resizeElem.getBoundingClientRect().top;
+      const height = e.clientY - resize1Elem.getBoundingClientRect().top;
 
-      resizeElem.style.height = `${height}px`;
+      resize1Elem.style.height = `${height}px`;
     };
 
     const resizeEnd = () => {
@@ -40,7 +41,9 @@ const useResize = (
       window.removeEventListener('mousemove', resize);
       window.removeEventListener('mouseup', resizeEnd);
     };
-  }, [resizing, resizeRef, handleRef]);
+  }, [resizing, resize1Ref, handleRef]);
+
+  return { handleRef, resize1Ref, resize2Ref };
 };
 
 export default useResize;

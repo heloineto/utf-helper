@@ -1,7 +1,6 @@
 import Navbar from '@components/navigation/Navbar';
 import { SettingsContext } from '@lib/context';
 import classNames from 'clsx';
-import useSettings from '@lib/hooks/useSettings';
 import { useContext } from 'react';
 
 interface Props {

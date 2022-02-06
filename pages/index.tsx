@@ -3,14 +3,14 @@ import Divider from '@components/elements/Resizer';
 import Schedule from '@components/elements/Schedule';
 import Table from '@components/elements/Subjects';
 import { ScheduleContext, SettingsContext } from '@lib/context';
-import { useSchedule } from '@lib/hooks';
+import { useResize, useSchedule } from '@lib/hooks';
 import { useContext, useRef } from 'react';
 import classNames from 'clsx';
 
 const Home: NextPage = () => {
-  const resizeRef = useRef<HTMLDivElement>(null);
   const { schedule, setSchedule } = useSchedule();
   const { direction } = useContext(SettingsContext);
+  const { handleRef, resize1Ref, resize2Ref } = useResize();
 
   return (
     <MainShell>
@@ -21,11 +21,11 @@ const Home: NextPage = () => {
             'h-full w-full flex overflow-hidden'
           )}
         >
-          <div className="h-2/3 overflow-auto" ref={resizeRef}>
+          <div className="h-2/3 overflow-auto" ref={resize1Ref}>
             <Table />
           </div>
-          <Divider direction={direction} resizeRef={resizeRef} />
-          <div className="flex-grow flex overflow-auto">
+          <Divider direction={direction} ref={handleRef} />
+          <div className="flex-grow flex overflow-auto" ref={resize2Ref}>
             <Schedule />
           </div>
         </div>
