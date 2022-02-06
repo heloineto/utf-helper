@@ -1,8 +1,9 @@
-import { ScheduleContext } from '@lib/context';
+import { ScheduleContext, SettingsContext } from '@lib/context';
 import { highlightGroup } from '@lib/utils/schedule';
 import { useContext } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
+import classNames from 'clsx';
 
 type Props = {
   classCode: string;
@@ -22,6 +23,7 @@ type Props = {
 
 const SubjectsTableRow = ({ classCode, classObj }: Props) => {
   const { setSchedule } = useContext(ScheduleContext);
+  const { direction } = useContext(SettingsContext);
 
   return (
     <tr
@@ -48,7 +50,14 @@ const SubjectsTableRow = ({ classCode, classObj }: Props) => {
         className="break-words"
         // //! Time should show red if it's unavailable
       >
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 gap-0.5">
+        <div
+          className={classNames(
+            direction === 'horizontal'
+              ? 'grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8'
+              : 'grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8',
+            'grid gap-0.5'
+          )}
+        >
           {classObj.schedule.map(({ dayTimeCode, locationCode }, index) => (
             <SubjectsDayTimeCell
               key={index}
