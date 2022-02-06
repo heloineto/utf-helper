@@ -18,7 +18,9 @@ const SubjectsDayTimeCell = ({ dayTimeCode, locationCode }: Props) => {
         const [dayCode, shiftCode, timeCode] = dayTimeCode.split('');
 
         const toMerge = {
-          [`${shiftCode}${timeCode}`]: { days: { [dayCode]: { highlight: true } } },
+          [`${shiftCode}${timeCode}`]: {
+            days: { [dayCode]: { highlights: { cell: true } } },
+          },
         };
 
         setSchedule?.((value) => merge({ ...value }, toMerge));
@@ -27,7 +29,9 @@ const SubjectsDayTimeCell = ({ dayTimeCode, locationCode }: Props) => {
         const [dayCode, shiftCode, timeCode] = dayTimeCode.split('');
 
         const toMerge = {
-          [`${shiftCode}${timeCode}`]: { days: { [dayCode]: { highlight: false } } },
+          [`${shiftCode}${timeCode}`]: {
+            days: { [dayCode]: { highlights: { cell: false } } },
+          },
         };
 
         setSchedule?.((value) => merge({ ...value }, toMerge));

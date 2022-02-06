@@ -43,11 +43,11 @@ const Schedule = ({}: Props) => {
               </td>
               <th className="font-medium text-slate-600 dark:text-slate-400">{start}</th>
               <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
-              {Object.entries(days).map(([dayCode, { highlight }]) => (
+              {Object.entries(days).map(([dayCode, { highlights }]) => (
                 <td
                   key={dayCode}
                   className={classNames(
-                    highlight &&
+                    highlights?.cell &&
                       'transition-all duration-500 bg-sky-400 dark:bg-sky-900 dark:shadow-inner dark:shadow-sky-700'
                   )}
                 ></td>
