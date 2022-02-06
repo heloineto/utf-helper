@@ -51,17 +51,17 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
       <div className="h-full flex items-center gap-x-1">
         <Tooltip title="Escolher Tema" arrow>
           <IconButton className="group">
-            <SunIcon className="h-5 w-auto group-hover:text-gray-600" />
+            <SunIcon className="h-5 w-auto group-hover:text-slate-600" />
           </IconButton>
         </Tooltip>
         <Tooltip title="Mudar para Layout Horizontal" arrow>
           <IconButton className="group">
-            <SwitchVerticalIcon className="h-5 w-auto group-hover:text-gray-600" />
+            <SwitchVerticalIcon className="h-5 w-auto group-hover:text-slate-600" />
           </IconButton>
         </Tooltip>
         <Tooltip title="Imprimir Cronograma" arrow>
           <IconButton className="group">
-            <PrinterIcon className="h-5 w-auto group-hover:text-gray-600" />
+            <PrinterIcon className="h-5 w-auto group-hover:text-slate-600" />
           </IconButton>
         </Tooltip>
       </div>
