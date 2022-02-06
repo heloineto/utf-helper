@@ -5,11 +5,11 @@ import classNames from 'clsx';
 type Props = {};
 
 const Schedule = ({}: Props) => {
-  const { schedule, setSchedule } = useContext(ScheduleContext);
+  const { schedule } = useContext(ScheduleContext);
 
   return (
     <table
-      className="duration-200 bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-800 text-xs flex-grow"
+      className="bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-800 text-xs flex-grow"
       cellSpacing={0}
       cellPadding={2}
     >
@@ -46,7 +46,7 @@ const Schedule = ({}: Props) => {
               {Object.entries(days).map(([dayCode, { highlights }]) => (
                 <td
                   key={dayCode}
-                  className={classNames('transition-all duration-500')}
+                  className={classNames('')}
                   style={{
                     background: highlights?.cell
                       ? 'repeating-linear-gradient(45deg, rgba(14, 165, 233, 0.6), rgba(14, 165, 233, 0.6) 0.25rem, rgba(56, 189, 248, 0.6) 0.25rem, rgba(56, 189, 248, 0.6) 0.5rem)'
