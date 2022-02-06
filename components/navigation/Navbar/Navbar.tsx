@@ -1,10 +1,5 @@
-import { useContext, useState } from 'react';
-import { styled } from '@mui/system';
-import SwitchUnstyled, { switchUnstyledClasses } from '@mui/base/SwitchUnstyled';
 import classNames from 'clsx';
 import { GitHubIcon } from '@components/decoration/icons/outlined';
-import { ChevronRightIcon } from '@heroicons/react/outline';
-import Link from 'next/link';
 import { IconButton } from '@mui/material';
 
 interface Props {}

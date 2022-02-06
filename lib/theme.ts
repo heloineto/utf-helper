@@ -1,4 +1,4 @@
-import { createTheme, ThemeOptions } from '@mui/material/styles';
+import { ThemeOptions, createTheme } from '@mui/material/styles';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfigModule from '../tailwind.config.js';
 

@@ -1,5 +1,5 @@
 import MainShell from '@components/appShells/MainShell';
-import Divider from '@components/elements/Divider';
+import Divider from '@components/elements/Resizer';
 import Schedule from '@components/elements/Schedule';
 import { ScheduleContext } from '@lib/context';
 import { useSchedule } from '@lib/hooks';
@@ -16,7 +16,7 @@ const Home: NextPage = () => {
           <div className="h-2/3" ref={resizeRef}></div>
           <Divider resizeRef={resizeRef} />
           <div className="flex-grow flex overflow-auto">
-            <Schedule schedule={schedule} setSchedule={setSchedule} />
+            <Schedule />
           </div>
         </div>
       </ScheduleContext.Provider>

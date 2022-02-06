@@ -1,4 +1,4 @@
-import { ArrowsExpandIcon, MenuAlt4Icon } from '@heroicons/react/outline';
+import { ArrowsExpandIcon } from '@heroicons/react/outline';
 import { useRef } from 'react';
 import useResize from './utils/useResize';
 
@@ -17,7 +17,7 @@ const Resizer = ({ direction = 'horizontal', resizeRef }: Props) => {
         className="group w-7 h-7 transition-all ease-in-out hover:w-12 hover:h-12 bg-white flex justify-center items-center cursor-ns-resize rounded-full ring-1 ring-slate-900/10 shadow"
         ref={handleRef}
       >
-        <ArrowsExpandIcon className="h-4 group-hover:h-6 w-auto transition-all ease-in text-gray-500" />
+        <ArrowsExpandIcon className="h-4 group-hover:h-6 w-auto transition-all ease-in-out text-gray-500" />
       </div>
     </div>
   );
