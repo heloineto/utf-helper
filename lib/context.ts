@@ -13,4 +13,6 @@ export const SettingsContext = createContext<{
   setTheme?: Dispatch<SetStateAction<Theme>>;
   direction?: Direction;
   setDirection?: Dispatch<SetStateAction<Direction>>;
+  selectedClasses?: SelectedClasses;
+  setSelectedClasses?: Dispatch<SetStateAction<SelectedClasses>>;
 }>({});

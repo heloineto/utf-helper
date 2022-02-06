@@ -13,8 +13,8 @@ const Schedule = ({}: Props) => {
       cellSpacing={0}
       cellPadding={2}
     >
-      <tbody className="divide-y divide-slate-100 dark:divide-slate-700 text-center">
-        <tr className="divide-x divide-slate-50 dark:divide-slate-700 shadow">
+      <tbody className="divide-y divide-slate-200/50 dark:divide-slate-700/50 text-center">
+        <tr className="bg-slate-200 dark:bg-slate-700 shadow">
           <td className="min-w-[2rem]" />
           <td className="font-bold min-w-[2rem] text-sm text-slate-700 dark:text-slate-300">
             Início
@@ -37,7 +37,10 @@ const Schedule = ({}: Props) => {
         </tr>
         {schedule &&
           Object.entries(schedule).map(([timeCode, { start, end, days }]) => (
-            <tr key={timeCode} className="divide-x divide-slate-50 dark:divide-slate-700">
+            <tr
+              key={timeCode}
+              className="divide-x divide-slate-200 dark:divide-slate-700"
+            >
               <td className="font-semibold text-slate-800 dark:text-slate-100 w-8">
                 {timeCode}
               </td>
