@@ -12,8 +12,7 @@ const useSettings = () => {
     try {
       settings = JSON.parse(settingsStr);
     } catch (error) {
-      if (true) {
-      }
+      if (process.env.NODE_ENV === 'development') console.error(error);
     }
 
     if (!settings) return;
