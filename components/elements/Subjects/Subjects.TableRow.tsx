@@ -27,6 +27,7 @@ const SubjectsTableRow = ({ classCode, classObj }: Props) => {
   return (
     <tr
       className="cursor-pointer hover:bg-sky-100 dark:hover:bg-sky-900/50"
+      onClick={() => {}}
       onMouseEnter={() =>
         setSchedule &&
         highlightGroup(
