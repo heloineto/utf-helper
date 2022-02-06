@@ -1,6 +1,7 @@
 import MainShell from '@components/appShells/MainShell';
 import Divider from '@components/elements/Resizer';
 import Schedule from '@components/elements/Schedule';
+import Table from '@components/elements/Table';
 import { ScheduleContext } from '@lib/context';
 import { useSchedule } from '@lib/hooks';
 import { useRef } from 'react';
@@ -13,7 +14,9 @@ const Home: NextPage = () => {
     <MainShell>
       <ScheduleContext.Provider value={{ schedule, setSchedule }}>
         <div className="h-full w-full flex flex-col overflow-hidden">
-          <div className="h-2/3" ref={resizeRef}></div>
+          <div className="h-2/3 overflow-auto" ref={resizeRef}>
+            <Table />
+          </div>
           <Divider resizeRef={resizeRef} />
           <div className="flex-grow flex overflow-auto">
             <Schedule />
