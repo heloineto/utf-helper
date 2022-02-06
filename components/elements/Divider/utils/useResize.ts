@@ -23,8 +23,6 @@ const useResize = (
 
       const height = e.clientY; // - resizeElem.getBoundingClientRect().height;
 
-      console.log(height);
-
       resizeElem.style.height = `${height}px`;
     };
 
