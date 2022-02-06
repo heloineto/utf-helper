@@ -23,7 +23,7 @@ const Subjects = (props: Props) => {
             <tbody className="w-full">
               <tr className="bg-slate-100 dark:bg-slate-900 text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                 <SubjectsTableHeader className="w-[5%]">Turma</SubjectsTableHeader>
-                <SubjectsTableHeader className="w-[35%]">
+                <SubjectsTableHeader className="w-[45%]">
                   Horário &amp; Local
                 </SubjectsTableHeader>
                 <SubjectsTableHeader className="w-[20%]">Professor</SubjectsTableHeader>

@@ -20,7 +20,8 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
   return (
     <tr
       className={classNames(
-        isSelected && 'bg-sky-100 dark:bg-sky-900/50',
+        isSelected &&
+          'bg-sky-50 dark:bg-sky-500/50 relative after:absolute after:top-0 after:left-0 after:h-full after:w-full after:border-2 after:border-sky-500',
         'cursor-pointer hover:bg-sky-100 dark:hover:bg-sky-900/50'
       )}
       onClick={() =>
