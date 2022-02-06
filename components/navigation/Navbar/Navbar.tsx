@@ -1,10 +1,8 @@
 import classNames from 'clsx';
 import { GitHubIcon } from '@components/decoration/icons/outlined';
 import { IconButton, Tooltip } from '@mui/material';
-import { PrinterIcon, SwitchVerticalIcon } from '@heroicons/react/outline';
+import { PrinterIcon } from '@heroicons/react/outline';
 import NavbarThemeSwitch from './Navbar.ThemeSwitch';
-import { SettingsContext } from '@lib/context';
-import { useContext } from 'react';
 import NavbarDirectionButton from './Navbar.DirectionButton';
 
 interface Props {}

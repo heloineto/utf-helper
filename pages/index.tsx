@@ -4,7 +4,7 @@ import Schedule from '@components/elements/Schedule';
 import Table from '@components/elements/Subjects';
 import { ScheduleContext, SettingsContext } from '@lib/context';
 import { useResize, useSchedule } from '@lib/hooks';
-import { useContext, useRef } from 'react';
+import { useContext } from 'react';
 import classNames from 'clsx';
 
 const Home: NextPage = () => {
