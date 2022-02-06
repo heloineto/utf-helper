@@ -5,12 +5,12 @@ import { useContext } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
 import SubjectsTableHeader from './Subjects.TableHeader';
+import SubjectsTableRow from './Subjects.TableRow';
 
 interface Props {}
 
 const Subjects = (props: Props) => {
   const subjects = useSubjects();
-  const { setSchedule } = useContext(ScheduleContext);
 
   return (
     <div className="w-full transition-colors duration-500 bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
@@ -40,51 +40,11 @@ const Subjects = (props: Props) => {
                 </SubjectsTableHeader>
               </tr>
               {Object.entries(subject.classes).map(([classCode, classObj]) => (
-                <tr
+                <SubjectsTableRow
                   key={classCode}
-                  className="cursor-pointer transition-all duration-900"
-                  onMouseEnter={() =>
-                    setSchedule &&
-                    highlightGroup(
-                      setSchedule,
-                      classObj.schedule.map(({ dayTimeCode }) => dayTimeCode),
-                      true
-                    )
-                  }
-                  onMouseLeave={() =>
-                    setSchedule &&
-                    highlightGroup(
-                      setSchedule,
-                      classObj.schedule.map(({ dayTimeCode }) => dayTimeCode),
-                      false
-                    )
-                  }
-                >
-                  <SubjectsTableData>{classCode}</SubjectsTableData>
-                  <SubjectsTableData
-                    className="break-words"
-                    // //! Time should show red if it's unavailable
-                  >
-                    <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 gap-0.5">
-                      {classObj.schedule.map(({ dayTimeCode, locationCode }, index) => (
-                        <SubjectsDayTimeCell
-                          key={index}
-                          dayTimeCode={dayTimeCode}
-                          locationCode={locationCode}
-                        />
-                      ))}
-                    </div>
-                  </SubjectsTableData>
-                  <SubjectsTableData className="whitespace-pre-line">
-                    {classObj.professor}
-                  </SubjectsTableData>
-                  <SubjectsTableData className="text-slate-500 font-normal text-center">
-                    {classObj.vacanciesTotal}
-                  </SubjectsTableData>
-                  <SubjectsTableData className="text-right break-words w-80">
-                    {classObj.optional}
-                  </SubjectsTableData>
-                </tr>
+                  classCode={classCode}
+                  classObj={classObj}
+                />
               ))}
             </tbody>
           </table>
