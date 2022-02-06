@@ -1,6 +1,7 @@
 import classNames from 'clsx';
 import { GitHubIcon } from '@components/decoration/icons/outlined';
 import { IconButton } from '@mui/material';
+import { SwitchVerticalIcon } from '@heroicons/react/outline';
 
 interface Props {}
 
@@ -9,12 +10,12 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
     <header
       className={classNames(
         className,
-        'w-full h-14 shadow-sm transition-colors duration-500 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 dark:bg-transparent'
+        'w-full h-14 px-3 flex justify-between shadow-sm transition-colors duration-500 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 dark:bg-transparent'
       )}
     >
       <div className="h-full flex items-center">
         <a
-          className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20"
+          className="text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20"
           target="_blank"
           href="https://github.com/heloineto/utf-helper"
           rel="noreferrer"
@@ -47,8 +48,10 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
           </svg>
         </a>
       </div>
-      <div>
-        <IconButton></IconButton>
+      <div className="h-full flex items-center">
+        <IconButton>
+          <SwitchVerticalIcon className="h-5 w-auto" />
+        </IconButton>
       </div>
     </header>
   );
