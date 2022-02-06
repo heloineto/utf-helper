@@ -1,4 +1,5 @@
 import { useSubjects } from '@lib/hooks';
+import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
 import SubjectsTableHeader from './Subjects.TableHeader';
 
@@ -45,18 +46,12 @@ const Subjects = (props: Props) => {
                     // //! Time should show red if it's unavailable
                   >
                     <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 gap-0.5">
-                      {classObj.schedule.map(({ dayTimeCode, locationCode }) => (
-                        <div
-                          key={`${dayTimeCode}-${locationCode}`}
-                          className="text-xs flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-0 dark:bg-slate-700 transition-colors duration-500"
-                        >
-                          <div className="font-bold text-slate-800 dark:text-slate-300">
-                            {dayTimeCode}
-                          </div>
-                          <div className="text-slate-500 dark:text-slate-400">
-                            {locationCode}
-                          </div>
-                        </div>
+                      {classObj.schedule.map(({ dayTimeCode, locationCode }, index) => (
+                        <SubjectsDayTimeCell
+                          key={index}
+                          dayTimeCode={dayTimeCode}
+                          locationCode={locationCode}
+                        />
                       ))}
                     </div>
                   </SubjectsTableData>

@@ -3,7 +3,11 @@ type Shift = 'M' | 'T' | 'N';
 type TimeCode = `${Shift}${number}`;
 
 type TimeCodeObject = {
-  [x: TimeCode]: { start: string; end: string; days: { [x: number]: any } };
+  [x: string]: {
+    start: string;
+    end: string;
+    days: { [x: number]: { highlight?: boolean } };
+  };
 };
 
 type DayTimeCode = `${number}${Shift}${number}`;

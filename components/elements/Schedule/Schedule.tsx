@@ -1,5 +1,6 @@
 import { ScheduleContext } from '@lib/context';
 import { useContext } from 'react';
+import classNames from 'clsx';
 
 type Props = {};
 
@@ -42,8 +43,14 @@ const Schedule = ({}: Props) => {
               </td>
               <th className="font-medium text-slate-600 dark:text-slate-400">{start}</th>
               <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
-              {Object.entries(days).map(([dayCode, {}]) => (
-                <td key={dayCode}></td>
+              {Object.entries(days).map(([dayCode, { highlight }]) => (
+                <td
+                  key={dayCode}
+                  className={classNames(
+                    highlight &&
+                      'transition-all duration-500 bg-sky-400 dark:bg-sky-900 dark:shadow-inner dark:shadow-sky-700'
+                  )}
+                ></td>
               ))}
             </tr>
           ))}

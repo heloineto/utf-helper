@@ -17,11 +17,13 @@
     "@heroicons/react": "^1.0.5",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "lodash": "^4.17.21",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.178",
     "@types/node": "^17.0.13",
     "@types/react": "latest",
     "@types/tailwindcss": "^3.0.4",
