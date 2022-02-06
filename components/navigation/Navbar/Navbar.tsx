@@ -12,7 +12,7 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
     <header
       className={classNames(
         className,
-        'w-full h-14 px-5 bg-white dark:bg-slate-900 flex justify-between shadow-sm transition-colors duration-500 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06]'
+        'w-full h-14 px-5 bg-white dark:bg-slate-900 flex justify-between shadow-sm lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06]'
       )}
     >
       <div className="h-full flex items-center">

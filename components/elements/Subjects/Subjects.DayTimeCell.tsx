@@ -12,7 +12,7 @@ const SubjectsDayTimeCell = ({ dayTimeCode, locationCode }: Props) => {
 
   return (
     <div
-      className="text-xs flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-transparent bg-white dark:bg-slate-700 transition-all duration-500 hover:bg-sky-50 dark:hover:bg-sky-900 hover:border-sky-400 dark:hover:border-sky-400 hover:shadow dark:shadow-inner hover:shadow-sky-300 dark:hover:shadow-sky-700"
+      className="text-xs flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-transparent bg-white dark:bg-slate-700 transition-all duration-200 hover:bg-sky-50 dark:hover:bg-sky-900 hover:border-sky-400 dark:hover:border-sky-400 hover:shadow dark:shadow-inner hover:shadow-sky-300 dark:hover:shadow-sky-700"
       onMouseEnter={() => setSchedule && highlightCell(setSchedule, dayTimeCode, true)}
       onMouseLeave={() => setSchedule && highlightCell(setSchedule, dayTimeCode, false)}
     >

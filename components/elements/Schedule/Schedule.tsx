@@ -9,7 +9,7 @@ const Schedule = ({}: Props) => {
 
   return (
     <table
-      className="transition-colors duration-500 bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-800 text-xs flex-grow"
+      className="duration-200 bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-800 text-xs flex-grow"
       cellSpacing={0}
       cellPadding={2}
     >

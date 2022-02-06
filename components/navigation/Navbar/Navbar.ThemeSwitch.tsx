@@ -12,7 +12,7 @@ const NavbarThemeSwitch = (props: Props) => {
   return (
     <Tooltip title={`Mudar para o Tema ${theme === 'dark' ? 'Claro' : 'Escuro'}`} arrow>
       <button
-        className="relative inline-flex items-center py-2 px-2 rounded-full transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus:outline-none bg-cyan-500 dark:bg-slate-700 text-cyan-200 dark:text-slate-400 focus-visible:ring-cyan-600 dark:focus-visible:ring-slate-500"
+        className="relative inline-flex items-center py-2 px-2 rounded-full focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus:outline-none bg-cyan-500 dark:bg-slate-700 text-cyan-200 dark:text-slate-400 focus-visible:ring-cyan-600 dark:focus-visible:ring-slate-500"
         onClick={() => setTheme?.((value) => (value === 'dark' ? 'light' : 'dark'))}
       >
         <SunIcon className="h-6 w-6 transform transition-transform scale-0 dark:scale-100 duration-500 dark:duration-300" />

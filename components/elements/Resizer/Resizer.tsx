@@ -16,7 +16,7 @@ const Resizer = (
         direction === 'horizontal'
           ? 'min-w-[0.625rem] h-full'
           : 'w-full min-h-[0.625rem]',
-        'relative z-10 transition-colors duration-500 bg-white dark:bg-slate-600 ring-1 shadow ring-slate-700/5 dark:ring-slate-500 flex items-center justify-center'
+        'relative z-10 bg-white dark:bg-slate-600 ring-1 shadow ring-slate-700/5 dark:ring-slate-500 flex items-center justify-center'
       )}
       {...divProps}
     >
