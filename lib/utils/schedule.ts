@@ -27,7 +27,10 @@ export const highlightGroup = (
     const [dayCode, shiftCode, timeCode] = dayTimeCode.split('');
 
     toMerge[`${shiftCode}${timeCode}`] = {
-      days: { [dayCode]: { highlights: { group: shouldHighlight } } },
+      days: {
+        ...toMerge[`${shiftCode}${timeCode}`]?.days,
+        [dayCode]: { highlights: { group: shouldHighlight } },
+      },
     };
   });
 

@@ -1,6 +1,5 @@
 import { ScheduleContext } from '@lib/context';
-import { useContext, useState } from 'react';
-import { merge } from 'lodash';
+import { useContext } from 'react';
 import { highlightCell } from '@lib/utils/schedule';
 
 type Props = {

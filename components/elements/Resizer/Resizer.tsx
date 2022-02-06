@@ -1,4 +1,4 @@
-import { ArrowsExpandIcon, SwitchVerticalIcon } from '@heroicons/react/outline';
+import { SwitchVerticalIcon } from '@heroicons/react/outline';
 import { useRef } from 'react';
 import useResize from './utils/useResize';
 

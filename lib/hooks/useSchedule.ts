@@ -1,5 +1,4 @@
-import { useCallback, useState } from 'react';
-import { merge } from 'lodash';
+import { useState } from 'react';
 
 const useSchedule = () => {
   const [schedule, setSchedule] = useState<TimeCodeObject>({

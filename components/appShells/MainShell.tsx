@@ -1,6 +1,5 @@
 import Navbar from '@components/navigation/Navbar';
 import { SettingsContext } from '@lib/context';
-import { useState } from 'react';
 import classNames from 'clsx';
 import useSettings from '@lib/hooks/useSettings';
 

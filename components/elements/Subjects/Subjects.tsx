@@ -1,9 +1,4 @@
-import { ScheduleContext } from '@lib/context';
 import { useSubjects } from '@lib/hooks';
-import { highlightGroup } from '@lib/utils/schedule';
-import { useContext } from 'react';
-import SubjectsDayTimeCell from './Subjects.DayTimeCell';
-import SubjectsTableData from './Subjects.TableData';
 import SubjectsTableHeader from './Subjects.TableHeader';
 import SubjectsTableRow from './Subjects.TableRow';
 

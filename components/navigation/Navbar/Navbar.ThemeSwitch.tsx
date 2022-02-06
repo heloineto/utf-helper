@@ -1,6 +1,6 @@
 import { SunIcon } from '@heroicons/react/solid';
 import { MoonAltIcon } from '@components/decoration/icons/solid';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { SettingsContext } from '@lib/context';
 import { Tooltip } from '@mui/material';
 
