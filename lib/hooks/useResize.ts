@@ -15,7 +15,6 @@ const useResize = () => {
 
     const resizeStart = (e: MouseEvent) => {
       document.body.classList.add('select-none');
-
       setResizing(true);
     };
 
