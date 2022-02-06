@@ -9,8 +9,6 @@ type Props = {};
 const NavbarDirectionButton = (props: Props) => {
   const { direction, setDirection } = useContext(SettingsContext);
 
-  console.log({ direction });
-
   return (
     <Tooltip title="Mudar para Layout Horizontal" arrow>
       <IconButton className="group">
