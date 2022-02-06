@@ -10,7 +10,7 @@ import classNames from 'clsx';
 const Home: NextPage = () => {
   const { schedule, setSchedule } = useSchedule();
   const { direction } = useContext(SettingsContext);
-  const { handleRef, resize1Ref, resize2Ref } = useResize();
+  const { handleRef, resize1Ref, resize2Ref } = useResize(direction);
 
   return (
     <MainShell>

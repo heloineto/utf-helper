@@ -1,18 +1,21 @@
 import { SwitchVerticalIcon } from '@heroicons/react/outline';
 import classNames from 'clsx';
+import { ForwardedRef, forwardRef } from 'react';
 
 type Props = {
   direction?: Direction;
 };
 
-const Resizer = ({
-  direction = 'vertical',
-  ...divProps
-}: Props & ComponentProps<'div'>) => {
+const Resizer = (
+  { direction = 'vertical', ...divProps }: Props & ComponentProps<'div'>,
+  ref: ForwardedRef<any>
+) => {
   return (
     <div
       className={classNames(
-        direction === 'horizontal' ? 'w-2.5 h-full' : 'w-full h-2.5',
+        direction === 'horizontal'
+          ? 'min-w-[0.625rem] h-full'
+          : 'w-full min-h-[0.625rem]',
         'relative z-10 transition-colors duration-500 bg-white dark:bg-slate-600 ring-1 shadow ring-slate-700/5 dark:ring-slate-500 flex items-center justify-center'
       )}
       {...divProps}
@@ -24,7 +27,7 @@ const Resizer = ({
             : 'cursor-row-resize w-8 h-6 hover:w-12 hover:h-12',
           'absolute group bg-white dark:bg-slate-400 transition-all ease-in-out flex justify-center items-center rounded-full ring-1 ring-slate-900/10 shadow'
         )}
-        // ref={handleRef}
+        ref={ref}
       >
         <SwitchVerticalIcon
           className={classNames(
@@ -37,4 +40,4 @@ const Resizer = ({
   );
 };
 
-export default Resizer;
+export default forwardRef(Resizer);

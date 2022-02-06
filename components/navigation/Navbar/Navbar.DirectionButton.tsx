@@ -11,17 +11,17 @@ const NavbarDirectionButton = (props: Props) => {
 
   return (
     <Tooltip title="Mudar para Layout Horizontal" arrow>
-      <IconButton className="group">
+      <IconButton
+        className="group"
+        onClick={() =>
+          setDirection?.((value) => (value === 'horizontal' ? 'vertical' : 'horizontal'))
+        }
+      >
         <SwitchVerticalIcon
           className={classNames(
             direction === 'horizontal' ? '-rotate-90' : 'rotate-0',
             'transition-transform duration-500 h-5 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400'
           )}
-          onClick={() =>
-            setDirection?.((value) =>
-              value === 'horizontal' ? 'vertical' : 'horizontal'
-            )
-          }
         />
       </IconButton>
     </Tooltip>

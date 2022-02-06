@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const useResize = () => {
+const useResize = (direction: Direction = 'vertical') => {
   const [resizing, setResizing] = useState(false);
   const handleRef = useRef<HTMLDivElement>(null);
   const resize1Ref = useRef<HTMLDivElement>(null);
@@ -11,7 +11,17 @@ const useResize = () => {
     const resize1Elem = resize1Ref.current;
     const resize2Elem = resize2Ref.current;
 
+    // console.log(handleElem);
+
     if (!resize1Elem || !resize2Elem || !handleElem) return;
+
+    if (direction === 'horizontal') {
+      resize1Elem.style.height = `100%`;
+      resize2Elem.style.height = `100%`;
+    } else {
+      resize1Elem.style.width = `100%`;
+      resize2Elem.style.width = `100%`;
+    }
 
     const resizeStart = (e: MouseEvent) => {
       document.body.classList.add('select-none');
@@ -21,9 +31,25 @@ const useResize = () => {
     const resize = (e: MouseEvent) => {
       if (!resizing) return;
 
-      const height = e.clientY - resize1Elem.getBoundingClientRect().top;
+      if (direction === 'horizontal') {
+        const percentage = (e.clientX * 100) / window.screen.width;
 
-      resize1Elem.style.height = `${height}px`;
+        console.log(resize1Elem.style.width, percentage);
+
+        resize1Elem.style.height = `100%`;
+        resize2Elem.style.height = `100%`;
+        resize1Elem.style.width = `${percentage}%`;
+        resize2Elem.style.width = `${100 - percentage}%`;
+
+        return;
+      }
+
+      const percentage = (e.clientY * 100) / window.screen.height;
+
+      resize1Elem.style.width = `100%`;
+      resize2Elem.style.width = `100%`;
+      resize1Elem.style.height = `${percentage}%`;
+      resize2Elem.style.height = `${100 - percentage}%`;
     };
 
     const resizeEnd = () => {
@@ -40,7 +66,7 @@ const useResize = () => {
       window.removeEventListener('mousemove', resize);
       window.removeEventListener('mouseup', resizeEnd);
     };
-  }, [resizing, resize1Ref, handleRef]);
+  }, [resizing, resize1Ref, resize2Ref, handleRef, direction]);
 
   return { handleRef, resize1Ref, resize2Ref };
 };
