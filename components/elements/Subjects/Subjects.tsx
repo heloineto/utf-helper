@@ -15,7 +15,6 @@ const Subjects = (props: Props) => {
             <span className="bg-slate-200 dark:bg-slate-500 rounded-md p-1 text-sm text-slate-500 dark:text-slate-300 transition-colors duration-500">
               {subject.code}
             </span>
-            {/* <div className="h-full w-px rounded-full bg-slate-400 dark:bg-slate-800" /> */}
             <span className="uppercase text-slate-700 dark:text-slate-300">
               {subject.name}
             </span>
@@ -23,8 +22,8 @@ const Subjects = (props: Props) => {
           <table className="w-full">
             <tbody className="w-full">
               <tr className="bg-slate-50 dark:bg-slate-900 text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider transition-colors duration-500">
-                <SubjectsTableHeader className="w-[10%]">Turma</SubjectsTableHeader>
-                <SubjectsTableHeader className="w-[30%]">
+                <SubjectsTableHeader className="w-[5%]">Turma</SubjectsTableHeader>
+                <SubjectsTableHeader className="w-[35%]">
                   Horário &amp; Local
                 </SubjectsTableHeader>
                 <SubjectsTableHeader className="w-[20%]">Professor</SubjectsTableHeader>
@@ -45,11 +44,11 @@ const Subjects = (props: Props) => {
                     className="break-words"
                     // //! Time should show red if it's unavailable
                   >
-                    <div className="grid grid-cols-7 gap-0.5">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 gap-0.5">
                       {classObj.schedule.map(({ dayTimeCode, locationCode }) => (
                         <div
                           key={`${dayTimeCode}-${locationCode}`}
-                          className="text-xs flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-0 dark:bg-slate-700"
+                          className="text-xs flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-0 dark:bg-slate-700 transition-colors duration-500"
                         >
                           <div className="font-bold text-slate-800 dark:text-slate-300">
                             {dayTimeCode}
