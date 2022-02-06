@@ -12,8 +12,8 @@ const Schedule = ({}: Props) => {
       cellSpacing={0}
       cellPadding={2}
     >
-      <tbody className="divide-y divide-slate-100 dark:divide-slate-700 text-center transition-colors duration-500">
-        <tr className="divide-x divide-slate-50 dark:divide-slate-700 shadow transition-colors duration-500">
+      <tbody className="divide-y divide-slate-100 dark:divide-slate-700 text-center">
+        <tr className="divide-x divide-slate-50 dark:divide-slate-700 shadow">
           <td className="min-w-[2rem]" />
           <td className="font-bold min-w-[2rem] text-sm text-slate-700 dark:text-slate-300">
             Início

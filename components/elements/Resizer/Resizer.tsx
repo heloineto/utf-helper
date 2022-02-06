@@ -17,7 +17,7 @@ const Resizer = ({ direction = 'horizontal', resizeRef }: Props) => {
         className="group w-7 h-7 bg-white dark:bg-slate-400 transition-all ease-in-out hover:w-12 hover:h-12 flex justify-center items-center cursor-ns-resize rounded-full ring-1 ring-slate-900/10 shadow"
         ref={handleRef}
       >
-        <SwitchVerticalIcon className="h-4 group-hover:h-6 transition-colors duration-500 text-slate-500 dark:text-slate-50 group-hover:text-slate-600 dark:text-slate-400 dark:group-hover:text-white w-auto ease-in-out" />
+        <SwitchVerticalIcon className="h-4 group-hover:h-6 transition-all text-slate-500 dark:text-slate-50 group-hover:text-slate-600 dark:group-hover:text-white w-auto ease-in-out" />
       </div>
     </div>
   );

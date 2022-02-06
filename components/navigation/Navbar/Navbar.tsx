@@ -46,7 +46,7 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-            ></path>
+            />
           </svg>
         </a>
       </div>
@@ -54,12 +54,12 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
         <NavbarThemeSwitch />
         <Tooltip title="Mudar para Layout Horizontal" arrow>
           <IconButton className="group">
-            <SwitchVerticalIcon className="h-5 w-auto group-hover:text-slate-600 dark:text-slate-400" />
+            <SwitchVerticalIcon className="h-5 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400" />
           </IconButton>
         </Tooltip>
         <Tooltip title="Imprimir Cronograma" arrow>
           <IconButton className="group">
-            <PrinterIcon className="h-5 w-auto group-hover:text-slate-600 dark:text-slate-400" />
+            <PrinterIcon className="h-5 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400" />
           </IconButton>
         </Tooltip>
       </div>
