@@ -11,3 +11,5 @@ type TimeCodeObject = {
 };
 
 type DayTimeCode = `${number}${Shift}${number}`;
+
+type SelectedDayTime = { [x: string]: ClassObject };

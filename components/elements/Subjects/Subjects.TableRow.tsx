@@ -29,6 +29,9 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
 
           if (isSelected) {
             delete newValue?.[subject.code]?.[classObject.code];
+
+            if (isEmpty(newValue?.[subject.code])) delete newValue?.[subject.code];
+
             return newValue;
           }
 
@@ -36,8 +39,6 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
             ...newValue[subject.code],
             [classObject.code]: classObject,
           };
-
-          // console.log(newValue);
 
           return newValue;
         })
