@@ -1,27 +1,46 @@
 const CustomScrollBar = () => {
   return (
     <style global jsx>{`
-      // ::-webkit-scrollbar {
-      //   width: 0.5rem;
-      //   height: 0.5rem;
-      // }
+      ::-webkit-scrollbar-track {
+        background: #fff;
+      }
 
-      // ::-webkit-scrollbar-track {
-      //   background: transparent;
-      // }
+      .dark ::-webkit-scrollbar-track {
+        background: #1e293b;
+      }
 
-      // ::-webkit-scrollbar-thumb {
-      //   background: #f5f5f5;
-      //   border-radius: 1rem;
-      // }
+      *::-webkit-scrollbar {
+        width: 1rem;
+        height: 1rem;
+      }
 
-      // *:hover > ::-webkit-scrollbar-thumb {
-      //   background: #d6d6d6;
-      // }
+      *::-webkit-scrollbar-thumb {
+        height: 56px;
+        border-radius: 8px;
+        border: 4px solid transparent;
+        background-clip: content-box;
+        background-color: #999;
+      }
 
-      // ::-webkit-scrollbar-thumb:active {
-      //   background: #767676;
-      // }
+      .dark *::-webkit-scrollbar-thumb {
+        height: 56px;
+        border-radius: 8px;
+        border: 4px solid transparent;
+        background-clip: content-box;
+        background-color: #cbd5e1;
+      }
+
+      *:hover > ::-webkit-scrollbar-thumb {
+        background: #888;
+        border: 4px solid transparent;
+        background-clip: content-box;
+      }
+
+      .dark *:hover > ::-webkit-scrollbar-thumb {
+        background: #f1f5f9;
+        border: 4px solid transparent;
+        background-clip: content-box;
+      }
     `}</style>
   );
 };
