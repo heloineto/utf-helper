@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const useSettings = () => {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>('dark');
   const [direction, setDirection] = useState<Direction>('vertical');
 
   useEffect(() => {
