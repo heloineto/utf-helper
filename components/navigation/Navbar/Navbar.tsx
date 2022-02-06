@@ -1,7 +1,7 @@
 import classNames from 'clsx';
 import { GitHubIcon } from '@components/decoration/icons/outlined';
-import { IconButton } from '@mui/material';
-import { SunIcon, SwitchVerticalIcon } from '@heroicons/react/outline';
+import { IconButton, Tooltip } from '@mui/material';
+import { PrinterIcon, SunIcon, SwitchVerticalIcon } from '@heroicons/react/outline';
 
 interface Props {}
 
@@ -10,7 +10,7 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
     <header
       className={classNames(
         className,
-        'w-full h-14 px-3 flex justify-between shadow-sm transition-colors duration-500 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 dark:bg-transparent'
+        'w-full h-14 px-5 flex justify-between shadow-sm transition-colors duration-500 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 dark:bg-transparent'
       )}
     >
       <div className="h-full flex items-center">
@@ -49,12 +49,21 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
         </a>
       </div>
       <div className="h-full flex items-center gap-x-1">
-        <IconButton className="group">
-          <SunIcon className="h-5 w-auto group-hover:text-gray-600" />
-        </IconButton>
-        <IconButton className="group">
-          <SwitchVerticalIcon className="h-5 w-auto group-hover:text-gray-600" />
-        </IconButton>
+        <Tooltip title="Escolher Tema" arrow>
+          <IconButton className="group">
+            <SunIcon className="h-5 w-auto group-hover:text-gray-600" />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Mudar para Layout Horizontal" arrow>
+          <IconButton className="group">
+            <SwitchVerticalIcon className="h-5 w-auto group-hover:text-gray-600" />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Imprimir Cronograma" arrow>
+          <IconButton className="group">
+            <PrinterIcon className="h-5 w-auto group-hover:text-gray-600" />
+          </IconButton>
+        </Tooltip>
       </div>
     </header>
   );
