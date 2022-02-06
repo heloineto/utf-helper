@@ -3,7 +3,6 @@ import { highlightGroup } from '@lib/utils/schedule';
 import { useContext } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
-import classNames from 'clsx';
 
 type Props = {
   classCode: string;
