@@ -12,7 +12,7 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
     <header
       className={classNames(
         className,
-        'w-full h-14 px-5 flex justify-between shadow-sm transition-colors duration-500 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 dark:bg-transparent'
+        'w-full h-14 px-5 bg-white dark:bg-slate-900 flex justify-between shadow-sm transition-colors duration-500 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 dark:bg-transparent'
       )}
     >
       <div className="h-full flex items-center">
@@ -54,12 +54,12 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
         <NavbarThemeSwitch />
         <Tooltip title="Mudar para Layout Horizontal" arrow>
           <IconButton className="group">
-            <SwitchVerticalIcon className="h-5 w-auto group-hover:text-slate-600" />
+            <SwitchVerticalIcon className="h-5 w-auto group-hover:text-slate-600 dark:text-slate-400" />
           </IconButton>
         </Tooltip>
         <Tooltip title="Imprimir Cronograma" arrow>
           <IconButton className="group">
-            <PrinterIcon className="h-5 w-auto group-hover:text-slate-600" />
+            <PrinterIcon className="h-5 w-auto group-hover:text-slate-600 dark:text-slate-400" />
           </IconButton>
         </Tooltip>
       </div>

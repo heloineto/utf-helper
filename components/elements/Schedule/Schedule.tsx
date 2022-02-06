@@ -8,30 +8,40 @@ const Schedule = ({}: Props) => {
 
   return (
     <table
-      className="bg-white border-slate-100 text-xs flex-grow"
+      className="transition-colors duration-500 bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-800 text-xs flex-grow"
       cellSpacing={0}
       cellPadding={2}
     >
-      <tbody className="bg-white divide-y divide-slate-100 text-center">
-        <tr className="divide-x divide-slate-50 shadow">
+      <tbody className="divide-y divide-slate-100 dark:divide-slate-700 text-center transition-colors duration-500">
+        <tr className="divide-x divide-slate-50 dark:divide-slate-700 shadow transition-colors duration-500">
           <td className="min-w-[2rem]" />
-          <td className="font-bold min-w-[2rem]">Início</td>
-          <td className="font-bold min-w-[2rem]">Térm.</td>
+          <td className="font-bold min-w-[2rem] text-sm text-slate-700 dark:text-slate-300">
+            Início
+          </td>
+          <td className="font-bold min-w-[2rem] text-sm text-slate-700 dark:text-slate-300">
+            Térm.
+          </td>
           {['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'].map(
             (day, index) => (
               <td key={day} className="text-sm min-w-[10rem] w-[calc(100%*3/21)]">
-                <span className="text-slate-600 font-medium">{day}</span>
-                <span className="text-slate-800 ml-1 font-bold">{index + 2}</span>
+                <span className="text-slate-600 dark:text-slate-300 font-medium">
+                  {day}
+                </span>
+                <span className="text-slate-800 dark:text-slate-100 ml-1 font-bold">
+                  {index + 2}
+                </span>
               </td>
             )
           )}
         </tr>
         {schedule &&
           Object.entries(schedule).map(([timeCode, { start, end, days }]) => (
-            <tr key={timeCode} className="divide-x divide-slate-50">
-              <td className="font-semibold text-slate-800 w-8">{timeCode}</td>
-              <th className="text-slate-600 font-medium">{start}</th>
-              <th className="text-slate-600 font-medium">{end}</th>
+            <tr key={timeCode} className="divide-x divide-slate-50 dark:divide-slate-700">
+              <td className="font-semibold text-slate-800 dark:text-slate-100 w-8">
+                {timeCode}
+              </td>
+              <th className="font-medium text-slate-600 dark:text-slate-400">{start}</th>
+              <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
               {Object.entries(days).map(([dayCode, {}]) => (
                 <td key={dayCode}></td>
               ))}

@@ -11,7 +11,7 @@ const Subjects = (props: Props) => {
     <div className="w-full bg-white divide-y divide-slate-200">
       {Object.entries(subjects).map(([subjectCode, subject]) => (
         <div key={subjectCode}>
-          <div className="bg-slate-100 px-6 py-3 flex items-center gap-x-2 text-md h-12 w-full font-medium text-slate-600 tracking-wider">
+          <div className="bg-slate-100 px-6 py-3 flex items-center gap-x-2 text-md h-12 w-full font-medium text-slate-600 dark:text-slate-400 tracking-wider">
             <span className="text-slate-500">{subject.code}</span>
             <div className="h-full w-px bg-slate-400" />
             <span className="uppercase text-slate-700">{subject.name}</span>
