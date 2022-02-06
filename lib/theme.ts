@@ -2,7 +2,7 @@ import { ThemeOptions, createTheme } from '@mui/material/styles';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfigModule from '../tailwind.config.js';
 
-const { theme: TwTheme } = resolveConfig(tailwindConfigModule);
+const { theme: TwTheme } = resolveConfig(tailwindConfigModule as any);
 const themeOptions: ThemeOptions = {};
 
 if (TwTheme.screens) {
@@ -12,9 +12,6 @@ if (TwTheme.screens) {
       {}
     ) as any,
   };
-}
-
-if (TwTheme.colors) {
 }
 
 const theme = createTheme(themeOptions);

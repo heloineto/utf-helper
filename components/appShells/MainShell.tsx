@@ -2,21 +2,20 @@ import Navbar from '@components/navigation/Navbar';
 import { SettingsContext } from '@lib/context';
 import classNames from 'clsx';
 import useSettings from '@lib/hooks/useSettings';
+import { useContext } from 'react';
 
 interface Props {
   children: ReactNode;
 }
 
 const MainShell = ({ children }: Props) => {
-  const { theme, setTheme, direction, setDirection } = useSettings();
+  const { theme } = useContext(SettingsContext);
 
   return (
-    <SettingsContext.Provider value={{ theme, setTheme, direction, setDirection }}>
-      <div className={classNames(theme, 'h-screen flex flex-col bg-slate-100')}>
-        <Navbar className="flex-shrink-0" />
-        <main className="h-[calc(100%-3.5rem)]">{children}</main>
-      </div>
-    </SettingsContext.Provider>
+    <div className={classNames(theme, 'h-screen flex flex-col bg-slate-100')}>
+      <Navbar className="flex-shrink-0" />
+      <main className="h-[calc(100%-3.5rem)]">{children}</main>
+    </div>
   );
 };
 
