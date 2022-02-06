@@ -20,9 +20,8 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
   return (
     <tr
       className={classNames(
-        isSelected &&
-          'bg-sky-50 dark:bg-sky-500/50 relative after:absolute after:top-0 after:left-0 after:h-full after:w-full after:border-2 after:border-sky-500',
-        'cursor-pointer hover:bg-sky-100 dark:hover:bg-sky-900/50'
+        isSelected && 'bg-sky-500/30',
+        'cursor-pointer relative hover:bg-sky-100 dark:hover:bg-sky-900/50'
       )}
       onClick={() =>
         setSelectedClasses?.((value) => {
@@ -60,19 +59,27 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
         )
       }
     >
-      <SubjectsTableData className="text-center">{classObject.code}</SubjectsTableData>
+      <SubjectsTableData
+        className={classNames(
+          isSelected &&
+            'first:after:top-0 first:after:absolute first:after:left-0 first:after:h-full first:after:w-full first:after:border-2 first:after:border-sky-500',
+          'text-center'
+        )}
+      >
+        {classObject.code}
+      </SubjectsTableData>
       <SubjectsTableData
         className="break-words"
         // //! Time should show red if it's unavailable
       >
-        {!isEmpty(classObject.schedule) &&
-          classObject.schedule.map(({ dayTimeCode, locationCode }, index) => (
-            <SubjectsDayTimeCell
-              key={index}
-              dayTimeCode={dayTimeCode}
-              locationCode={locationCode}
-            />
-          ))}
+        {classObject.schedule.map(({ dayTimeCode, locationCode }, index) => (
+          <SubjectsDayTimeCell
+            key={index}
+            className="relative"
+            dayTimeCode={dayTimeCode}
+            locationCode={locationCode}
+          />
+        ))}
       </SubjectsTableData>
       <SubjectsTableData className="whitespace-pre-line">
         {classObject.professor}
