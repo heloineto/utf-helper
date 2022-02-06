@@ -9,13 +9,8 @@ export const ScheduleContext = createContext<{
 });
 
 export const SettingsContext = createContext<{
-  theme: Theme | null;
-  setTheme: Dispatch<SetStateAction<Theme>> | null;
-  direction: Direction | null;
-  setDirection: Dispatch<SetStateAction<Direction>> | null;
-}>({
-  theme: null,
-  setTheme: null,
-  direction: null,
-  setDirection: null,
-});
+  theme?: Theme;
+  setTheme?: Dispatch<SetStateAction<Theme>>;
+  direction?: Direction;
+  setDirection?: Dispatch<SetStateAction<Direction>>;
+}>({});

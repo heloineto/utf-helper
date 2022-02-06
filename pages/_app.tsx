@@ -21,8 +21,7 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-
-  const { theme, setTheme, direction, setDirection } = useSettings();
+  const settings = useSettings();
 
   return (
     <CacheProvider value={emotionCache}>
@@ -34,7 +33,7 @@ export default function MyApp(props: MyAppProps) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <SettingsContext.Provider value={{ theme, setTheme, direction, setDirection }}>
+        <SettingsContext.Provider value={settings}>
           <Component {...pageProps} />
         </SettingsContext.Provider>
       </ThemeProvider>

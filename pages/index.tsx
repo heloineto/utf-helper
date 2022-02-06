@@ -24,7 +24,7 @@ const Home: NextPage = () => {
           <div className="h-2/3 overflow-auto" ref={resizeRef}>
             <Table />
           </div>
-          <Divider resizeRef={resizeRef} />
+          <Divider direction={direction} resizeRef={resizeRef} />
           <div className="flex-grow flex overflow-auto">
             <Schedule />
           </div>
