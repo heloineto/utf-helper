@@ -3,6 +3,9 @@ import { GitHubIcon } from '@components/decoration/icons/outlined';
 import { IconButton, Tooltip } from '@mui/material';
 import { PrinterIcon, SwitchVerticalIcon } from '@heroicons/react/outline';
 import NavbarThemeSwitch from './Navbar.ThemeSwitch';
+import { SettingsContext } from '@lib/context';
+import { useContext } from 'react';
+import NavbarDirectionButton from './Navbar.DirectionButton';
 
 interface Props {}
 
@@ -51,11 +54,7 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
       </div>
       <div className="h-full flex items-center gap-x-1">
         <NavbarThemeSwitch />
-        <Tooltip title="Mudar para Layout Horizontal" arrow>
-          <IconButton className="group">
-            <SwitchVerticalIcon className="h-5 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400" />
-          </IconButton>
-        </Tooltip>
+        <NavbarDirectionButton />
         <Tooltip title="Imprimir Cronograma" arrow>
           <IconButton className="group">
             <PrinterIcon className="h-5 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400" />
