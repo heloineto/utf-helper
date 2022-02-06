@@ -2,6 +2,8 @@ import classNames from 'clsx';
 import { GitHubIcon } from '@components/decoration/icons/outlined';
 import { IconButton, Tooltip } from '@mui/material';
 import { PrinterIcon, SunIcon, SwitchVerticalIcon } from '@heroicons/react/outline';
+import NavbarThemeSwitch from './Navbar.ThemeSwitch';
+import { useContext } from 'react';
 
 interface Props {}
 
@@ -49,11 +51,7 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
         </a>
       </div>
       <div className="h-full flex items-center gap-x-1">
-        <Tooltip title="Escolher Tema" arrow>
-          <IconButton className="group">
-            <SunIcon className="h-5 w-auto group-hover:text-slate-600" />
-          </IconButton>
-        </Tooltip>
+        <NavbarThemeSwitch />
         <Tooltip title="Mudar para Layout Horizontal" arrow>
           <IconButton className="group">
             <SwitchVerticalIcon className="h-5 w-auto group-hover:text-slate-600" />

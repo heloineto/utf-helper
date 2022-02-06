@@ -7,3 +7,11 @@ export const ScheduleContext = createContext<{
   schedule: null,
   setSchedule: null,
 });
+
+export const SettingsContext = createContext<{
+  theme: Theme | null;
+  setTheme: Dispatch<SetStateAction<Theme>> | null;
+}>({
+  theme: null,
+  setTheme: null,
+});

@@ -1,5 +1,4 @@
 import { useSubjects } from '@lib/hooks';
-import classNames from 'clsx';
 import SubjectsTableData from './Subjects.TableData';
 import SubjectsTableHeader from './Subjects.TableHeader';
 
