@@ -24,7 +24,7 @@ const Schedule = ({}: Props) => {
           </td>
           {['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'].map(
             (day, index) => (
-              <td key={day} className="text-sm min-w-[10rem] w-[calc(100%*3/21)]">
+              <td key={day} className="text-sm min-w-[7.5rem] w-[calc(100%*3/21)]">
                 <span className="text-slate-600 dark:text-slate-300 font-medium">
                   {day}
                 </span>
