@@ -4,36 +4,49 @@ import { isEmpty } from 'lodash';
 import { useContext } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
+import classNames from 'clsx';
 
 type Props = {
-  classCode: string;
-  classObj: {
-    vacanciesTotal: string;
-    vacanciesFreshman: string;
-    reservationType: string;
-    priorityMajors: string;
-    schedule: {
-      dayTimeCode: string;
-      locationCode: string;
-    }[];
-    professor: string;
-    optional: string;
-  };
+  classObject: ClassObject;
+  subject: Subject;
 };
 
-const SubjectsTableRow = ({ classCode, classObj }: Props) => {
+const SubjectsTableRow = ({ classObject, subject }: Props) => {
   const { setSchedule } = useContext(ScheduleContext);
-  const { direction } = useContext(SettingsContext);
+  const { direction, selectedClasses, setSelectedClasses } = useContext(SettingsContext);
+
+  const isSelected = !!selectedClasses?.[subject.code]?.[classObject.code];
 
   return (
     <tr
-      className="cursor-pointer hover:bg-sky-100 dark:hover:bg-sky-900/50"
-      onClick={() => {}}
+      className={classNames(
+        isSelected && 'bg-sky-100 dark:bg-sky-900/50',
+        'cursor-pointer hover:bg-sky-100 dark:hover:bg-sky-900/50'
+      )}
+      onClick={() =>
+        setSelectedClasses?.((value) => {
+          const newValue = { ...value };
+
+          if (isSelected) {
+            delete newValue?.[subject.code]?.[classObject.code];
+            return newValue;
+          }
+
+          newValue[subject.code] = {
+            ...newValue[subject.code],
+            [classObject.code]: classObject,
+          };
+
+          // console.log(newValue);
+
+          return newValue;
+        })
+      }
       onMouseEnter={() =>
         setSchedule &&
         highlightGroup(
           setSchedule,
-          classObj.schedule.map(({ dayTimeCode }) => dayTimeCode),
+          classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
           true
         )
       }
@@ -41,18 +54,18 @@ const SubjectsTableRow = ({ classCode, classObj }: Props) => {
         setSchedule &&
         highlightGroup(
           setSchedule,
-          classObj.schedule.map(({ dayTimeCode }) => dayTimeCode),
+          classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
           false
         )
       }
     >
-      <SubjectsTableData className="text-center">{classCode}</SubjectsTableData>
+      <SubjectsTableData className="text-center">{classObject.code}</SubjectsTableData>
       <SubjectsTableData
         className="break-words"
         // //! Time should show red if it's unavailable
       >
-        {!isEmpty(classObj.schedule) &&
-          classObj.schedule.map(({ dayTimeCode, locationCode }, index) => (
+        {!isEmpty(classObject.schedule) &&
+          classObject.schedule.map(({ dayTimeCode, locationCode }, index) => (
             <SubjectsDayTimeCell
               key={index}
               dayTimeCode={dayTimeCode}
@@ -61,13 +74,13 @@ const SubjectsTableRow = ({ classCode, classObj }: Props) => {
           ))}
       </SubjectsTableData>
       <SubjectsTableData className="whitespace-pre-line">
-        {classObj.professor}
+        {classObject.professor}
       </SubjectsTableData>
       <SubjectsTableData className="text-slate-500 font-normal text-center">
-        {classObj.vacanciesTotal}
+        {classObject.vacanciesTotal}
       </SubjectsTableData>
       <SubjectsTableData className="text-right break-words w-80">
-        {classObj.optional}
+        {classObject.optional}
       </SubjectsTableData>
     </tr>
   );

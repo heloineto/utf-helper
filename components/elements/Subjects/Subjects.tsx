@@ -34,11 +34,11 @@ const Subjects = (props: Props) => {
                   Optativa
                 </SubjectsTableHeader>
               </tr>
-              {Object.entries(subject.classes).map(([classCode, classObj]) => (
+              {Object.entries(subject.classes).map(([classCode, classObject]) => (
                 <SubjectsTableRow
                   key={classCode}
-                  classCode={classCode}
-                  classObj={classObj}
+                  classObject={classObject}
+                  subject={subject}
                 />
               ))}
             </tbody>

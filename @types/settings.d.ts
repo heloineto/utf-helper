@@ -1,6 +1,8 @@
 type Theme = 'light' | 'dark';
 type Direction = 'horizontal' | 'vertical';
-type SelectedClasses = any;
+type SelectedClasses =
+  | { [x: string]: { [x: string]: ClassObject | undefined } | undefined }
+  | undefined;
 
 type Settings = {
   theme: Theme;
