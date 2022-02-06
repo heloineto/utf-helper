@@ -7,6 +7,8 @@ export const highlightCell = (
 ) => {
   const [dayCode, shiftCode, timeCode] = dayTimeCode.split('');
 
+  if (!dayCode || !shiftCode || !timeCode) return;
+
   const toMerge = {
     [`${shiftCode}${timeCode}`]: {
       days: { [dayCode]: { highlights: { cell: shouldHighlight } } },
@@ -25,6 +27,7 @@ export const highlightGroup = (
 
   dayTimeCodes.forEach((dayTimeCode) => {
     const [dayCode, shiftCode, timeCode] = dayTimeCode.split('');
+    if (!dayCode || !shiftCode || !timeCode) return;
 
     toMerge[`${shiftCode}${timeCode}`] = {
       days: {

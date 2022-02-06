@@ -11,8 +11,6 @@ const useResize = (direction: Direction = 'vertical') => {
     const resize1Elem = resize1Ref.current;
     const resize2Elem = resize2Ref.current;
 
-    // console.log(handleElem);
-
     if (!resize1Elem || !resize2Elem || !handleElem) return;
 
     if (direction === 'horizontal') {
@@ -33,8 +31,6 @@ const useResize = (direction: Direction = 'vertical') => {
 
       if (direction === 'horizontal') {
         const percentage = (e.clientX * 100) / window.innerWidth;
-
-        console.log(resize1Elem.style.width, percentage);
 
         resize1Elem.style.width = `${percentage}%`;
         resize2Elem.style.width = `${100 - percentage}%`;

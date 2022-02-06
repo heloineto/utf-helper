@@ -1,5 +1,6 @@
 import { ScheduleContext, SettingsContext } from '@lib/context';
 import { highlightGroup } from '@lib/utils/schedule';
+import { isEmpty } from 'lodash';
 import { useContext } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
@@ -50,13 +51,14 @@ const SubjectsTableRow = ({ classCode, classObj }: Props) => {
         className="break-words"
         // //! Time should show red if it's unavailable
       >
-        {classObj.schedule.map(({ dayTimeCode, locationCode }, index) => (
-          <SubjectsDayTimeCell
-            key={index}
-            dayTimeCode={dayTimeCode}
-            locationCode={locationCode}
-          />
-        ))}
+        {!isEmpty(classObj.schedule) &&
+          classObj.schedule.map(({ dayTimeCode, locationCode }, index) => (
+            <SubjectsDayTimeCell
+              key={index}
+              dayTimeCode={dayTimeCode}
+              locationCode={locationCode}
+            />
+          ))}
       </SubjectsTableData>
       <SubjectsTableData className="whitespace-pre-line">
         {classObj.professor}

@@ -459,7 +459,7 @@ const useSubjects = () => {
               '1 - Engenharia Química\n1 - Engenharia Mecânica\n1 - Ciência Da Computação\n1 - Engenharia Eletrônica\n1 - Engenharia De Produção\n1 - Eng Bioproc E Biotec\n1 - Engenharia Elétrica\n',
             schedule: [
               {
-                dayTimeCode: ' ',
+                dayTimeCode: '',
                 locationCode: '',
               },
             ],
