@@ -47,8 +47,9 @@ const Schedule = ({}: Props) => {
                 <td
                   key={dayCode}
                   className={classNames(
-                    highlights?.cell &&
-                      'transition-all duration-500 bg-sky-400 dark:bg-sky-900 dark:shadow-inner dark:shadow-sky-700'
+                    highlights?.cell && '!bg-sky-400 dark:!bg-sky-700',
+                    highlights?.group && 'bg-emerald-400 dark:bg-emerald-700',
+                    'transition-all duration-500'
                   )}
                 ></td>
               ))}

@@ -1,4 +1,7 @@
+import { ScheduleContext } from '@lib/context';
 import { useSubjects } from '@lib/hooks';
+import { highlightGroup } from '@lib/utils/schedule';
+import { useContext } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
 import SubjectsTableHeader from './Subjects.TableHeader';
@@ -7,6 +10,7 @@ interface Props {}
 
 const Subjects = (props: Props) => {
   const subjects = useSubjects();
+  const { setSchedule } = useContext(ScheduleContext);
 
   return (
     <div className="w-full transition-colors duration-500 bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
@@ -39,6 +43,22 @@ const Subjects = (props: Props) => {
                 <tr
                   key={classCode}
                   className="cursor-pointer transition-all duration-900"
+                  onMouseEnter={() =>
+                    setSchedule &&
+                    highlightGroup(
+                      setSchedule,
+                      classObj.schedule.map(({ dayTimeCode }) => dayTimeCode),
+                      true
+                    )
+                  }
+                  onMouseLeave={() =>
+                    setSchedule &&
+                    highlightGroup(
+                      setSchedule,
+                      classObj.schedule.map(({ dayTimeCode }) => dayTimeCode),
+                      false
+                    )
+                  }
                 >
                   <SubjectsTableData>{classCode}</SubjectsTableData>
                   <SubjectsTableData

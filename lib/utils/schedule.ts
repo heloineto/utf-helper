@@ -18,7 +18,8 @@ export const highlightCell = (
 
 export const highlightGroup = (
   setSchedule: Dispatch<SetStateAction<TimeCodeObject>>,
-  dayTimeCodes: string[]
+  dayTimeCodes: string[],
+  shouldHighlight: boolean
 ) => {
   const toMerge: any = {};
 
@@ -26,7 +27,7 @@ export const highlightGroup = (
     const [dayCode, shiftCode, timeCode] = dayTimeCode.split('');
 
     toMerge[`${shiftCode}${timeCode}`] = {
-      days: { [dayCode]: { highlights: { group: true } } },
+      days: { [dayCode]: { highlights: { group: shouldHighlight } } },
     };
   });
 
