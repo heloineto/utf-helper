@@ -21,7 +21,7 @@ const useResize = (
     const resize = (e: MouseEvent) => {
       if (!resizing) return;
 
-      const height = e.clientY; // - resizeElem.getBoundingClientRect().height;
+      const height = e.clientY - resizeElem.getBoundingClientRect().top;
 
       resizeElem.style.height = `${height}px`;
     };

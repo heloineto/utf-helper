@@ -1,79 +1,58 @@
 import { useContext, useState } from 'react';
 import { styled } from '@mui/system';
 import SwitchUnstyled, { switchUnstyledClasses } from '@mui/base/SwitchUnstyled';
-
-const blue = {
-  500: '#007FFF',
-};
-
-const grey = {
-  400: '#BFC7CF',
-  500: '#AAB4BE',
-};
-
-const Root = styled('span')`
-  font-size: 0;
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 20px;
-  margin: 10px;
-  cursor: pointer;
-
-  &.${switchUnstyledClasses.disabled} {
-    opacity: 0.4;
-    cursor: not-allowed;
-  }
-
-  & .${switchUnstyledClasses.track} {
-    border-radius: 10px;
-  }
-
-  & .${switchUnstyledClasses.thumb} {
-    top: 3px;
-    left: 3px;
-    border-radius: 16px;
-    transition: all 200ms ease;
-  }
-
-  &.${switchUnstyledClasses.focusVisible} .${switchUnstyledClasses.thumb} {
-    background-color: ${grey[500]};
-    box-shadow: 0 0 1px 8px rgba(0, 0, 0, 0.25);
-  }
-
-  &.${switchUnstyledClasses.checked} {
-    .${switchUnstyledClasses.thumb} {
-      left: 22px;
-      top: 3px;
-      background-color: #fff;
-    }
-
-    .${switchUnstyledClasses.track} {
-      background: ${blue[500]};
-    }
-  }
-
-  & .${switchUnstyledClasses.input} {
-    cursor: inherit;
-    z-index: 1;
-  }
-`;
+import classNames from 'clsx';
+import { GitHubIcon } from '@components/decoration/icons/outlined';
+import { ChevronRightIcon } from '@heroicons/react/outline';
+import Link from 'next/link';
+import { IconButton } from '@mui/material';
 
 interface Props {}
 
-const Navbar = ({}: Props) => {
+const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
   return (
-    <header className="w-full h-16 bg-white border-b border-gray-200 flex">
+    <header
+      className={classNames(
+        className,
+        'w-full h-14 shadow transition-colors duration-500 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 dark:bg-transparent'
+      )}
+    >
+      <div className="h-full flex items-center">
+        <a
+          className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20"
+          target="_blank"
+          href="https://github.com/heloineto/utf-helper" rel="noreferrer"
+        >
+          <GitHubIcon className="h-4 w-auto" />
+          <svg
+            width="2"
+            height="2"
+            fill="currentColor"
+            aria-hidden="true"
+            className="ml-2 text-sky-600 dark:text-sky-400/70"
+          >
+            <circle cx="1" cy="1" r="1"></circle>
+          </svg>
+          <span className="ml-2">Contribua para o projeto no Github!</span>
+          <svg
+            width="3"
+            height="6"
+            className="ml-3 overflow-visible text-sky-300 dark:text-sky-400"
+            aria-hidden="true"
+          >
+            <path
+              d="M0 0L3 3L0 6"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            ></path>
+          </svg>
+        </a>
+      </div>
       <div>
-        <SwitchUnstyled
-          component={Root}
-          componentsProps={{
-            root: { className: 'relative inline-block w-10 h-5 m-2 cursor-pointer' },
-            input: { className: 'absolute w-full h-full top-0 left-0 opacity-0 m-0' },
-            thumb: { className: 'block w-3 h-3 bg-white relative' },
-            track: { className: 'block h-full w-full absolute' },
-          }}
-        />
+        <IconButton></IconButton>
       </div>
     </header>
   );
