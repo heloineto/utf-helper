@@ -8,17 +8,21 @@ const Subjects = (props: Props) => {
   const subjects = useSubjects();
 
   return (
-    <div className="w-full bg-white divide-y divide-slate-200">
+    <div className="w-full bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
       {Object.entries(subjects).map(([subjectCode, subject]) => (
         <div key={subjectCode}>
-          <div className="bg-slate-100 px-6 py-3 flex items-center gap-x-2 text-md h-12 w-full font-medium text-slate-600 dark:text-slate-400 tracking-wider">
-            <span className="text-slate-500">{subject.code}</span>
-            <div className="h-full w-px bg-slate-400" />
-            <span className="uppercase text-slate-700">{subject.name}</span>
+          <div className="bg-slate-100 dark:bg-slate-600 px-6 py-3 flex items-center gap-x-2 text-md h-12 w-full font-medium tracking-wider">
+            <span className="bg-slate-200 dark:bg-slate-500 rounded-md p-1 text-sm text-slate-500 dark:text-slate-300">
+              {subject.code}
+            </span>
+            {/* <div className="h-full w-px rounded-full bg-slate-400 dark:bg-slate-800" /> */}
+            <span className="uppercase text-slate-700 dark:text-slate-300">
+              {subject.name}
+            </span>
           </div>
           <table className="w-full">
             <tbody className="w-full">
-              <tr className="bg-slate-50">
+              <tr className="bg-slate-50 dark:bg-slate-900 text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                 <SubjectsTableHeader className="w-[10%]">Turma</SubjectsTableHeader>
                 <SubjectsTableHeader className="w-[30%]">
                   Horário &amp; Local
@@ -45,10 +49,14 @@ const Subjects = (props: Props) => {
                       {classObj.schedule.map(({ dayTimeCode, locationCode }) => (
                         <div
                           key={`${dayTimeCode}-${locationCode}`}
-                          className="text-xs flex flex-col items-center justify-center rounded-lg border border-gray-200"
+                          className="text-xs flex flex-col items-center justify-center rounded-lg border border-slate-200 dark:border-0 dark:bg-slate-700"
                         >
-                          <div className="font-bold text-gray-800">{dayTimeCode}</div>
-                          <div className="text-gray-500">{locationCode}</div>
+                          <div className="font-bold text-slate-800 dark:text-slate-300">
+                            {dayTimeCode}
+                          </div>
+                          <div className="text-slate-500 dark:text-slate-400">
+                            {locationCode}
+                          </div>
                         </div>
                       ))}
                     </div>
