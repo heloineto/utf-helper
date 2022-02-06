@@ -21,24 +21,43 @@ const Subjects = (props: Props) => {
             <tbody className="w-full">
               <tr className="bg-slate-50">
                 <SubjectsTableHeader className="w-[10%]">Turma</SubjectsTableHeader>
-                <SubjectsTableHeader className="w-[20%]">Horário</SubjectsTableHeader>
+                <SubjectsTableHeader className="w-[30%]">
+                  Horário &amp; Local
+                </SubjectsTableHeader>
                 <SubjectsTableHeader className="w-[20%]">Professor</SubjectsTableHeader>
-                <SubjectsTableHeader className="w-[20%]">Vagas</SubjectsTableHeader>
+                <SubjectsTableHeader className="w-[5%] text-center">
+                  Vagas
+                </SubjectsTableHeader>
                 <SubjectsTableHeader className="w-[20%] text-right">
                   Optativa
                 </SubjectsTableHeader>
               </tr>
               {Object.entries(subject.classes).map(([classCode, classObj]) => (
                 <tr
-                  key={`${subjectCode}-${classCode}`}
+                  key={classCode}
                   className="cursor-pointer transition-all duration-900"
                 >
                   <SubjectsTableData>{classCode}</SubjectsTableData>
-                  <SubjectsTableData className="break-words">
-                    {/* {classObj.schedule} */}
+                  <SubjectsTableData
+                    className="break-words"
+                    // //! Time should show red if it's unavailable
+                  >
+                    <div className="grid grid-cols-7 gap-0.5">
+                      {classObj.schedule.map(({ dayTimeCode, locationCode }) => (
+                        <div
+                          key={`${dayTimeCode}-${locationCode}`}
+                          className="text-xs flex flex-col items-center justify-center rounded-lg border border-gray-200"
+                        >
+                          <div className="font-bold text-gray-800">{dayTimeCode}</div>
+                          <div className="text-gray-500">{locationCode}</div>
+                        </div>
+                      ))}
+                    </div>
                   </SubjectsTableData>
-                  <SubjectsTableData className="">{classObj.professor}</SubjectsTableData>
-                  <SubjectsTableData className="text-slate-500 font-normal">
+                  <SubjectsTableData className="whitespace-pre-line">
+                    {classObj.professor}
+                  </SubjectsTableData>
+                  <SubjectsTableData className="text-slate-500 font-normal text-center">
                     {classObj.vacanciesTotal}
                   </SubjectsTableData>
                   <SubjectsTableData className="text-right break-words w-80">

@@ -3,7 +3,7 @@ import classNames from 'clsx';
 const SubjectsTableData = ({ className, ...rest }: ComponentProps<'td'>) => {
   return (
     <td
-      className={classNames('px-6 py-4 text-sm font-medium text-slate-900', className)}
+      className={classNames('px-4 py-2 text-sm font-medium text-slate-900', className)}
       {...rest}
     />
   );
