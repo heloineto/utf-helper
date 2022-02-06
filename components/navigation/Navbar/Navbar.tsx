@@ -49,8 +49,8 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
         </a>
       </div>
       <div className="h-full flex items-center">
-        <IconButton>
-          <SwitchVerticalIcon className="h-5 w-auto" />
+        <IconButton className="group">
+          <SwitchVerticalIcon className="h-5 w-auto group-hover:text-gray-600" />
         </IconButton>
       </div>
     </header>
