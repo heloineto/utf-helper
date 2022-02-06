@@ -32,22 +32,18 @@ const useResize = (direction: Direction = 'vertical') => {
       if (!resizing) return;
 
       if (direction === 'horizontal') {
-        const percentage = (e.clientX * 100) / window.screen.width;
+        const percentage = (e.clientX * 100) / window.innerWidth;
 
         console.log(resize1Elem.style.width, percentage);
 
-        resize1Elem.style.height = `100%`;
-        resize2Elem.style.height = `100%`;
         resize1Elem.style.width = `${percentage}%`;
         resize2Elem.style.width = `${100 - percentage}%`;
 
         return;
       }
 
-      const percentage = (e.clientY * 100) / window.screen.height;
+      const percentage = (e.clientY * 100) / window.innerHeight;
 
-      resize1Elem.style.width = `100%`;
-      resize2Elem.style.width = `100%`;
       resize1Elem.style.height = `${percentage}%`;
       resize2Elem.style.height = `${100 - percentage}%`;
     };

@@ -45,27 +45,18 @@ const SubjectsTableRow = ({ classCode, classObj }: Props) => {
         )
       }
     >
-      <SubjectsTableData>{classCode}</SubjectsTableData>
+      <SubjectsTableData className="text-center">{classCode}</SubjectsTableData>
       <SubjectsTableData
         className="break-words"
         // //! Time should show red if it's unavailable
       >
-        <div
-          className={classNames(
-            direction === 'horizontal'
-              ? 'grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8'
-              : 'grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8',
-            'grid gap-0.5'
-          )}
-        >
-          {classObj.schedule.map(({ dayTimeCode, locationCode }, index) => (
-            <SubjectsDayTimeCell
-              key={index}
-              dayTimeCode={dayTimeCode}
-              locationCode={locationCode}
-            />
-          ))}
-        </div>
+        {classObj.schedule.map(({ dayTimeCode, locationCode }, index) => (
+          <SubjectsDayTimeCell
+            key={index}
+            dayTimeCode={dayTimeCode}
+            locationCode={locationCode}
+          />
+        ))}
       </SubjectsTableData>
       <SubjectsTableData className="whitespace-pre-line">
         {classObj.professor}
