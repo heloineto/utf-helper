@@ -1,7 +1,7 @@
 import MainShell from '@components/appShells/MainShell';
 import Divider from '@components/elements/Resizer';
 import Schedule from '@components/elements/Schedule';
-import Table from '@components/elements/SubjectsTable';
+import Table from '@components/elements/Subjects';
 import { ScheduleContext } from '@lib/context';
 import { useSchedule } from '@lib/hooks';
 import { useRef } from 'react';
