@@ -176,14 +176,18 @@ export const getConflicts = (
       if (!currClassObject) return;
 
       currClassObject.schedule.forEach(({ dayTimeCode: currDayTimeCode }) => {
+        let conflictTimes: string[] = [];
+
         classObject.schedule.forEach(({ dayTimeCode }) => {
-          if (currDayTimeCode === dayTimeCode) {
-            conflicts.push({
-              with: currClassObject,
-              dayTimeCode: currDayTimeCode,
-            });
-          }
+          if (currDayTimeCode === dayTimeCode) conflictTimes.push(currDayTimeCode);
         });
+
+        if (!isEmpty(conflictTimes)) {
+          conflicts.push({
+            withClass: currClassObject,
+            dayTimeCodes: conflictTimes,
+          });
+        }
       });
     });
   });

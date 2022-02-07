@@ -9,6 +9,11 @@ import classNames from 'clsx';
 
 //! Changes
 //! change "theme" in settings to be "darkMode" and be a boolean;
+//! Update Schedule state (highlights) declaratively
+//! Add search bar
+//! Add modal to select campus and course
+//! Subject colors will be assigned randonly based on an hashing function;
+//! Add ability to remove classes on the scheduler
 
 const Home: NextPage = () => {
   const { direction, selectedClasses } = useContext(SettingsContext);

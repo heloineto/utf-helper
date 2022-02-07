@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {(this.props as any).emotionStyleTags}
         </Head>
-        <body>
+        <body className="bg-slate-100 dark:bg-slate-900">
           <Main />
           <NextScript />
         </body>
