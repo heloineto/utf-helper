@@ -177,13 +177,31 @@ export const hasConflict = (
 
 export const getSubjectType = (subject: Subject) => {
   if (Object.values(subject.classes)[0].optional !== 'Não')
-    return { value: 'optional', label: 'Optativa' };
+    return { value: 'optional', label: 'Optativa', colorName: 'orange' };
 
   if (subject.code.slice(0, 2) !== 'CC')
     return {
       value: 'equivalent',
       label: 'Equivalente',
+      colorName: 'cyan',
     };
 
-  return { value: subject.code[3], label: `${subject.code[3]}º Período` };
+  const period = Number(subject.code[3]) ?? 9;
+  const colorNames = [
+    'pink',
+    'purple',
+    'indigo',
+    'sky',
+    'teal',
+    'green',
+    'lime',
+    'yellow',
+    'slate',
+  ];
+
+  return {
+    value: subject.code[3],
+    label: `${subject.code[3]}º Período`,
+    colorName: colorNames[period],
+  };
 };

@@ -1,9 +1,12 @@
+import useTailwindColors from '@lib/hooks/useTailwindColors';
 import { getSubjectType } from '@lib/utils/schedule';
 import classNames from 'clsx';
 
 type Props = { subject: Subject };
 
 const SubjectsBadge = ({ subject }: Props) => {
+  const tailwindColors = useTailwindColors();
+
   const { value, label } = getSubjectType(subject);
 
   let className = '';
