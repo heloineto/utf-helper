@@ -24,11 +24,16 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
           : 'hover:bg-sky-100 dark:hover:bg-sky-900/50',
         'cursor-pointer relative odd:bg-slate-100/90 dark:odd:bg-slate-900/30'
       )}
-      onClick={() =>
-        isSelected
-          ? unselectGroup(setSelectedClasses, classObject)
-          : selectGroup(setSelectedClasses, classObject)
-      }
+      onClick={() => {
+        if (!setSelectedClasses || !setSchedule || !selectedClasses) return;
+
+        if (isSelected) {
+          unselectGroup(setSelectedClasses, setSchedule, classObject, selectedClasses);
+          return;
+        }
+
+        selectGroup(setSelectedClasses, setSchedule, classObject, selectedClasses);
+      }}
       // onMouseEnter={() =>
       //   setSchedule &&
       //   highlightGroup(

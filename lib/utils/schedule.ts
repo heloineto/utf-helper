@@ -5,12 +5,12 @@ export const highlightCell = (
   dayTimeCode: string,
   shouldHighlight: boolean
 ) => {
-  const [dayCode, shiftCode, timeCode] = dayTimeCode.split('');
+  const [dayCode, shiftCode, numberCode] = dayTimeCode.split('');
 
-  if (!dayCode || !shiftCode || !timeCode) return;
+  if (!dayCode || !shiftCode || !numberCode) return;
 
   const toMerge = {
-    [`${shiftCode}${timeCode}`]: {
+    [`${shiftCode}${numberCode}`]: {
       days: { [dayCode]: { highlights: { cell: shouldHighlight } } },
     },
   };
@@ -26,13 +26,13 @@ export const highlightGroup = (
   const toMerge: any = {};
 
   dayTimeCodes.forEach((dayTimeCode) => {
-    const [dayCode, shiftCode, timeCode] = dayTimeCode.split('');
+    const [dayCode, shiftCode, numberCode] = dayTimeCode.split('');
 
-    if (!dayCode || !shiftCode || !timeCode) return;
+    if (!dayCode || !shiftCode || !numberCode) return;
 
-    toMerge[`${shiftCode}${timeCode}`] = {
+    toMerge[`${shiftCode}${numberCode}`] = {
       days: {
-        ...toMerge[`${shiftCode}${timeCode}`]?.days,
+        ...toMerge[`${shiftCode}${numberCode}`]?.days,
         [dayCode]: { highlights: { group: shouldHighlight } },
       },
     };
@@ -42,10 +42,17 @@ export const highlightGroup = (
 };
 
 export const selectGroup = (
-  setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>> | undefined,
-  classObject: ClassObject
+  setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>>,
+  setSchedule: Dispatch<SetStateAction<ScheduleObject>>,
+  classObject: ClassObject,
+  selectedClasses: SelectedClasses
 ) => {
-  setSelectedClasses?.((value) => {
+  if (hasConflict(selectedClasses, classObject)) {
+    //! Open conflict modal
+    return;
+  }
+
+  setSelectedClasses((value) => {
     const newValue = { ...value };
 
     newValue[classObject.subjectCode] = {
@@ -55,11 +62,25 @@ export const selectGroup = (
 
     return newValue;
   });
+
+  setSchedule((value) => {
+    const newValue = { ...value };
+
+    for (const { dayTimeCode } of classObject.schedule) {
+      const [dayCode, shiftCode, numberCode] = dayTimeCode.split('');
+
+      newValue[`${shiftCode}${numberCode}`].days[dayCode] = classObject;
+    }
+
+    return newValue;
+  });
 };
 
 export const unselectGroup = (
   setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>> | undefined,
-  classObject: ClassObject
+  setSchedule: Dispatch<SetStateAction<ScheduleObject>> | undefined,
+  classObject: ClassObject,
+  selectedClasses: SelectedClasses
 ) => {
   setSelectedClasses?.((value) => {
     const newValue = { ...value };
