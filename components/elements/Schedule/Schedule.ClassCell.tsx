@@ -11,7 +11,12 @@ type Props = {
   dayCode: string;
 };
 
-const ScheduleClassCell = ({ classObject, timeCode, dayCode }: Props) => {
+const ScheduleClassCell = ({
+  classObject,
+  timeCode,
+  dayCode,
+  ...divProps
+}: Props & ComponentProps<'div'>) => {
   const { schedule, theme } = useContext(SettingsContext);
   const timeCodes = useTimeCodes();
   const [sameClass, setSameClass] = useState({ above: false, below: false });
@@ -56,8 +61,9 @@ const ScheduleClassCell = ({ classObject, timeCode, dayCode }: Props) => {
     <div
       className={classNames(
         sameClass.below && sameClass.above && 'h-[calc(100%+1px)]',
-        'class-cell flex absolute top-0 left-0 w-full h-full'
+        'class-cell flex absolute top-0 left-0 w-full h-full cursor-pointer'
       )}
+      {...divProps}
     >
       <div
         className={classNames(
