@@ -11,7 +11,7 @@ type Props = {
 };
 
 const SubjectsTableRow = ({ classObject, subject }: Props) => {
-  const { direction, selectedClasses, setSelectedClasses, setSchedule } =
+  const { selectedClasses, setSelectedClasses, setSchedule, theme } =
     useContext(SettingsContext);
 
   const isSelected = !!selectedClasses?.[subject.code]?.[classObject.code];
@@ -35,15 +35,19 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
         selectGroup(setSelectedClasses, setSchedule, classObject, selectedClasses);
       }}
       onMouseEnter={() =>
+        !isSelected &&
         highlightGroup(
           classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
-          true
+          true,
+          theme
         )
       }
       onMouseLeave={() =>
+        !isSelected &&
         highlightGroup(
           classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
-          false
+          false,
+          theme
         )
       }
     >

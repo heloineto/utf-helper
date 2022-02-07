@@ -45,7 +45,7 @@ const ScheduleClassCell = ({ classObject, timeCode, dayCode }: Props) => {
   }, [timeCodes, timeCode, classObject, schedule]);
 
   return (
-    <div className={classNames('flex absolute top-0 left-0 w-full h-full')}>
+    <div className={classNames('class-cell flex absolute top-0 left-0 w-full h-full')}>
       <div
         className={classNames(
           sameClass.below && 'rounded-b-none mt-1',

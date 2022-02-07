@@ -1,21 +1,11 @@
 import { isEmpty, merge } from 'lodash';
 
-// style={{
-//   background: highlights?.cell
-//     ? 'repeating-linear-gradient(45deg, rgba(14, 165, 233, 0.6), rgba(14, 165, 233, 0.6) 0.25rem, rgba(56, 189, 248, 0.6) 0.25rem, rgba(56, 189, 248, 0.6) 0.5rem)'
-//     : highlights?.group
-//     ? 'repeating-linear-gradient(45deg, rgba(14, 165, 233, 0.25), rgba(14, 165, 233, 0.25) 0.25rem, rgba(56, 189, 248, 0.25) 0.25rem, rgba(56, 189, 248, 0.25) 0.5rem)'
-//     : undefined,
-// }}
-
 const createHighlightElement = (
   id: string,
   colorRgb: { r: number; g: number; b: number }
 ) => {
   const highlightElem = document.createElement('div');
   const colorStr = Object.values(colorRgb).join(',');
-
-  console.log(colorStr);
 
   highlightElem.id = id;
   highlightElem.style.position = 'absolute';
@@ -24,47 +14,76 @@ const createHighlightElement = (
   highlightElem.style.height = '100%';
   highlightElem.style.width = '100%';
   highlightElem.style.background = `repeating-linear-gradient(45deg, rgba(${colorStr}, 0.6), rgba(${colorStr}, 0.6) 0.25rem, rgba(${colorStr}, 0.8) 0.25rem, rgba(${colorStr}, 0.8) 0.5rem)`;
+  highlightElem.style.zIndex = '1000';
 
   return highlightElem;
 };
 
-export const highlightCell = (dayTimeCode: string, shouldHighlight: boolean) => {
+const highlight = (
+  type: string,
+  dayTimeCode: string,
+  shouldHighlight: boolean,
+  colorRgb: { r: number; g: number; b: number }
+) => {
   if (!shouldHighlight) {
-    const highlightElem = document.getElementById(`${dayTimeCode}-cell-highlight`);
-    highlightElem?.remove();
+    const oldHighlightElem = document.getElementById(`${dayTimeCode}-${type}-highlight`);
+    oldHighlightElem?.remove();
+
     return;
   }
 
   const cell = document.getElementById(dayTimeCode);
   if (!cell) return;
 
-  const highlightElem = createHighlightElement(`${dayTimeCode}-cell-highlight`, {
-    r: 14,
-    g: 165,
-    b: 233,
-  });
+  if (cell.querySelector('.class-cell')) {
+    const highlightElem = createHighlightElement(`${dayTimeCode}-${type}-highlight`, {
+      r: 239,
+      g: 68,
+      b: 68,
+    });
+    // class="bg-red-500"
+
+    cell.appendChild(highlightElem);
+    return;
+  }
+
+  const highlightElem = createHighlightElement(
+    `${dayTimeCode}-${type}-highlight`,
+    colorRgb
+  );
 
   cell.appendChild(highlightElem);
 };
 
-export const highlightGroup = (dayTimeCodes: string[], shouldHighlight: boolean) => {
+export const highlightCell = (
+  dayTimeCode: string,
+  shouldHighlight: boolean,
+  theme?: Theme
+) => {
+  highlight(
+    'cell',
+    dayTimeCode,
+    shouldHighlight,
+    theme === 'dark'
+      ? { r: 14, g: 165, b: 233 } /* bg-sky-500 */
+      : { r: 14, g: 165, b: 233 } /* bg-sky-500 */
+  );
+};
+
+export const highlightGroup = (
+  dayTimeCodes: string[],
+  shouldHighlight: boolean,
+  theme?: Theme
+) => {
   dayTimeCodes.forEach((dayTimeCode) => {
-    if (!shouldHighlight) {
-      const highlightElem = document.getElementById(`${dayTimeCode}-group-highlight`);
-      highlightElem?.remove();
-      return;
-    }
-
-    const cell = document.getElementById(dayTimeCode);
-    if (!cell) return;
-
-    const highlightElem = createHighlightElement(`${dayTimeCode}-group-highlight`, {
-      r: 14,
-      g: 165,
-      b: 233,
-    });
-
-    cell.appendChild(highlightElem);
+    highlight(
+      'group',
+      dayTimeCode,
+      shouldHighlight,
+      theme === 'dark'
+        ? { r: 2, g: 132, b: 199 } /* bg-sky-600 */
+        : { r: 125, g: 211, b: 252 } /* bg-sky-300 */
+    );
   });
 };
 
