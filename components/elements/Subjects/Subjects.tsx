@@ -9,7 +9,7 @@ const Subjects = (props: Props) => {
   const subjects = useSubjects();
 
   return (
-    <div className="w-full bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
+    <div className="min-w-min bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
       {Object.entries(subjects).map(([subjectCode, subject]) => (
         <div key={subjectCode}>
           <div className="bg-slate-200/90 dark:bg-slate-600 px-6 py-3 flex items-center gap-x-2 text-md h-12 w-full font-medium tracking-wider">
