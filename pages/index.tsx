@@ -7,6 +7,9 @@ import { useResize } from '@lib/hooks';
 import { useContext } from 'react';
 import classNames from 'clsx';
 
+//! Changes
+//! change "theme" in settings to be "darkMode" and be a boolean;
+
 const Home: NextPage = () => {
   const { direction, selectedClasses } = useContext(SettingsContext);
   const { handleRef, resize1Ref, resize2Ref } = useResize(direction);

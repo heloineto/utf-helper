@@ -115,7 +115,12 @@ export const selectGroup = (
     classObject.schedule.forEach(({ dayTimeCode }) => {
       const [dayCode, shiftCode, numberCode] = dayTimeCode.split('');
 
-      newValue[`${shiftCode}${numberCode}`].days[dayCode] = classObject;
+      try {
+        newValue[`${shiftCode}${numberCode}`].days[dayCode] = classObject;
+      } catch (error) {
+        //! Something went pretty wrong. probs malformed data
+        return;
+      }
     });
 
     return newValue;
@@ -145,7 +150,12 @@ export const unselectGroup = (
     classObject.schedule.forEach(({ dayTimeCode }) => {
       const [dayCode, shiftCode, numberCode] = dayTimeCode.split('');
 
-      newValue[`${shiftCode}${numberCode}`].days[dayCode] = null;
+      try {
+        newValue[`${shiftCode}${numberCode}`].days[dayCode] = null;
+      } catch (error) {
+        //! Something went pretty wrong. probs malformed data
+        return;
+      }
     });
 
     return newValue;
@@ -175,7 +185,12 @@ export const hasConflict = (
   return result;
 };
 
-export const getSubjectType = (subject: Subject) => {
+export const getSubjectType = (subject: {
+  code: string;
+  classes: {
+    [x: string]: ClassObject;
+  };
+}) => {
   if (Object.values(subject.classes)[0].optional !== 'Não')
     return { value: 'optional', label: 'Optativa', colorName: 'orange' };
 

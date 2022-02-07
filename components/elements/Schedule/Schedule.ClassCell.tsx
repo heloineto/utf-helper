@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import classNames from 'clsx';
 import { useTimeCodes } from '@lib/hooks';
 import { SettingsContext } from '@lib/context';
+import useTailwindColors from '@lib/hooks/useTailwindColors';
+import { getSubjectType } from '@lib/utils/schedule';
 
 type Props = {
   classObject: ClassObject;
@@ -10,9 +12,15 @@ type Props = {
 };
 
 const ScheduleClassCell = ({ classObject, timeCode, dayCode }: Props) => {
-  const { schedule } = useContext(SettingsContext);
+  const { schedule, theme } = useContext(SettingsContext);
   const timeCodes = useTimeCodes();
   const [sameClass, setSameClass] = useState({ above: false, below: false });
+  const tailwindColors = useTailwindColors();
+  const { label, colorName } = getSubjectType({
+    code: classObject.subjectCode,
+    classes: { [classObject.code]: classObject },
+  });
+  const color = tailwindColors?.[colorName as keyof typeof tailwindColors];
 
   useEffect(() => {
     if (!schedule) return;
@@ -50,11 +58,33 @@ const ScheduleClassCell = ({ classObject, timeCode, dayCode }: Props) => {
         className={classNames(
           sameClass.below && 'rounded-b-none mt-1',
           sameClass.above && 'rounded-t-none -mt-1',
-          'bg-sky-200 dark:bg-sky-500 w-full h-full rounded mx-1 p-1'
+          'w-full h-full rounded mx-1 p-1'
         )}
+        style={
+          color &&
+          (theme === 'dark'
+            ? {
+                backgroundColor: color[500],
+              }
+            : {
+                backgroundColor: color[200],
+              })
+        }
       >
         {!sameClass.above && (
-          <div className="text-sky-800 dark:text-sky-200 font-bold z-10 relative text-left">
+          <div
+            className="font-bold z-10 relative text-left"
+            style={
+              color &&
+              (theme === 'dark'
+                ? {
+                    color: color[200],
+                  }
+                : {
+                    color: color[800],
+                  })
+            }
+          >
             {classObject.subjectName}
           </div>
         )}
