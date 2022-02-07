@@ -10,7 +10,12 @@ const NavbarDirectionButton = (props: Props) => {
   const { direction, setDirection } = useContext(SettingsContext);
 
   return (
-    <Tooltip title="Mudar para Layout Horizontal" arrow>
+    <Tooltip
+      title={`Mudar para Layout ${
+        direction === 'horizontal' ? 'Vertical' : 'Horizontal'
+      }`}
+      arrow
+    >
       <IconButton
         className="group"
         onClick={() =>
