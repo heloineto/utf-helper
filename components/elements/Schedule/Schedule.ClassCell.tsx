@@ -50,7 +50,7 @@ const ScheduleClassCell = ({ classObject, timeCode, dayCode }: Props) => {
         className={classNames(
           sameClass.below && 'rounded-b-none mt-1',
           sameClass.above && 'rounded-t-none -mt-1',
-          'bg-sky-200 dark:bg-sky-500 w-full h-full rounded-md mx-1 p-1'
+          'bg-sky-200 dark:bg-sky-500 w-full h-full rounded mx-1 p-1'
         )}
       >
         {!sameClass.above && (

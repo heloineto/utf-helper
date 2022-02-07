@@ -1,4 +1,5 @@
 import { useSubjects } from '@lib/hooks';
+import SubjectsBadge from './Subjects.Badge';
 import SubjectsTableHeader from './Subjects.TableHeader';
 import SubjectsTableRow from './Subjects.TableRow';
 
@@ -18,6 +19,7 @@ const Subjects = (props: Props) => {
             <span className="uppercase text-slate-700 dark:text-slate-300">
               {subject.name}
             </span>
+            <SubjectsBadge subject={subject} />
           </div>
           <table className="w-full">
             <tbody className="w-full">

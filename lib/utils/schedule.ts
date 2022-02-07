@@ -174,3 +174,16 @@ export const hasConflict = (
 
   return result;
 };
+
+export const getSubjectType = (subject: Subject) => {
+  if (Object.values(subject.classes)[0].optional !== 'Não')
+    return { value: 'optional', label: 'Optativa' };
+
+  if (subject.code.slice(0, 2) !== 'CC')
+    return {
+      value: 'equivalent',
+      label: 'Equivalente',
+    };
+
+  return { value: subject.code[3], label: `${subject.code[3]}º Período` };
+};
