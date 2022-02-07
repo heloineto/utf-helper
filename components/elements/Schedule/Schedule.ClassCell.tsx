@@ -50,7 +50,7 @@ const ScheduleClassCell = ({ classObject, timeCode, dayCode }: Props) => {
       )
         setSameClass((value) => ({ ...value, above: true }));
     }
-  }, [timeCodes, timeCode, classObject, schedule]);
+  }, [timeCodes, timeCode, classObject, schedule, dayCode]);
 
   return (
     <div

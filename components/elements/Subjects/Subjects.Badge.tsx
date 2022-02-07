@@ -3,7 +3,7 @@ import useTailwindColors from '@lib/hooks/useTailwindColors';
 import { getSubjectType } from '@lib/utils/schedule';
 import classNames from 'clsx';
 import { useContext } from 'react';
-import { TailwindThemeColors, TailwindValuesColor } from 'tailwindcss/tailwind-config';
+import { TailwindThemeColors } from 'tailwindcss/tailwind-config';
 
 type Props = { subject: Subject };
 

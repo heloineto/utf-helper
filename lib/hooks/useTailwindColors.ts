@@ -5,7 +5,7 @@ import tailwindConfigModule from '../../tailwind.config.js';
 const { theme: twTheme } = resolveConfig(tailwindConfigModule as any);
 
 const useTailwindColors = () => {
-  const tailwindColors = useMemo(() => twTheme.colors, [twTheme]);
+  const tailwindColors = useMemo(() => twTheme.colors, []);
 
   return tailwindColors;
 };
