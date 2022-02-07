@@ -32,6 +32,12 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
           return;
         }
 
+        highlightGroup(
+          classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
+          false,
+          theme
+        );
+
         selectGroup(setSelectedClasses, setSchedule, classObject, selectedClasses);
       }}
       onMouseEnter={() =>
