@@ -6,7 +6,7 @@ import SubjectsTableData from './Subjects.TableData';
 import classNames from 'clsx';
 import ActionDialog from '@components/modals/ActionDialog';
 import { IconButton } from '@mui/material';
-import { XIcon } from '@heroicons/react/outline';
+import { TrashIcon, XIcon } from '@heroicons/react/outline';
 
 type Props = {
   classObject: ClassObject;
@@ -46,10 +46,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
           );
 
           if (conflictsFound) {
-            console.log(conflictsFound);
-
             setConflicts(conflictsFound);
-            // setConflictsDialogOpen(true);
           }
 
           highlightGroup(
@@ -111,34 +108,37 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
         onClose={() => setConflicts(null)}
         title={
           (
-            <div>
-              <div className="mt-1">
+            <div className="my-4">
+              <div>
                 <span className="bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-md px-2 py-1 mr-2 text-base">
                   {classObject.code}
                 </span>
                 <span className="uppercase">{classObject.subjectName}</span>
               </div>
-              <span className="text-slate-300 text-base">
+              <span className="text-slate-600 dark:text-slate-300 text-base">
                 possui os seguintes conflitos de horário:
               </span>
             </div>
           ) as any
         }
         subtitle={
-          <div>
+          <div className="w-full flex flex-col justify-center items-center">
             {conflicts?.map(({ withClass, dayTimeCodes }) => {
               const { code, subjectCode, subjectName } = withClass;
 
               return (
-                <span
+                <div
                   key={subjectCode + code}
-                  className="px-2 py-3 rounded-full items-center pl-2.5 pr-1 text-sm font-medium bg-indigo-100 text-indigo-700"
+                  className="bg-indigo-100 text-indigo-700 gap-x-1 pl-4 pr-2 py-1 max-w-max rounded-full flex items-center text-sm font-medium"
                 >
-                  {code} - {subjectName} ({dayTimeCodes.join(', ')})
+                  <div className="w-full">
+                    {code} - {subjectName} ({dayTimeCodes.join(', ')})
+                  </div>
+                  {/* /! Add remove functionality afterwards */}
                   <IconButton className="text-indigo-400 hover:bg-indigo-200">
-                    <XIcon className="h-4 w-auto" />
+                    <TrashIcon className="h-[1.1rem] w-auto" />
                   </IconButton>
-                </span>
+                </div>
               );
             })}
           </div>
@@ -146,21 +146,11 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
         actionButtons={[
           {
             className:
-              'w-full border-red-500 text-red-500 bg-red-100 hover:bg-red-200 hover:border-red-600 dark:bg-red-600 dark:text-red-200 dark:hover:bg-red-700 dark:border-transparent',
+              'w-full border-sky-500 text-sky-500 bg-sky-100 hover:bg-sky-200 hover:border-sky-600 dark:bg-sky-600 dark:text-sky-200 dark:hover:bg-sky-700 dark:border-transparent',
             variant: 'outlined',
-            label: 'Limpar',
-            onClick: () => {
-              setConflicts(null);
-            },
+            label: 'Ok',
+            onClick: () => setConflicts(null),
           },
-          // {
-          //   className:
-          //     'border-slate-500 !text-slate-500 bg-slate-100 hover:bg-slate-200 hover:border-slate-600 dark:bg-slate-600 dark:!text-slate-200 dark:hover:bg-slate-700 dark:border-transparent',
-          //   label: 'Cancelar',
-          //   variant: 'outlined',
-          //   color: 'inherit',
-          //   onClick: () => setConflicts(null),
-          // },
         ]}
       />
     </>

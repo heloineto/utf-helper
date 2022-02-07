@@ -175,20 +175,20 @@ export const getConflicts = (
     Object.values(selectedClass).forEach((currClassObject) => {
       if (!currClassObject) return;
 
-      currClassObject.schedule.forEach(({ dayTimeCode: currDayTimeCode }) => {
-        let conflictTimes: string[] = [];
+      let conflictTimes: string[] = [];
 
+      currClassObject.schedule.forEach(({ dayTimeCode: currDayTimeCode }) => {
         classObject.schedule.forEach(({ dayTimeCode }) => {
           if (currDayTimeCode === dayTimeCode) conflictTimes.push(currDayTimeCode);
         });
-
-        if (!isEmpty(conflictTimes)) {
-          conflicts.push({
-            withClass: currClassObject,
-            dayTimeCodes: conflictTimes,
-          });
-        }
       });
+
+      if (!isEmpty(conflictTimes)) {
+        conflicts.push({
+          withClass: currClassObject,
+          dayTimeCodes: conflictTimes,
+        });
+      }
     });
   });
 

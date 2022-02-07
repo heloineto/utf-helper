@@ -76,7 +76,9 @@ const ActionDialog = ({
           <div className="text-lg leading-6 font-medium text-slate-900 dark:text-slate-200">
             {title}
           </div>
-          <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">{subtitle}</p>
+          <div className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+            {subtitle}
+          </div>
           {preview}
         </div>
       </div>
