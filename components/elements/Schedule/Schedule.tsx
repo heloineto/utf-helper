@@ -1,35 +1,41 @@
 import { ScheduleContext, SettingsContext } from '@lib/context';
-import { useContext, useMemo } from 'react';
+import { useContext, useEffect, useMemo } from 'react';
 import classNames from 'clsx';
+import ScheduleClassCell from './Schedule.ClassCell';
 
 type Props = {};
 
 const Schedule = ({}: Props) => {
-  const { schedule } = useContext(ScheduleContext);
+  const { schedule, setSchedule } = useContext(ScheduleContext);
   const { selectedClasses, setSelectedClasses } = useContext(SettingsContext);
 
-  // console.log(selectedClasses);
-
-  const selectedCells = useMemo(() => {
-    if (!selectedClasses) return undefined;
-
-    let selCells: SelectedDayTime = {};
+  useEffect(() => {
+    if (!selectedClasses || !setSchedule) return;
 
     Object.values(selectedClasses).forEach((classesObject) => {
       if (!classesObject) return;
-      Object.values(classesObject).forEach((classeObject) => {
-        if (!classeObject) return;
+      Object.values(classesObject).forEach((classObject) => {
+        if (!classObject) return;
 
-        classeObject.schedule.forEach(({ dayTimeCode }) => {
-          selCells[dayTimeCode] = classeObject;
+        classObject.schedule.forEach(({ dayTimeCode }) => {
+          const [dayCode, shiftCode, numberCode] = dayTimeCode.split('');
+
+          if (!dayCode || !shiftCode || !numberCode) {
+            //! Something went wrong;
+            return;
+          }
+
+          setSchedule?.((value) => {
+            const newValue = { ...value };
+
+            newValue[`${shiftCode}${numberCode}`].days[dayCode].classObject = classObject;
+
+            return newValue;
+          });
         });
       });
     });
-
-    return selCells;
   }, [selectedClasses]);
-
-  console.log(selectedCells);
 
   return (
     <table
@@ -70,21 +76,31 @@ const Schedule = ({}: Props) => {
               </td>
               <th className="font-medium text-slate-600 dark:text-slate-400">{start}</th>
               <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
-              {Object.entries(days).map(([dayCode, { highlights }]) => (
-                <td
-                  key={dayCode}
-                  className={classNames('')}
-                  style={{
-                    background: highlights?.cell
-                      ? 'repeating-linear-gradient(45deg, rgba(14, 165, 233, 0.6), rgba(14, 165, 233, 0.6) 0.25rem, rgba(56, 189, 248, 0.6) 0.25rem, rgba(56, 189, 248, 0.6) 0.5rem)'
-                      : highlights?.group
-                      ? 'repeating-linear-gradient(45deg, rgba(14, 165, 233, 0.25), rgba(14, 165, 233, 0.25) 0.25rem, rgba(56, 189, 248, 0.25) 0.25rem, rgba(56, 189, 248, 0.25) 0.5rem)'
-                      : undefined,
-                  }}
-                >
-                  {selectedCells?.[`${dayCode}${timeCode}`]?.code}
-                </td>
-              ))}
+              {Object.entries(days).map(([dayCode, { highlights, classObject }]) => {
+                const [shitfCode, numberCode] = timeCode.split('');
+
+                return (
+                  <td
+                    key={dayCode}
+                    className={classNames('relative')}
+                    style={{
+                      background: highlights?.cell
+                        ? 'repeating-linear-gradient(45deg, rgba(14, 165, 233, 0.6), rgba(14, 165, 233, 0.6) 0.25rem, rgba(56, 189, 248, 0.6) 0.25rem, rgba(56, 189, 248, 0.6) 0.5rem)'
+                        : highlights?.group
+                        ? 'repeating-linear-gradient(45deg, rgba(14, 165, 233, 0.25), rgba(14, 165, 233, 0.25) 0.25rem, rgba(56, 189, 248, 0.25) 0.25rem, rgba(56, 189, 248, 0.25) 0.5rem)'
+                        : undefined,
+                    }}
+                  >
+                    {classObject && (
+                      <ScheduleClassCell
+                        classObject={classObject}
+                        timeCode={timeCode}
+                        dayCode={dayCode}
+                      />
+                    )}
+                  </td>
+                );
+              })}
             </tr>
           ))}
       </tbody>

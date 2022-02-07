@@ -19,4 +19,5 @@ type ClassObject = {
   optional: string;
   subjectCode: string;
   code: string;
+  subjectName: string;
 };

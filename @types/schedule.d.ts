@@ -6,7 +6,12 @@ type TimeCodeObject = {
   [x: string]: {
     start: string;
     end: string;
-    days: { [x: number]: { highlights?: { cell?: boolean; group?: boolean } } };
+    days: {
+      [x: number | string]: {
+        highlights?: { cell?: boolean; group?: boolean };
+        classObject?: ClassObject;
+      };
+    };
   };
 };
 
