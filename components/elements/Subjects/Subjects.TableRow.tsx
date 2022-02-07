@@ -1,5 +1,5 @@
 import { SettingsContext } from '@lib/context';
-import { selectGroup, unselectGroup } from '@lib/utils/schedule';
+import { highlightGroup, selectGroup, unselectGroup } from '@lib/utils/schedule';
 import { useContext } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
@@ -34,22 +34,18 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
 
         selectGroup(setSelectedClasses, setSchedule, classObject, selectedClasses);
       }}
-      // onMouseEnter={() =>
-      //   setSchedule &&
-      //   highlightGroup(
-      //     setSchedule,
-      //     classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
-      //     true
-      //   )
-      // }
-      // onMouseLeave={() =>
-      //   setSchedule &&
-      //   highlightGroup(
-      //     setSchedule,
-      //     classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
-      //     false
-      //   )
-      // }
+      onMouseEnter={() =>
+        highlightGroup(
+          classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
+          true
+        )
+      }
+      onMouseLeave={() =>
+        highlightGroup(
+          classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
+          false
+        )
+      }
     >
       <SubjectsTableData
         className={classNames(
