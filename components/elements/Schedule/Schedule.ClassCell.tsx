@@ -63,7 +63,6 @@ const ScheduleClassCell = ({ classObject, timeCode, dayCode }: Props) => {
         className={classNames(
           sameClass.below && 'rounded-b-none mt-1',
           sameClass.above && 'rounded-t-none -mt-1',
-          // sameClass.below && sameClass.above && 'mt-0',
           'w-full h-full rounded mx-1 p-1'
         )}
         style={

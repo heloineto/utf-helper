@@ -1,7 +1,4 @@
 import Navbar from '@components/navigation/Navbar';
-import { SettingsContext } from '@lib/context';
-import classNames from 'clsx';
-import { useContext } from 'react';
 
 interface Props {
   children: ReactNode;
