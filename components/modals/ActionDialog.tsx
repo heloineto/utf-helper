@@ -26,7 +26,7 @@ const ActionDialog = ({
   preview,
   actionButtons = [],
   variant = 'success',
-}: Props & DialogProps) => {
+}: Props & Omit<DialogProps, keyof Props>) => {
   const { breakpoints } = useTheme();
   const mobile = useMediaQuery(breakpoints.down('md'));
 

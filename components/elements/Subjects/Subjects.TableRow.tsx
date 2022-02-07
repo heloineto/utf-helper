@@ -52,7 +52,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
           highlightGroup(
             classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
             false,
-            theme
+            darkMode
           );
         }}
         onMouseEnter={() =>
@@ -60,7 +60,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
           highlightGroup(
             classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
             true,
-            theme
+            darkMode
           )
         }
         onMouseLeave={() =>
@@ -68,7 +68,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
           highlightGroup(
             classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
             false,
-            theme
+            darkMode
           )
         }
       >
@@ -107,19 +107,17 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
         open={!!conflicts}
         onClose={() => setConflicts(null)}
         title={
-          (
-            <div className="my-4">
-              <div>
-                <span className="bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-md px-2 py-1 mr-2 text-base">
-                  {classObject.code}
-                </span>
-                <span className="uppercase">{classObject.subjectName}</span>
-              </div>
-              <span className="text-slate-600 dark:text-slate-300 text-base">
-                possui os seguintes conflitos de horário:
+          <div className="my-4">
+            <div>
+              <span className="bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-md px-2 py-1 mr-2 text-base">
+                {classObject.code}
               </span>
+              <span className="uppercase">{classObject.subjectName}</span>
             </div>
-          ) as any
+            <span className="text-slate-600 dark:text-slate-300 text-base">
+              possui os seguintes conflitos de horário:
+            </span>
+          </div>
         }
         subtitle={
           <div className="w-full flex flex-col justify-center items-center">

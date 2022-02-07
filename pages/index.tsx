@@ -8,7 +8,6 @@ import { useContext } from 'react';
 import classNames from 'clsx';
 
 //! Changes
-//! change "theme" in settings to be "darkMode" and be a boolean;
 //! Update Schedule state (highlights) declaratively
 //! Add search bar
 //! Add modal to select campus and course
