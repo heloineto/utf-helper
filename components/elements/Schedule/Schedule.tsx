@@ -1,6 +1,5 @@
 import { SettingsContext } from '@lib/context';
 import { useContext } from 'react';
-import classNames from 'clsx';
 import ScheduleClassCell from './Schedule.ClassCell';
 
 type Props = {};

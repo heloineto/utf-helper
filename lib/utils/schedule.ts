@@ -1,4 +1,4 @@
-import { isEmpty, merge } from 'lodash';
+import { isEmpty } from 'lodash';
 
 const createHighlightElement = (
   id: string,
