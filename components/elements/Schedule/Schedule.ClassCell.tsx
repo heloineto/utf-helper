@@ -53,11 +53,17 @@ const ScheduleClassCell = ({ classObject, timeCode, dayCode }: Props) => {
   }, [timeCodes, timeCode, classObject, schedule]);
 
   return (
-    <div className={classNames('class-cell flex absolute top-0 left-0 w-full h-full')}>
+    <div
+      className={classNames(
+        sameClass.below && sameClass.above && 'h-[calc(100%+1px)]',
+        'class-cell flex absolute top-0 left-0 w-full h-full'
+      )}
+    >
       <div
         className={classNames(
           sameClass.below && 'rounded-b-none mt-1',
           sameClass.above && 'rounded-t-none -mt-1',
+          // sameClass.below && sameClass.above && 'mt-0',
           'w-full h-full rounded mx-1 p-1'
         )}
         style={
@@ -73,7 +79,7 @@ const ScheduleClassCell = ({ classObject, timeCode, dayCode }: Props) => {
       >
         {!sameClass.above && (
           <div
-            className="font-bold z-10 relative text-left"
+            className="font-bold z-10 relative text-left break-all"
             style={
               color &&
               (theme === 'dark'
