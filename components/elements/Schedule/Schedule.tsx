@@ -1,13 +1,13 @@
-import { ScheduleContext, SettingsContext } from '@lib/context';
-import { useContext, useEffect, useMemo } from 'react';
+import { SettingsContext } from '@lib/context';
+import { useContext } from 'react';
 import classNames from 'clsx';
 import ScheduleClassCell from './Schedule.ClassCell';
 
 type Props = {};
 
 const Schedule = ({}: Props) => {
-  const { schedule, setSchedule } = useContext(ScheduleContext);
-  const { selectedClasses, setSelectedClasses } = useContext(SettingsContext);
+  const { selectedClasses, setSelectedClasses, schedule, setSchedule } =
+    useContext(SettingsContext);
 
   return (
     <table
@@ -48,20 +48,20 @@ const Schedule = ({}: Props) => {
               </td>
               <th className="font-medium text-slate-600 dark:text-slate-400">{start}</th>
               <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
-              {Object.entries(days).map(([dayCode, { highlights, classObject }]) => {
+              {Object.entries(days).map(([dayCode, classObject]) => {
                 const [shitfCode, numberCode] = timeCode.split('');
 
                 return (
                   <td
                     key={dayCode}
-                    className={classNames('relative')}
-                    style={{
-                      background: highlights?.cell
-                        ? 'repeating-linear-gradient(45deg, rgba(14, 165, 233, 0.6), rgba(14, 165, 233, 0.6) 0.25rem, rgba(56, 189, 248, 0.6) 0.25rem, rgba(56, 189, 248, 0.6) 0.5rem)'
-                        : highlights?.group
-                        ? 'repeating-linear-gradient(45deg, rgba(14, 165, 233, 0.25), rgba(14, 165, 233, 0.25) 0.25rem, rgba(56, 189, 248, 0.25) 0.25rem, rgba(56, 189, 248, 0.25) 0.5rem)'
-                        : undefined,
-                    }}
+                    // className={classNames('relative')}
+                    // style={{
+                    //   background: highlights?.cell
+                    //     ? 'repeating-linear-gradient(45deg, rgba(14, 165, 233, 0.6), rgba(14, 165, 233, 0.6) 0.25rem, rgba(56, 189, 248, 0.6) 0.25rem, rgba(56, 189, 248, 0.6) 0.5rem)'
+                    //     : highlights?.group
+                    //     ? 'repeating-linear-gradient(45deg, rgba(14, 165, 233, 0.25), rgba(14, 165, 233, 0.25) 0.25rem, rgba(56, 189, 248, 0.25) 0.25rem, rgba(56, 189, 248, 0.25) 0.5rem)'
+                    //     : undefined,
+                    // }}
                   >
                     {classObject && (
                       <ScheduleClassCell

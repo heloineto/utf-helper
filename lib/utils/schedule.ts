@@ -43,7 +43,6 @@ export const highlightGroup = (
 
 export const selectGroup = (
   setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>> | undefined,
-  setSchedule: Dispatch<SetStateAction<ScheduleObject>> | null,
   classObject: ClassObject
 ) => {
   setSelectedClasses?.((value) => {
@@ -60,9 +59,8 @@ export const selectGroup = (
 
 export const unselectGroup = (
   setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>> | undefined,
-  setSchedule: Dispatch<SetStateAction<ScheduleObject>> | null,
   classObject: ClassObject
-) =>
+) => {
   setSelectedClasses?.((value) => {
     const newValue = { ...value };
 
@@ -73,3 +71,27 @@ export const unselectGroup = (
 
     return newValue;
   });
+};
+
+export const hasConflict = (
+  selectedClasses: SelectedClasses,
+  classObject: ClassObject
+) => {
+  let result = false;
+
+  Object.values(selectedClasses).forEach((selectedClass) => {
+    if (!selectedClass) return;
+
+    Object.values(selectedClass).forEach((currClassObject) => {
+      if (!currClassObject) return;
+
+      currClassObject.schedule.forEach(({ dayTimeCode: currDayTimeCode }) => {
+        classObject.schedule.forEach(({ dayTimeCode }) => {
+          if (currDayTimeCode === dayTimeCode) result = true;
+        });
+      });
+    });
+  });
+
+  return result;
+};

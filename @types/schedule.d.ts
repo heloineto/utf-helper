@@ -7,10 +7,7 @@ type ScheduleObject = {
     start: string;
     end: string;
     days: {
-      [x: number | string]: {
-        highlights?: { cell?: boolean; group?: boolean };
-        classObject?: ClassObject;
-      };
+      [x: number | string]: ClassObject | null;
     };
   };
 };

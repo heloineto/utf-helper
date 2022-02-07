@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import classNames from 'clsx';
 import { useTimeCodes } from '@lib/hooks';
-import { ScheduleContext } from '@lib/context';
+import { SettingsContext } from '@lib/context';
 
 type Props = {
   classObject: ClassObject;
@@ -10,7 +10,7 @@ type Props = {
 };
 
 const ScheduleClassCell = ({ classObject, timeCode, dayCode }: Props) => {
-  const { schedule } = useContext(ScheduleContext);
+  const { schedule } = useContext(SettingsContext);
   const timeCodes = useTimeCodes();
   const [sameClass, setSameClass] = useState({ above: false, below: false });
 

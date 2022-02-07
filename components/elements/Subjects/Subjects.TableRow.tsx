@@ -1,6 +1,5 @@
-import { ScheduleContext, SettingsContext } from '@lib/context';
-import { highlightGroup, selectGroup, unselectGroup } from '@lib/utils/schedule';
-import { isEmpty } from 'lodash';
+import { SettingsContext } from '@lib/context';
+import { selectGroup, unselectGroup } from '@lib/utils/schedule';
 import { useContext } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
@@ -12,8 +11,8 @@ type Props = {
 };
 
 const SubjectsTableRow = ({ classObject, subject }: Props) => {
-  const { setSchedule } = useContext(ScheduleContext);
-  const { direction, selectedClasses, setSelectedClasses } = useContext(SettingsContext);
+  const { direction, selectedClasses, setSelectedClasses, setSchedule } =
+    useContext(SettingsContext);
 
   const isSelected = !!selectedClasses?.[subject.code]?.[classObject.code];
 
@@ -27,25 +26,25 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
       )}
       onClick={() =>
         isSelected
-          ? unselectGroup(setSelectedClasses, setSchedule, classObject)
-          : selectGroup(setSelectedClasses, setSchedule, classObject)
+          ? unselectGroup(setSelectedClasses, classObject)
+          : selectGroup(setSelectedClasses, classObject)
       }
-      onMouseEnter={() =>
-        setSchedule &&
-        highlightGroup(
-          setSchedule,
-          classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
-          true
-        )
-      }
-      onMouseLeave={() =>
-        setSchedule &&
-        highlightGroup(
-          setSchedule,
-          classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
-          false
-        )
-      }
+      // onMouseEnter={() =>
+      //   setSchedule &&
+      //   highlightGroup(
+      //     setSchedule,
+      //     classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
+      //     true
+      //   )
+      // }
+      // onMouseLeave={() =>
+      //   setSchedule &&
+      //   highlightGroup(
+      //     setSchedule,
+      //     classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
+      //     false
+      //   )
+      // }
     >
       <SubjectsTableData
         className={classNames(
