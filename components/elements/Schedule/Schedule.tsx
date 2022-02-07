@@ -9,34 +9,6 @@ const Schedule = ({}: Props) => {
   const { schedule, setSchedule } = useContext(ScheduleContext);
   const { selectedClasses, setSelectedClasses } = useContext(SettingsContext);
 
-  useEffect(() => {
-    if (!selectedClasses || !setSchedule) return;
-
-    Object.values(selectedClasses).forEach((classesObject) => {
-      if (!classesObject) return;
-      Object.values(classesObject).forEach((classObject) => {
-        if (!classObject) return;
-
-        classObject.schedule.forEach(({ dayTimeCode }) => {
-          const [dayCode, shiftCode, numberCode] = dayTimeCode.split('');
-
-          if (!dayCode || !shiftCode || !numberCode) {
-            //! Something went wrong;
-            return;
-          }
-
-          setSchedule?.((value) => {
-            const newValue = { ...value };
-
-            newValue[`${shiftCode}${numberCode}`].days[dayCode].classObject = classObject;
-
-            return newValue;
-          });
-        });
-      });
-    });
-  }, [selectedClasses]);
-
   return (
     <table
       className="bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-800 text-xs flex-grow"

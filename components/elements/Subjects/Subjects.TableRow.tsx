@@ -27,8 +27,8 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
       )}
       onClick={() =>
         isSelected
-          ? unselectGroup(setSelectedClasses, classObject)
-          : selectGroup(setSelectedClasses, classObject)
+          ? unselectGroup(setSelectedClasses, setSchedule, classObject)
+          : selectGroup(setSelectedClasses, setSchedule, classObject)
       }
       onMouseEnter={() =>
         setSchedule &&

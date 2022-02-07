@@ -2,7 +2,7 @@ type Shift = 'M' | 'T' | 'N';
 
 type TimeCode = `${Shift}${number}`;
 
-type TimeCodeObject = {
+type ScheduleObject = {
   [x: string]: {
     start: string;
     end: string;

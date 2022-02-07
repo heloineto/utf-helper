@@ -8,8 +8,8 @@ import { useContext } from 'react';
 import classNames from 'clsx';
 
 const Home: NextPage = () => {
-  const { schedule, setSchedule } = useSchedule();
-  const { direction } = useContext(SettingsContext);
+  const { direction, selectedClasses } = useContext(SettingsContext);
+  const { schedule, setSchedule } = useSchedule(selectedClasses);
   const { handleRef, resize1Ref, resize2Ref } = useResize(direction);
 
   return (

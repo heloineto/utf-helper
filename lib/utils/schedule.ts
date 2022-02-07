@@ -1,7 +1,7 @@
 import { isEmpty, merge } from 'lodash';
 
 export const highlightCell = (
-  setSchedule: Dispatch<SetStateAction<TimeCodeObject>>,
+  setSchedule: Dispatch<SetStateAction<ScheduleObject>>,
   dayTimeCode: string,
   shouldHighlight: boolean
 ) => {
@@ -19,7 +19,7 @@ export const highlightCell = (
 };
 
 export const highlightGroup = (
-  setSchedule: Dispatch<SetStateAction<TimeCodeObject>>,
+  setSchedule: Dispatch<SetStateAction<ScheduleObject>>,
   dayTimeCodes: string[],
   shouldHighlight: boolean
 ) => {
@@ -43,8 +43,9 @@ export const highlightGroup = (
 
 export const selectGroup = (
   setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>> | undefined,
+  setSchedule: Dispatch<SetStateAction<ScheduleObject>> | null,
   classObject: ClassObject
-) =>
+) => {
   setSelectedClasses?.((value) => {
     const newValue = { ...value };
 
@@ -55,9 +56,11 @@ export const selectGroup = (
 
     return newValue;
   });
+};
 
 export const unselectGroup = (
   setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>> | undefined,
+  setSchedule: Dispatch<SetStateAction<ScheduleObject>> | null,
   classObject: ClassObject
 ) =>
   setSelectedClasses?.((value) => {
