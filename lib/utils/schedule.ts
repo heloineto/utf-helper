@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+import { isEmpty, merge } from 'lodash';
 
 export const highlightCell = (
   setSchedule: Dispatch<SetStateAction<TimeCodeObject>>,
@@ -27,6 +27,7 @@ export const highlightGroup = (
 
   dayTimeCodes.forEach((dayTimeCode) => {
     const [dayCode, shiftCode, timeCode] = dayTimeCode.split('');
+
     if (!dayCode || !shiftCode || !timeCode) return;
 
     toMerge[`${shiftCode}${timeCode}`] = {
@@ -39,3 +40,33 @@ export const highlightGroup = (
 
   setSchedule?.((value) => merge({ ...value }, toMerge));
 };
+
+export const selectGroup = (
+  setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>> | undefined,
+  classObject: ClassObject
+) =>
+  setSelectedClasses?.((value) => {
+    const newValue = { ...value };
+
+    newValue[classObject.subjectCode] = {
+      ...newValue[classObject.subjectCode],
+      [classObject.code]: classObject,
+    };
+
+    return newValue;
+  });
+
+export const unselectGroup = (
+  setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>> | undefined,
+  classObject: ClassObject
+) =>
+  setSelectedClasses?.((value) => {
+    const newValue = { ...value };
+
+    delete newValue?.[classObject.subjectCode]?.[classObject.code];
+
+    if (isEmpty(newValue?.[classObject.subjectCode]))
+      delete newValue?.[classObject.subjectCode];
+
+    return newValue;
+  });
