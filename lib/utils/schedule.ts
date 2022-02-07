@@ -23,7 +23,8 @@ const highlight = (
   type: string,
   dayTimeCode: string,
   shouldHighlight: boolean,
-  colorRgb: { r: number; g: number; b: number }
+  colorRgb: { r: number; g: number; b: number },
+  surpressRed?: boolean
 ) => {
   if (!shouldHighlight) {
     const oldHighlightElem = document.getElementById(`${dayTimeCode}-${type}-highlight`);
@@ -35,14 +36,11 @@ const highlight = (
   const cell = document.getElementById(dayTimeCode);
   if (!cell) return;
 
-  if (cell.querySelector('.class-cell')) {
-    const highlightElem = createHighlightElement(`${dayTimeCode}-${type}-highlight`, {
-      r: 239,
-      g: 68,
-      b: 68,
-    });
-    // class="bg-red-500"
-
+  if (cell.querySelector('.class-cell') && !surpressRed) {
+    const highlightElem = createHighlightElement(
+      `${dayTimeCode}-${type}-highlight`,
+      { r: 239, g: 68, b: 68 } /* bg-red-500 */
+    );
     cell.appendChild(highlightElem);
     return;
   }
@@ -58,7 +56,8 @@ const highlight = (
 export const highlightCell = (
   dayTimeCode: string,
   shouldHighlight: boolean,
-  theme?: Theme
+  theme?: Theme,
+  surpressRed?: boolean
 ) => {
   highlight(
     'cell',
@@ -66,7 +65,8 @@ export const highlightCell = (
     shouldHighlight,
     theme === 'dark'
       ? { r: 14, g: 165, b: 233 } /* bg-sky-500 */
-      : { r: 14, g: 165, b: 233 } /* bg-sky-500 */
+      : { r: 14, g: 165, b: 233 } /* bg-sky-500 */,
+    surpressRed
   );
 };
 

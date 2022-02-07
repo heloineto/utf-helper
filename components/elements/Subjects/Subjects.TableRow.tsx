@@ -14,12 +14,12 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
   const { selectedClasses, setSelectedClasses, setSchedule, theme } =
     useContext(SettingsContext);
 
-  const isSelected = !!selectedClasses?.[subject.code]?.[classObject.code];
+  const selected = !!selectedClasses?.[subject.code]?.[classObject.code];
 
   return (
     <tr
       className={classNames(
-        isSelected
+        selected
           ? 'bg-sky-500/30 hover:bg-sky-300 dark:hover:bg-sky-700/80'
           : 'hover:bg-sky-100 dark:hover:bg-sky-900/50',
         'cursor-pointer relative odd:bg-slate-100/90 dark:odd:bg-slate-900/30'
@@ -27,7 +27,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
       onClick={() => {
         if (!setSelectedClasses || !setSchedule || !selectedClasses) return;
 
-        if (isSelected) {
+        if (selected) {
           unselectGroup(setSelectedClasses, setSchedule, classObject, selectedClasses);
           return;
         }
@@ -41,7 +41,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
         selectGroup(setSelectedClasses, setSchedule, classObject, selectedClasses);
       }}
       onMouseEnter={() =>
-        !isSelected &&
+        !selected &&
         highlightGroup(
           classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
           true,
@@ -49,7 +49,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
         )
       }
       onMouseLeave={() =>
-        !isSelected &&
+        !selected &&
         highlightGroup(
           classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
           false,
@@ -59,7 +59,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
     >
       <SubjectsTableData
         className={classNames(
-          isSelected &&
+          selected &&
             'first:after:top-0 first:after:absolute first:after:left-0 first:after:h-full first:after:w-full first:after:border-2 first:after:border-sky-500',
           'text-center'
         )}
@@ -76,6 +76,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
             className="relative"
             dayTimeCode={dayTimeCode}
             locationCode={locationCode}
+            selected={selected}
           />
         ))}
       </SubjectsTableData>
