@@ -17,7 +17,7 @@ const ScheduleClassCell = ({
   dayCode,
   ...divProps
 }: Props & ComponentProps<'div'>) => {
-  const { schedule, theme } = useContext(SettingsContext);
+  const { schedule, darkMode } = useContext(SettingsContext);
   const timeCodes = useTimeCodes();
   const [sameClass, setSameClass] = useState({ above: false, below: false });
   const tailwindColors = useTailwindColors();
@@ -73,7 +73,7 @@ const ScheduleClassCell = ({
         )}
         style={
           color &&
-          (theme === 'dark'
+          (darkMode
             ? {
                 backgroundColor: color[500],
               }
@@ -87,7 +87,7 @@ const ScheduleClassCell = ({
             className="font-bold z-10 relative text-left break-all"
             style={
               color &&
-              (theme === 'dark'
+              (darkMode
                 ? {
                     color: color[200],
                   }

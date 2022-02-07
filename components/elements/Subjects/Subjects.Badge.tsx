@@ -8,7 +8,7 @@ import { TailwindThemeColors } from 'tailwindcss/tailwind-config';
 type Props = { subject: Subject };
 
 const SubjectsBadge = ({ subject, className }: Props & ComponentProps<'span'>) => {
-  const { theme } = useContext(SettingsContext);
+  const { darkMode } = useContext(SettingsContext);
   const tailwindColors = useTailwindColors();
   const { label, colorName } = getSubjectType(subject);
   const color = tailwindColors?.[colorName as keyof TailwindThemeColors];
@@ -21,7 +21,7 @@ const SubjectsBadge = ({ subject, className }: Props & ComponentProps<'span'>) =
       )}
       style={
         color &&
-        (theme === 'dark'
+        (darkMode
           ? {
               backgroundColor: color[600],
               color: color[200],

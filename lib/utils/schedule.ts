@@ -56,14 +56,14 @@ const highlight = (
 export const highlightCell = (
   dayTimeCode: string,
   shouldHighlight: boolean,
-  theme?: Theme,
+  darkMode?: boolean,
   surpressRed?: boolean
 ) => {
   highlight(
     'cell',
     dayTimeCode,
     shouldHighlight,
-    theme === 'dark'
+    darkMode
       ? { r: 14, g: 165, b: 233 } /* bg-sky-500 */
       : { r: 14, g: 165, b: 233 } /* bg-sky-500 */,
     surpressRed
@@ -73,14 +73,14 @@ export const highlightCell = (
 export const highlightGroup = (
   dayTimeCodes: string[],
   shouldHighlight: boolean,
-  theme?: Theme
+  darkMode?: boolean
 ) => {
   dayTimeCodes.forEach((dayTimeCode) => {
     highlight(
       'group',
       dayTimeCode,
       shouldHighlight,
-      theme === 'dark'
+      darkMode
         ? { r: 2, g: 132, b: 199 } /* bg-sky-600 */
         : { r: 125, g: 211, b: 252 } /* bg-sky-300 */
     );

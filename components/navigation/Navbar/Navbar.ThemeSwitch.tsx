@@ -7,13 +7,13 @@ import { Tooltip } from '@mui/material';
 type Props = {};
 
 const NavbarThemeSwitch = (props: Props) => {
-  const { theme, setTheme } = useContext(SettingsContext);
+  const { darkMode, setDarkMode } = useContext(SettingsContext);
 
   return (
-    <Tooltip title={`Mudar para o Tema ${theme === 'dark' ? 'Claro' : 'Escuro'}`} arrow>
+    <Tooltip title={`Mudar para o Tema ${darkMode ? 'Claro' : 'Escuro'}`} arrow>
       <button
         className="relative inline-flex items-center py-2 px-2 rounded-full focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus:outline-none bg-cyan-500 dark:bg-slate-700 text-cyan-200 dark:text-slate-400 focus-visible:ring-cyan-600 dark:focus-visible:ring-slate-500"
-        onClick={() => setTheme?.((value) => (value === 'dark' ? 'light' : 'dark'))}
+        onClick={() => setDarkMode?.((value) => !value)}
       >
         <SunIcon className="h-6 w-6 transform transition-transform scale-0 dark:scale-100 duration-500 dark:duration-300" />
         <MoonAltIcon className="h-6 w-6 ml-3.5 transform transition-transform scale-100 dark:scale-0 duration-300 dark:duration-500" />

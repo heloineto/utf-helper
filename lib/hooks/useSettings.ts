@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import useScheduleInitialValue from './useScheduleInitialValue';
 
 const useSettings = () => {
-  const [theme, setTheme] = useState<Theme>('dark');
+  const [darkMode, setDarkMode] = useState(true);
   const [direction, setDirection] = useState<Direction>('vertical');
   const [selectedClasses, setSelectedClasses] = useState<SelectedClasses>({});
 
@@ -22,7 +22,7 @@ const useSettings = () => {
 
     if (!settings) return;
 
-    settings.theme && setTheme(settings.theme);
+    settings.darkMode && setDarkMode(settings.darkMode);
     settings.direction && setDirection(settings.direction);
     settings.selectedClasses && setSelectedClasses(settings.selectedClasses);
     settings.schedule && setSchedule(settings.schedule);
@@ -31,22 +31,22 @@ const useSettings = () => {
   useEffect(() => {
     localStorage.setItem(
       'settings',
-      JSON.stringify({ theme, direction, selectedClasses, schedule })
+      JSON.stringify({ darkMode, direction, selectedClasses, schedule })
     );
-  }, [theme, direction, selectedClasses, schedule]);
+  }, [darkMode, direction, selectedClasses, schedule]);
 
   useEffect(() => {
-    if (theme === 'dark') {
+    if (darkMode) {
       document.querySelector('body')?.classList.add('dark');
       return;
     }
 
     document.querySelector('body')?.classList.remove('dark');
-  }, [theme]);
+  }, [darkMode]);
 
   return {
-    theme,
-    setTheme,
+    darkMode,
+    setDarkMode,
     direction,
     setDirection,
     selectedClasses,

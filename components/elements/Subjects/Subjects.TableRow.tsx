@@ -14,7 +14,7 @@ type Props = {
 };
 
 const SubjectsTableRow = ({ classObject, subject }: Props) => {
-  const { selectedClasses, setSelectedClasses, setSchedule, theme } =
+  const { selectedClasses, setSelectedClasses, setSchedule, darkMode } =
     useContext(SettingsContext);
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
   // const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);

@@ -1,8 +1,8 @@
 import { createContext } from 'react';
 
 export const SettingsContext = createContext<{
-  theme?: Theme;
-  setTheme?: Dispatch<SetStateAction<Theme>>;
+  darkMode?: boolean;
+  setDarkMode?: Dispatch<SetStateAction<boolean>>;
   direction?: Direction;
   setDirection?: Dispatch<SetStateAction<Direction>>;
   selectedClasses?: SelectedClasses;
