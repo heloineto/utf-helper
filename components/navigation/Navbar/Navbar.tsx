@@ -1,13 +1,19 @@
 import classNames from 'clsx';
 import { GitHubIcon } from '@components/decoration/icons/outlined';
 import { IconButton, Tooltip } from '@mui/material';
-import { PrinterIcon } from '@heroicons/react/outline';
+import { PrinterIcon, TrashIcon } from '@heroicons/react/outline';
 import NavbarThemeSwitch from './Navbar.ThemeSwitch';
 import NavbarDirectionButton from './Navbar.DirectionButton';
+import { SettingsContext } from '@lib/context';
+import { useContext } from 'react';
+import useScheduleInitialValue from '@lib/hooks/useScheduleInitialValue';
 
 interface Props {}
 
 const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
+  const { setSchedule, setSelectedClasses } = useContext(SettingsContext);
+  const scheduleInitialValue = useScheduleInitialValue();
+
   return (
     <header
       className={classNames(
@@ -53,9 +59,21 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
       <div className="h-full flex items-center gap-x-1">
         <NavbarThemeSwitch />
         <NavbarDirectionButton />
+
         <Tooltip title="Imprimir Cronograma" arrow>
           <IconButton className="group">
             <PrinterIcon className="h-5 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400" />
+          </IconButton>
+        </Tooltip>
+        <Tooltip title="Limpar Cronograma" arrow>
+          <IconButton
+            className="group"
+            onClick={() => {
+              setSelectedClasses?.({});
+              setSchedule?.(scheduleInitialValue);
+            }}
+          >
+            <TrashIcon className="h-5 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400" />
           </IconButton>
         </Tooltip>
       </div>

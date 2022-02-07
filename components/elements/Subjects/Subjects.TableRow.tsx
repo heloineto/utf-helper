@@ -21,8 +21,8 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
       className={classNames(
         selected
           ? 'bg-sky-500/30 hover:bg-sky-300 dark:hover:bg-sky-700/80'
-          : 'hover:bg-sky-100 dark:hover:bg-sky-900/50',
-        'cursor-pointer relative odd:bg-slate-100/90 dark:odd:bg-slate-900/30'
+          : 'hover:bg-sky-100 dark:hover:bg-sky-900/50 odd:bg-slate-100/90 dark:odd:bg-slate-900/30',
+        'cursor-pointer relative'
       )}
       onClick={() => {
         if (!setSelectedClasses || !setSchedule || !selectedClasses) return;
