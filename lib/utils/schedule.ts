@@ -93,10 +93,9 @@ export const selectGroup = (
   classObject: ClassObject,
   selectedClasses: SelectedClasses
 ) => {
-  if (hasConflict(selectedClasses, classObject)) {
-    //! Open conflict modal
-    return;
-  }
+  const conflicts = getConflicts(selectedClasses, classObject);
+
+  if (!isEmpty(conflicts)) return conflicts;
 
   setSelectedClasses((value) => {
     const newValue = { ...value };
@@ -125,6 +124,8 @@ export const selectGroup = (
 
     return newValue;
   });
+
+  return null;
 };
 
 export const unselectGroup = (
@@ -162,11 +163,11 @@ export const unselectGroup = (
   });
 };
 
-export const hasConflict = (
+export const getConflicts = (
   selectedClasses: SelectedClasses,
   classObject: ClassObject
 ) => {
-  let result = false;
+  let conflicts: Conflict[] = [];
 
   Object.values(selectedClasses).forEach((selectedClass) => {
     if (!selectedClass) return;
@@ -176,13 +177,18 @@ export const hasConflict = (
 
       currClassObject.schedule.forEach(({ dayTimeCode: currDayTimeCode }) => {
         classObject.schedule.forEach(({ dayTimeCode }) => {
-          if (currDayTimeCode === dayTimeCode) result = true;
+          if (currDayTimeCode === dayTimeCode) {
+            conflicts.push({
+              with: currClassObject,
+              dayTimeCode: currDayTimeCode,
+            });
+          }
         });
       });
     });
   });
 
-  return result;
+  return conflicts;
 };
 
 export const getSubjectType = (subject: {

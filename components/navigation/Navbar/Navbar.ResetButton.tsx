@@ -28,7 +28,8 @@ const NavbarResetButton = (props: Props) => {
         actionButtons={[
           {
             className:
-              'bg-red-600 hover:bg-red-700 dark:hover:bg-red-500 shadow-sm hover:shadow hover:shadow-red-700 shadow-red-700',
+              'w-full border-red-500 text-red-500 bg-red-100 hover:bg-red-200 hover:border-red-600 dark:bg-red-600 dark:text-red-200 dark:hover:bg-red-700 dark:border-transparent',
+            variant: 'outlined',
             label: 'Limpar',
             onClick: () => {
               setSelectedClasses?.({});
@@ -38,7 +39,7 @@ const NavbarResetButton = (props: Props) => {
           },
           {
             className:
-              'border-slate-400 !text-slate-800 dark:!text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 shadow-sm hover:shadow text-base',
+              'border-slate-500 !text-slate-500 bg-slate-100 hover:bg-slate-200 hover:border-slate-600 dark:bg-slate-600 dark:!text-slate-200 dark:hover:bg-slate-700 dark:border-transparent',
             label: 'Cancelar',
             variant: 'outlined',
             color: 'inherit',
@@ -49,5 +50,23 @@ const NavbarResetButton = (props: Props) => {
     </>
   );
 };
+
+{
+  /* <Button
+className="w-1/4 border-red-500 text-red-500 bg-red-100 hover:bg-red-200 hover:border-red-600 dark:bg-red-600 dark:text-red-200 dark:hover:bg-red-700 dark:border-transparent"
+variant="outlined"
+onClick={onClose as any}
+>
+Remover
+</Button>
+<Button
+className="w-1/4 border-sky-500 text-sky-500 bg-sky-100 hover:bg-sky-200 hover:border-sky-600 dark:bg-sky-600 dark:text-sky-200 dark:hover:bg-sky-700 dark:border-transparent"
+variant="outlined"
+onClick={onClose as any}
+type="submit"
+>
+Ok
+</Button> */
+}
 
 export default NavbarResetButton;

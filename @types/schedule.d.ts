@@ -15,3 +15,5 @@ type ScheduleObject = {
 type DayTimeCode = `${number}${Shift}${number}`;
 
 type SelectedDayTime = { [x: string]: ClassObject };
+
+type Conflict = { with: ClassObject; dayTimeCode: string };
