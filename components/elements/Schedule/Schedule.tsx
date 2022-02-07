@@ -6,8 +6,7 @@ import ScheduleClassCell from './Schedule.ClassCell';
 type Props = {};
 
 const Schedule = ({}: Props) => {
-  const { selectedClasses, setSelectedClasses, schedule, setSchedule } =
-    useContext(SettingsContext);
+  const { schedule } = useContext(SettingsContext);
 
   return (
     <table

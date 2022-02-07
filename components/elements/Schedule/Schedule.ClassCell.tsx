@@ -22,7 +22,7 @@ const ScheduleClassCell = ({ classObject, timeCode, dayCode }: Props) => {
     const prevTimeCode: string | undefined = timeCodes[timeCodeIndex - 1];
 
     if (nextTimeCode) {
-      const nextClass = schedule[nextTimeCode].days[dayCode].classObject;
+      const nextClass = schedule[nextTimeCode].days[dayCode];
 
       if (
         nextClass &&
@@ -33,7 +33,7 @@ const ScheduleClassCell = ({ classObject, timeCode, dayCode }: Props) => {
     }
 
     if (prevTimeCode) {
-      const prevClass = schedule[prevTimeCode].days[dayCode].classObject;
+      const prevClass = schedule[prevTimeCode].days[dayCode];
 
       if (
         prevClass &&
