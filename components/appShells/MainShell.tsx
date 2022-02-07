@@ -8,15 +8,8 @@ interface Props {
 }
 
 const MainShell = ({ children }: Props) => {
-  const { theme } = useContext(SettingsContext);
-
   return (
-    <div
-      className={classNames(
-        theme,
-        'h-screen flex flex-col bg-slate-100 dark:bg-slate-900'
-      )}
-    >
+    <div className="h-screen flex flex-col bg-slate-100 dark:bg-slate-900">
       <Navbar className="flex-shrink-0" />
       <main className="h-[calc(100%-3.5rem)]">{children}</main>
     </div>

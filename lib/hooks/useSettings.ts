@@ -35,6 +35,15 @@ const useSettings = () => {
     );
   }, [theme, direction, selectedClasses, schedule]);
 
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.querySelector('body')?.classList.add('dark');
+      return;
+    }
+
+    document.querySelector('body')?.classList.remove('dark');
+  }, [theme]);
+
   return {
     theme,
     setTheme,
