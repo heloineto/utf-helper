@@ -56,23 +56,25 @@ const ActionDialog = ({
         <div>
           <div
             className={classNames(
-              variant === 'success' && 'bg-green-100',
-              variant === 'warning' && 'bg-red-100',
+              variant === 'success' && 'bg-green-100 dark:bg-green-600',
+              variant === 'warning' && 'bg-red-100 dark:bg-red-600',
               'mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full'
             )}
           >
             <Icon
               className={classNames(
-                variant === 'success' && 'text-green-600',
-                variant === 'warning' && 'text-red-600',
+                variant === 'success' && 'text-green-600 dark:text-green-200',
+                variant === 'warning' && 'text-red-600 dark:text-red-200',
                 'h-6 w-6'
               )}
               aria-hidden="true"
             />
           </div>
           <div className="mt-3 text-center">
-            <div className="text-lg leading-6 font-medium text-gray-900">{title}</div>
-            <p className="mt-2 text-sm text-gray-500">{subtitle}</p>
+            <div className="text-lg leading-6 font-medium text-slate-900 dark:text-slate-200">
+              {title}
+            </div>
+            <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">{subtitle}</p>
             {preview}
           </div>
         </div>

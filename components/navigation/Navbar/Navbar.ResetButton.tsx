@@ -28,16 +28,17 @@ const NavbarResetButton = (props: Props) => {
         actionButtons={[
           {
             className:
-              'bg-red-600 hover:bg-red-700 shadow-sm hover:shadow hover:shadow-red-700 shadow-red-700',
+              'bg-red-600 hover:bg-red-700 dark:hover:bg-red-500 shadow-sm hover:shadow hover:shadow-red-700 shadow-red-700',
             label: 'Limpar',
             onClick: () => {
               setSelectedClasses?.({});
               setSchedule?.(scheduleInitialValue);
+              setResetDialogOpen(false);
             },
           },
           {
             className:
-              'border-gray-400 !text-gray-800 hover:bg-gray-100 shadow-sm hover:shadow text-base',
+              'border-slate-400 !text-slate-800 dark:!text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 shadow-sm hover:shadow text-base',
             label: 'Cancelar',
             variant: 'outlined',
             color: 'inherit',
