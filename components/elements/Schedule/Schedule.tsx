@@ -53,7 +53,7 @@ const Schedule = ({}: Props) => {
                 return (
                   <td
                     key={dayCode}
-                    // className={classNames('relative')}
+                    className={classNames('relative')}
                     // style={{
                     //   background: highlights?.cell
                     //     ? 'repeating-linear-gradient(45deg, rgba(14, 165, 233, 0.6), rgba(14, 165, 233, 0.6) 0.25rem, rgba(56, 189, 248, 0.6) 0.25rem, rgba(56, 189, 248, 0.6) 0.5rem)'

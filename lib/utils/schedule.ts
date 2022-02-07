@@ -66,29 +66,41 @@ export const selectGroup = (
   setSchedule((value) => {
     const newValue = { ...value };
 
-    for (const { dayTimeCode } of classObject.schedule) {
+    classObject.schedule.forEach(({ dayTimeCode }) => {
       const [dayCode, shiftCode, numberCode] = dayTimeCode.split('');
 
       newValue[`${shiftCode}${numberCode}`].days[dayCode] = classObject;
-    }
+    });
 
     return newValue;
   });
 };
 
 export const unselectGroup = (
-  setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>> | undefined,
-  setSchedule: Dispatch<SetStateAction<ScheduleObject>> | undefined,
+  setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>>,
+  setSchedule: Dispatch<SetStateAction<ScheduleObject>>,
   classObject: ClassObject,
   selectedClasses: SelectedClasses
 ) => {
-  setSelectedClasses?.((value) => {
+  setSelectedClasses((value) => {
     const newValue = { ...value };
 
     delete newValue?.[classObject.subjectCode]?.[classObject.code];
 
     if (isEmpty(newValue?.[classObject.subjectCode]))
       delete newValue?.[classObject.subjectCode];
+
+    return newValue;
+  });
+
+  setSchedule((value) => {
+    const newValue = { ...value };
+
+    classObject.schedule.forEach(({ dayTimeCode }) => {
+      const [dayCode, shiftCode, numberCode] = dayTimeCode.split('');
+
+      newValue[`${shiftCode}${numberCode}`].days[dayCode] = null;
+    });
 
     return newValue;
   });
