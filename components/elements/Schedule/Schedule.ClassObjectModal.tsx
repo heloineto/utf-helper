@@ -1,7 +1,11 @@
+import { SettingsContext } from '@lib/context';
+import { unselectGroup } from '@lib/utils/schedule';
 import { Button, Dialog, DialogProps } from '@mui/material';
+import { useContext } from 'react';
 
 type Props = {
   classObject: ClassObject | null;
+  onClose: () => void;
 };
 
 const ScheduleClassDialog = ({
@@ -9,7 +13,10 @@ const ScheduleClassDialog = ({
   open,
   onClose,
   ...dialogProps
-}: Props & DialogProps) => {
+}: Props & Omit<DialogProps, keyof Props>) => {
+  const { setSelectedClasses, setSchedule, selectedClasses } =
+    useContext(SettingsContext);
+
   return (
     <Dialog
       open={open}
@@ -33,7 +40,19 @@ const ScheduleClassDialog = ({
           <Button
             className="w-1/4 border-red-500 text-red-500 bg-red-100 hover:bg-red-200 hover:border-red-600 dark:bg-red-600 dark:text-red-200 dark:hover:bg-red-700 dark:border-transparent"
             variant="outlined"
-            onClick={onClose as any}
+            onClick={() => {
+              if (!setSelectedClasses || !setSchedule || !selectedClasses || !classObject)
+                return;
+
+              unselectGroup(
+                setSelectedClasses,
+                setSchedule,
+                classObject,
+                selectedClasses
+              );
+
+              onClose();
+            }}
           >
             Remover
           </Button>
