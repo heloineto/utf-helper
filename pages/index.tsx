@@ -11,7 +11,6 @@ import classNames from 'clsx';
 //! Update Schedule state (highlights) declaratively
 //! Add search bar
 //! Add modal to select campus and course
-//! Subject colors will be assigned randonly based on an hashing function;
 
 /**OTHER DAY: */
 //! Add subject & class information on scheduler classObject modal

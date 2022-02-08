@@ -67,28 +67,13 @@ const ScheduleClassCell = ({
         )}
         style={
           color &&
-          (darkMode
-            ? {
-                backgroundColor: color[500],
-              }
-            : {
-                backgroundColor: color[200],
-              })
+          (darkMode ? { backgroundColor: color[600] } : { backgroundColor: color[200] })
         }
       >
         {!sameClass.above && (
           <div
             className="font-bold z-10 relative text-left break-all"
-            style={
-              color &&
-              (darkMode
-                ? {
-                    color: color[200],
-                  }
-                : {
-                    color: color[800],
-                  })
-            }
+            style={color && (darkMode ? { color: color[200] } : { color: color[800] })}
           >
             {classObject.subjectName}
           </div>
