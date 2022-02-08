@@ -12,7 +12,9 @@ import classNames from 'clsx';
 //! Add search bar
 //! Add modal to select campus and course
 //! Subject colors will be assigned randonly based on an hashing function;
-//! Add ability to remove classes on the scheduler
+
+/**OTHER DAY: */
+//! Add subject & class information on scheduler classObject modal
 
 const Home: NextPage = () => {
   const { direction, selectedClasses } = useContext(SettingsContext);

@@ -117,7 +117,7 @@ export const selectGroup = (
       try {
         newValue[`${shiftCode}${numberCode}`].days[dayCode] = classObject;
       } catch (error) {
-        //! Something went pretty wrong. probs malformed data
+        if (process.env.NODE_ENV === 'development') console.error(error);
         return;
       }
     });
@@ -154,7 +154,7 @@ export const unselectGroup = (
       try {
         newValue[`${shiftCode}${numberCode}`].days[dayCode] = null;
       } catch (error) {
-        //! Something went pretty wrong. probs malformed data
+        if (process.env.NODE_ENV === 'development') console.error(error);
         return;
       }
     });

@@ -4,6 +4,7 @@ import { useTimeCodes } from '@lib/hooks';
 import { SettingsContext } from '@lib/context';
 import useTailwindColors from '@lib/hooks/useTailwindColors';
 import { getSubjectType } from '@lib/utils/schedule';
+import useColor from '@lib/hooks/useColor';
 
 type Props = {
   classObject: ClassObject;
@@ -20,12 +21,7 @@ const ScheduleClassCell = ({
   const { schedule, darkMode } = useContext(SettingsContext);
   const timeCodes = useTimeCodes();
   const [sameClass, setSameClass] = useState({ above: false, below: false });
-  const tailwindColors = useTailwindColors();
-  const { label, colorName } = getSubjectType({
-    code: classObject.subjectCode,
-    classes: { [classObject.code]: classObject },
-  });
-  const color = tailwindColors?.[colorName as keyof typeof tailwindColors];
+  const [color] = useColor(classObject.subjectCode);
 
   useEffect(() => {
     if (!schedule) return;

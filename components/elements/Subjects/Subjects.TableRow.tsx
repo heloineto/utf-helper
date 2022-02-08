@@ -6,7 +6,8 @@ import SubjectsTableData from './Subjects.TableData';
 import classNames from 'clsx';
 import ActionDialog from '@components/modals/ActionDialog';
 import { IconButton, Tooltip } from '@mui/material';
-import { TrashIcon, XIcon } from '@heroicons/react/outline';
+import { TrashIcon } from '@heroicons/react/outline';
+import useColor from '@lib/hooks/useColor';
 
 type Props = {
   classObject: ClassObject;
@@ -18,6 +19,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
     useContext(SettingsContext);
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
   const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);
+  const [color] = useColor(classObject.subjectCode);
 
   const selected = !!selectedClasses?.[subject.code]?.[classObject.code];
 
@@ -128,7 +130,22 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
               return (
                 <div
                   key={subjectCode + code}
-                  className="bg-indigo-100 text-indigo-700 gap-x-1 pl-4 pr-2 py-1 max-w-max rounded-full flex items-center text-sm font-medium"
+                  className="gap-x-1 pl-4 pr-2 py-1 max-w-max rounded-full flex items-center text-sm font-medium"
+                  style={
+                    color &&
+                    (darkMode
+                      ? {
+                          backgroundColor: color[600],
+                          color: color[200],
+                        }
+                      : {
+                          borderWidth: '1px',
+                          borderStyle: 'solid',
+                          borderColor: color[500],
+                          backgroundColor: color[100],
+                          color: color[500],
+                        })
+                  }
                 >
                   <div className="w-full">
                     {code} - {subjectName} ({dayTimeCodes.join(', ')})
@@ -136,7 +153,10 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
                   {/* /! Add remove functionality afterwards */}
                   <Tooltip title={`Remover ${code} - ${subjectName}`} arrow>
                     <IconButton
-                      className="text-indigo-400 hover:bg-indigo-200"
+                      style={
+                        color &&
+                        (darkMode ? { color: color[200] } : { color: color[500] })
+                      }
                       onClick={() => {
                         if (!setSelectedClasses || !setSchedule || !selectedClasses)
                           return;
@@ -203,7 +223,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
           },
           {
             className:
-              'w-full border-sky-500 text-sky-500 bg-sky-100 hover:bg-sky-200 hover:border-sky-600 dark:bg-sky-600 dark:text-sky-200 dark:hover:bg-sky-700 dark:border-transparent',
+              'w-full border-slate-500 !text-slate-500 bg-slate-100 hover:bg-slate-200 hover:border-slate-600 dark:bg-slate-600 dark:!text-slate-200 dark:hover:bg-slate-700 dark:border-transparent',
             variant: 'outlined',
             label: 'Cancelar',
             onClick: () => {

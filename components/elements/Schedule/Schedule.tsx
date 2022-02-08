@@ -8,6 +8,7 @@ type Props = {};
 const Schedule = ({}: Props) => {
   const { schedule } = useContext(SettingsContext);
   const [selectedClass, setSelectedClass] = useState<ClassObject | null>(null);
+  const [classDialogOpen, setClassDialogOpen] = useState(false);
 
   return (
     <>
@@ -61,7 +62,10 @@ const Schedule = ({}: Props) => {
                           classObject={classObject}
                           timeCode={timeCode}
                           dayCode={dayCode}
-                          onClick={() => setSelectedClass(classObject)}
+                          onClick={() => {
+                            setSelectedClass(classObject);
+                            setClassDialogOpen(true);
+                          }}
                         />
                       )}
                     </td>
@@ -72,8 +76,8 @@ const Schedule = ({}: Props) => {
         </tbody>
       </table>
       <ScheduleClassDialog
-        open={!!selectedClass}
-        onClose={() => setSelectedClass(null)}
+        open={classDialogOpen}
+        onClose={() => setClassDialogOpen(false)}
         classObject={selectedClass}
       />
     </>
