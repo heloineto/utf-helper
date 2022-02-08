@@ -5,7 +5,7 @@ import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
 import classNames from 'clsx';
 import ActionDialog from '@components/modals/ActionDialog';
-import { IconButton } from '@mui/material';
+import { IconButton, Tooltip } from '@mui/material';
 import { TrashIcon, XIcon } from '@heroicons/react/outline';
 
 type Props = {
@@ -17,7 +17,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
   const { selectedClasses, setSelectedClasses, setSchedule, darkMode } =
     useContext(SettingsContext);
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
-  // const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);
+  const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);
 
   const selected = !!selectedClasses?.[subject.code]?.[classObject.code];
 
@@ -47,6 +47,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
 
           if (conflictsFound) {
             setConflicts(conflictsFound);
+            setConflictsDialogOpen(true);
           }
 
           highlightGroup(
@@ -104,8 +105,8 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
       </tr>
       <ActionDialog
         variant="warning"
-        open={!!conflicts}
-        onClose={() => setConflicts(null)}
+        open={!!conflictsDialogOpen}
+        onClose={() => setConflictsDialogOpen(false)}
         title={
           <div className="my-4">
             <div>
@@ -120,8 +121,8 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
           </div>
         }
         subtitle={
-          <div className="w-full flex flex-col justify-center items-center">
-            {conflicts?.map(({ withClass, dayTimeCodes }) => {
+          <div className="w-full flex flex-col gap-y-2 justify-center items-center">
+            {conflicts?.map(({ withClass, dayTimeCodes }, index) => {
               const { code, subjectCode, subjectName } = withClass;
 
               return (
@@ -133,9 +134,35 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
                     {code} - {subjectName} ({dayTimeCodes.join(', ')})
                   </div>
                   {/* /! Add remove functionality afterwards */}
-                  <IconButton className="text-indigo-400 hover:bg-indigo-200">
-                    <TrashIcon className="h-[1.1rem] w-auto" />
-                  </IconButton>
+                  <Tooltip title={`Remover ${code} - ${subjectName}`} arrow>
+                    <IconButton
+                      className="text-indigo-400 hover:bg-indigo-200"
+                      onClick={() => {
+                        if (!setSelectedClasses || !setSchedule || !selectedClasses)
+                          return;
+
+                        unselectGroup(
+                          setSelectedClasses,
+                          setSchedule,
+                          withClass,
+                          selectedClasses
+                        );
+
+                        setConflicts((value) => {
+                          if (value === null) return null;
+
+                          const newValue = [...value];
+                          newValue.splice(index, 1);
+
+                          if (!newValue.length) setConflictsDialogOpen(false);
+
+                          return newValue;
+                        });
+                      }}
+                    >
+                      <TrashIcon className="h-[1.1rem] w-auto" />
+                    </IconButton>
+                  </Tooltip>
                 </div>
               );
             })}
@@ -144,10 +171,44 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
         actionButtons={[
           {
             className:
+              'w-full border-red-500 text-red-500 bg-red-100 hover:bg-red-200 hover:border-red-600 dark:bg-red-600 dark:text-red-200 dark:hover:bg-red-700 dark:border-transparent',
+            variant: 'outlined',
+            label: `Remover esses conflitos e adiconar`,
+            onClick: () => {
+              if (!setSelectedClasses || !setSchedule || !selectedClasses) return;
+
+              conflicts?.forEach(({ withClass }) => {
+                unselectGroup(
+                  setSelectedClasses,
+                  setSchedule,
+                  withClass,
+                  selectedClasses
+                );
+              });
+
+              const conflictsFound = selectGroup(
+                setSelectedClasses,
+                setSchedule,
+                classObject,
+                selectedClasses
+              );
+
+              if (conflictsFound) {
+                setConflicts(conflictsFound);
+                setConflictsDialogOpen(true);
+              }
+
+              setConflictsDialogOpen(false);
+            },
+          },
+          {
+            className:
               'w-full border-sky-500 text-sky-500 bg-sky-100 hover:bg-sky-200 hover:border-sky-600 dark:bg-sky-600 dark:text-sky-200 dark:hover:bg-sky-700 dark:border-transparent',
             variant: 'outlined',
-            label: 'Ok',
-            onClick: () => setConflicts(null),
+            label: 'Cancelar',
+            onClick: () => {
+              setConflictsDialogOpen(false);
+            },
           },
         ]}
       />
