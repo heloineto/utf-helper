@@ -31,7 +31,7 @@ const useColor = (str: string) => {
     'rose',
   ];
 
-  const colorName = tailwindColorsNames[hash(str) % tailwindColorsNames.length];
+  const colorName = tailwindColorsNames[Math.abs(hash(str) % tailwindColorsNames.length)];
   const color = tailwindColors[colorName as keyof typeof tailwindColors];
 
   return [color, colorName] as [typeof color, typeof colorName];
