@@ -8,6 +8,7 @@ import ActionDialog from '@components/modals/ActionDialog';
 import { IconButton, Tooltip } from '@mui/material';
 import { TrashIcon } from '@heroicons/react/outline';
 import useColor from '@lib/hooks/useColor';
+import ConflictBadge from './ConflictBadge';
 
 type Props = {
   classObject: ClassObject;
@@ -19,7 +20,6 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
     useContext(SettingsContext);
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
   const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);
-  const [color] = useColor(classObject.subjectCode);
 
   const selected = !!selectedClasses?.[subject.code]?.[classObject.code];
 
@@ -124,68 +124,34 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
         }
         subtitle={
           <div className="w-full flex flex-col gap-y-2 justify-center items-center">
-            {conflicts?.map(({ withClass, dayTimeCodes }, index) => {
-              const { code, subjectCode, subjectName } = withClass;
+            {conflicts?.map(({ withClass, dayTimeCodes }, index) => (
+              <ConflictBadge
+                key={withClass.subjectCode + withClass.code}
+                classObject={withClass}
+                dayTimeCodes={dayTimeCodes}
+                onRemove={() => {
+                  if (!setSelectedClasses || !setSchedule || !selectedClasses) return;
 
-              return (
-                <div
-                  key={subjectCode + code}
-                  className="gap-x-1 pl-4 pr-2 py-1 max-w-max rounded-full flex items-center text-sm font-medium"
-                  style={
-                    color &&
-                    (darkMode
-                      ? {
-                          backgroundColor: color[600],
-                          color: color[200],
-                        }
-                      : {
-                          borderWidth: '1px',
-                          borderStyle: 'solid',
-                          borderColor: color[500],
-                          backgroundColor: color[100],
-                          color: color[500],
-                        })
-                  }
-                >
-                  <div className="w-full">
-                    {code} - {subjectName} ({dayTimeCodes.join(', ')})
-                  </div>
-                  {/* /! Add remove functionality afterwards */}
-                  <Tooltip title={`Remover ${code} - ${subjectName}`} arrow>
-                    <IconButton
-                      style={
-                        color &&
-                        (darkMode ? { color: color[200] } : { color: color[500] })
-                      }
-                      onClick={() => {
-                        if (!setSelectedClasses || !setSchedule || !selectedClasses)
-                          return;
+                  unselectGroup(
+                    setSelectedClasses,
+                    setSchedule,
+                    classObject,
+                    selectedClasses
+                  );
 
-                        unselectGroup(
-                          setSelectedClasses,
-                          setSchedule,
-                          withClass,
-                          selectedClasses
-                        );
+                  setConflicts((value) => {
+                    if (value === null) return null;
 
-                        setConflicts((value) => {
-                          if (value === null) return null;
+                    const newValue = [...value];
+                    newValue.splice(index, 1);
 
-                          const newValue = [...value];
-                          newValue.splice(index, 1);
+                    if (!newValue.length) setConflictsDialogOpen(false);
 
-                          if (!newValue.length) setConflictsDialogOpen(false);
-
-                          return newValue;
-                        });
-                      }}
-                    >
-                      <TrashIcon className="h-[1.1rem] w-auto" />
-                    </IconButton>
-                  </Tooltip>
-                </div>
-              );
-            })}
+                    return newValue;
+                  });
+                }}
+              />
+            ))}
           </div>
         }
         actionButtons={[
