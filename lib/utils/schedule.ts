@@ -167,7 +167,7 @@ export const getConflicts = (
   selectedClasses: SelectedClasses,
   classObject: ClassObject
 ) => {
-  let conflicts: Conflict[] = [];
+  const conflicts: Conflict[] = [];
 
   Object.values(selectedClasses).forEach((selectedClass) => {
     if (!selectedClass) return;
@@ -175,7 +175,7 @@ export const getConflicts = (
     Object.values(selectedClass).forEach((currClassObject) => {
       if (!currClassObject) return;
 
-      let conflictTimes: string[] = [];
+      const conflictTimes: string[] = [];
 
       currClassObject.schedule.forEach(({ dayTimeCode: currDayTimeCode }) => {
         classObject.schedule.forEach(({ dayTimeCode }) => {

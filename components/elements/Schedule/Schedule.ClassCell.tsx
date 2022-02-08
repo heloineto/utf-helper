@@ -2,8 +2,6 @@ import { useContext, useEffect, useState } from 'react';
 import classNames from 'clsx';
 import { useTimeCodes } from '@lib/hooks';
 import { SettingsContext } from '@lib/context';
-import useTailwindColors from '@lib/hooks/useTailwindColors';
-import { getSubjectType } from '@lib/utils/schedule';
 import useColor from '@lib/hooks/useColor';
 
 type Props = {

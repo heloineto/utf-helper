@@ -5,9 +5,6 @@ import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
 import classNames from 'clsx';
 import ActionDialog from '@components/modals/ActionDialog';
-import { IconButton, Tooltip } from '@mui/material';
-import { TrashIcon } from '@heroicons/react/outline';
-import useColor from '@lib/hooks/useColor';
 import ConflictBadge from './ConflictBadge';
 
 type Props = {
@@ -135,7 +132,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
                   unselectGroup(
                     setSelectedClasses,
                     setSchedule,
-                    classObject,
+                    withClass,
                     selectedClasses
                   );
 
@@ -160,24 +157,30 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
               'w-full border-red-500 text-red-500 bg-red-100 hover:bg-red-200 hover:border-red-600 dark:bg-red-600 dark:text-red-200 dark:hover:bg-red-700 dark:border-transparent',
             variant: 'outlined',
             label: `Remover esses conflitos e adiconar`,
-            onClick: () => {
-              if (!setSelectedClasses || !setSchedule || !selectedClasses) return;
+            onClick: async () => {
+              if (!setSelectedClasses || !setSchedule || !selectedClasses || !conflicts)
+                return;
 
-              conflicts?.forEach(({ withClass }) => {
-                unselectGroup(
+              /**
+               * await here is necessary because of how setState works
+               */
+              for (const { withClass } of conflicts) {
+                await unselectGroup(
                   setSelectedClasses,
                   setSchedule,
                   withClass,
                   selectedClasses
                 );
-              });
+              }
 
-              const conflictsFound = selectGroup(
+              const conflictsFound = await selectGroup(
                 setSelectedClasses,
                 setSchedule,
                 classObject,
                 selectedClasses
               );
+
+              console.log(conflictsFound);
 
               if (conflictsFound) {
                 setConflicts(conflictsFound);

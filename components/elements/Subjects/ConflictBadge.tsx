@@ -1,10 +1,5 @@
 import { SettingsContext } from '@lib/context';
-import { highlightGroup, selectGroup, unselectGroup } from '@lib/utils/schedule';
-import { useContext, useState } from 'react';
-import SubjectsDayTimeCell from './Subjects.DayTimeCell';
-import SubjectsTableData from './Subjects.TableData';
-import classNames from 'clsx';
-import ActionDialog from '@components/modals/ActionDialog';
+import { useContext } from 'react';
 import { IconButton, Tooltip } from '@mui/material';
 import { TrashIcon } from '@heroicons/react/outline';
 import useColor from '@lib/hooks/useColor';
@@ -18,8 +13,7 @@ type Props = {
 const ConflictBadge = ({ classObject, dayTimeCodes, onRemove }: Props) => {
   const { code, subjectCode, subjectName } = classObject;
   const [color] = useColor(subjectCode);
-  const { darkMode, setSelectedClasses, setSchedule, selectedClasses } =
-    useContext(SettingsContext);
+  const { darkMode } = useContext(SettingsContext);
 
   return (
     <div
@@ -43,7 +37,6 @@ const ConflictBadge = ({ classObject, dayTimeCodes, onRemove }: Props) => {
       <div className="w-full">
         {code} - {subjectName} ({dayTimeCodes.join(', ')})
       </div>
-      {/* /! Add remove functionality afterwards */}
       <Tooltip title={`Remover ${code} - ${subjectName}`} arrow>
         <IconButton
           style={color && (darkMode ? { color: color[200] } : { color: color[500] })}

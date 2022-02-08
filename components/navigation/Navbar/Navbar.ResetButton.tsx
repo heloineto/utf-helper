@@ -33,7 +33,7 @@ const NavbarResetButton = (props: Props) => {
             label: 'Limpar',
             onClick: () => {
               setSelectedClasses?.({});
-              setSchedule?.(scheduleInitialValue);
+              setSchedule?.({ ...scheduleInitialValue });
               setResetDialogOpen(false);
             },
           },

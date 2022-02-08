@@ -1,5 +1,4 @@
 import { useSubjects } from '@lib/hooks';
-import SubjectsBadge from './Subjects.Badge';
 import SubjectsTableHeader from './Subjects.TableHeader';
 import SubjectsTableRow from './Subjects.TableRow';
 
