@@ -11,9 +11,10 @@ import classNames from 'clsx';
 //! Update Schedule state (highlights) declaratively
 //! Add search bar
 //! Add modal to select campus and course
-
-/**OTHER DAY: */
 //! Add subject & class information on scheduler classObject modal
+//! Resize button shouldn't retract unless done resizing
+//! Create scrapper to scrape data from portal do aluno (puppeteer) or get them from grade na hora
+//! Add firebase to handle requests for subjects list, since it's a lot of data to store in a variable
 
 const Home: NextPage = () => {
   const { direction, selectedClasses } = useContext(SettingsContext);

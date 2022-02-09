@@ -26,6 +26,7 @@ export default function MyApp(props: MyAppProps) {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
+        <title>UTF Helper</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
       <NoAutoCompleteBackground />
