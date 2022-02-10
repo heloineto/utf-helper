@@ -9,7 +9,7 @@ type Props = { subject: Subject };
 
 const SubjectsBadge = ({ subject, className }: Props & ComponentProps<'span'>) => {
   const { darkMode } = useContext(SettingsContext);
-  const color = useColor(subject.code);
+  const [color] = useColor(subject.code);
 
   return (
     <span
