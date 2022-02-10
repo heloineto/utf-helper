@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useDarkMode, useLocalStorage } from 'usehooks-ts';
+import { useDarkMode, useLocalStorage, useWindowSize } from 'usehooks-ts';
 
 const useSettings = () => {
+  const { width, height } = useWindowSize();
   const { isDarkMode: darkMode, toggle: toggleDarkMode } = useDarkMode(true);
-  const [direction, setDirection] = useLocalStorage<Direction>('direction', 'vertical');
+  const [direction, setDirection] = useLocalStorage<Direction>(
+    'direction',
+    width > height ? 'horizontal' : 'vertical'
+  );
 
   useEffect(() => {
     if (darkMode) {
