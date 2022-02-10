@@ -1,4 +1,4 @@
-import { SettingsContext, UserDataContext } from '@lib/context';
+import { UserDataContext } from '@lib/context';
 import { unselectGroup } from '@lib/utils/schedule';
 import { Button, Dialog, DialogProps } from '@mui/material';
 import { useContext } from 'react';

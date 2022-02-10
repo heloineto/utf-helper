@@ -1,4 +1,4 @@
-import { SettingsContext, UserDataContext } from '@lib/context';
+import { UserDataContext } from '@lib/context';
 import { useContext, useState } from 'react';
 import ScheduleClassCell from './Schedule.ClassCell';
 import ScheduleClassDialog from './Schedule.ClassObjectModal';

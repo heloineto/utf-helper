@@ -1,5 +1,5 @@
 import { TrashIcon } from '@heroicons/react/outline';
-import { SettingsContext, UserDataContext } from '@lib/context';
+import { UserDataContext } from '@lib/context';
 import { IconButton, Tooltip } from '@mui/material';
 import { useContext, useState } from 'react';
 import ActionDialog from '@components/modals/ActionDialog';

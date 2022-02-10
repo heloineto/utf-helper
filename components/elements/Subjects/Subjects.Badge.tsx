@@ -1,9 +1,7 @@
 import { SettingsContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
-import { getSubjectType } from '@lib/utils/schedule';
 import classNames from 'clsx';
 import { useContext } from 'react';
-import { TailwindThemeColors } from 'tailwindcss/tailwind-config';
 
 type Props = { subject: Subject };
 

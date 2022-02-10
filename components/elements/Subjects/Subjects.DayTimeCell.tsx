@@ -1,4 +1,4 @@
-import { SettingsContext, UserDataContext } from '@lib/context';
+import { SettingsContext } from '@lib/context';
 import { useContext } from 'react';
 import classNames from 'clsx';
 import { highlightCell } from '@lib/utils/schedule';
