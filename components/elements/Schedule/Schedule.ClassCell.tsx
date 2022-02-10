@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import classNames from 'clsx';
 import { useTimeCodes } from '@lib/hooks';
 import { SettingsContext, UserDataContext } from '@lib/context';
-import useColor from '@lib/hooks/useColor';
+import { useColor } from '@lib/hooks';
 
 type Props = {
   classObject: ClassObject;

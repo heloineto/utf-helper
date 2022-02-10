@@ -1,5 +1,5 @@
 import { SettingsContext } from '@lib/context';
-import useTailwindColors from '@lib/hooks/useTailwindColors';
+import { useColor } from '@lib/hooks';
 import { getSubjectType } from '@lib/utils/schedule';
 import classNames from 'clsx';
 import { useContext } from 'react';
@@ -9,9 +9,7 @@ type Props = { subject: Subject };
 
 const SubjectsBadge = ({ subject, className }: Props & ComponentProps<'span'>) => {
   const { darkMode } = useContext(SettingsContext);
-  const tailwindColors = useTailwindColors();
-  const { label, colorName } = getSubjectType(subject);
-  const color = tailwindColors?.[colorName as keyof TailwindThemeColors];
+  const color = useColor(subject.code);
 
   return (
     <span
@@ -35,7 +33,7 @@ const SubjectsBadge = ({ subject, className }: Props & ComponentProps<'span'>) =
             })
       }
     >
-      {label}
+      {/* {label} */}
     </span>
   );
 };

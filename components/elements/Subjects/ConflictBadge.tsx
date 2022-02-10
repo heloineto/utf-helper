@@ -2,7 +2,7 @@ import { SettingsContext } from '@lib/context';
 import { useContext } from 'react';
 import { IconButton, Tooltip } from '@mui/material';
 import { TrashIcon } from '@heroicons/react/outline';
-import useColor from '@lib/hooks/useColor';
+import { useColor } from '@lib/hooks';
 
 type Props = {
   classObject: ClassObject;
