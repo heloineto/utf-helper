@@ -94,7 +94,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
           ))}
         </SubjectsTableData>
         <SubjectsTableData className="whitespace-pre-line">
-          {classObject.professor}
+          {classObject.teacher}
         </SubjectsTableData>
         <SubjectsTableData className="text-slate-500 font-normal text-center">
           {classObject.vacanciesTotal}

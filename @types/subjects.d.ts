@@ -15,7 +15,7 @@ type ClassObject = {
     dayTimeCode: string;
     locationCode: string;
   }[];
-  professor: string;
+  teacher: string;
   optional: string;
   subjectCode: string;
   code: string;
