@@ -1,12 +1,30 @@
 import classNames from 'clsx';
 import { GitHubIcon } from '@components/decoration/icons/outlined';
-import { IconButton, Tooltip } from '@mui/material';
+import { Autocomplete, IconButton, TextField, Tooltip } from '@mui/material';
 import { PrinterIcon } from '@heroicons/react/outline';
 import NavbarThemeSwitch from './Navbar.ThemeSwitch';
 import NavbarDirectionButton from './Navbar.DirectionButton';
 import NavbarResetButton from './Navbar.ResetButton';
+import { ChevronRightIcon } from '@heroicons/react/solid';
+import NavbarContributeButton from './Navbar.ContributeButton';
 
 interface Props {}
+
+// [
+//   { label: 'Curitiba', value: 'curitiba' },
+//   { label: 'Cornélio Procópio', value: 'cornelioProcopio' },
+//   { label: 'Campo Mourão', value: 'campoMourao' },
+//   { label: 'Medianeira', value: 'medianeira' },
+//   { label: 'Pato Branco', value: 'patoBranco' },
+//   { label: 'Ponta Grossa', value: 'pontaGrossa' },
+//   { label: 'Dois Vizinhos', value: 'doisVizinhos' },
+//   { label: 'Londrina', value: 'londrina' },
+//   { label: 'Toledo', value: 'toledo' },
+//   { label: 'Apucarana', value: 'apucarana' },
+//   { label: 'Francisco Beltrão', value: 'franciscoBeltrao' },
+//   { label: 'Guarapuava', value: 'guarapuava' },
+//   { label: 'Santa Helena', value: 'santaHelena' },
+// ];
 
 const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
   return (
@@ -17,39 +35,45 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
       )}
     >
       <div className="h-full flex items-center">
-        <a
-          className="text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20"
-          target="_blank"
-          href="https://github.com/heloineto/utf-helper"
-          rel="noreferrer"
-        >
-          <GitHubIcon className="h-4 w-auto" />
-          <svg
-            width="2"
-            height="2"
-            fill="currentColor"
-            aria-hidden="true"
-            className="ml-2 text-sky-600 dark:text-sky-400/70"
-          >
-            <circle cx="1" cy="1" r="1"></circle>
-          </svg>
-          <span className="ml-2">Contribua para o projeto no Github!</span>
-          <svg
-            width="3"
-            height="6"
-            className="ml-3 overflow-visible text-sky-300 dark:text-sky-400"
-            aria-hidden="true"
-          >
-            <path
-              d="M0 0L3 3L0 6"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </a>
+        <NavbarContributeButton />
+      </div>
+      <div className="h-full w-80 flex items-center">
+        <Autocomplete
+          // className="w-full"
+          openOnFocus
+          fullWidth
+          classes={{
+            // popper: 'bg-red-500',
+            // fullWidth
+            root: 'text-white',
+            inputRoot: 'dark:bg-slate-600 !border-0',
+            endAdornment: 'text-white',
+            groupLabel: 'bg-red-500',
+            // inputFocused: 'bg-red-500',
+            //
+            clearIndicator: 'dark:text-slate-50',
+            popupIndicator: 'dark:text-slate-50',
+            input: 'dark:text-slate-50',
+            paper: 'dark:bg-slate-800 dark:border dark:border-slate-700 text-slate-100',
+          }}
+          size="small"
+          renderInput={(params) => <TextField {...params} label="Câmpus" />}
+          options={[
+            { label: 'Curitiba', value: 'curitiba' },
+            { label: 'Cornélio Procópio', value: 'cornelioProcopio' },
+            { label: 'Campo Mourão', value: 'campoMourao' },
+            { label: 'Medianeira', value: 'medianeira' },
+            { label: 'Pato Branco', value: 'patoBranco' },
+            { label: 'Ponta Grossa', value: 'pontaGrossa' },
+            { label: 'Dois Vizinhos', value: 'doisVizinhos' },
+            { label: 'Londrina', value: 'londrina' },
+            { label: 'Toledo', value: 'toledo' },
+            { label: 'Apucarana', value: 'apucarana' },
+            { label: 'Francisco Beltrão', value: 'franciscoBeltrao' },
+            { label: 'Guarapuava', value: 'guarapuava' },
+            { label: 'Santa Helena', value: 'santaHelena' },
+          ]}
+        />
       </div>
       <div className="h-full flex items-center gap-x-1">
         <NavbarThemeSwitch />

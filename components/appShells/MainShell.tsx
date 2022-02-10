@@ -20,6 +20,8 @@ const MainShell = ({ children }: Props) => {
     <div className="h-screen flex flex-col">
       <Navbar className="flex-shrink-0" />
       <main className="h-[calc(100%-3.5rem)]">{children}</main>
+      {/* 
+      //!
       <CampusAndCourseDialog
         open={dialogOpen}
         onClose={() => {
@@ -28,7 +30,7 @@ const MainShell = ({ children }: Props) => {
         }}
         campus={campus}
         course={course}
-      />
+      /> */}
     </div>
   );
 };
