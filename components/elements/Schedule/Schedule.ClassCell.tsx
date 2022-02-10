@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import classNames from 'clsx';
 import { useTimeCodes } from '@lib/hooks';
-import { SettingsContext } from '@lib/context';
+import { SettingsContext, UserDataContext } from '@lib/context';
 import useColor from '@lib/hooks/useColor';
 
 type Props = {
@@ -16,7 +16,8 @@ const ScheduleClassCell = ({
   dayCode,
   ...divProps
 }: Props & ComponentProps<'div'>) => {
-  const { schedule, darkMode } = useContext(SettingsContext);
+  const { darkMode } = useContext(SettingsContext);
+  const { schedule } = useContext(UserDataContext);
   const timeCodes = useTimeCodes();
   const [sameClass, setSameClass] = useState({ above: false, below: false });
   const [color] = useColor(classObject.subjectCode);

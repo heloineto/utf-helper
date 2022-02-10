@@ -1,5 +1,5 @@
 import { TrashIcon } from '@heroicons/react/outline';
-import { SettingsContext } from '@lib/context';
+import { SettingsContext, UserDataContext } from '@lib/context';
 import { IconButton, Tooltip } from '@mui/material';
 import { useContext, useState } from 'react';
 import ActionDialog from '@components/modals/ActionDialog';
@@ -7,7 +7,7 @@ import ActionDialog from '@components/modals/ActionDialog';
 type Props = {};
 
 const NavbarResetButton = (props: Props) => {
-  const { setSchedule, setSelectedClasses } = useContext(SettingsContext);
+  const { setSchedule, setSelectedClasses } = useContext(UserDataContext);
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
 
   return (

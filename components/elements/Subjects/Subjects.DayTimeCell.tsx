@@ -1,4 +1,4 @@
-import { SettingsContext } from '@lib/context';
+import { SettingsContext, UserDataContext } from '@lib/context';
 import { useContext } from 'react';
 import classNames from 'clsx';
 import { highlightCell } from '@lib/utils/schedule';
@@ -15,7 +15,7 @@ const SubjectsDayTimeCell = ({
   className,
   selected,
 }: Props & ComponentProps<'div'>) => {
-  const { schedule, setSchedule, darkMode } = useContext(SettingsContext);
+  const { darkMode } = useContext(SettingsContext);
 
   return (
     <div className={classNames(className, 'inline-block w-12 p-0.5')}>

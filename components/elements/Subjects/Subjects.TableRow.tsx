@@ -1,4 +1,4 @@
-import { SettingsContext } from '@lib/context';
+import { SettingsContext, UserDataContext } from '@lib/context';
 import { highlightGroup, selectGroup, unselectGroup } from '@lib/utils/schedule';
 import { useContext, useState } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
@@ -13,8 +13,9 @@ type Props = {
 };
 
 const SubjectsTableRow = ({ classObject, subject }: Props) => {
-  const { selectedClasses, setSelectedClasses, setSchedule, darkMode } =
-    useContext(SettingsContext);
+  const { darkMode } = useContext(SettingsContext);
+  const { selectedClasses, setSelectedClasses, setSchedule } =
+    useContext(UserDataContext);
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
   const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);
 

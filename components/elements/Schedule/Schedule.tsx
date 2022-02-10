@@ -1,4 +1,4 @@
-import { SettingsContext } from '@lib/context';
+import { SettingsContext, UserDataContext } from '@lib/context';
 import { useContext, useState } from 'react';
 import ScheduleClassCell from './Schedule.ClassCell';
 import ScheduleClassDialog from './Schedule.ClassObjectModal';
@@ -6,7 +6,7 @@ import ScheduleClassDialog from './Schedule.ClassObjectModal';
 type Props = {};
 
 const Schedule = ({}: Props) => {
-  const { schedule } = useContext(SettingsContext);
+  const { schedule } = useContext(UserDataContext);
   const [selectedClass, setSelectedClass] = useState<ClassObject | null>(null);
   const [classDialogOpen, setClassDialogOpen] = useState(false);
 

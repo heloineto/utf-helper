@@ -1,4 +1,4 @@
-import { SettingsContext } from '@lib/context';
+import { SettingsContext, UserDataContext } from '@lib/context';
 import { unselectGroup } from '@lib/utils/schedule';
 import { Button, Dialog, DialogProps } from '@mui/material';
 import { useContext } from 'react';
@@ -15,7 +15,7 @@ const ScheduleClassDialog = ({
   ...dialogProps
 }: Props & Omit<DialogProps, keyof Props>) => {
   const { setSelectedClasses, setSchedule, selectedClasses } =
-    useContext(SettingsContext);
+    useContext(UserDataContext);
 
   return (
     <Dialog

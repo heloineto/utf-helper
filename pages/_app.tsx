@@ -9,8 +9,8 @@ import theme from '../lib/theme';
 import createEmotionCache from '../lib/createEmotionCache';
 import NoAutoCompleteBackground from '@components/styledJsx/NoAutoCompleteBackground';
 import CustomScrollBar from '@components/styledJsx/CustomScrollBar';
-import { SettingsContext } from '@lib/context';
-import { useSettings } from '@lib/hooks';
+import { SettingsContext, UserDataContext } from '@lib/context';
+import { useSettings, useUserData } from '@lib/hooks';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -22,6 +22,7 @@ interface MyAppProps extends AppProps {
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const settings = useSettings();
+  const userData = useUserData();
 
   return (
     <CacheProvider value={emotionCache}>
@@ -35,7 +36,9 @@ export default function MyApp(props: MyAppProps) {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <SettingsContext.Provider value={settings}>
-          <Component {...pageProps} />
+          <UserDataContext.Provider value={userData}>
+            <Component {...pageProps} />
+          </UserDataContext.Provider>
         </SettingsContext.Provider>
       </ThemeProvider>
     </CacheProvider>

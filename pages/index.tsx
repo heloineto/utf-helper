@@ -2,7 +2,7 @@ import MainShell from '@components/appShells/MainShell';
 import Divider from '@components/elements/Resizer';
 import Schedule from '@components/elements/Schedule';
 import Table from '@components/elements/Subjects';
-import { SettingsContext, UserDataContext } from '@lib/context';
+import { SettingsContext } from '@lib/context';
 import { useResize } from '@lib/hooks';
 import { useContext } from 'react';
 import classNames from 'clsx';
