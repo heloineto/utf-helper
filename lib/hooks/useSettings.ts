@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDarkMode, useLocalStorage, useWindowSize } from 'usehooks-ts';
+import { useDarkMode, useLocalStorage } from 'usehooks-ts';
 
 const useSettings = () => {
   const { isDarkMode: darkMode, toggle: toggleDarkMode } = useDarkMode(true);

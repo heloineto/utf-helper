@@ -1,8 +1,8 @@
 import { useLocalStorage } from 'usehooks-ts';
 
 const useUserData = () => {
-  const [campus, setCampus] = useLocalStorage('campus', null);
-  const [course, setCourse] = useLocalStorage('course', null);
+  const [campus, setCampus] = useLocalStorage<string | undefined>('campus', undefined);
+  const [course, setCourse] = useLocalStorage<string | undefined>('course', undefined);
   const [selectedClasses, setSelectedClasses] = useLocalStorage<SelectedClasses>(
     'selectedClasses',
     {}
