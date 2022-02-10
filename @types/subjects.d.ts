@@ -7,8 +7,12 @@ type Subject = {
 };
 
 type ClassObject = {
-  vacanciesTotal: string;
-  vacanciesFreshman: string;
+  subjectCode: string;
+  subjectName: string;
+  code: string;
+  framing: string | null;
+  vacanciesTotal: number;
+  vacanciesFreshman: number;
   reservationType: string;
   priorityMajors: string;
   schedule: {
@@ -17,7 +21,4 @@ type ClassObject = {
   }[];
   teacher: string;
   optional: string;
-  subjectCode: string;
-  code: string;
-  subjectName: string;
 };
