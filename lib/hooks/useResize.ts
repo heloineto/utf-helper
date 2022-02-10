@@ -60,7 +60,7 @@ const useResize = (direction: Direction = 'vertical') => {
     };
   }, [resizing, resize1Ref, resize2Ref, handleRef, direction]);
 
-  return { handleRef, resize1Ref, resize2Ref };
+  return { handleRef, resize1Ref, resize2Ref, resizing };
 };
 
 export default useResize;
