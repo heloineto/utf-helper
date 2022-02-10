@@ -6,6 +6,7 @@ import SubjectsTableData from './Subjects.TableData';
 import classNames from 'clsx';
 import ActionDialog from '@components/modals/ActionDialog';
 import ConflictBadge from './ConflictBadge';
+import { IconButton, Tooltip } from '@mui/material';
 
 type Props = {
   classObject: ClassObject;
@@ -96,8 +97,36 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
         <SubjectsTableData className="whitespace-pre-line">
           {classObject.teacher}
         </SubjectsTableData>
-        <SubjectsTableData className="text-slate-500 font-normal text-center">
+        {/* <SubjectsTableData className="text-slate-500 font-normal text-center">
           {classObject.vacanciesTotal}
+        </SubjectsTableData> */}
+        <SubjectsTableData className="text-slate-500 font-normal text-center">
+          {classObject.framing && (
+            <Tooltip
+              title={
+                classObject.framing === 'P'
+                  ? 'P - Turma 100% Presencial, conforme Resolução 123/2021 - COGEP'
+                  : classObject.framing === 'H'
+                  ? 'H - Turma híbrida, com atividades desenvolvidas de forma mista entre remoto e presencial conforme Resolução 123/2021-COGEP'
+                  : 'R - Turma 100% remota, conforme Resolução 123/2021 - COGEP'
+              }
+              arrow
+            >
+              <IconButton
+                className={classNames(
+                  classObject.framing === 'P' &&
+                    'bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-100 border-emerald-300 dark:border-emerald-800',
+                  classObject.framing === 'H' &&
+                    'bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-100 border-sky-300 dark:border-sky-800',
+                  classObject.framing === 'R' &&
+                    'bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-100 border-orange-300 dark:border-orange-800',
+                  'p-0 h-9 w-9 text-sm font-extrabold border-solid border'
+                )}
+              >
+                {classObject.framing}
+              </IconButton>
+            </Tooltip>
+          )}
         </SubjectsTableData>
         <SubjectsTableData className="text-right break-words w-80">
           {classObject.optional}

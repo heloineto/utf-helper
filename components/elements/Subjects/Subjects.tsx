@@ -28,8 +28,11 @@ const Subjects = (props: Props) => {
                   Horário &amp; Local
                 </SubjectsTableHeader>
                 <SubjectsTableHeader className="w-[20%]">Professor</SubjectsTableHeader>
-                <SubjectsTableHeader className="w-[5%] text-center">
+                {/* <SubjectsTableHeader className="w-[5%] text-center">
                   Vagas
+                </SubjectsTableHeader> */}
+                <SubjectsTableHeader className="w-[5%] text-center">
+                  Enquadramento
                 </SubjectsTableHeader>
                 <SubjectsTableHeader className="w-[20%] text-right">
                   Optativa
