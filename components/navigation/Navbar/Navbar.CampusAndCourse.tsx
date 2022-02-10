@@ -1,6 +1,5 @@
 import CustomAutocomplete from '@components/inputs/CustomAutocomplete';
 import { UserDataContext } from '@lib/context';
-import { Autocomplete, TextField } from '@mui/material';
 import { useContext } from 'react';
 
 type Props = {};

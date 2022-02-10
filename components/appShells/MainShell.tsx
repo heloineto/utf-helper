@@ -1,4 +1,3 @@
-import CampusAndCourseDialog from '@components/modals/CampusAndCourseDialog';
 import Navbar from '@components/navigation/Navbar';
 import { UserDataContext } from '@lib/context';
 import { useContext, useEffect, useState } from 'react';
