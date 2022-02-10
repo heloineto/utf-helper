@@ -1,5 +1,7 @@
 import CustomAutocomplete from '@components/inputs/CustomAutocomplete';
+import { UserDataContext } from '@lib/context';
 import { Autocomplete, TextField } from '@mui/material';
+import { useContext } from 'react';
 
 type Props = {};
 
@@ -20,6 +22,8 @@ const campuses = [
 ];
 
 const NavbarCampusAndCourse = (props: Props) => {
+  const { campus, setCampus, course, setCourse } = useContext(UserDataContext);
+
   return (
     <div className="flex w-full gap-x-2">
       <CustomAutocomplete
