@@ -5,33 +5,28 @@ type Props = {};
 const NavbarCampusAndCourse = (props: Props) => {
   return (
     <Autocomplete
-      // className="w-full"
       openOnFocus
       fullWidth
       classes={{
-        // popper: 'bg-red-500',
-        // fullWidth
-        root: 'text-white',
-        inputRoot: 'dark:bg-slate-600 !border-0',
-        endAdornment: 'text-white',
-        groupLabel: 'bg-red-500',
-        tag: '!bg-red-500 !text-red-500',
-        tagSizeSmall: '!bg-red-500 !text-red-500',
-        tagSizeMedium: '!bg-red-500 !text-red-500',
-        // popupIndicatorOpen: '!bg-red-500 !text-red-500',
-        // focused: '!bg-red-500 !text-red-500',
-        groupUl: '!bg-red-500 !text-red-500',
-        popperDisablePortal: '!bg-red-500 !text-red-500',
-        loading: '!bg-red-500 !text-red-500',
-        // inputFocused: 'bg-red-500',
-        //
+        inputRoot: 'dark:bg-slate-900',
         clearIndicator: 'dark:text-slate-50',
         popupIndicator: 'dark:text-slate-50',
         input: 'dark:text-slate-50',
-        paper: 'dark:bg-slate-800 dark:border dark:border-slate-700 text-slate-100',
+        paper: 'dark:bg-slate-800 dark:border dark:border-slate-700 dark:text-slate-100',
       }}
       size="small"
-      renderInput={(params) => <TextField {...params} label="Câmpus" />}
+      renderInput={({ InputLabelProps, InputProps, ...params }) => (
+        <TextField
+          InputLabelProps={{ ...InputLabelProps, className: 'dark:text-slate-400' }}
+          InputProps={{
+            ...InputProps,
+            classes: { notchedOutline: 'dark:border-slate-500' },
+          }}
+          variant="outlined"
+          label="Câmpus"
+          {...params}
+        />
+      )}
       options={[
         { label: 'Curitiba', value: 'curitiba' },
         { label: 'Cornélio Procópio', value: 'cornelioProcopio' },
