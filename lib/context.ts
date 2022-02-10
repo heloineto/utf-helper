@@ -1,15 +1,7 @@
-import { createContext, SetValue } from 'react';
+import { createContext } from 'react';
 
-export const SettingsContext = createContext<{
-  darkMode?: boolean;
-  toggleDarkMode?: () => void;
-  direction?: Direction;
-  setDirection?: SetValue<Direction>;
-}>({});
+import type { useSettings, useUserData } from './hooks';
 
-export const UserDataContext = createContext<{
-  selectedClasses?: SelectedClasses;
-  setSelectedClasses?: Dispatch<SetStateAction<SelectedClasses>>;
-  schedule?: ScheduleObject;
-  setSchedule?: Dispatch<SetStateAction<ScheduleObject>>;
-}>({});
+export const SettingsContext = createContext<Partial<ReturnType<typeof useSettings>>>({});
+
+export const UserDataContext = createContext<Partial<ReturnType<typeof useUserData>>>({});

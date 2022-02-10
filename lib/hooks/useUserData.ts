@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import { useLocalStorage } from 'usehooks-ts';
 
 const useUserData = () => {
-  const [selectedClasses, setSelectedClasses] = useState<SelectedClasses>({});
-  const [campus, setCampus] = useState(null);
-  const [course, setCourse] = useState(null);
-
-  const [schedule, setSchedule] = useState<ScheduleObject>({
+  const [campus, setCampus] = useLocalStorage('campus', null);
+  const [course, setCourse] = useLocalStorage('course', null);
+  const [selectedClasses, setSelectedClasses] = useLocalStorage<SelectedClasses>(
+    'selectedClasses',
+    {}
+  );
+  const [schedule, setSchedule] = useLocalStorage<ScheduleObject>('schedule', {
     M1: {
       start: '07h30',
       end: '08h20',
@@ -92,6 +95,17 @@ const useUserData = () => {
       days: { 2: null, 3: null, 4: null, 5: null, 6: null, 7: null },
     },
   });
+
+  return {
+    campus,
+    setCampus,
+    course,
+    setCourse,
+    schedule,
+    setSchedule,
+    selectedClasses,
+    setSelectedClasses,
+  };
 };
 
 export default useUserData;
