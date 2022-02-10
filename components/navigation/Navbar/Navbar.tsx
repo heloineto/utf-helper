@@ -11,22 +11,6 @@ import NavbarCampusAndCourse from './Navbar.CampusAndCourse';
 
 interface Props {}
 
-// [
-//   { label: 'Curitiba', value: 'curitiba' },
-//   { label: 'Cornélio Procópio', value: 'cornelioProcopio' },
-//   { label: 'Campo Mourão', value: 'campoMourao' },
-//   { label: 'Medianeira', value: 'medianeira' },
-//   { label: 'Pato Branco', value: 'patoBranco' },
-//   { label: 'Ponta Grossa', value: 'pontaGrossa' },
-//   { label: 'Dois Vizinhos', value: 'doisVizinhos' },
-//   { label: 'Londrina', value: 'londrina' },
-//   { label: 'Toledo', value: 'toledo' },
-//   { label: 'Apucarana', value: 'apucarana' },
-//   { label: 'Francisco Beltrão', value: 'franciscoBeltrao' },
-//   { label: 'Guarapuava', value: 'guarapuava' },
-//   { label: 'Santa Helena', value: 'santaHelena' },
-// ];
-
 const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
   return (
     <header
@@ -35,13 +19,13 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
         'w-full h-14 px-5 bg-white dark:bg-slate-900 flex justify-between shadow-sm lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06]'
       )}
     >
-      <div className="h-full flex items-center">
+      <div className="h-full w-1/3 flex items-center">
         <NavbarContributeButton />
       </div>
-      <div className="h-full w-80 flex items-center">
+      <div className="h-full w-1/3 flex items-center">
         <NavbarCampusAndCourse />
       </div>
-      <div className="h-full flex items-center gap-x-1">
+      <div className="h-full w-1/3 flex items-center justify-end gap-x-1">
         <NavbarThemeSwitch />
         <NavbarDirectionButton />
 
