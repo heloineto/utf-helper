@@ -1,3 +1,4 @@
+import CustomAutocomplete from '@components/inputs/CustomAutocomplete';
 import { Autocomplete, TextField } from '@mui/material';
 
 type Props = {};
@@ -20,31 +21,10 @@ const campuses = [
 
 const NavbarCampusAndCourse = (props: Props) => {
   return (
-    <Autocomplete
-      openOnFocus
-      fullWidth
-      classes={{
-        inputRoot: 'dark:bg-slate-900',
-        clearIndicator: 'dark:text-slate-50',
-        popupIndicator: 'dark:text-slate-50',
-        input: 'dark:text-slate-50',
-        paper: 'dark:bg-slate-800 dark:border dark:border-slate-700 dark:text-slate-100',
-      }}
-      size="small"
-      renderInput={({ InputLabelProps, InputProps, ...params }) => (
-        <TextField
-          InputLabelProps={{ ...InputLabelProps, className: 'dark:text-slate-400' }}
-          InputProps={{
-            ...InputProps,
-            classes: { notchedOutline: 'dark:border-slate-500' },
-          }}
-          variant="outlined"
-          label="Câmpus"
-          {...params}
-        />
-      )}
-      options={campuses}
-    />
+    <div className="flex w-full gap-x-2">
+      <CustomAutocomplete textFieldProps={{ label: 'Câmpus' }} options={campuses} />
+      <CustomAutocomplete textFieldProps={{ label: 'Curso' }} options={campuses} />
+    </div>
   );
 };
 

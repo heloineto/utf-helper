@@ -1,4 +1,9 @@
-import { Autocomplete, AutocompleteProps, TextField } from '@mui/material';
+import {
+  Autocomplete,
+  AutocompleteProps,
+  TextField,
+  TextFieldProps,
+} from '@mui/material';
 
 const CustomAutocomplete = <
   T,
@@ -7,9 +12,12 @@ const CustomAutocomplete = <
   FreeSolo extends boolean | undefined,
   ChipComponent extends React.ElementType<any> = 'div'
 >({
-  renderInput,
-  ...rest
-}: AutocompleteProps<T, Multiple, DisableClearable, FreeSolo, ChipComponent>) => {
+  textFieldProps,
+  ...autocompleteProps
+}: Omit<
+  AutocompleteProps<T, Multiple, DisableClearable, FreeSolo, ChipComponent>,
+  'renderInput'
+> & { textFieldProps: TextFieldProps }) => {
   return (
     <Autocomplete
       openOnFocus
@@ -29,12 +37,12 @@ const CustomAutocomplete = <
             ...InputProps,
             classes: { notchedOutline: 'dark:border-slate-500' },
           }}
-          variant="outlined"
-          label="Câmpus"
+          {...textFieldProps}
           {...params}
+          variant="outlined"
         />
       )}
-      {...rest}
+      {...autocompleteProps}
     />
   );
 };
