@@ -1,10 +1,13 @@
-import { createContext } from 'react';
+import { createContext, SetValue } from 'react';
 
 export const SettingsContext = createContext<{
   darkMode?: boolean;
-  setDarkMode?: Dispatch<SetStateAction<boolean>>;
+  toggleDarkMode?: () => void;
   direction?: Direction;
-  setDirection?: Dispatch<SetStateAction<Direction>>;
+  setDirection?: SetValue<Direction>;
+}>({});
+
+export const UserDataContext = createContext<{
   selectedClasses?: SelectedClasses;
   setSelectedClasses?: Dispatch<SetStateAction<SelectedClasses>>;
   schedule?: ScheduleObject;
