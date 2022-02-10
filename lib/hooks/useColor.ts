@@ -1,12 +1,10 @@
 import hash from '@lib/utils/typescript';
-import useTailwindColors from './useTailwindColors';
+import twColors from 'tailwindcss/colors';
 
 const useColor = (str: string) => {
-  const tailwindColors = useTailwindColors();
+  if (!twColors) return [undefined, undefined];
 
-  if (!tailwindColors) return [undefined, undefined];
-
-  const tailwindColorsNames = [
+  const colorNames: (keyof typeof twColors)[] = [
     'slate',
     'red',
     'orange',
@@ -27,8 +25,8 @@ const useColor = (str: string) => {
     'rose',
   ];
 
-  const colorName = tailwindColorsNames[Math.abs(hash(str) % tailwindColorsNames.length)];
-  const color = tailwindColors[colorName as keyof typeof tailwindColors];
+  const colorName = colorNames[Math.abs(hash(str) % colorNames.length)];
+  const color = twColors[colorName];
 
   return [color, colorName] as [typeof color, typeof colorName];
 };

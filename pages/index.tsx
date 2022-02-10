@@ -15,6 +15,8 @@ import classNames from 'clsx';
 //! Create scrapper to scrape data from portal do aluno (puppeteer) or get them from grade na hora
 //! Add firebase to handle requests for subjects list, since it's a lot of data to store in a variable
 //! Make a relatorio to make it easy to enroll
+//! Adicionar opçoes de quais colunas ver
+//! Adicionar enquadramento
 
 const Home: NextPage = () => {
   const { direction, selectedClasses } = useContext(SettingsContext);
