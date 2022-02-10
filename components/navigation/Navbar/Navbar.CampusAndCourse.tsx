@@ -26,11 +26,12 @@ const NavbarCampusAndCourse = (props: Props) => {
 
   return (
     <div className="flex w-full gap-x-2">
+      <CustomAutocomplete options={campuses} textFieldProps={{ label: 'Câmpus' }} />
       <CustomAutocomplete
-        textFieldProps={{ label: 'Câmpus', color: 'primary' }}
         options={campuses}
+        disabled={!campus}
+        textFieldProps={{ label: 'Curso' }}
       />
-      <CustomAutocomplete textFieldProps={{ label: 'Curso' }} options={campuses} />
     </div>
   );
 };
