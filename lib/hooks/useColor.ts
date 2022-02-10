@@ -8,10 +8,6 @@ const useColor = (str: string) => {
 
   const tailwindColorsNames = [
     'slate',
-    'gray',
-    'zinc',
-    'neutral',
-    'stone',
     'red',
     'orange',
     'amber',

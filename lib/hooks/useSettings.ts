@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import useScheduleInitialValue from './useScheduleInitialValue';
 
 const useSettings = () => {
   const [darkMode, setDarkMode] = useState(true);
   const [direction, setDirection] = useState<Direction>('vertical');
   const [selectedClasses, setSelectedClasses] = useState<SelectedClasses>({});
+  const [campus, setCampus] = useState(null);
+  const [course, setCourse] = useState(null);
 
-  const scheduleInitialValue = useScheduleInitialValue();
   const [schedule, setSchedule] = useState<ScheduleObject>({
     M1: {
       start: '07h30',
