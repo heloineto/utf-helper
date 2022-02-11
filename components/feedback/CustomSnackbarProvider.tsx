@@ -15,20 +15,26 @@ const CustomSnackbarProvider = ({ children }: Props) => {
     <SnackbarProvider
       maxSnack={3}
       iconVariant={{
-        success: <CheckCircleIcon className="h-6 w-auto text-green-500 mr-2" />,
-        error: <XCircleIcon className="h-6 w-auto text-red-500 mr-2" />,
-        warning: <ExclamationCircleIcon className="h-6 w-auto text-orange-500 mr-2" />,
-        info: <InformationCircleIcon className="h-6 w-auto text-blue-500 mr-2" />,
+        success: (
+          <CheckCircleIcon className="h-6 w-auto text-emerald-500 dark:text-emerald-300 mr-2" />
+        ),
+        error: <XCircleIcon className="h-6 w-auto text-red-500 dark:text-red-300 mr-2" />,
+        warning: (
+          <ExclamationCircleIcon className="h-6 w-auto text-orange-500 dark:text-orange-300 mr-2" />
+        ),
+        info: (
+          <InformationCircleIcon className="h-6 w-auto text-sky-500 dark:text-sky-300 mr-2" />
+        ),
       }}
       classes={{
         variantSuccess:
-          'bg-green-200 text-green-900 shadow-lg border border-green-400 rounded-md font-bold',
+          '!bg-emerald-200 dark:!bg-emerald-600 !text-emerald-900 dark:!text-emerald-100 !shadow-lg border border-emerald-400 dark:border-emerald-400 !rounded-md !font-medium',
         variantError:
-          'bg-red-200 text-red-900 shadow-lg border border-red-400 rounded-md font-bold',
+          '!bg-red-200 dark:!bg-red-600 !text-red-900 dark:!text-red-100 !shadow-lg border border-red-400 dark:border-red-400 !rounded-md !font-medium',
         variantWarning:
-          'bg-orange-200 text-orange-900 shadow-lg border border-orange-400 rounded-md font-bold',
+          '!bg-orange-200 dark:!bg-orange-600 !text-orange-900 dark:!text-orange-100 !shadow-lg border border-orange-400 dark:border-orange-400 !rounded-md !font-medium',
         variantInfo:
-          'bg-blue-200 text-blue-900 shadow-lg border border-blue-400 rounded-md font-bold',
+          '!bg-sky-200 dark:!bg-sky-600 !text-sky-900 dark:!text-sky-100 !shadow-lg border border-sky-400 dark:border-sky-400 !rounded-md !font-medium',
       }}
     >
       {children}
