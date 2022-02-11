@@ -1,6 +1,6 @@
 import Navbar from '@components/navigation/Navbar';
 import { UserDataContext } from '@lib/context';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 
 interface Props {
   children: ReactNode;

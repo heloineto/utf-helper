@@ -7,20 +7,18 @@ const useLocalStorage = <T>(
   const [value, setValue] = useState<T>(initialState);
 
   useEffect(() => {
-    const valueJson = localStorage.getItem(key);
-    if (!valueJson) return;
+    const json = localStorage.getItem(key);
+    if (!json) return;
 
-    let valueStored: T | undefined;
-    valueStored = parseJSON(valueJson);
-
+    const valueStored = parseJSON<T>(json);
     if (!valueStored) return;
 
     setValue(valueStored);
-  }, []);
+  }, [key]);
 
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(value));
-  }, [value]);
+  }, [value, key]);
 
   return [value, setValue];
 };
