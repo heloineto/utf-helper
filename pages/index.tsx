@@ -10,12 +10,12 @@ import classNames from 'clsx';
 //! Changes
 //! Add subject & class information on scheduler classObject modal
 //! Add modal to select campus and course
-//! Add search bar
 //! Create scrapper to scrape data from portal do aluno (puppeteer) or get them from grade na hora
 //! Add firebase to handle requests for subjects list, since it's a lot of data to store in a variable
 //! Make a relatorio to make it easy to enroll
-//! Adicionar opçoes de quais colunas ver
-//! Loading screen while user data and settings load
+// Add search bar
+// Adicionar opçoes de quais colunas ver
+// Loading screen while user data and settings load
 // Update Schedule state (highlights) declaratively
 //// Adicionar enquadramento
 

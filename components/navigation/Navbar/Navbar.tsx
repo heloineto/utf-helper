@@ -4,7 +4,6 @@ import { PrinterIcon } from '@heroicons/react/outline';
 import NavbarThemeSwitch from './Navbar.ThemeSwitch';
 import NavbarDirectionButton from './Navbar.DirectionButton';
 import NavbarResetButton from './Navbar.ResetButton';
-import NavbarContributeButton from './Navbar.ContributeButton';
 import NavbarCampusAndCourse from './Navbar.CampusAndCourse';
 import NavbarTotalHours from './Navbar.TotalHours';
 
