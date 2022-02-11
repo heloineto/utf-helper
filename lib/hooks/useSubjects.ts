@@ -11,6 +11,7 @@ const useSubjects = () => {
           CC11: {
             subjectCode: 'CC51A',
             subjectName: 'Algoritmos',
+            weeklyLessons: 6,
             code: 'CC11',
             framing: 'H',
             vacanciesTotal: 38,
@@ -18,54 +19,18 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2M4',
-                locationCode: 'L004',
-              },
-              {
-                dayTimeCode: '2M4',
-                locationCode: 'C102',
-              },
-              {
-                dayTimeCode: '2M5',
-                locationCode: 'L004',
-              },
-              {
-                dayTimeCode: '2M5',
-                locationCode: 'C102',
-              },
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'L004',
-              },
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'C102',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'L004',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'C102',
-              },
-              {
-                dayTimeCode: '5M2',
-                locationCode: 'L004',
-              },
-              {
-                dayTimeCode: '5M2',
-                locationCode: 'C102',
-              },
-              {
-                dayTimeCode: '5M3',
-                locationCode: 'C102',
-              },
-              {
-                dayTimeCode: '5M3',
-                locationCode: 'L004',
-              },
+              { dayTimeCode: '2M4', locationCode: 'L004' },
+              { dayTimeCode: '2M4', locationCode: 'C102' },
+              { dayTimeCode: '2M5', locationCode: 'L004' },
+              { dayTimeCode: '2M5', locationCode: 'C102' },
+              { dayTimeCode: '3M4', locationCode: 'L004' },
+              { dayTimeCode: '3M4', locationCode: 'C102' },
+              { dayTimeCode: '3M5', locationCode: 'L004' },
+              { dayTimeCode: '3M5', locationCode: 'C102' },
+              { dayTimeCode: '5M2', locationCode: 'L004' },
+              { dayTimeCode: '5M2', locationCode: 'C102' },
+              { dayTimeCode: '5M3', locationCode: 'C102' },
+              { dayTimeCode: '5M3', locationCode: 'L004' },
             ],
             teacher: 'Simone Bello Kaminski Aires',
             optional: 'Não',
@@ -73,6 +38,7 @@ const useSubjects = () => {
           RE42: {
             subjectCode: 'CC51A',
             subjectName: 'Algoritmos',
+            weeklyLessons: 6,
             code: 'RE42',
             framing: 'H',
             vacanciesTotal: 40,
@@ -80,30 +46,12 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '',
             schedule: [
-              {
-                dayTimeCode: '2M4',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '2M5',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '6M2',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '6M3',
-                locationCode: 'L012',
-              },
+              { dayTimeCode: '2M4', locationCode: 'L012' },
+              { dayTimeCode: '2M5', locationCode: 'L012' },
+              { dayTimeCode: '3M4', locationCode: 'L012' },
+              { dayTimeCode: '3M5', locationCode: 'L012' },
+              { dayTimeCode: '6M2', locationCode: 'L012' },
+              { dayTimeCode: '6M3', locationCode: 'L012' },
             ],
             teacher: 'Joao Paulo Aires',
             optional: 'Não',
@@ -118,6 +66,7 @@ const useSubjects = () => {
           CC51: {
             subjectCode: 'CC55B',
             subjectName: 'Análise E Projetos De Algoritmos',
+            weeklyLessons: 4,
             code: 'CC51',
             framing: 'H',
             vacanciesTotal: 40,
@@ -125,22 +74,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '4T4',
-                locationCode: 'L113',
-              },
-              {
-                dayTimeCode: '4T5',
-                locationCode: 'L113',
-              },
-              {
-                dayTimeCode: '6T4',
-                locationCode: 'L010',
-              },
-              {
-                dayTimeCode: '6T5',
-                locationCode: 'L010',
-              },
+              { dayTimeCode: '4T4', locationCode: 'L113' },
+              { dayTimeCode: '4T5', locationCode: 'L113' },
+              { dayTimeCode: '6T4', locationCode: 'L010' },
+              { dayTimeCode: '6T5', locationCode: 'L010' },
             ],
             teacher: 'Sheila Morais De Almeida',
             optional: 'Não',
@@ -155,6 +92,7 @@ const useSubjects = () => {
           CC51: {
             subjectCode: 'CC55D',
             subjectName: 'Análise E Projetos Orientados A Objetos',
+            weeklyLessons: 4,
             code: 'CC51',
             framing: 'H',
             vacanciesTotal: 40,
@@ -162,22 +100,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '4T2',
-                locationCode: 'C203',
-              },
-              {
-                dayTimeCode: '4T3',
-                locationCode: 'C203',
-              },
-              {
-                dayTimeCode: '6T2',
-                locationCode: 'C202',
-              },
-              {
-                dayTimeCode: '6T3',
-                locationCode: 'C202',
-              },
+              { dayTimeCode: '4T2', locationCode: 'C203' },
+              { dayTimeCode: '4T3', locationCode: 'C203' },
+              { dayTimeCode: '6T2', locationCode: 'C202' },
+              { dayTimeCode: '6T3', locationCode: 'C202' },
             ],
             teacher: 'Simone Nasser Matos',
             optional: 'Não',
@@ -192,6 +118,7 @@ const useSubjects = () => {
           CC31: {
             subjectCode: 'CC53C',
             subjectName: 'Banco De Dados 1',
+            weeklyLessons: 4,
             code: 'CC31',
             framing: 'H',
             vacanciesTotal: 40,
@@ -199,22 +126,10 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2T4',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '2T5',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '6M4',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '6M5',
-                locationCode: 'C104',
-              },
+              { dayTimeCode: '2T4', locationCode: 'C104' },
+              { dayTimeCode: '2T5', locationCode: 'C104' },
+              { dayTimeCode: '6M4', locationCode: 'C104' },
+              { dayTimeCode: '6M5', locationCode: 'C104' },
             ],
             teacher: 'Simone De Almeida',
             optional: 'Não',
@@ -229,6 +144,7 @@ const useSubjects = () => {
           OPTCC: {
             subjectCode: 'CC37W',
             subjectName: 'Banco De Dados 2',
+            weeklyLessons: 4,
             code: 'OPTCC',
             framing: 'P',
             vacanciesTotal: 20,
@@ -236,22 +152,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação2 - Tecnol. Análise D.Sist',
             schedule: [
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'C203',
-              },
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'C203',
-              },
-              {
-                dayTimeCode: '6T2',
-                locationCode: 'C102',
-              },
-              {
-                dayTimeCode: '6T3',
-                locationCode: 'C102',
-              },
+              { dayTimeCode: '2T2', locationCode: 'C203' },
+              { dayTimeCode: '2T3', locationCode: 'C203' },
+              { dayTimeCode: '6T2', locationCode: 'C102' },
+              { dayTimeCode: '6T3', locationCode: 'C102' },
             ],
             teacher: 'Tarcizio Alexandre Bini',
             optional: 'Curso De Bacharelado Em Ciência Da Computação.',
@@ -266,6 +170,7 @@ const useSubjects = () => {
           BP11: {
             subjectCode: 'BP31A',
             subjectName: 'Cálculo Diferencial E Integral 1',
+            weeklyLessons: 6,
             code: 'BP11',
             framing: 'R',
             vacanciesTotal: 28,
@@ -274,30 +179,12 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Eng Bioproc E Biotec2 - Engenharia Química2 - Engenharia\n        Mecânica2 - Ciência Da Computação2 - Engenharia Eletrônica2 -\n        Engenharia De Produção\n      ',
             schedule: [
-              {
-                dayTimeCode: '3M3',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5M3',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5M4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5M5',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '3M3', locationCode: 'Z001' },
+              { dayTimeCode: '3M4', locationCode: 'Z001' },
+              { dayTimeCode: '3M5', locationCode: 'Z001' },
+              { dayTimeCode: '5M3', locationCode: 'Z001' },
+              { dayTimeCode: '5M4', locationCode: 'Z001' },
+              { dayTimeCode: '5M5', locationCode: 'Z001' },
             ],
             teacher: 'Ana Paula Milanez',
             optional: 'Não',
@@ -312,6 +199,7 @@ const useSubjects = () => {
           CC11: {
             subjectCode: 'CC51C',
             subjectName: 'Cálculo Diferencial E Integral 1',
+            weeklyLessons: 6,
             code: 'CC11',
             framing: 'P',
             vacanciesTotal: 72,
@@ -319,30 +207,12 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '3M1',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '3M2',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '3M3',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '4M4',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '4M5',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '4M6',
-                locationCode: 'L012',
-              },
+              { dayTimeCode: '3M1', locationCode: 'L012' },
+              { dayTimeCode: '3M2', locationCode: 'L012' },
+              { dayTimeCode: '3M3', locationCode: 'L012' },
+              { dayTimeCode: '4M4', locationCode: 'L012' },
+              { dayTimeCode: '4M5', locationCode: 'L012' },
+              { dayTimeCode: '4M6', locationCode: 'L012' },
             ],
             teacher: 'Maria Claudia Aguitoni',
             optional: 'Não',
@@ -357,6 +227,7 @@ const useSubjects = () => {
           EAD: {
             subjectCode: 'EN31A',
             subjectName: 'Cálculo Diferencial E Integral 1',
+            weeklyLessons: 6,
             code: 'EAD',
             framing: 'P',
             vacanciesTotal: 150,
@@ -364,18 +235,14 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors:
               '\n        1 - Engenharia Química1 - Engenharia Mecânica1 - Ciência Da\n        Computação1 - Engenharia De Produção1 - Eng Bioproc E Biotec1 -\n        Engenharia Elétrica\n      ',
-            schedule: [
-              {
-                dayTimeCode: '',
-                locationCode: '',
-              },
-            ],
+            schedule: [{ dayTimeCode: '', locationCode: '' }],
             teacher: 'Thiago Gilberto Do Prado',
             optional: 'Não',
           },
           EE11: {
             subjectCode: 'EN31A',
             subjectName: 'Cálculo Diferencial E Integral 1',
+            weeklyLessons: 6,
             code: 'EE11',
             framing: 'P',
             vacanciesTotal: 36,
@@ -384,30 +251,12 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Eletrônica1 - Engenharia Elétrica2 - Engenharia\n        Química2 - Engenharia Mecânica2 - Ciência Da Computação2 -\n        Engenharia De Produção\n      ',
             schedule: [
-              {
-                dayTimeCode: '2M4',
-                locationCode: 'L001',
-              },
-              {
-                dayTimeCode: '2M5',
-                locationCode: 'L001',
-              },
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'L001',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'L001',
-              },
-              {
-                dayTimeCode: '4M4',
-                locationCode: 'L001',
-              },
-              {
-                dayTimeCode: '4M5',
-                locationCode: 'L001',
-              },
+              { dayTimeCode: '2M4', locationCode: 'L001' },
+              { dayTimeCode: '2M5', locationCode: 'L001' },
+              { dayTimeCode: '3M4', locationCode: 'L001' },
+              { dayTimeCode: '3M5', locationCode: 'L001' },
+              { dayTimeCode: '4M4', locationCode: 'L001' },
+              { dayTimeCode: '4M5', locationCode: 'L001' },
             ],
             teacher: 'David Alexander Chipana Mollinedo',
             optional: 'Não',
@@ -422,6 +271,7 @@ const useSubjects = () => {
           PE141: {
             subjectCode: 'EP31A',
             subjectName: 'Cálculo Diferencial E Integral 1',
+            weeklyLessons: 6,
             code: 'PE141',
             framing: 'P',
             vacanciesTotal: 45,
@@ -430,30 +280,12 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia De Produção2 - Engenharia Mecânica2 - Ciência Da\n        Computação2 - Engenharia Eletrônica2 - Eng Bioproc E Biotec2 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '3M6',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '4M1',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '4M2',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '4M3',
-                locationCode: 'L109',
-              },
+              { dayTimeCode: '3M4', locationCode: 'L109' },
+              { dayTimeCode: '3M5', locationCode: 'L109' },
+              { dayTimeCode: '3M6', locationCode: 'L109' },
+              { dayTimeCode: '4M1', locationCode: 'L109' },
+              { dayTimeCode: '4M2', locationCode: 'L109' },
+              { dayTimeCode: '4M3', locationCode: 'L109' },
             ],
             teacher: 'Maria Claudia Aguitoni',
             optional: 'Não',
@@ -468,6 +300,7 @@ const useSubjects = () => {
           AE141: {
             subjectCode: 'QM31E',
             subjectName: 'Cálculo Diferencial E Integral 1',
+            weeklyLessons: 6,
             code: 'AE141',
             framing: 'P',
             vacanciesTotal: 23,
@@ -476,30 +309,12 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Química2 - Engenharia Mecânica2 - Ciência Da\n        Computação2 - Engenharia De Produção2 - Eng Bioproc E Biotec2 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '2T4',
-                locationCode: 'L112',
-              },
-              {
-                dayTimeCode: '2T5',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '3M3',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'L112',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'L112',
-              },
+              { dayTimeCode: '2T3', locationCode: 'L109' },
+              { dayTimeCode: '2T4', locationCode: 'L112' },
+              { dayTimeCode: '2T5', locationCode: 'L109' },
+              { dayTimeCode: '3M3', locationCode: 'L109' },
+              { dayTimeCode: '3M4', locationCode: 'L112' },
+              { dayTimeCode: '3M5', locationCode: 'L112' },
             ],
             teacher: 'Thiago Gilberto Do Prado',
             optional: 'Não',
@@ -514,6 +329,7 @@ const useSubjects = () => {
           EM11: {
             subjectCode: 'PG0001',
             subjectName: 'Cálculo Diferencial E Integral 1',
+            weeklyLessons: 6,
             code: 'EM11',
             framing: 'P',
             vacanciesTotal: 44,
@@ -522,30 +338,12 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Mecânica2 - Engenharia Química2 - Ciência Da\n        Computação2 - Engenharia Eletrônica2 - Engenharia De Produção2 -\n        Eng Bioproc E Biotec\n      ',
             schedule: [
-              {
-                dayTimeCode: '4M4',
-                locationCode: 'L111',
-              },
-              {
-                dayTimeCode: '4M5',
-                locationCode: 'L111',
-              },
-              {
-                dayTimeCode: '5M2',
-                locationCode: 'L111',
-              },
-              {
-                dayTimeCode: '5M3',
-                locationCode: 'L111',
-              },
-              {
-                dayTimeCode: '6M4',
-                locationCode: 'L111',
-              },
-              {
-                dayTimeCode: '6M5',
-                locationCode: 'L111',
-              },
+              { dayTimeCode: '4M4', locationCode: 'L111' },
+              { dayTimeCode: '4M5', locationCode: 'L111' },
+              { dayTimeCode: '5M2', locationCode: 'L111' },
+              { dayTimeCode: '5M3', locationCode: 'L111' },
+              { dayTimeCode: '6M4', locationCode: 'L111' },
+              { dayTimeCode: '6M5', locationCode: 'L111' },
             ],
             teacher: 'Reginaldo De Oliveira',
             optional: 'Não',
@@ -560,6 +358,7 @@ const useSubjects = () => {
           BP21: {
             subjectCode: 'BP32A',
             subjectName: 'Cálculo Diferencial E Integral 2',
+            weeklyLessons: 4,
             code: 'BP21',
             framing: 'P',
             vacanciesTotal: 44,
@@ -568,22 +367,10 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Eng Bioproc E Biotec2 - Engenharia Química2 - Engenharia\n        Mecânica2 - Ciência Da Computação2 - Engenharia De Produção2 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '4M4',
-                locationCode: 'L005',
-              },
-              {
-                dayTimeCode: '4M5',
-                locationCode: 'L005',
-              },
-              {
-                dayTimeCode: '5T2',
-                locationCode: 'L005',
-              },
-              {
-                dayTimeCode: '5T3',
-                locationCode: 'L005',
-              },
+              { dayTimeCode: '4M4', locationCode: 'L005' },
+              { dayTimeCode: '4M5', locationCode: 'L005' },
+              { dayTimeCode: '5T2', locationCode: 'L005' },
+              { dayTimeCode: '5T3', locationCode: 'L005' },
             ],
             teacher:
               '\n        Jose Carlos Alberto De PontesMarcos Tadeu Andrade Cordeiro\n      ',
@@ -599,6 +386,7 @@ const useSubjects = () => {
           CC21: {
             subjectCode: 'CC52E',
             subjectName: 'Cálculo Diferencial E Integral 2',
+            weeklyLessons: 4,
             code: 'CC21',
             framing: 'P',
             vacanciesTotal: 40,
@@ -607,22 +395,10 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Ciência Da Computação2 - Engenharia Química2 - Engenharia\n        Mecânica2 - Engenharia Eletrônica2 - Engenharia De Produção2 -\n        Eng Bioproc E Biotec\n      ',
             schedule: [
-              {
-                dayTimeCode: '3M2',
-                locationCode: 'L010',
-              },
-              {
-                dayTimeCode: '3M3',
-                locationCode: 'L010',
-              },
-              {
-                dayTimeCode: '4M2',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '4M3',
-                locationCode: 'L012',
-              },
+              { dayTimeCode: '3M2', locationCode: 'L010' },
+              { dayTimeCode: '3M3', locationCode: 'L010' },
+              { dayTimeCode: '4M2', locationCode: 'L012' },
+              { dayTimeCode: '4M3', locationCode: 'L012' },
             ],
             teacher: 'Jussara Rodrigues Ciappina',
             optional: 'Não',
@@ -637,6 +413,7 @@ const useSubjects = () => {
           PE241: {
             subjectCode: 'EP32A',
             subjectName: 'Cálculo Diferencial E Integral 2',
+            weeklyLessons: 4,
             code: 'PE241',
             framing: 'P',
             vacanciesTotal: 38,
@@ -645,22 +422,10 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia De Produção2 - Engenharia Química2 - Engenharia\n        Mecânica2 - Ciência Da Computação2 - Eng Bioproc E Biotec2 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '3T4',
-                locationCode: 'L110',
-              },
-              {
-                dayTimeCode: '3T5',
-                locationCode: 'L110',
-              },
-              {
-                dayTimeCode: '4T4',
-                locationCode: 'L104',
-              },
-              {
-                dayTimeCode: '4T5',
-                locationCode: 'L104',
-              },
+              { dayTimeCode: '3T4', locationCode: 'L110' },
+              { dayTimeCode: '3T5', locationCode: 'L110' },
+              { dayTimeCode: '4T4', locationCode: 'L104' },
+              { dayTimeCode: '4T5', locationCode: 'L104' },
             ],
             teacher: 'Ednei Felix Reis',
             optional: 'Não',
@@ -675,6 +440,7 @@ const useSubjects = () => {
           AE241: {
             subjectCode: 'QM32B',
             subjectName: 'Cálculo Diferencial E Integral 2',
+            weeklyLessons: 4,
             code: 'AE241',
             framing: 'P',
             vacanciesTotal: 44,
@@ -683,22 +449,10 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Química2 - Engenharia Mecânica2 - Ciência Da\n        Computação2 - Engenharia De Produção2 - Eng Bioproc E Biotec2 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '3M1',
-                locationCode: 'L108',
-              },
-              {
-                dayTimeCode: '3M2',
-                locationCode: 'L108',
-              },
-              {
-                dayTimeCode: '4M2',
-                locationCode: 'L103',
-              },
-              {
-                dayTimeCode: '4M3',
-                locationCode: 'L103',
-              },
+              { dayTimeCode: '3M1', locationCode: 'L108' },
+              { dayTimeCode: '3M2', locationCode: 'L108' },
+              { dayTimeCode: '4M2', locationCode: 'L103' },
+              { dayTimeCode: '4M3', locationCode: 'L103' },
             ],
             teacher:
               '\n        Jose Carlos Alberto De PontesThiago Gilberto Do Prado\n      ',
@@ -714,6 +468,7 @@ const useSubjects = () => {
           EM21: {
             subjectCode: 'PG0008',
             subjectName: 'Cálculo Diferencial E Integral 2',
+            weeklyLessons: 4,
             code: 'EM21',
             framing: 'P',
             vacanciesTotal: 44,
@@ -722,22 +477,10 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Mecânica2 - Engenharia Química2 - Ciência Da\n        Computação2 - Engenharia De Produção2 - Eng Bioproc E Biotec2 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '2M2',
-                locationCode: 'CT01',
-              },
-              {
-                dayTimeCode: '2M3',
-                locationCode: 'CT01',
-              },
-              {
-                dayTimeCode: '4M2',
-                locationCode: 'CT01',
-              },
-              {
-                dayTimeCode: '4M3',
-                locationCode: 'CT01',
-              },
+              { dayTimeCode: '2M2', locationCode: 'CT01' },
+              { dayTimeCode: '2M3', locationCode: 'CT01' },
+              { dayTimeCode: '4M2', locationCode: 'CT01' },
+              { dayTimeCode: '4M3', locationCode: 'CT01' },
             ],
             teacher: 'Sani De Carvalho Rutz Da Silva',
             optional: 'Não',
@@ -752,6 +495,7 @@ const useSubjects = () => {
           BP41: {
             subjectCode: 'BP34A',
             subjectName: 'Cálculo Numérico',
+            weeklyLessons: 4,
             code: 'BP41',
             framing: 'P',
             vacanciesTotal: 44,
@@ -759,30 +503,12 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Eng Bioproc E Biotec2 - Engenharia Elétrica',
             schedule: [
-              {
-                dayTimeCode: '3T2',
-                locationCode: 'L008',
-              },
-              {
-                dayTimeCode: '3T3',
-                locationCode: 'L008',
-              },
-              {
-                dayTimeCode: '4T2',
-                locationCode: 'C202',
-              },
-              {
-                dayTimeCode: '4T2',
-                locationCode: 'L004',
-              },
-              {
-                dayTimeCode: '4T3',
-                locationCode: 'C202',
-              },
-              {
-                dayTimeCode: '4T3',
-                locationCode: 'L004',
-              },
+              { dayTimeCode: '3T2', locationCode: 'L008' },
+              { dayTimeCode: '3T3', locationCode: 'L008' },
+              { dayTimeCode: '4T2', locationCode: 'C202' },
+              { dayTimeCode: '4T2', locationCode: 'L004' },
+              { dayTimeCode: '4T3', locationCode: 'C202' },
+              { dayTimeCode: '4T3', locationCode: 'L004' },
             ],
             teacher: 'Yara De Souza Tadano',
             optional: 'Não',
@@ -797,6 +523,7 @@ const useSubjects = () => {
           PE541: {
             subjectCode: 'EP35A',
             subjectName: 'Cálculo Numérico',
+            weeklyLessons: 4,
             code: 'PE541',
             framing: 'P',
             vacanciesTotal: 44,
@@ -805,22 +532,10 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia De Produção2 - Engenharia Química2 - Engenharia\n        Mecânica2 - Ciência Da Computação2 - Engenharia Eletrônica2 -\n        Eng Bioproc E Biotec\n      ',
             schedule: [
-              {
-                dayTimeCode: '2T4',
-                locationCode: 'K107',
-              },
-              {
-                dayTimeCode: '2T5',
-                locationCode: 'K107',
-              },
-              {
-                dayTimeCode: '4T4',
-                locationCode: 'LABOSP1',
-              },
-              {
-                dayTimeCode: '4T5',
-                locationCode: 'LABOSP1',
-              },
+              { dayTimeCode: '2T4', locationCode: 'K107' },
+              { dayTimeCode: '2T5', locationCode: 'K107' },
+              { dayTimeCode: '4T4', locationCode: 'LABOSP1' },
+              { dayTimeCode: '4T5', locationCode: 'LABOSP1' },
             ],
             teacher: 'Angelo Marcelo Tusset',
             optional: 'Não',
@@ -835,6 +550,7 @@ const useSubjects = () => {
           AE441: {
             subjectCode: 'QM34A',
             subjectName: 'Cálculo Numérico',
+            weeklyLessons: 4,
             code: 'AE441',
             framing: 'P',
             vacanciesTotal: 44,
@@ -843,30 +559,12 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Química2 - Engenharia Mecânica2 - Ciência Da\n        Computação2 - Engenharia Eletrônica2 - Engenharia De Produção2 -\n        Eng Bioproc E Biotec\n      ',
             schedule: [
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '2T4',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '3T4',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '3T4',
-                locationCode: 'C202',
-              },
-              {
-                dayTimeCode: '3T5',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '3T5',
-                locationCode: 'C202',
-              },
+              { dayTimeCode: '2T3', locationCode: 'L012' },
+              { dayTimeCode: '2T4', locationCode: 'L012' },
+              { dayTimeCode: '3T4', locationCode: 'L012' },
+              { dayTimeCode: '3T4', locationCode: 'C202' },
+              { dayTimeCode: '3T5', locationCode: 'L012' },
+              { dayTimeCode: '3T5', locationCode: 'C202' },
             ],
             teacher: 'Yara De Souza Tadano',
             optional: 'Não',
@@ -881,6 +579,7 @@ const useSubjects = () => {
           CC31: {
             subjectCode: 'CC53E',
             subjectName: 'Cálculo Númerico',
+            weeklyLessons: 4,
             code: 'CC31',
             framing: 'H',
             vacanciesTotal: 40,
@@ -888,22 +587,10 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2M4',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '2M5',
-                locationCode: 'L012',
-              },
-              {
-                dayTimeCode: '4M4',
-                locationCode: 'C202',
-              },
-              {
-                dayTimeCode: '4M5',
-                locationCode: 'C202',
-              },
+              { dayTimeCode: '2M4', locationCode: 'L012' },
+              { dayTimeCode: '2M5', locationCode: 'L012' },
+              { dayTimeCode: '4M4', locationCode: 'C202' },
+              { dayTimeCode: '4M5', locationCode: 'C202' },
             ],
             teacher: 'Iara Da Cunha Ribeiro Da Silva',
             optional: 'Não',
@@ -918,6 +605,7 @@ const useSubjects = () => {
           EM41: {
             subjectCode: 'PG0025',
             subjectName: 'Cálculo Numérico E Aplicações Na Engenharia',
+            weeklyLessons: 4,
             code: 'EM41',
             framing: 'H',
             vacanciesTotal: 44,
@@ -926,22 +614,10 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Mecânica2 - Engenharia Química2 - Ciência Da\n        Computação2 - Engenharia Eletrônica2 - Engenharia De Produção2 -\n        Eng Bioproc E Biotec\n      ',
             schedule: [
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'K107',
-              },
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'K107',
-              },
-              {
-                dayTimeCode: '4T2',
-                locationCode: 'LABOSP1',
-              },
-              {
-                dayTimeCode: '4T3',
-                locationCode: 'LABOSP1',
-              },
+              { dayTimeCode: '2T2', locationCode: 'K107' },
+              { dayTimeCode: '2T3', locationCode: 'K107' },
+              { dayTimeCode: '4T2', locationCode: 'LABOSP1' },
+              { dayTimeCode: '4T3', locationCode: 'LABOSP1' },
             ],
             teacher: 'Iara Da Cunha Ribeiro Da Silva',
             optional: 'Não',
@@ -956,6 +632,7 @@ const useSubjects = () => {
           CC21: {
             subjectCode: 'CC52B',
             subjectName: 'Circuitos Digitais',
+            weeklyLessons: 4,
             code: 'CC21',
             framing: 'H',
             vacanciesTotal: 40,
@@ -963,22 +640,10 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '3T2',
-                locationCode: 'L005',
-              },
-              {
-                dayTimeCode: '3T3',
-                locationCode: 'L005',
-              },
-              {
-                dayTimeCode: '4T2',
-                locationCode: 'L010',
-              },
-              {
-                dayTimeCode: '4T3',
-                locationCode: 'L010',
-              },
+              { dayTimeCode: '3T2', locationCode: 'L005' },
+              { dayTimeCode: '3T3', locationCode: 'L005' },
+              { dayTimeCode: '4T2', locationCode: 'L010' },
+              { dayTimeCode: '4T3', locationCode: 'L010' },
             ],
             teacher: 'Joaquim De Mira Junior',
             optional: 'Não',
@@ -993,6 +658,7 @@ const useSubjects = () => {
           CC51: {
             subjectCode: 'CC55A',
             subjectName: 'Compiladores',
+            weeklyLessons: 4,
             code: 'CC51',
             framing: 'H',
             vacanciesTotal: 40,
@@ -1000,38 +666,14 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '5M4',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '5M4',
-                locationCode: 'C202',
-              },
-              {
-                dayTimeCode: '5M5',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '5M5',
-                locationCode: 'C202',
-              },
+              { dayTimeCode: '2T2', locationCode: 'C104' },
+              { dayTimeCode: '2T2', locationCode: 'L109' },
+              { dayTimeCode: '2T3', locationCode: 'C104' },
+              { dayTimeCode: '2T3', locationCode: 'L109' },
+              { dayTimeCode: '5M4', locationCode: 'L109' },
+              { dayTimeCode: '5M4', locationCode: 'C202' },
+              { dayTimeCode: '5M5', locationCode: 'L109' },
+              { dayTimeCode: '5M5', locationCode: 'C202' },
             ],
             teacher: 'Gleifer Vaz Alves',
             optional: 'Não',
@@ -1046,6 +688,7 @@ const useSubjects = () => {
           CC41: {
             subjectCode: 'CC54E',
             subjectName: 'Computação Gráfica',
+            weeklyLessons: 4,
             code: 'CC41',
             framing: 'H',
             vacanciesTotal: 40,
@@ -1053,38 +696,14 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '3M2',
-                locationCode: 'C203',
-              },
-              {
-                dayTimeCode: '3M2',
-                locationCode: 'L108',
-              },
-              {
-                dayTimeCode: '3M3',
-                locationCode: 'C203',
-              },
-              {
-                dayTimeCode: '3M3',
-                locationCode: 'L108',
-              },
-              {
-                dayTimeCode: '4M4',
-                locationCode: 'L006',
-              },
-              {
-                dayTimeCode: '4M4',
-                locationCode: 'C203',
-              },
-              {
-                dayTimeCode: '4M5',
-                locationCode: 'C203',
-              },
-              {
-                dayTimeCode: '4M5',
-                locationCode: 'L006',
-              },
+              { dayTimeCode: '3M2', locationCode: 'C203' },
+              { dayTimeCode: '3M2', locationCode: 'L108' },
+              { dayTimeCode: '3M3', locationCode: 'C203' },
+              { dayTimeCode: '3M3', locationCode: 'L108' },
+              { dayTimeCode: '4M4', locationCode: 'L006' },
+              { dayTimeCode: '4M4', locationCode: 'C203' },
+              { dayTimeCode: '4M5', locationCode: 'C203' },
+              { dayTimeCode: '4M5', locationCode: 'L006' },
             ],
             teacher: 'Mauren Louise Sguario Coelho De Andrade',
             optional: 'Não',
@@ -1099,6 +718,7 @@ const useSubjects = () => {
           OPTC: {
             subjectCode: 'CC37F',
             subjectName: 'Comunicação De Dados',
+            weeklyLessons: 4,
             code: 'OPTC',
             framing: 'H',
             vacanciesTotal: 20,
@@ -1106,22 +726,10 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '',
             schedule: [
-              {
-                dayTimeCode: '3M2',
-                locationCode: 'L102',
-              },
-              {
-                dayTimeCode: '3M3',
-                locationCode: 'L102',
-              },
-              {
-                dayTimeCode: '6M4',
-                locationCode: 'L001',
-              },
-              {
-                dayTimeCode: '6M5',
-                locationCode: 'L001',
-              },
+              { dayTimeCode: '3M2', locationCode: 'L102' },
+              { dayTimeCode: '3M3', locationCode: 'L102' },
+              { dayTimeCode: '6M4', locationCode: 'L001' },
+              { dayTimeCode: '6M5', locationCode: 'L001' },
             ],
             teacher: 'Lourival Aparecido De Gois',
             optional:
@@ -1137,6 +745,7 @@ const useSubjects = () => {
           CC11: {
             subjectCode: 'CC51E',
             subjectName: 'Comunicação Linguística',
+            weeklyLessons: 2,
             code: 'CC11',
             framing: 'R',
             vacanciesTotal: 82,
@@ -1144,22 +753,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '4T4',
-                locationCode: 'L001',
-              },
-              {
-                dayTimeCode: '4T4',
-                locationCode: 'L001',
-              },
-              {
-                dayTimeCode: '4T5',
-                locationCode: 'L001',
-              },
-              {
-                dayTimeCode: '4T5',
-                locationCode: 'L001',
-              },
+              { dayTimeCode: '4T4', locationCode: 'L001' },
+              { dayTimeCode: '4T4', locationCode: 'L001' },
+              { dayTimeCode: '4T5', locationCode: 'L001' },
+              { dayTimeCode: '4T5', locationCode: 'L001' },
             ],
             teacher: 'Flavio Madalosso VieiraIsabel Ribeiro Gravonski',
             optional: 'Não',
@@ -1174,6 +771,7 @@ const useSubjects = () => {
           AE141: {
             subjectCode: 'QM31D',
             subjectName: 'Comunicação Oral E Escrita',
+            weeklyLessons: 2,
             code: 'AE141',
             framing: 'R',
             vacanciesTotal: 23,
@@ -1182,22 +780,10 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Química2 - Engenharia Mecânica2 - Ciência Da\n        Computação2 - Engenharia Eletrônica2 - Engenharia De Produção\n      ',
             schedule: [
-              {
-                dayTimeCode: '3T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '3T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '3T3',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '3T3',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '3T2', locationCode: 'Z001' },
+              { dayTimeCode: '3T2', locationCode: 'Z001' },
+              { dayTimeCode: '3T3', locationCode: 'Z001' },
+              { dayTimeCode: '3T3', locationCode: 'Z001' },
             ],
             teacher: 'Isabel Ribeiro GravonskiAdriane Marie Salm Coelho',
             optional: 'Não',
@@ -1212,6 +798,7 @@ const useSubjects = () => {
           OPTC: {
             subjectCode: 'CC02D',
             subjectName: 'Desenvolvimento Web - Cliente',
+            weeklyLessons: 4,
             code: 'OPTC',
             framing: 'H',
             vacanciesTotal: 20,
@@ -1219,22 +806,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '4T2',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '4T3',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '5T2',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '5T3',
-                locationCode: 'L109',
-              },
+              { dayTimeCode: '4T2', locationCode: 'L109' },
+              { dayTimeCode: '4T3', locationCode: 'L109' },
+              { dayTimeCode: '5T2', locationCode: 'L109' },
+              { dayTimeCode: '5T3', locationCode: 'L109' },
             ],
             teacher: 'Luiz Rafael Schmitke',
             optional:
@@ -1250,6 +825,7 @@ const useSubjects = () => {
           PE341: {
             subjectCode: 'EP33H',
             subjectName: 'Economia',
+            weeklyLessons: 2,
             code: 'PE341',
             framing: 'P',
             vacanciesTotal: 44,
@@ -1257,14 +833,8 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Engenharia De Produção2 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '4M2',
-                locationCode: 'K104',
-              },
-              {
-                dayTimeCode: '4M3',
-                locationCode: 'K104',
-              },
+              { dayTimeCode: '4M2', locationCode: 'K104' },
+              { dayTimeCode: '4M3', locationCode: 'K104' },
             ],
             teacher: 'Regina Negri Pagani',
             optional: 'Não',
@@ -1279,6 +849,7 @@ const useSubjects = () => {
           CC61: {
             subjectCode: 'CC56D',
             subjectName: 'Empreendedorismo',
+            weeklyLessons: 2,
             code: 'CC61',
             framing: 'R',
             vacanciesTotal: 50,
@@ -1286,14 +857,8 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação2 - Eng Bioproc E Biotec',
             schedule: [
-              {
-                dayTimeCode: '3T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '3T3',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '3T2', locationCode: 'Z001' },
+              { dayTimeCode: '3T3', locationCode: 'Z001' },
             ],
             teacher: 'Eliane Fernandes Pietrovski',
             optional: 'Não',
@@ -1308,6 +873,7 @@ const useSubjects = () => {
           AE841: {
             subjectCode: 'QM38F',
             subjectName: 'Empreendedorismo',
+            weeklyLessons: 2,
             code: 'AE841',
             framing: 'R',
             vacanciesTotal: 44,
@@ -1316,14 +882,8 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Química2 - Engenharia Mecânica2 - Ciência Da\n        Computação2 - Eng Bioproc E Biotec\n      ',
             schedule: [
-              {
-                dayTimeCode: '3T4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '3T5',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '3T4', locationCode: 'Z001' },
+              { dayTimeCode: '3T5', locationCode: 'Z001' },
             ],
             teacher: 'Joao Luiz Kovaleski',
             optional: 'Não',
@@ -1338,6 +898,7 @@ const useSubjects = () => {
           CC31: {
             subjectCode: 'CC53D',
             subjectName: 'Engenharia De Software 1',
+            weeklyLessons: 4,
             code: 'CC31',
             framing: 'H',
             vacanciesTotal: 40,
@@ -1345,30 +906,12 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'L105',
-              },
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'C203',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'C103',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'C203',
-              },
-              {
-                dayTimeCode: '6M2',
-                locationCode: 'C103',
-              },
-              {
-                dayTimeCode: '6M3',
-                locationCode: 'C103',
-              },
+              { dayTimeCode: '3M4', locationCode: 'L105' },
+              { dayTimeCode: '3M4', locationCode: 'C203' },
+              { dayTimeCode: '3M5', locationCode: 'C103' },
+              { dayTimeCode: '3M5', locationCode: 'C203' },
+              { dayTimeCode: '6M2', locationCode: 'C103' },
+              { dayTimeCode: '6M3', locationCode: 'C103' },
             ],
             teacher: 'Eliana Claudia Mayumi Ishikawa',
             optional: 'Não',
@@ -1383,6 +926,7 @@ const useSubjects = () => {
           CC21: {
             subjectCode: 'CC52A',
             subjectName: 'Estrutura De Dados 1',
+            weeklyLessons: 4,
             code: 'CC21',
             framing: 'H',
             vacanciesTotal: 40,
@@ -1390,38 +934,14 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'C102',
-              },
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'L004',
-              },
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'C102',
-              },
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'L004',
-              },
-              {
-                dayTimeCode: '4M4',
-                locationCode: 'L008',
-              },
-              {
-                dayTimeCode: '4M4',
-                locationCode: 'C102',
-              },
-              {
-                dayTimeCode: '4M5',
-                locationCode: 'L008',
-              },
-              {
-                dayTimeCode: '4M5',
-                locationCode: 'C102',
-              },
+              { dayTimeCode: '2T2', locationCode: 'C102' },
+              { dayTimeCode: '2T2', locationCode: 'L004' },
+              { dayTimeCode: '2T3', locationCode: 'C102' },
+              { dayTimeCode: '2T3', locationCode: 'L004' },
+              { dayTimeCode: '4M4', locationCode: 'L008' },
+              { dayTimeCode: '4M4', locationCode: 'C102' },
+              { dayTimeCode: '4M5', locationCode: 'L008' },
+              { dayTimeCode: '4M5', locationCode: 'C102' },
             ],
             teacher: 'Simone Bello Kaminski Aires',
             optional: 'Não',
@@ -1429,6 +949,7 @@ const useSubjects = () => {
           RE42: {
             subjectCode: 'CC52A',
             subjectName: 'Estrutura De Dados 1',
+            weeklyLessons: 4,
             code: 'RE42',
             framing: 'H',
             vacanciesTotal: 40,
@@ -1436,22 +957,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2T4',
-                locationCode: 'L002',
-              },
-              {
-                dayTimeCode: '2T5',
-                locationCode: 'L002',
-              },
-              {
-                dayTimeCode: '5M2',
-                locationCode: 'L002',
-              },
-              {
-                dayTimeCode: '5M3',
-                locationCode: 'L002',
-              },
+              { dayTimeCode: '2T4', locationCode: 'L002' },
+              { dayTimeCode: '2T5', locationCode: 'L002' },
+              { dayTimeCode: '5M2', locationCode: 'L002' },
+              { dayTimeCode: '5M3', locationCode: 'L002' },
             ],
             teacher: 'Saulo Jorge Beltrao De Queiroz',
             optional: 'Não',
@@ -1466,6 +975,7 @@ const useSubjects = () => {
           CC31: {
             subjectCode: 'CC53A',
             subjectName: 'Estrutura De Dados 2',
+            weeklyLessons: 4,
             code: 'CC31',
             framing: 'H',
             vacanciesTotal: 40,
@@ -1473,38 +983,14 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '4T4',
-                locationCode: 'L103',
-              },
-              {
-                dayTimeCode: '4T4',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '4T5',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '4T5',
-                locationCode: 'L103',
-              },
-              {
-                dayTimeCode: '5M4',
-                locationCode: 'L114',
-              },
-              {
-                dayTimeCode: '5M4',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '5M5',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '5M5',
-                locationCode: 'L114',
-              },
+              { dayTimeCode: '4T4', locationCode: 'L103' },
+              { dayTimeCode: '4T4', locationCode: 'C104' },
+              { dayTimeCode: '4T5', locationCode: 'C104' },
+              { dayTimeCode: '4T5', locationCode: 'L103' },
+              { dayTimeCode: '5M4', locationCode: 'L114' },
+              { dayTimeCode: '5M4', locationCode: 'C104' },
+              { dayTimeCode: '5M5', locationCode: 'C104' },
+              { dayTimeCode: '5M5', locationCode: 'L114' },
             ],
             teacher: 'Saulo Jorge Beltrao De Queiroz',
             optional: 'Não',
@@ -1519,6 +1005,7 @@ const useSubjects = () => {
           CC31: {
             subjectCode: 'CC53F',
             subjectName: 'Ética Profissão E Cidadania',
+            weeklyLessons: 2,
             code: 'CC31',
             framing: 'P',
             vacanciesTotal: 40,
@@ -1526,14 +1013,8 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '5T4',
-                locationCode: 'L005',
-              },
-              {
-                dayTimeCode: '5T5',
-                locationCode: 'L005',
-              },
+              { dayTimeCode: '5T4', locationCode: 'L005' },
+              { dayTimeCode: '5T5', locationCode: 'L005' },
             ],
             teacher: 'Katya Cristina De Lima Picanco',
             optional: 'Não',
@@ -1548,6 +1029,7 @@ const useSubjects = () => {
           EM51: {
             subjectCode: 'PG0039',
             subjectName: 'Ética, Profissão E Cidadania',
+            weeklyLessons: 2,
             code: 'EM51',
             framing: 'P',
             vacanciesTotal: 44,
@@ -1556,14 +1038,8 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Mecânica2 - Engenharia Química2 - Ciência Da\n        Computação2 - Eng Bioproc E Biotec\n      ',
             schedule: [
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'K106',
-              },
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'K106',
-              },
+              { dayTimeCode: '2T2', locationCode: 'K106' },
+              { dayTimeCode: '2T3', locationCode: 'K106' },
             ],
             teacher: 'Katya Cristina De Lima Picanco',
             optional: 'Não',
@@ -1578,6 +1054,7 @@ const useSubjects = () => {
           OPBT: {
             subjectCode: 'BP05F',
             subjectName: 'Filosofia Da Ciência E Da Tecnologia',
+            weeklyLessons: 2,
             code: 'OPBT',
             framing: 'P',
             vacanciesTotal: 44,
@@ -1586,14 +1063,8 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Eng Bioproc E Biotec2 - Engenharia Química2 - Engenharia\n        Mecânica2 - Ciência Da Computação2 - Engenharia De Produção2 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '3T4',
-                locationCode: 'L113',
-              },
-              {
-                dayTimeCode: '3T5',
-                locationCode: 'L113',
-              },
+              { dayTimeCode: '3T4', locationCode: 'L113' },
+              { dayTimeCode: '3T5', locationCode: 'L113' },
             ],
             teacher: 'Edson Jacinski',
             optional: 'Engenharia De Bioprocessos E Biotecnologia',
@@ -1608,6 +1079,7 @@ const useSubjects = () => {
           BP21: {
             subjectCode: 'BP32F',
             subjectName: 'Geometria Analítica E Álgebra Linear',
+            weeklyLessons: 6,
             code: 'BP21',
             framing: 'R',
             vacanciesTotal: 44,
@@ -1616,30 +1088,12 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Eng Bioproc E Biotec2 - Engenharia Química2 - Engenharia\n        Mecânica2 - Ciência Da Computação2 - Engenharia De Produção2 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '2T4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '2T5',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '3T4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '3T5',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5T4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5T5',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '2T4', locationCode: 'Z001' },
+              { dayTimeCode: '2T5', locationCode: 'Z001' },
+              { dayTimeCode: '3T4', locationCode: 'Z001' },
+              { dayTimeCode: '3T5', locationCode: 'Z001' },
+              { dayTimeCode: '5T4', locationCode: 'Z001' },
+              { dayTimeCode: '5T5', locationCode: 'Z001' },
             ],
             teacher: 'Taiza Alissul Sauer Do Carmo',
             optional: 'Não',
@@ -1647,6 +1101,7 @@ const useSubjects = () => {
           EAD: {
             subjectCode: 'BP32F',
             subjectName: 'Geometria Analítica E Álgebra Linear',
+            weeklyLessons: 6,
             code: 'EAD',
             framing: 'P',
             vacanciesTotal: 150,
@@ -1654,12 +1109,7 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors:
               '\n        1 - Engenharia Química1 - Engenharia Mecânica1 - Ciência Da\n        Computação1 - Engenharia Eletrônica1 - Engenharia De Produção1 -\n        Eng Bioproc E Biotec1 - Engenharia Elétrica\n      ',
-            schedule: [
-              {
-                dayTimeCode: '',
-                locationCode: '',
-              },
-            ],
+            schedule: [{ dayTimeCode: '', locationCode: '' }],
             teacher: 'Iara Da Cunha Ribeiro Da Silva',
             optional: 'Não',
           },
@@ -1673,6 +1123,7 @@ const useSubjects = () => {
           CC11: {
             subjectCode: 'CC51D',
             subjectName: 'Geometria Analítica E Álgebra Linear',
+            weeklyLessons: 6,
             code: 'CC11',
             framing: 'R',
             vacanciesTotal: 82,
@@ -1681,30 +1132,12 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Ciência Da Computação2 - Engenharia Química2 - Engenharia\n        Mecânica2 - Engenharia Eletrônica2 - Engenharia De Produção2 -\n        Eng Bioproc E Biotec\n      ',
             schedule: [
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '3T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '3T3',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5T3',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '2T2', locationCode: 'Z001' },
+              { dayTimeCode: '2T3', locationCode: 'Z001' },
+              { dayTimeCode: '3T2', locationCode: 'Z001' },
+              { dayTimeCode: '3T3', locationCode: 'Z001' },
+              { dayTimeCode: '5T2', locationCode: 'Z001' },
+              { dayTimeCode: '5T3', locationCode: 'Z001' },
             ],
             teacher: 'Taiza Alissul Sauer Do Carmo',
             optional: 'Não',
@@ -1719,6 +1152,7 @@ const useSubjects = () => {
           EE11: {
             subjectCode: 'EN31D',
             subjectName: 'Geometria Analítica E Álgebra Linear',
+            weeklyLessons: 6,
             code: 'EE11',
             framing: 'P',
             vacanciesTotal: 36,
@@ -1727,30 +1161,12 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Eletrônica1 - Engenharia Elétrica2 - Engenharia\n        Química2 - Ciência Da Computação2 - Engenharia De Produção2 -\n        Eng Bioproc E Biotec\n      ',
             schedule: [
-              {
-                dayTimeCode: '2M2',
-                locationCode: 'L008',
-              },
-              {
-                dayTimeCode: '2M3',
-                locationCode: 'L008',
-              },
-              {
-                dayTimeCode: '3M2',
-                locationCode: 'L008',
-              },
-              {
-                dayTimeCode: '3M3',
-                locationCode: 'L008',
-              },
-              {
-                dayTimeCode: '4T4',
-                locationCode: 'L008',
-              },
-              {
-                dayTimeCode: '4T5',
-                locationCode: 'L008',
-              },
+              { dayTimeCode: '2M2', locationCode: 'L008' },
+              { dayTimeCode: '2M3', locationCode: 'L008' },
+              { dayTimeCode: '3M2', locationCode: 'L008' },
+              { dayTimeCode: '3M3', locationCode: 'L008' },
+              { dayTimeCode: '4T4', locationCode: 'L008' },
+              { dayTimeCode: '4T5', locationCode: 'L008' },
             ],
             teacher: 'Marcos Cesar Verges',
             optional: 'Não',
@@ -1765,6 +1181,7 @@ const useSubjects = () => {
           PE141: {
             subjectCode: 'EP31D',
             subjectName: 'Geometria Analítica E Álgebra Linear',
+            weeklyLessons: 6,
             code: 'PE141',
             framing: 'R',
             vacanciesTotal: 45,
@@ -1773,30 +1190,12 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia De Produção2 - Engenharia Química2 - Engenharia\n        Mecânica2 - Ciência Da Computação2 - Engenharia Eletrônica2 -\n        Eng Bioproc E Biotec\n      ',
             schedule: [
-              {
-                dayTimeCode: '2M2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '2M3',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '4M4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '4M5',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5M4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5M5',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '2M2', locationCode: 'Z001' },
+              { dayTimeCode: '2M3', locationCode: 'Z001' },
+              { dayTimeCode: '4M4', locationCode: 'Z001' },
+              { dayTimeCode: '4M5', locationCode: 'Z001' },
+              { dayTimeCode: '5M4', locationCode: 'Z001' },
+              { dayTimeCode: '5M5', locationCode: 'Z001' },
             ],
             teacher: 'Nilceia Aparecida Maciel Pinheiro',
             optional: 'Não',
@@ -1811,6 +1210,7 @@ const useSubjects = () => {
           AE141: {
             subjectCode: 'QM31B',
             subjectName: 'Geometria Analítica E Álgebra Linear',
+            weeklyLessons: 6,
             code: 'AE141',
             framing: 'R',
             vacanciesTotal: 23,
@@ -1819,30 +1219,12 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Química2 - Engenharia Mecânica2 - Ciência Da\n        Computação2 - Engenharia De Produção2 - Eng Bioproc E Biotec2 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '2T1',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '4M4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '4M5',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5T3',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '2T1', locationCode: 'Z001' },
+              { dayTimeCode: '2T2', locationCode: 'Z001' },
+              { dayTimeCode: '4M4', locationCode: 'Z001' },
+              { dayTimeCode: '4M5', locationCode: 'Z001' },
+              { dayTimeCode: '5T2', locationCode: 'Z001' },
+              { dayTimeCode: '5T3', locationCode: 'Z001' },
             ],
             teacher: 'Ana Paula Milanez',
             optional: 'Não',
@@ -1857,6 +1239,7 @@ const useSubjects = () => {
           EM11: {
             subjectCode: 'PG0002',
             subjectName: 'Geometria Analítica E Álgebra Linear',
+            weeklyLessons: 6,
             code: 'EM11',
             framing: 'P',
             vacanciesTotal: 44,
@@ -1865,30 +1248,12 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Mecânica2 - Engenharia Química2 - Ciência Da\n        Computação2 - Engenharia Eletrônica2 - Engenharia De Produção2 -\n        Eng Bioproc E Biotec\n      ',
             schedule: [
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'L106',
-              },
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'L106',
-              },
-              {
-                dayTimeCode: '4M2',
-                locationCode: 'L010',
-              },
-              {
-                dayTimeCode: '4M3',
-                locationCode: 'L010',
-              },
-              {
-                dayTimeCode: '5M4',
-                locationCode: 'L111',
-              },
-              {
-                dayTimeCode: '5M5',
-                locationCode: 'L111',
-              },
+              { dayTimeCode: '2T2', locationCode: 'L106' },
+              { dayTimeCode: '2T3', locationCode: 'L106' },
+              { dayTimeCode: '4M2', locationCode: 'L010' },
+              { dayTimeCode: '4M3', locationCode: 'L010' },
+              { dayTimeCode: '5M4', locationCode: 'L111' },
+              { dayTimeCode: '5M5', locationCode: 'L111' },
             ],
             teacher: 'David Alexander Chipana Mollinedo',
             optional: 'Não',
@@ -1903,6 +1268,7 @@ const useSubjects = () => {
           CC61: {
             subjectCode: 'CC56A',
             subjectName: 'Inteligência Artificial',
+            weeklyLessons: 4,
             code: 'CC61',
             framing: 'R',
             vacanciesTotal: 40,
@@ -1910,22 +1276,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2T4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '2T5',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '4T4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '4T5',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '2T4', locationCode: 'Z001' },
+              { dayTimeCode: '2T5', locationCode: 'Z001' },
+              { dayTimeCode: '4T4', locationCode: 'Z001' },
+              { dayTimeCode: '4T5', locationCode: 'Z001' },
             ],
             teacher: 'Helyane Bronoski Borges',
             optional: 'Não',
@@ -1940,6 +1294,7 @@ const useSubjects = () => {
           CC51: {
             subjectCode: 'CC55E',
             subjectName: 'Interação Humano-Computador',
+            weeklyLessons: 4,
             code: 'CC51',
             framing: 'H',
             vacanciesTotal: 40,
@@ -1947,22 +1302,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2M2',
-                locationCode: 'C202',
-              },
-              {
-                dayTimeCode: '2M3',
-                locationCode: 'C202',
-              },
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'C202',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'C202',
-              },
+              { dayTimeCode: '2M2', locationCode: 'C202' },
+              { dayTimeCode: '2M3', locationCode: 'C202' },
+              { dayTimeCode: '3M4', locationCode: 'C202' },
+              { dayTimeCode: '3M5', locationCode: 'C202' },
             ],
             teacher: 'Geraldo Ranthum',
             optional: 'Não',
@@ -1977,6 +1320,7 @@ const useSubjects = () => {
           PE441: {
             subjectCode: 'EP34A',
             subjectName: 'Introdução À Administração',
+            weeklyLessons: 4,
             code: 'PE441',
             framing: 'R',
             vacanciesTotal: 44,
@@ -1985,22 +1329,10 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia De Produção2 - Engenharia Mecânica2 - Ciência Da\n        Computação2 - Engenharia Eletrônica\n      ',
             schedule: [
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '6T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '6T3',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '2T2', locationCode: 'Z001' },
+              { dayTimeCode: '2T3', locationCode: 'Z001' },
+              { dayTimeCode: '6T2', locationCode: 'Z001' },
+              { dayTimeCode: '6T3', locationCode: 'Z001' },
             ],
             teacher: 'Claudia Tania Picinin',
             optional: 'Não',
@@ -2015,6 +1347,7 @@ const useSubjects = () => {
           CC21: {
             subjectCode: 'CC52D',
             subjectName: 'Laboratório De Estrutura De Dados',
+            weeklyLessons: 2,
             code: 'CC21',
             framing: 'H',
             vacanciesTotal: 40,
@@ -2022,14 +1355,8 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '5M4',
-                locationCode: 'C102',
-              },
-              {
-                dayTimeCode: '5M5',
-                locationCode: 'C102',
-              },
+              { dayTimeCode: '5M4', locationCode: 'C102' },
+              { dayTimeCode: '5M5', locationCode: 'C102' },
             ],
             teacher: 'Simone Bello Kaminski Aires',
             optional: 'Não',
@@ -2037,6 +1364,7 @@ const useSubjects = () => {
           RE42: {
             subjectCode: 'CC52D',
             subjectName: 'Laboratório De Estrutura De Dados',
+            weeklyLessons: 2,
             code: 'RE42',
             framing: 'H',
             vacanciesTotal: 40,
@@ -2044,14 +1372,8 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '6M2',
-                locationCode: 'L114',
-              },
-              {
-                dayTimeCode: '6M3',
-                locationCode: 'L114',
-              },
+              { dayTimeCode: '6M2', locationCode: 'L114' },
+              { dayTimeCode: '6M3', locationCode: 'L114' },
             ],
             teacher: 'Saulo Jorge Beltrao De Queiroz',
             optional: 'Não',
@@ -2066,6 +1388,7 @@ const useSubjects = () => {
           OPTC: {
             subjectCode: 'CC02I',
             subjectName: 'Laboratório De Programação Em Sistemas Operacionais',
+            weeklyLessons: 4,
             code: 'OPTC',
             framing: 'H',
             vacanciesTotal: 20,
@@ -2073,22 +1396,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2M4',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '2M5',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '6M2',
-                locationCode: 'L109',
-              },
-              {
-                dayTimeCode: '6M3',
-                locationCode: 'L109',
-              },
+              { dayTimeCode: '2M4', locationCode: 'L109' },
+              { dayTimeCode: '2M5', locationCode: 'L109' },
+              { dayTimeCode: '6M2', locationCode: 'L109' },
+              { dayTimeCode: '6M3', locationCode: 'L109' },
             ],
             teacher: 'Andre Koscianski',
             optional:
@@ -2104,6 +1415,7 @@ const useSubjects = () => {
           OPTHA: {
             subjectCode: 'CC38L',
             subjectName: 'Libras',
+            weeklyLessons: 2,
             code: 'OPTHA',
             framing: 'P',
             vacanciesTotal: 20,
@@ -2112,14 +1424,8 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Química1 - Engenharia Mecânica1 - Ciência Da\n        Computação1 - Engenharia De Produção1 - Eng Bioproc E Biotec1 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '3T2',
-                locationCode: 'L105',
-              },
-              {
-                dayTimeCode: '3T3',
-                locationCode: 'L105',
-              },
+              { dayTimeCode: '3T2', locationCode: 'L105' },
+              { dayTimeCode: '3T3', locationCode: 'L105' },
             ],
             teacher: 'Luiz Andre Brito Coelho',
             optional:
@@ -2128,6 +1434,7 @@ const useSubjects = () => {
           OPTHB: {
             subjectCode: 'CC38L',
             subjectName: 'Libras',
+            weeklyLessons: 2,
             code: 'OPTHB',
             framing: 'P',
             vacanciesTotal: 20,
@@ -2136,14 +1443,8 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Química1 - Engenharia Mecânica1 - Ciência Da\n        Computação1 - Engenharia De Produção1 - Eng Bioproc E Biotec1 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '4M4',
-                locationCode: 'L004',
-              },
-              {
-                dayTimeCode: '4M5',
-                locationCode: 'L004',
-              },
+              { dayTimeCode: '4M4', locationCode: 'L004' },
+              { dayTimeCode: '4M5', locationCode: 'L004' },
             ],
             teacher: 'Luiz Andre Brito Coelho',
             optional:
@@ -2159,6 +1460,7 @@ const useSubjects = () => {
           RE31: {
             subjectCode: 'AS31B',
             subjectName: 'Linguagem De Programação Estruturada',
+            weeklyLessons: 4,
             code: 'RE31',
             framing: 'H',
             vacanciesTotal: 44,
@@ -2166,22 +1468,10 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '',
             schedule: [
-              {
-                dayTimeCode: '2N1',
-                locationCode: 'C102',
-              },
-              {
-                dayTimeCode: '2N2',
-                locationCode: 'C102',
-              },
-              {
-                dayTimeCode: '4N1',
-                locationCode: 'C102',
-              },
-              {
-                dayTimeCode: '4N2',
-                locationCode: 'C102',
-              },
+              { dayTimeCode: '2N1', locationCode: 'C102' },
+              { dayTimeCode: '2N2', locationCode: 'C102' },
+              { dayTimeCode: '4N1', locationCode: 'C102' },
+              { dayTimeCode: '4N2', locationCode: 'C102' },
             ],
             teacher: 'Joao Paulo Aires',
             optional: 'Não',
@@ -2196,6 +1486,7 @@ const useSubjects = () => {
           CC41: {
             subjectCode: 'CC54A',
             subjectName: 'Linguagens Formais, Autômatos',
+            weeklyLessons: 4,
             code: 'CC41',
             framing: 'H',
             vacanciesTotal: 40,
@@ -2203,22 +1494,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'L003',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'L003',
-              },
-              {
-                dayTimeCode: '5T2',
-                locationCode: 'L004',
-              },
-              {
-                dayTimeCode: '5T3',
-                locationCode: 'L004',
-              },
+              { dayTimeCode: '3M4', locationCode: 'L003' },
+              { dayTimeCode: '3M5', locationCode: 'L003' },
+              { dayTimeCode: '5T2', locationCode: 'L004' },
+              { dayTimeCode: '5T3', locationCode: 'L004' },
             ],
             teacher: 'Gleifer Vaz Alves',
             optional: 'Não',
@@ -2233,6 +1512,7 @@ const useSubjects = () => {
           CC21: {
             subjectCode: 'CC52C',
             subjectName: 'Lógica Para Computação',
+            weeklyLessons: 4,
             code: 'CC21',
             framing: 'H',
             vacanciesTotal: 40,
@@ -2240,22 +1520,10 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2T4',
-                locationCode: 'C202',
-              },
-              {
-                dayTimeCode: '2T5',
-                locationCode: 'C202',
-              },
-              {
-                dayTimeCode: '4T4',
-                locationCode: 'C202',
-              },
-              {
-                dayTimeCode: '4T5',
-                locationCode: 'C202',
-              },
+              { dayTimeCode: '2T4', locationCode: 'C202' },
+              { dayTimeCode: '2T5', locationCode: 'C202' },
+              { dayTimeCode: '4T4', locationCode: 'C202' },
+              { dayTimeCode: '4T5', locationCode: 'C202' },
             ],
             teacher: 'Gleifer Vaz Alves',
             optional: 'Não',
@@ -2270,6 +1538,7 @@ const useSubjects = () => {
           CC11: {
             subjectCode: 'CC51B',
             subjectName: 'Matemática Discreta',
+            weeklyLessons: 4,
             code: 'CC11',
             framing: 'H',
             vacanciesTotal: 72,
@@ -2277,22 +1546,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2T4',
-                locationCode: 'L008',
-              },
-              {
-                dayTimeCode: '2T5',
-                locationCode: 'L008',
-              },
-              {
-                dayTimeCode: '4T2',
-                locationCode: 'L008',
-              },
-              {
-                dayTimeCode: '4T3',
-                locationCode: 'L008',
-              },
+              { dayTimeCode: '2T4', locationCode: 'L008' },
+              { dayTimeCode: '2T5', locationCode: 'L008' },
+              { dayTimeCode: '4T2', locationCode: 'L008' },
+              { dayTimeCode: '4T3', locationCode: 'L008' },
             ],
             teacher: 'Sheila Morais De Almeida',
             optional: 'Não',
@@ -2307,6 +1564,7 @@ const useSubjects = () => {
           PE341: {
             subjectCode: 'EP33D',
             subjectName: 'Matemática Discreta',
+            weeklyLessons: 3,
             code: 'PE341',
             framing: 'P',
             vacanciesTotal: 44,
@@ -2314,18 +1572,9 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Engenharia De Produção',
             schedule: [
-              {
-                dayTimeCode: '4T4',
-                locationCode: 'K107',
-              },
-              {
-                dayTimeCode: '4T5',
-                locationCode: 'K107',
-              },
-              {
-                dayTimeCode: '4T6',
-                locationCode: 'K107',
-              },
+              { dayTimeCode: '4T4', locationCode: 'K107' },
+              { dayTimeCode: '4T5', locationCode: 'K107' },
+              { dayTimeCode: '4T6', locationCode: 'K107' },
             ],
             teacher: 'Rodrigo Frehse Pereira',
             optional: 'Não',
@@ -2340,6 +1589,7 @@ const useSubjects = () => {
           BP51: {
             subjectCode: 'BP35H',
             subjectName: 'Metodologia Da Pesquisa',
+            weeklyLessons: 2,
             code: 'BP51',
             framing: 'R',
             vacanciesTotal: 44,
@@ -2347,14 +1597,8 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Eng Bioproc E Biotec',
             schedule: [
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '2T2', locationCode: 'Z001' },
+              { dayTimeCode: '2T3', locationCode: 'Z001' },
             ],
             teacher: 'Antonio Carlos Frasson',
             optional: 'Não',
@@ -2369,6 +1613,7 @@ const useSubjects = () => {
           CC61: {
             subjectCode: 'CC56B',
             subjectName: 'Metodologia Da Pesquisa',
+            weeklyLessons: 2,
             code: 'CC61',
             framing: 'R',
             vacanciesTotal: 40,
@@ -2376,14 +1621,8 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '2T2', locationCode: 'Z001' },
+              { dayTimeCode: '2T3', locationCode: 'Z001' },
             ],
             teacher: 'Helyane Bronoski Borges',
             optional: 'Não',
@@ -2398,6 +1637,7 @@ const useSubjects = () => {
           PE341: {
             subjectCode: 'EP33G',
             subjectName: 'Metodologia Da Pesquisa',
+            weeklyLessons: 2,
             code: 'PE341',
             framing: 'R',
             vacanciesTotal: 44,
@@ -2406,14 +1646,8 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia De Produção2 - Engenharia Química2 - Engenharia\n        Mecânica2 - Ciência Da Computação2 - Engenharia Eletrônica2 -\n        Eng Bioproc E Biotec\n      ',
             schedule: [
-              {
-                dayTimeCode: '4T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '4T3',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '4T2', locationCode: 'Z001' },
+              { dayTimeCode: '4T3', locationCode: 'Z001' },
             ],
             teacher: 'Jose Alves De Faria Filho',
             optional: 'Não',
@@ -2428,6 +1662,7 @@ const useSubjects = () => {
           CC31: {
             subjectCode: 'CC53B',
             subjectName: 'Organização De Computadores',
+            weeklyLessons: 4,
             code: 'CC31',
             framing: 'H',
             vacanciesTotal: 40,
@@ -2435,22 +1670,10 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '4T2',
-                locationCode: 'L105',
-              },
-              {
-                dayTimeCode: '4T3',
-                locationCode: 'L105',
-              },
-              {
-                dayTimeCode: '6T2',
-                locationCode: 'L105',
-              },
-              {
-                dayTimeCode: '6T3',
-                locationCode: 'L105',
-              },
+              { dayTimeCode: '4T2', locationCode: 'L105' },
+              { dayTimeCode: '4T3', locationCode: 'L105' },
+              { dayTimeCode: '6T2', locationCode: 'L105' },
+              { dayTimeCode: '6T3', locationCode: 'L105' },
             ],
             teacher: 'Erikson Freitas De Morais',
             optional: 'Não',
@@ -2466,6 +1689,7 @@ const useSubjects = () => {
             subjectCode: 'ENG01A',
             subjectName:
               'Práticas Esportivas Individuais, Esportes De Aventura E Qualidade De Vida',
+            weeklyLessons: 2,
             code: 'OPTHA',
             framing: 'P',
             vacanciesTotal: 20,
@@ -2474,14 +1698,8 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Química1 - Engenharia Mecânica1 - Ciência Da\n        Computação1 - Engenharia De Produção1 - Eng Bioproc E Biotec1 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '5M4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5M5',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '5M4', locationCode: 'Z001' },
+              { dayTimeCode: '5M5', locationCode: 'Z001' },
             ],
             teacher: 'Gilberto Martins Freire',
             optional:
@@ -2491,6 +1709,7 @@ const useSubjects = () => {
             subjectCode: 'ENG01A',
             subjectName:
               'Práticas Esportivas Individuais, Esportes De Aventura E Qualidade De Vida',
+            weeklyLessons: 2,
             code: 'OPTHB',
             framing: 'P',
             vacanciesTotal: 20,
@@ -2499,14 +1718,8 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Química1 - Engenharia Mecânica1 - Ciência Da\n        Computação1 - Engenharia De Produção1 - Eng Bioproc E Biotec1 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '3T4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '3T5',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '3T4', locationCode: 'Z001' },
+              { dayTimeCode: '3T5', locationCode: 'Z001' },
             ],
             teacher: 'Gilberto Martins Freire',
             optional:
@@ -2522,6 +1735,7 @@ const useSubjects = () => {
           BP31: {
             subjectCode: 'BP33G',
             subjectName: 'Probabilidade E Estatística',
+            weeklyLessons: 4,
             code: 'BP31',
             framing: 'P',
             vacanciesTotal: 44,
@@ -2530,22 +1744,10 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Eng Bioproc E Biotec2 - Engenharia Química2 - Engenharia\n        Mecânica2 - Ciência Da Computação2 - Engenharia Eletrônica2 -\n        Engenharia De Produção\n      ',
             schedule: [
-              {
-                dayTimeCode: '2T4',
-                locationCode: 'L102',
-              },
-              {
-                dayTimeCode: '2T5',
-                locationCode: 'L102',
-              },
-              {
-                dayTimeCode: '6M4',
-                locationCode: 'L102',
-              },
-              {
-                dayTimeCode: '6M5',
-                locationCode: 'L102',
-              },
+              { dayTimeCode: '2T4', locationCode: 'L102' },
+              { dayTimeCode: '2T5', locationCode: 'L102' },
+              { dayTimeCode: '6M4', locationCode: 'L102' },
+              { dayTimeCode: '6M5', locationCode: 'L102' },
             ],
             teacher: 'Marcos Tadeu Andrade Cordeiro',
             optional: 'Não',
@@ -2560,6 +1762,7 @@ const useSubjects = () => {
           CC21: {
             subjectCode: 'CC52F',
             subjectName: 'Probabilidade E Estatística',
+            weeklyLessons: 4,
             code: 'CC21',
             framing: 'P',
             vacanciesTotal: 40,
@@ -2567,22 +1770,10 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2M2',
-                locationCode: 'L102',
-              },
-              {
-                dayTimeCode: '2M3',
-                locationCode: 'L102',
-              },
-              {
-                dayTimeCode: '6T4',
-                locationCode: 'L102',
-              },
-              {
-                dayTimeCode: '6T5',
-                locationCode: 'L102',
-              },
+              { dayTimeCode: '2M2', locationCode: 'L102' },
+              { dayTimeCode: '2M3', locationCode: 'L102' },
+              { dayTimeCode: '6T4', locationCode: 'L102' },
+              { dayTimeCode: '6T5', locationCode: 'L102' },
             ],
             teacher: 'Marcos Tadeu Andrade Cordeiro',
             optional: 'Não',
@@ -2597,6 +1788,7 @@ const useSubjects = () => {
           PE241: {
             subjectCode: 'EP32D',
             subjectName: 'Probabilidade E Estatística',
+            weeklyLessons: 4,
             code: 'PE241',
             framing: 'P',
             vacanciesTotal: 38,
@@ -2605,22 +1797,10 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia De Produção2 - Engenharia Química2 - Engenharia\n        Mecânica2 - Ciência Da Computação2 - Eng Bioproc E Biotec2 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '2M4',
-                locationCode: 'L107',
-              },
-              {
-                dayTimeCode: '2M5',
-                locationCode: 'L107',
-              },
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'L107',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'L107',
-              },
+              { dayTimeCode: '2M4', locationCode: 'L107' },
+              { dayTimeCode: '2M5', locationCode: 'L107' },
+              { dayTimeCode: '3M4', locationCode: 'L107' },
+              { dayTimeCode: '3M5', locationCode: 'L107' },
             ],
             teacher: 'Guatacara Dos Santos Junior',
             optional: 'Não',
@@ -2635,6 +1815,7 @@ const useSubjects = () => {
           AE541: {
             subjectCode: 'QM35E',
             subjectName: 'Probabilidade E Estatística',
+            weeklyLessons: 4,
             code: 'AE541',
             framing: 'P',
             vacanciesTotal: 44,
@@ -2643,22 +1824,10 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Química2 - Engenharia Mecânica2 - Ciência Da\n        Computação2 - Engenharia Eletrônica2 - Engenharia De Produção2 -\n        Eng Bioproc E Biotec\n      ',
             schedule: [
-              {
-                dayTimeCode: '2M2',
-                locationCode: 'L005',
-              },
-              {
-                dayTimeCode: '2M3',
-                locationCode: 'L005',
-              },
-              {
-                dayTimeCode: '5T2',
-                locationCode: 'L102',
-              },
-              {
-                dayTimeCode: '5T3',
-                locationCode: 'L102',
-              },
+              { dayTimeCode: '2M2', locationCode: 'L005' },
+              { dayTimeCode: '2M3', locationCode: 'L005' },
+              { dayTimeCode: '5T2', locationCode: 'L102' },
+              { dayTimeCode: '5T3', locationCode: 'L102' },
             ],
             teacher: 'Guatacara Dos Santos Junior',
             optional: 'Não',
@@ -2673,6 +1842,7 @@ const useSubjects = () => {
           EM21: {
             subjectCode: 'PG0009',
             subjectName: 'Probabilidade E Estatística',
+            weeklyLessons: 4,
             code: 'EM21',
             framing: 'P',
             vacanciesTotal: 44,
@@ -2681,22 +1851,10 @@ const useSubjects = () => {
             priorityMajors:
               '\n        1 - Engenharia Mecânica2 - Engenharia Química2 - Ciência Da\n        Computação2 - Engenharia De Produção2 - Eng Bioproc E Biotec2 -\n        Engenharia Elétrica\n      ',
             schedule: [
-              {
-                dayTimeCode: '2M4',
-                locationCode: 'L003',
-              },
-              {
-                dayTimeCode: '2M5',
-                locationCode: 'L003',
-              },
-              {
-                dayTimeCode: '6M2',
-                locationCode: 'L004',
-              },
-              {
-                dayTimeCode: '6M3',
-                locationCode: 'L004',
-              },
+              { dayTimeCode: '2M4', locationCode: 'L003' },
+              { dayTimeCode: '2M5', locationCode: 'L003' },
+              { dayTimeCode: '6M2', locationCode: 'L004' },
+              { dayTimeCode: '6M3', locationCode: 'L004' },
             ],
             teacher: 'Marcos Tadeu Andrade Cordeiro',
             optional: 'Não',
@@ -2711,6 +1869,7 @@ const useSubjects = () => {
           OPTC: {
             subjectCode: 'CC36F',
             subjectName: 'Processamento De Imagens',
+            weeklyLessons: 4,
             code: 'OPTC',
             framing: 'H',
             vacanciesTotal: 20,
@@ -2718,22 +1877,10 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '',
             schedule: [
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'L114',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'L114',
-              },
-              {
-                dayTimeCode: '4M2',
-                locationCode: 'L114',
-              },
-              {
-                dayTimeCode: '4M3',
-                locationCode: 'L114',
-              },
+              { dayTimeCode: '3M4', locationCode: 'L114' },
+              { dayTimeCode: '3M5', locationCode: 'L114' },
+              { dayTimeCode: '4M2', locationCode: 'L114' },
+              { dayTimeCode: '4M3', locationCode: 'L114' },
             ],
             teacher: 'Mauren Louise Sguario Coelho De Andrade',
             optional:
@@ -2749,6 +1896,7 @@ const useSubjects = () => {
           OPTC: {
             subjectCode: 'CC37X',
             subjectName: 'Programação De Dispositivos Móveis',
+            weeklyLessons: 4,
             code: 'OPTC',
             framing: 'H',
             vacanciesTotal: 20,
@@ -2756,22 +1904,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2T4',
-                locationCode: 'L003',
-              },
-              {
-                dayTimeCode: '2T5',
-                locationCode: 'L003',
-              },
-              {
-                dayTimeCode: '5T4',
-                locationCode: 'L003',
-              },
-              {
-                dayTimeCode: '5T5',
-                locationCode: 'L003',
-              },
+              { dayTimeCode: '2T4', locationCode: 'L003' },
+              { dayTimeCode: '2T5', locationCode: 'L003' },
+              { dayTimeCode: '5T4', locationCode: 'L003' },
+              { dayTimeCode: '5T5', locationCode: 'L003' },
             ],
             teacher: 'Diego Roberto Antunes',
             optional:
@@ -2787,6 +1923,7 @@ const useSubjects = () => {
           CC41: {
             subjectCode: 'CC54D',
             subjectName: 'Programação Orientada A Objetos',
+            weeklyLessons: 4,
             code: 'CC41',
             framing: 'P',
             vacanciesTotal: 40,
@@ -2794,22 +1931,10 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2M4',
-                locationCode: 'C203',
-              },
-              {
-                dayTimeCode: '2M5',
-                locationCode: 'C203',
-              },
-              {
-                dayTimeCode: '5M4',
-                locationCode: 'C203',
-              },
-              {
-                dayTimeCode: '5M5',
-                locationCode: 'C203',
-              },
+              { dayTimeCode: '2M4', locationCode: 'C203' },
+              { dayTimeCode: '2M5', locationCode: 'C203' },
+              { dayTimeCode: '5M4', locationCode: 'C203' },
+              { dayTimeCode: '5M5', locationCode: 'C203' },
             ],
             teacher: 'Vinicius Camargo Andrade',
             optional: 'Não',
@@ -2824,6 +1949,7 @@ const useSubjects = () => {
           OPTHA: {
             subjectCode: 'ET05A',
             subjectName: 'Qualidade De Vida',
+            weeklyLessons: 2,
             code: 'OPTHA',
             framing: 'H',
             vacanciesTotal: 20,
@@ -2831,14 +1957,8 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '',
             schedule: [
-              {
-                dayTimeCode: '2T4',
-                locationCode: 'L112',
-              },
-              {
-                dayTimeCode: '2T5',
-                locationCode: 'L112',
-              },
+              { dayTimeCode: '2T4', locationCode: 'L112' },
+              { dayTimeCode: '2T5', locationCode: 'L112' },
             ],
             teacher: 'Adriana Aparecida Guimaraes',
             optional: 'Engenharia Eletrônica',
@@ -2846,6 +1966,7 @@ const useSubjects = () => {
           OPTHB: {
             subjectCode: 'ET05A',
             subjectName: 'Qualidade De Vida',
+            weeklyLessons: 2,
             code: 'OPTHB',
             framing: 'H',
             vacanciesTotal: 20,
@@ -2853,14 +1974,8 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '',
             schedule: [
-              {
-                dayTimeCode: '3M2',
-                locationCode: 'L001',
-              },
-              {
-                dayTimeCode: '3M3',
-                locationCode: 'L001',
-              },
+              { dayTimeCode: '3M2', locationCode: 'L001' },
+              { dayTimeCode: '3M3', locationCode: 'L001' },
             ],
             teacher: 'Adriana Aparecida Guimaraes',
             optional: 'Engenharia Eletrônica',
@@ -2868,6 +1983,7 @@ const useSubjects = () => {
           OPTHC: {
             subjectCode: 'ET05A',
             subjectName: 'Qualidade De Vida',
+            weeklyLessons: 2,
             code: 'OPTHC',
             framing: 'H',
             vacanciesTotal: 20,
@@ -2875,14 +1991,8 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '',
             schedule: [
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'L007',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'L007',
-              },
+              { dayTimeCode: '3M4', locationCode: 'L007' },
+              { dayTimeCode: '3M5', locationCode: 'L007' },
             ],
             teacher: 'Adriana Aparecida Guimaraes',
             optional: 'Engenharia Eletrônica',
@@ -2890,6 +2000,7 @@ const useSubjects = () => {
           OPTHD: {
             subjectCode: 'ET05A',
             subjectName: 'Qualidade De Vida',
+            weeklyLessons: 2,
             code: 'OPTHD',
             framing: 'H',
             vacanciesTotal: 20,
@@ -2897,14 +2008,8 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '',
             schedule: [
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'L113',
-              },
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'L113',
-              },
+              { dayTimeCode: '2T2', locationCode: 'L113' },
+              { dayTimeCode: '2T3', locationCode: 'L113' },
             ],
             teacher: 'Adriana Aparecida Guimaraes',
             optional: 'Engenharia Eletrônica',
@@ -2912,6 +2017,7 @@ const useSubjects = () => {
           OPTHE: {
             subjectCode: 'ET05A',
             subjectName: 'Qualidade De Vida',
+            weeklyLessons: 2,
             code: 'OPTHE',
             framing: 'H',
             vacanciesTotal: 20,
@@ -2919,14 +2025,8 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '',
             schedule: [
-              {
-                dayTimeCode: '4M2',
-                locationCode: 'GINÁSIO',
-              },
-              {
-                dayTimeCode: '4M3',
-                locationCode: 'GINÁSIO',
-              },
+              { dayTimeCode: '4M2', locationCode: 'GINÁSIO' },
+              { dayTimeCode: '4M3', locationCode: 'GINÁSIO' },
             ],
             teacher: 'Adriana Aparecida Guimaraes',
             optional: 'Engenharia Eletrônica',
@@ -2941,6 +2041,7 @@ const useSubjects = () => {
           CC51: {
             subjectCode: 'CC55C',
             subjectName: 'Redes De Computadores 1',
+            weeklyLessons: 4,
             code: 'CC51',
             framing: 'H',
             vacanciesTotal: 40,
@@ -2948,22 +2049,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2M4',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '2M5',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '3M2',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '3M3',
-                locationCode: 'C104',
-              },
+              { dayTimeCode: '2M4', locationCode: 'C104' },
+              { dayTimeCode: '2M5', locationCode: 'C104' },
+              { dayTimeCode: '3M2', locationCode: 'C104' },
+              { dayTimeCode: '3M3', locationCode: 'C104' },
             ],
             teacher: 'Augusto Foronda',
             optional: 'Não',
@@ -2978,6 +2067,7 @@ const useSubjects = () => {
           OPTC: {
             subjectCode: 'CC37Z',
             subjectName: 'Redes De Computadores 2',
+            weeklyLessons: 4,
             code: 'OPTC',
             framing: 'H',
             vacanciesTotal: 20,
@@ -2985,22 +2075,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '4M4',
-                locationCode: 'C207',
-              },
-              {
-                dayTimeCode: '4M5',
-                locationCode: 'C207',
-              },
-              {
-                dayTimeCode: '5M4',
-                locationCode: 'C207',
-              },
-              {
-                dayTimeCode: '5M5',
-                locationCode: 'C207',
-              },
+              { dayTimeCode: '4M4', locationCode: 'C207' },
+              { dayTimeCode: '4M5', locationCode: 'C207' },
+              { dayTimeCode: '5M4', locationCode: 'C207' },
+              { dayTimeCode: '5M5', locationCode: 'C207' },
             ],
             teacher: 'Lourival Aparecido De Gois',
             optional: 'Curso De Bacharelado Em Ciência Da Computação.',
@@ -3015,6 +2093,7 @@ const useSubjects = () => {
           CC61: {
             subjectCode: 'CC56C',
             subjectName: 'Sistemas Distribuidos',
+            weeklyLessons: 4,
             code: 'CC61',
             framing: 'P',
             vacanciesTotal: 40,
@@ -3022,22 +2101,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '4T2',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '4T3',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '5T4',
-                locationCode: 'C104',
-              },
-              {
-                dayTimeCode: '5T5',
-                locationCode: 'C104',
-              },
+              { dayTimeCode: '4T2', locationCode: 'C104' },
+              { dayTimeCode: '4T3', locationCode: 'C104' },
+              { dayTimeCode: '5T4', locationCode: 'C104' },
+              { dayTimeCode: '5T5', locationCode: 'C104' },
             ],
             teacher: 'Richard Duarte Ribeiro',
             optional: 'Não',
@@ -3052,6 +2119,7 @@ const useSubjects = () => {
           CC41: {
             subjectCode: 'CC54C',
             subjectName: 'Sistemas Microcontrolados',
+            weeklyLessons: 4,
             code: 'CC41',
             framing: 'P',
             vacanciesTotal: 40,
@@ -3059,22 +2127,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2T2',
-                locationCode: 'V1-102',
-              },
-              {
-                dayTimeCode: '2T3',
-                locationCode: 'V1-102',
-              },
-              {
-                dayTimeCode: '4T2',
-                locationCode: 'V1-102',
-              },
-              {
-                dayTimeCode: '4T3',
-                locationCode: 'V1-102',
-              },
+              { dayTimeCode: '2T2', locationCode: 'V1-102' },
+              { dayTimeCode: '2T3', locationCode: 'V1-102' },
+              { dayTimeCode: '4T2', locationCode: 'V1-102' },
+              { dayTimeCode: '4T3', locationCode: 'V1-102' },
             ],
             teacher: 'Cristhiane Goncalves',
             optional: 'Não',
@@ -3089,6 +2145,7 @@ const useSubjects = () => {
           CC41: {
             subjectCode: 'CC54B',
             subjectName: 'Sistemas Operacionais',
+            weeklyLessons: 4,
             code: 'CC41',
             framing: 'H',
             vacanciesTotal: 40,
@@ -3096,22 +2153,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '2T4',
-                locationCode: 'L001',
-              },
-              {
-                dayTimeCode: '2T5',
-                locationCode: 'L001',
-              },
-              {
-                dayTimeCode: '6T4',
-                locationCode: 'L001',
-              },
-              {
-                dayTimeCode: '6T5',
-                locationCode: 'L001',
-              },
+              { dayTimeCode: '2T4', locationCode: 'L001' },
+              { dayTimeCode: '2T5', locationCode: 'L001' },
+              { dayTimeCode: '6T4', locationCode: 'L001' },
+              { dayTimeCode: '6T5', locationCode: 'L001' },
             ],
             teacher: 'Andre Koscianski',
             optional: 'Não',
@@ -3126,6 +2171,7 @@ const useSubjects = () => {
           OPTC: {
             subjectCode: 'CC39B',
             subjectName: 'Tópicos Em Engenharia De Software',
+            weeklyLessons: 4,
             code: 'OPTC',
             framing: 'H',
             vacanciesTotal: 20,
@@ -3133,22 +2179,10 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '',
             schedule: [
-              {
-                dayTimeCode: '2M1',
-                locationCode: 'L010',
-              },
-              {
-                dayTimeCode: '2M2',
-                locationCode: 'L010',
-              },
-              {
-                dayTimeCode: '2M3',
-                locationCode: 'L010',
-              },
-              {
-                dayTimeCode: '2M4',
-                locationCode: 'L010',
-              },
+              { dayTimeCode: '2M1', locationCode: 'L010' },
+              { dayTimeCode: '2M2', locationCode: 'L010' },
+              { dayTimeCode: '2M3', locationCode: 'L010' },
+              { dayTimeCode: '2M4', locationCode: 'L010' },
             ],
             teacher: 'Simone Nasser Matos',
             optional:
@@ -3164,6 +2198,7 @@ const useSubjects = () => {
           OPTC: {
             subjectCode: 'CC39C',
             subjectName: 'Tópicos Em Inteligência Artificial',
+            weeklyLessons: 4,
             code: 'OPTC',
             framing: 'P',
             vacanciesTotal: 20,
@@ -3171,22 +2206,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '3M4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '3M5',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5T3',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '3M4', locationCode: 'Z001' },
+              { dayTimeCode: '3M5', locationCode: 'Z001' },
+              { dayTimeCode: '5T2', locationCode: 'Z001' },
+              { dayTimeCode: '5T3', locationCode: 'Z001' },
             ],
             teacher: 'Andre Pinz Borges',
             optional:
@@ -3202,6 +2225,7 @@ const useSubjects = () => {
           OPTC: {
             subjectCode: 'CC02Z',
             subjectName: 'Tópicos Em Programação 3',
+            weeklyLessons: 4,
             code: 'OPTC',
             framing: 'H',
             vacanciesTotal: 20,
@@ -3209,22 +2233,10 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '3T4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '3T5',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5T4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5T5',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '3T4', locationCode: 'Z001' },
+              { dayTimeCode: '3T5', locationCode: 'Z001' },
+              { dayTimeCode: '5T4', locationCode: 'Z001' },
+              { dayTimeCode: '5T5', locationCode: 'Z001' },
             ],
             teacher: 'Hugo Valadares Siqueira',
             optional:
@@ -3240,6 +2252,7 @@ const useSubjects = () => {
           OPTC: {
             subjectCode: 'CC02Y',
             subjectName: 'Tópicos Em Teoria De Grafos',
+            weeklyLessons: 4,
             code: 'OPTC',
             framing: 'P',
             vacanciesTotal: 20,
@@ -3247,22 +2260,10 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '',
             schedule: [
-              {
-                dayTimeCode: '5T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '5T3',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '6M4',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '6M5',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '5T2', locationCode: 'Z001' },
+              { dayTimeCode: '5T3', locationCode: 'Z001' },
+              { dayTimeCode: '6M4', locationCode: 'Z001' },
+              { dayTimeCode: '6M5', locationCode: 'Z001' },
             ],
             teacher: 'Sheila Morais De Almeida',
             optional:
@@ -3278,6 +2279,7 @@ const useSubjects = () => {
           CC71: {
             subjectCode: 'CC57A',
             subjectName: 'Trabalho De Conclusão De Curso 1',
+            weeklyLessons: 4,
             code: 'CC71',
             framing: 'R',
             vacanciesTotal: 40,
@@ -3285,14 +2287,8 @@ const useSubjects = () => {
             reservationType: 'Fechada',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '4T2',
-                locationCode: 'Z001',
-              },
-              {
-                dayTimeCode: '4T3',
-                locationCode: 'Z001',
-              },
+              { dayTimeCode: '4T2', locationCode: 'Z001' },
+              { dayTimeCode: '4T3', locationCode: 'Z001' },
             ],
             teacher: 'Helyane Bronoski Borges',
             optional: 'Não',
@@ -3307,18 +2303,14 @@ const useSubjects = () => {
           IB841: {
             subjectCode: 'CC38A',
             subjectName: 'Trabalho De Conclusão De Curso 2',
+            weeklyLessons: 2,
             code: 'IB841',
             framing: null,
             vacanciesTotal: 99,
             vacanciesFreshman: 0,
             reservationType: 'Sem Reserva',
             priorityMajors: '',
-            schedule: [
-              {
-                dayTimeCode: '',
-                locationCode: '',
-              },
-            ],
+            schedule: [{ dayTimeCode: '', locationCode: '' }],
             teacher: 'Helyane Bronoski Borges',
             optional: 'Não',
           },
@@ -3332,6 +2324,7 @@ const useSubjects = () => {
           OPTC: {
             subjectCode: 'CC02X',
             subjectName: 'Visão Computacional',
+            weeklyLessons: 4,
             code: 'OPTC',
             framing: 'H',
             vacanciesTotal: 20,
@@ -3339,22 +2332,10 @@ const useSubjects = () => {
             reservationType: 'Sem Reserva',
             priorityMajors: '1 - Ciência Da Computação',
             schedule: [
-              {
-                dayTimeCode: '4T4',
-                locationCode: 'K102',
-              },
-              {
-                dayTimeCode: '4T5',
-                locationCode: 'K102',
-              },
-              {
-                dayTimeCode: '6T4',
-                locationCode: 'K102',
-              },
-              {
-                dayTimeCode: '6T5',
-                locationCode: 'K102',
-              },
+              { dayTimeCode: '4T4', locationCode: 'K102' },
+              { dayTimeCode: '4T5', locationCode: 'K102' },
+              { dayTimeCode: '6T4', locationCode: 'K102' },
+              { dayTimeCode: '6T5', locationCode: 'K102' },
             ],
             teacher: 'Erikson Freitas De Morais',
             optional:

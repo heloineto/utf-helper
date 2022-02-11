@@ -6,6 +6,7 @@ import NavbarDirectionButton from './Navbar.DirectionButton';
 import NavbarResetButton from './Navbar.ResetButton';
 import NavbarContributeButton from './Navbar.ContributeButton';
 import NavbarCampusAndCourse from './Navbar.CampusAndCourse';
+import NavbarTotalHours from './Navbar.TotalHours';
 
 interface Props {}
 
@@ -18,7 +19,8 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
       )}
     >
       <div className="h-full w-1/3 hidden xl:flex items-center">
-        <NavbarContributeButton />
+        {/* <NavbarContributeButton /> */}
+        <NavbarTotalHours />
       </div>
       <div className="h-full w-full xl:w-1/3 flex items-center">
         <NavbarCampusAndCourse />
