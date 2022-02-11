@@ -15,7 +15,7 @@ const ScheduleClassCell = ({
   timeCode,
   dayCode,
   ...divProps
-}: Props & ComponentProps<'div'>) => {
+}: Props & Omit<ComponentProps<'div'>, keyof Props>) => {
   const { darkMode } = useContext(SettingsContext);
   const { schedule } = useContext(UserDataContext);
   const timeCodes = useTimeCodes();
@@ -72,11 +72,29 @@ const ScheduleClassCell = ({
         }
       >
         {!sameClass.above && (
-          <div
-            className="font-bold z-10 relative text-left break-all"
-            style={color && (darkMode ? { color: color[200] } : { color: color[800] })}
-          >
-            {classObject.subjectName}
+          <div className="z-10 relative text-left">
+            <div
+              className="font-bold break-all"
+              style={color && (darkMode ? { color: color[200] } : { color: color[800] })}
+            >
+              {classObject.subjectName}
+            </div>
+            <div
+              className="text-[0.7rem] font-medium"
+              style={color && (darkMode ? { color: color[300] } : { color: color[600] })}
+            >
+              {`${classObject.subjectCode} - ${classObject.code}`}
+            </div>
+            <div
+              className="text-[0.7rem] font-medium -mt-0.5"
+              style={color && (darkMode ? { color: color[300] } : { color: color[600] })}
+            >
+              {classObject.framing === 'P'
+                ? 'Presencial'
+                : classObject.framing === 'H'
+                ? 'Híbrida'
+                : 'Remota'}
+            </div>
           </div>
         )}
       </div>
