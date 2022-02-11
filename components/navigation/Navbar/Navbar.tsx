@@ -1,11 +1,10 @@
 import classNames from 'clsx';
-import { IconButton, Tooltip } from '@mui/material';
-import { PrinterIcon } from '@heroicons/react/outline';
 import NavbarThemeSwitch from './Navbar.ThemeSwitch';
 import NavbarDirectionButton from './Navbar.DirectionButton';
 import NavbarResetButton from './Navbar.ResetButton';
 import NavbarCampusAndCourse from './Navbar.CampusAndCourse';
 import NavbarTotalHours from './Navbar.TotalHours';
+import NavbarReportButton from './Navbar.ReportButton';
 
 interface Props {}
 
@@ -24,15 +23,10 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
       <div className="h-full w-full xl:w-1/3 flex items-center">
         <NavbarCampusAndCourse />
       </div>
-      <div className="h-full w-full xl:w-1/3 flex items-center justify-end gap-x-1">
+      <div className="h-full w-full xl:w-1/3 flex items-center justify-end gap-x-2">
         <NavbarThemeSwitch />
+        <NavbarReportButton />
         <NavbarDirectionButton />
-
-        <Tooltip title="Imprimir Cronograma" arrow>
-          <IconButton className="group">
-            <PrinterIcon className="h-5 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400" />
-          </IconButton>
-        </Tooltip>
         <NavbarResetButton />
       </div>
     </header>

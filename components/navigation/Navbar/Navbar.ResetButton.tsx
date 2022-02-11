@@ -14,7 +14,7 @@ const NavbarResetButton = (props: Props) => {
     <>
       <Tooltip title="Limpar Cronograma" arrow>
         <IconButton className="group" onClick={() => setResetDialogOpen(true)}>
-          <TrashIcon className="h-5 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400" />
+          <TrashIcon className="h-6 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400" />
         </IconButton>
       </Tooltip>
       <ActionDialog
