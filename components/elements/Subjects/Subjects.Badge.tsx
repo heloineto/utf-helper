@@ -5,7 +5,10 @@ import { useContext } from 'react';
 
 type Props = { subject: Subject };
 
-const SubjectsBadge = ({ subject, className }: Props & ComponentProps<'span'>) => {
+const SubjectsBadge = ({
+  subject,
+  className,
+}: Props & Omit<ComponentProps<'span'>, keyof Props>) => {
   const { darkMode } = useContext(SettingsContext);
   const [color] = useColor(subject.code);
 
@@ -31,7 +34,7 @@ const SubjectsBadge = ({ subject, className }: Props & ComponentProps<'span'>) =
             })
       }
     >
-      {/* {label} */}
+      {subject.weeklyLessons}
     </span>
   );
 };
