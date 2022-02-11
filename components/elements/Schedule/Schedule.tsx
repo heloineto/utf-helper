@@ -43,7 +43,7 @@ const Schedule = ({}: Props) => {
             Object.entries(schedule).map(([timeCode, { start, end, days }]) => (
               <tr
                 key={timeCode}
-                className="divide-x divide-slate-200 dark:divide-slate-700"
+                className="divide-x divide-slate-200 dark:divide-slate-700 min-h-[4rem]"
               >
                 <td className="font-semibold text-slate-800 dark:text-slate-100 w-8">
                   {timeCode}
