@@ -21,13 +21,14 @@ const CustomAutocomplete = <
 > & { textFieldProps: TextFieldProps }) => {
   return (
     <Autocomplete
+      className="disabled:text-opacity-100"
       openOnFocus
       fullWidth
       classes={{
         inputRoot: disabled ? 'dark:bg-slate-800/80' : 'dark:bg-slate-900',
         clearIndicator: 'dark:text-slate-50',
         popupIndicator: disabled ? 'dark:text-slate-500' : 'dark:text-slate-50',
-        input: 'dark:text-slate-50',
+        input: 'dark:!text-slate-50',
         paper: 'dark:bg-slate-800 dark:border dark:border-slate-700 dark:text-slate-100',
       }}
       size="small"
