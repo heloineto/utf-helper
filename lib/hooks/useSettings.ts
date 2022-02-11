@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { useDarkMode, useLocalStorage } from 'usehooks-ts';
+import useLocalStorage from './useLocalStorage';
+// import { useDarkMode, useLocalStorage } from 'usehooks-ts';
 
 const useSettings = () => {
-  const { isDarkMode: darkMode, toggle: toggleDarkMode } = useDarkMode(true);
+  const [darkMode, setDarkMode] = useLocalStorage('darkMode', true);
   const [direction, setDirection] = useLocalStorage<Direction>('direction', 'horizontal');
 
   useEffect(() => {
@@ -16,7 +17,7 @@ const useSettings = () => {
 
   return {
     darkMode,
-    toggleDarkMode,
+    toggleDarkMode: () => setDarkMode((value) => !value),
     direction,
     setDirection,
   };

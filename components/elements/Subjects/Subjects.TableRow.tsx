@@ -1,6 +1,6 @@
 import { SettingsContext, UserDataContext } from '@lib/context';
 import { highlightGroup, selectGroup, unselectGroup } from '@lib/utils/schedule';
-import { useContext, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
 import classNames from 'clsx';
@@ -20,10 +20,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
   const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);
 
-  const selected = useMemo(
-    () => !!selectedClasses?.[subject.code]?.[classObject.code],
-    [selectedClasses]
-  );
+  const selected = !!selectedClasses?.[subject.code]?.[classObject.code];
 
   return (
     <>

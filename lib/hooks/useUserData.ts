@@ -1,4 +1,4 @@
-import { useLocalStorage } from 'usehooks-ts';
+import useLocalStorage from './useLocalStorage';
 
 const useUserData = () => {
   const [campus, setCampus] = useLocalStorage<string | undefined>('campus', undefined);

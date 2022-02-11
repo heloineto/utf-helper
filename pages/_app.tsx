@@ -24,6 +24,8 @@ export default function MyApp(props: MyAppProps) {
   const settings = useSettings();
   const userData = useUserData();
 
+  console.log(userData.selectedClasses);
+
   return (
     <CacheProvider value={emotionCache}>
       <Head>
