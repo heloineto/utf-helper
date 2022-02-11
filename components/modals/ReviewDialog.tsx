@@ -30,6 +30,18 @@ const ReviewDialog = ({
     return result;
   }, [selectedClasses]);
 
+  const copyText = (str: string) => {
+    navigator.clipboard.writeText(str);
+    enqueueSnackbar('Copiado para a área de transferência', {
+      variant: 'success',
+      anchorOrigin: {
+        horizontal: 'center',
+        vertical: 'bottom',
+      },
+      autoHideDuration: 2000,
+    });
+  };
+
   return (
     <Dialog
       maxWidth="sm"
@@ -67,12 +79,7 @@ const ReviewDialog = ({
                     <button
                       type="button"
                       className="p-1.5 bg-white dark:bg-slate-700 rounded-md font-medium text-sky-600 dark:text-sky-400 hover:text-sky-500 dark:hover:text-sky-300 focus:outline-none dark:focus:ring-offset-slate-900 focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
-                      onClick={() => {
-                        navigator.clipboard.writeText(selectedClass.subjectCode);
-                        enqueueSnackbar('Copiado para a área de transferência', {
-                          variant: 'success',
-                        });
-                      }}
+                      onClick={() => copyText(selectedClass.subjectCode)}
                     >
                       {selectedClass.subjectCode}
                     </button>
@@ -80,12 +87,7 @@ const ReviewDialog = ({
                     <button
                       type="button"
                       className="p-1.5 bg-white dark:bg-slate-700 rounded-md font-medium text-sky-600 dark:text-sky-400 hover:text-sky-500 dark:hover:text-sky-300 focus:outline-none dark:focus:ring-offset-slate-900 focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
-                      onClick={() => {
-                        navigator.clipboard.writeText(selectedClass.code);
-                        enqueueSnackbar('Copiado para a área de transferência', {
-                          variant: 'success',
-                        });
-                      }}
+                      onClick={() => copyText(selectedClass.code)}
                     >
                       {selectedClass.code}
                     </button>
