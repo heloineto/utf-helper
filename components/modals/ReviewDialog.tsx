@@ -68,14 +68,14 @@ const ReviewDialog = ({
               return (
                 <li
                   key={selectedClass.subjectCode + selectedClass.code}
-                  className="pl-3 pr-4 py-3 flex items-center justify-between text-sm"
+                  className="px-8 py-5 flex items-center justify-between text-sm"
                 >
                   <div className="w-0 flex-1 flex items-center">
                     <span className="flex-1 w-0 truncate">
                       {selectedClass.subjectName}
                     </span>
                   </div>
-                  <div className="ml-4 flex-shrink-0 flex space-x-4">
+                  <div className="flex-shrink-0 flex space-x-4">
                     <button
                       type="button"
                       className="p-1.5 bg-white dark:bg-slate-700 rounded-md font-medium text-sky-600 dark:text-sky-400 hover:text-sky-500 dark:hover:text-sky-300 focus:outline-none dark:focus:ring-offset-slate-900 focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
