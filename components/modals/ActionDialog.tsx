@@ -4,8 +4,6 @@ import {
   ButtonProps,
   Dialog,
   DialogProps,
-  useMediaQuery,
-  useTheme,
 } from '@mui/material';
 import classNames from 'clsx';
 import { useMemo } from 'react';
