@@ -7,13 +7,7 @@ interface Props {
 }
 
 const MainShell = ({ children }: Props) => {
-  const { campus, course } = useContext(UserDataContext);
-
-  const [dialogOpen, setDialogOpen] = useState(false);
-
-  useEffect(() => {
-    if (!campus || !course) setDialogOpen(true);
-  }, [campus, course]);
+  const userData = useContext(UserDataContext);
 
   return (
     <div className="h-screen flex flex-col">

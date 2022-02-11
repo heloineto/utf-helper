@@ -6,24 +6,24 @@ const useColor = (str: string) => {
   if (!twColors) return [undefined, undefined];
 
   const colorNames: (keyof TailwindColorGroup)[] = [
-    'slate',
-    'red',
-    'orange',
-    'amber',
-    'yellow',
     'lime',
-    'green',
-    'emerald',
-    'teal',
-    'cyan',
-    'sky',
     'blue',
     'indigo',
-    'violet',
-    'purple',
-    'fuchsia',
-    'pink',
     'rose',
+    'yellow',
+    'purple',
+    'sky',
+    'pink',
+    'amber',
+    'slate',
+    'cyan',
+    'green',
+    'violet',
+    'teal',
+    'fuchsia',
+    'orange',
+    'emerald',
+    'red',
   ];
 
   const colorName = colorNames[Math.abs(hash(str) % colorNames.length)];
