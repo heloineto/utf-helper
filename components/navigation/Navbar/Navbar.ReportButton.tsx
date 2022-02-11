@@ -44,12 +44,12 @@ const NavbarReportButton = (props: Props) => {
         <div>
           <div className="flex  flex-col justify-center items-center text-slate-800 dark:text-slate-200 text-2xl font-semibold border-b border-slate-200 dark:border-slate-700 -mx-8 -mt-8 pt-8 pb-6 mb-4">
             Relatório das Matérias
-            <span></span>
+            <span className="text-sm font-medium text-slate-500">Clique para copiar</span>
           </div>
-          <div className="text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+          <div className="text-sm text-slate-900 dark:text-slate-200 sm:mt-0 sm:col-span-2">
             <ul
               role="list"
-              className="border border-gray-200 rounded-md divide-y divide-gray-200"
+              className="border border-slate-200 dark:border-slate-700 rounded-md divide-y divide-slate-200 dark:divide-slate-700"
             >
               {selectedClassesArr.map((selectedClass) => {
                 if (!selectedClass) return null;
@@ -67,17 +67,17 @@ const NavbarReportButton = (props: Props) => {
                     <div className="ml-4 flex-shrink-0 flex space-x-4">
                       <button
                         type="button"
-                        className="p-1.5 bg-white rounded-md font-medium text-sky-600 hover:text-sky-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+                        className="p-1.5 bg-white dark:bg-slate-700 rounded-md font-medium text-sky-600 dark:text-sky-400 hover:text-sky-500 dark:hover:text-sky-300 focus:outline-none dark:focus:ring-offset-slate-900 focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
                         onClick={() => {
                           navigator.clipboard.writeText(selectedClass.subjectCode);
                         }}
                       >
                         {selectedClass.subjectCode}
                       </button>
-                      <span className="p-1.5 text-gray-300">|</span>
+                      <span className="p-1.5 text-slate-300">|</span>
                       <button
                         type="button"
-                        className="p-1.5 bg-white rounded-md font-medium text-sky-600 hover:text-sky-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+                        className="p-1.5 bg-white dark:bg-slate-700 rounded-md font-medium text-sky-600 dark:text-sky-400 hover:text-sky-500 dark:hover:text-sky-300 focus:outline-none dark:focus:ring-offset-slate-900 focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
                         onClick={() => {
                           navigator.clipboard.writeText(selectedClass.code);
                         }}
