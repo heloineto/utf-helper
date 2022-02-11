@@ -210,8 +210,6 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
                 selectedClasses
               );
 
-              console.log(conflictsFound);
-
               if (conflictsFound) {
                 setConflicts(conflictsFound);
                 setConflictsDialogOpen(true);

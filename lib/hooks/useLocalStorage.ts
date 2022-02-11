@@ -11,11 +11,7 @@ const useLocalStorage = <T>(
     if (!valueJson) return;
 
     let valueStored: T | undefined;
-    try {
-      valueStored = JSON.parse(valueJson);
-    } catch (error) {
-      if (process.env.NODE_ENV === 'development') console.error(error);
-    }
+    valueStored = parseJSON(valueJson);
 
     if (!valueStored) return;
 
@@ -30,3 +26,12 @@ const useLocalStorage = <T>(
 };
 
 export default useLocalStorage;
+
+const parseJSON = <T>(value: string | null): T | undefined => {
+  try {
+    return value === 'undefined' ? undefined : JSON.parse(value ?? '');
+  } catch (error) {
+    if (process.env.NODE_ENV === 'development') console.error(error);
+    return undefined;
+  }
+};
