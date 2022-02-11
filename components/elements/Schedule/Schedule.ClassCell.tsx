@@ -75,19 +75,19 @@ const ScheduleClassCell = ({
           <div className="z-10 relative text-left">
             <div
               className="font-bold break-all"
-              style={color && (darkMode ? { color: color[200] } : { color: color[800] })}
+              style={color && (darkMode ? { color: color[100] } : { color: color[800] })}
             >
               {classObject.subjectName}
             </div>
             <div
               className="text-[0.7rem] font-medium"
-              style={color && (darkMode ? { color: color[300] } : { color: color[600] })}
+              style={color && (darkMode ? { color: color[200] } : { color: color[600] })}
             >
               {`${classObject.subjectCode} - ${classObject.code}`}
             </div>
             <div
               className="text-[0.7rem] font-medium -mt-0.5"
-              style={color && (darkMode ? { color: color[300] } : { color: color[600] })}
+              style={color && (darkMode ? { color: color[200] } : { color: color[600] })}
             >
               {classObject.framing === 'P'
                 ? 'Presencial'
