@@ -150,9 +150,9 @@ const ScheduleClassDialog = ({
             </div>
           </dl>
         </div>
-        <div className="border-t border-slate-200 dark:border-slate-700 -mx-8 px-8 mt-3 pt-6 flex flex-col justify-between md:flex-row gap-5 ">
+        <div className="border-t border-slate-200 dark:border-slate-700 -mx-8 px-8 mt-3 pt-6 flex justify-between flex-row gap-5 ">
           <Button
-            className="w-1/4 border-red-500 text-red-500 bg-red-100 hover:bg-red-200 hover:border-red-600 dark:bg-red-600 dark:text-red-200 dark:hover:bg-red-700 dark:border-transparent"
+            className="w-1/3 sm:w-1/4 border-red-500 text-red-500 bg-red-100 hover:bg-red-200 hover:border-red-600 dark:bg-red-600 dark:text-red-200 dark:hover:bg-red-700 dark:border-transparent"
             variant="outlined"
             onClick={() => {
               if (!setSelectedClasses || !setSchedule || !selectedClasses || !classObject)
@@ -171,7 +171,7 @@ const ScheduleClassDialog = ({
             Remover
           </Button>
           <Button
-            className="w-1/4 border-sky-500 text-sky-500 bg-sky-100 hover:bg-sky-200 hover:border-sky-600 dark:bg-sky-600 dark:text-sky-200 dark:hover:bg-sky-700 dark:border-transparent"
+            className="w-1/3 sm:w-1/4 border-sky-500 text-sky-500 bg-sky-100 hover:bg-sky-200 hover:border-sky-600 dark:bg-sky-600 dark:text-sky-200 dark:hover:bg-sky-700 dark:border-transparent"
             variant="outlined"
             onClick={onClose as any}
             type="submit"

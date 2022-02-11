@@ -27,9 +27,6 @@ const ActionDialog = ({
   actionButtons = [],
   variant = 'success',
 }: Props & Omit<DialogProps, keyof Props>) => {
-  const { breakpoints } = useTheme();
-  const mobile = useMediaQuery(breakpoints.down('md'));
-
   const variantData = useMemo(
     () => ({
       success: {
@@ -46,7 +43,6 @@ const ActionDialog = ({
 
   return (
     <Dialog
-      fullScreen={mobile}
       maxWidth={'sm'}
       fullWidth={true}
       open={open}
