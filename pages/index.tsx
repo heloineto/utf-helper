@@ -31,7 +31,7 @@ const Home: NextPage = () => {
           'h-full w-full flex overflow-hidden'
         )}
       >
-        <div className="h-2/3 overflow-auto" ref={resize1Ref}>
+        <div className="h-2/3 w-1/2 overflow-auto" ref={resize1Ref}>
           <Table />
         </div>
         <Divider direction={direction} ref={handleRef} resizing={resizing} />
