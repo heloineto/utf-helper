@@ -19,6 +19,7 @@
     "@mui/material": "latest",
     "lodash": "^4.17.21",
     "next": "latest",
+    "notistack": "^2.0.3",
     "react": "latest",
     "react-dom": "latest"
   },

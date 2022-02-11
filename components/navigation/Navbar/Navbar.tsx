@@ -4,7 +4,7 @@ import NavbarDirectionButton from './Navbar.DirectionButton';
 import NavbarResetButton from './Navbar.ResetButton';
 import NavbarCampusAndCourse from './Navbar.CampusAndCourse';
 import NavbarTotalHours from './Navbar.TotalHours';
-import NavbarReportButton from './Navbar.ReportButton';
+import NavbarReviewButton from './Navbar.ReviewButton';
 
 interface Props {}
 
@@ -25,7 +25,7 @@ const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
       </div>
       <div className="h-full w-full xl:w-1/3 flex items-center justify-end gap-x-2">
         <NavbarThemeSwitch />
-        <NavbarReportButton />
+        <NavbarReviewButton />
         <NavbarDirectionButton />
         <NavbarResetButton />
       </div>
