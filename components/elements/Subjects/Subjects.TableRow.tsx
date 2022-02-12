@@ -5,7 +5,7 @@ import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
 import classNames from 'clsx';
 import ActionDialog from '@components/modals/ActionDialog';
-import ConflictBadge from './ConflictBadge';
+import SubjectsConflictBadge from './Subjects.ConflictBadge';
 import { IconButton, Tooltip } from '@mui/material';
 
 type Props = {
@@ -152,7 +152,7 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
         subtitle={
           <div className="w-full flex flex-col gap-y-2 justify-center items-center">
             {conflicts?.map(({ withClass, dayTimeCodes }, index) => (
-              <ConflictBadge
+              <SubjectsConflictBadge
                 key={withClass.subjectCode + withClass.code}
                 classObject={withClass}
                 dayTimeCodes={dayTimeCodes}

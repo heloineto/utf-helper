@@ -10,7 +10,7 @@ type Props = {
   onRemove: () => void;
 };
 
-const ConflictBadge = ({ classObject, dayTimeCodes, onRemove }: Props) => {
+const SubjectsConflictBadge = ({ classObject, dayTimeCodes, onRemove }: Props) => {
   const { code, subjectCode, subjectName } = classObject;
   const [color] = useColor(subjectCode);
   const { darkMode } = useContext(SettingsContext);
@@ -23,7 +23,7 @@ const ConflictBadge = ({ classObject, dayTimeCodes, onRemove }: Props) => {
         (darkMode
           ? {
               backgroundColor: color[600],
-              color: color[200],
+              color: color[100],
             }
           : {
               borderWidth: '1px',
@@ -39,7 +39,7 @@ const ConflictBadge = ({ classObject, dayTimeCodes, onRemove }: Props) => {
       </div>
       <Tooltip title={`Remover ${code} - ${subjectName}`} arrow>
         <IconButton
-          style={color && (darkMode ? { color: color[200] } : { color: color[500] })}
+          style={color && (darkMode ? { color: color[100] } : { color: color[500] })}
           onClick={onRemove}
         >
           <TrashIcon className="h-[1.1rem] w-auto" />
@@ -49,4 +49,4 @@ const ConflictBadge = ({ classObject, dayTimeCodes, onRemove }: Props) => {
   );
 };
 
-export default ConflictBadge;
+export default SubjectsConflictBadge;
