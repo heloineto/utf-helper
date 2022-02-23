@@ -9,16 +9,12 @@ import classNames from 'clsx';
 
 //! Changes
 //! Add modal to select campus and course
-//! Create scrapper to scrape data from portal do aluno (puppeteer) or get them from grade na hora
 //! Add firebase to handle requests for subjects list, since it's a lot of data to store in a variable
-//! Make a relatorio to make it easy to enroll
+//! Make relatorio better
 // Add search bar
 // Adicionar opçoes de quais colunas ver
 // Loading screen while user data and settings load
 // Update Schedule state (highlights) declaratively
-//// Fix sizing problems
-//// Add subject & class information on scheduler classObject modal
-//// Adicionar enquadramento
 
 const Home: NextPage = () => {
   const { direction } = useContext(SettingsContext);
