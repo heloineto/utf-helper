@@ -18,6 +18,7 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "lodash": "^4.17.21",
+    "luxon": "^2.3.0",
     "next": "latest",
     "notistack": "^2.0.3",
     "react": "latest",
