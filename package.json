@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev-gdrive-compat": "(if exist .next rd /s /q .next 2>nul) && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

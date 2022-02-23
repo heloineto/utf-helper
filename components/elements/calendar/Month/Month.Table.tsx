@@ -26,7 +26,7 @@ const MonthTable = ({ date }: Props) => {
             <tr className="table-row" {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 <th className="table-cell" {...column.getHeaderProps()}>
-                  <div className="text-gray-100 font-semibold text-md">
+                  <div className="text-slate-100 font-semibold text-md">
                     {column.render('Header')}
                   </div>
                 </th>
@@ -48,9 +48,11 @@ const MonthTable = ({ date }: Props) => {
                     <td className="table-cell" {...cell.getCellProps()}>
                       <div
                         className={clsx(
-                          isAnotherMonth && 'text-gray-400 border-0 bg-transparent',
+                          isAnotherMonth && 'text-slate-400 border-0 bg-transparent',
 
-                          isSunday && !isAnotherMonth && 'text-gray-200 border-gray-700',
+                          isSunday &&
+                            !isAnotherMonth &&
+                            'text-slate-200 border-slate-700',
                           `
                           bg-[#2E2F33]
                           relative w-full h-12 text-white font-semibold border-2 rounded-md
