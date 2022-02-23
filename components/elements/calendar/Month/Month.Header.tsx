@@ -9,7 +9,7 @@ const MonthHeader = ({ date }: Props) => {
 
   return (
     <div className="h-10 flex items-center justify-center text-slate-100 font-bold text-xl">
-      {`${monthLong.charAt(0).toUpperCase() + monthLong.slice(1)} ${year}`}{' '}
+      {`${monthLong.charAt(0).toUpperCase() + monthLong.slice(1)} ${year}`}
     </div>
   );
 };

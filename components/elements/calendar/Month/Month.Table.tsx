@@ -1,6 +1,5 @@
+import { DateTime, Info } from 'luxon';
 import { useMemo } from 'react';
-import { useTable } from 'react-table';
-import { DateTime } from 'luxon';
 import clsx from 'clsx';
 
 import { getColumns, getMonthData } from './Month.utils';
@@ -11,30 +10,28 @@ interface Props {
 
 const MonthTable = ({ date }: Props) => {
   const data = useMemo(() => getMonthData(date), [date]);
-  const columns = useMemo(() => getColumns(), [date]);
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({
-    columns,
-    data,
-  });
+  const weekdays = useMemo(
+    () =>
+      Info.weekdays('short').map(
+        (weekday) => weekday.charAt(0).toUpperCase() + weekday.slice(1, -1)
+      ),
+    []
+  );
 
   return (
     <div className="p-2">
-      <table className="w-full table-fixed" {...getTableProps()}>
+      <table className="w-full table-fixed">
         <thead>
-          {headerGroups.map((headerGroup) => (
-            <tr className="table-row" {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <th className="table-cell" {...column.getHeaderProps()}>
-                  <div className="text-slate-100 font-semibold text-md">
-                    {column.render('Header')}
-                  </div>
-                </th>
-              ))}
-            </tr>
-          ))}
+          <tr className="table-row">
+            {weekdays.map((weekday) => (
+              <th key={weekday} className="table-cell">
+                <div className="text-slate-100 font-semibold text-md">{weekday}</div>
+              </th>
+            ))}
+          </tr>
         </thead>
-        <tbody {...getTableBodyProps()}>
+        {/* <tbody {...getTableBodyProps()}>
           {rows.map((row) => {
             prepareRow(row);
             return (
@@ -76,7 +73,7 @@ const MonthTable = ({ date }: Props) => {
               </tr>
             );
           })}
-        </tbody>
+        </tbody> */}
       </table>
     </div>
   );

@@ -23,7 +23,7 @@ const Month = ({ month, year, className }: Props) => {
   return (
     <div className={clsx(className, 'bg-slate-800 rounded-xl')}>
       <MonthHeader date={date} />
-      {/* <MonthTable date={date} /> */}
+      <MonthTable date={date} />
     </div>
   );
 };
