@@ -51,8 +51,6 @@ const MonthTable = ({ date }: Props) => {
     return monthData;
   }, [date]);
 
-  console.log(monthData);
-
   return (
     <div className="p-2">
       <table className="w-full table-fixed">
