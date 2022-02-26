@@ -13,7 +13,7 @@ interface Props extends ComponentProps<'div'> {
 const Month = ({ month, year, className }: Props) => {
   const date = useMemo(
     () => DateTime.fromObject({ month, year }) || DateTime.now(),
-    [DateTime, month, year]
+    [month, year]
   );
 
   if (!date.isValid) {
