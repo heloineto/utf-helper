@@ -8,6 +8,7 @@ import MonthTable from './Month.Table';
 interface Props extends ComponentProps<'div'> {
   month?: number;
   year?: number;
+  monthData?: MonthData;
 }
 
 const Month = ({ month, year, className }: Props) => {
