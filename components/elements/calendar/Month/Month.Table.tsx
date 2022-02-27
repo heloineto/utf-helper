@@ -21,6 +21,7 @@ interface Props {
 
 const MonthTable = ({ date, monthInfo }: Props) => {
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
+  const [dayInfo, setDayInfo] = useState<DayInfo | null>(null);
 
   const monthData = useMemo(() => {
     const startOfMonth = date.startOf('month');
@@ -68,17 +69,24 @@ const MonthTable = ({ date, monthInfo }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {monthData.map((weekData) => (
+          {monthData.map((weekData, weekIndex) => (
             <tr key={weekData[0].weekNumber}>
-              {weekData.map((dayData) => {
+              {weekData.map((dayData, dayIndex) => {
                 const isAnotherMonth = !dayData.hasSame(date, 'month');
                 const isSunday = dayData.weekday === 7;
+                const currDayInfo = monthInfo?.weeks[weekIndex][dayIndex];
 
                 return (
                   <td
                     key={dayData.day}
-                    onMouseEnter={(e) => setAnchorEl(e.currentTarget)}
-                    onMouseLeave={() => setAnchorEl(null)}
+                    onMouseEnter={(e) => {
+                      setDayInfo(currDayInfo ?? null);
+                      setAnchorEl(e.currentTarget);
+                    }}
+                    onMouseLeave={() => {
+                      setAnchorEl(null);
+                      setDayInfo(null);
+                    }}
                   >
                     <div
                       className={clsx(
@@ -105,7 +113,7 @@ const MonthTable = ({ date, monthInfo }: Props) => {
       </table>
       <Popover
         anchorEl={anchorEl}
-        open={anchorEl !== null}
+        open={anchorEl !== null && dayInfo !== null}
         sx={{
           pointerEvents: 'none',
         }}
@@ -119,7 +127,7 @@ const MonthTable = ({ date, monthInfo }: Props) => {
         }}
         disableRestoreFocus
       >
-        The content of the Popover.
+        {JSON.stringify(dayInfo)}
       </Popover>
     </div>
   );
