@@ -8,10 +8,10 @@ import MonthTable from './Month.Table';
 interface Props extends ComponentProps<'div'> {
   month?: number;
   year?: number;
-  monthData?: MonthData;
+  monthInfo?: MonthInfo;
 }
 
-const Month = ({ month, year, className }: Props) => {
+const Month = ({ month, year, className, monthInfo }: Props) => {
   const date = useMemo(
     () => DateTime.fromObject({ month, year }) || DateTime.now(),
     [month, year]
@@ -24,7 +24,7 @@ const Month = ({ month, year, className }: Props) => {
   return (
     <div className={clsx(className, 'bg-slate-400 dark:bg-slate-700 rounded-xl')}>
       <MonthHeader date={date} />
-      <MonthTable date={date} />
+      <MonthTable date={date} monthInfo={monthInfo} />
     </div>
   );
 };
