@@ -4,15 +4,15 @@ type Legend = {
   label: string;
 };
 
-type DayData = {
+type DayInfo = {
   day: string;
   legend?: Legend;
 };
 
-type WeekData = DayData[];
+type WeekInfo = DayInfo[];
 
-type MonthData = {
-  weeks: WeekData[];
+type MonthInfo = {
+  weeks: WeekInfo[];
   extraInfo: {
     raw: {
       dayStart: string;
@@ -24,6 +24,6 @@ type MonthData = {
   };
 };
 
-type YearData = {
-  months: MonthData[];
+type YearInfo = {
+  months: MonthInfo[];
 };

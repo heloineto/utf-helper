@@ -1,6 +1,7 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { DateTime, Info, Interval } from 'luxon';
 import clsx from 'clsx';
+import { Popover } from '@mui/material';
 
 const WEEK_STARTS_SUNDAY = true;
 
@@ -15,9 +16,12 @@ if (WEEK_STARTS_SUNDAY) {
 
 interface Props {
   date: DateTime;
+  monthInfo?: MonthInfo;
 }
 
-const MonthTable = ({ date }: Props) => {
+const MonthTable = ({ date, monthInfo }: Props) => {
+  const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
+
   const monthData = useMemo(() => {
     const startOfMonth = date.startOf('month');
     const endOfMonth = date.endOf('month');
@@ -71,7 +75,11 @@ const MonthTable = ({ date }: Props) => {
                 const isSunday = dayData.weekday === 7;
 
                 return (
-                  <td key={dayData.day}>
+                  <td
+                    key={dayData.day}
+                    onMouseEnter={(e) => setAnchorEl(e.currentTarget)}
+                    onMouseLeave={() => setAnchorEl(null)}
+                  >
                     <div
                       className={clsx(
                         isAnotherMonth && 'text-slate-400 border-0 bg-transparent',
@@ -95,6 +103,24 @@ const MonthTable = ({ date }: Props) => {
           ))}
         </tbody>
       </table>
+      <Popover
+        anchorEl={anchorEl}
+        open={anchorEl !== null}
+        sx={{
+          pointerEvents: 'none',
+        }}
+        anchorOrigin={{
+          vertical: 'center',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+        disableRestoreFocus
+      >
+        The content of the Popover.
+      </Popover>
     </div>
   );
 };
