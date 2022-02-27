@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 const useCalendarData = () => {
-  const calendarData = useMemo(
+  const yearInfo = useMemo(
     () => ({
       months: [
         {
@@ -2973,7 +2973,61 @@ const useCalendarData = () => {
     []
   );
 
-  return calendarData;
+  const captions = useMemo(
+    () => ({
+      '#3399ff': {
+        color: '#3399ff',
+        label: 'Feriado Nacional',
+      },
+      '#999999': {
+        color: '#999999',
+        label: 'Recesso',
+      },
+      '#66cc00': {
+        color: '#66cc00',
+        label: 'Conclusão das Atividades Docentes',
+      },
+      '#ffcc00': {
+        color: '#ffcc00',
+        label: 'Feriado Local',
+      },
+      '#ff99cc': {
+        color: '#ff99cc',
+        label: 'Recesso Local',
+      },
+      '#6666ff': {
+        color: '#6666ff',
+        label: 'Finalização dos Diários de Classe',
+      },
+      '#ffff00': {
+        color: '#ffff00',
+        label: 'Férias',
+      },
+      '#99ffff': {
+        color: '#99ffff',
+        label: 'Recesso Acadêmico',
+      },
+      '#336600': {
+        color: '#336600',
+        label: 'Férias Diferenciadas',
+      },
+      '#ff00ff': {
+        color: '#ff00ff',
+        label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
+      },
+      '△': {
+        symbol: '△',
+        label: 'Início das Ativ. Acad. p/ Calouros',
+      },
+      '◯': {
+        symbol: '◯',
+        label: 'Início / Término das aulas',
+      },
+    }),
+    []
+  );
+
+  return { yearInfo, captions };
 };
 
 export default useCalendarData;

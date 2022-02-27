@@ -1,12 +1,12 @@
 import { useMemo, useState } from 'react';
 import { DateTime, Info, Interval } from 'luxon';
 import clsx from 'clsx';
-import { Popover } from '@mui/material';
+import { Popover, Tooltip } from '@mui/material';
 
 const WEEK_STARTS_SUNDAY = true;
 
-const weekdays = Info.weekdays('short').map(
-  (weekday) => weekday.charAt(0).toUpperCase() + weekday.slice(1, -1)
+const weekdays = Info.weekdays('long').map(
+  (weekday) => weekday.charAt(0).toUpperCase() + weekday.slice(1)
 );
 
 if (WEEK_STARTS_SUNDAY) {
@@ -63,7 +63,11 @@ const MonthTable = ({ date, monthInfo }: Props) => {
           <tr className="table-row">
             {weekdays.map((weekday) => (
               <th key={weekday} className="table-cell">
-                <div className="text-slate-100 font-semibold text-md">{weekday}</div>
+                <Tooltip title={weekday} placement="top">
+                  <div className="text-slate-100 font-semibold text-md cursor-default">
+                    {weekday.charAt(0)}
+                  </div>
+                </Tooltip>
               </th>
             ))}
           </tr>
@@ -96,6 +100,9 @@ const MonthTable = ({ date, monthInfo }: Props) => {
                           'text-slate-400 dark:text-slate-200 border-slate-600',
                         'bg-slate-50 dark:bg-slate-800 relative w-full h-12 text-slate-800 dark:text-white font-semibold border border-slate-800 dark:border-slate-400 flex flex-col items-center rounded-md overflow-hidden cursor-pointer transition-shadow duration-200 hover:shadow-[0_0_40px_0] hover:shadow-white hover:z-10'
                       )}
+                      style={{
+                        backgroundColor: currDayInfo?.legend?.color,
+                      }}
                     >
                       <div className="text-md w-full  text-right mr-1.5">
                         {dayData.day}
