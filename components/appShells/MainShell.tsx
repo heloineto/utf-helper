@@ -12,7 +12,7 @@ const MainShell = ({ children }: Props) => {
   return (
     <div className="h-screen flex flex-col">
       <Navbar className="flex-shrink-0" />
-      <main className="h-[calc(100%-3.5rem)]">{children}</main>
+      <main className="overflow-hidden">{children}</main>
       {/* 
       //!
       <CampusAndCourseDialog
