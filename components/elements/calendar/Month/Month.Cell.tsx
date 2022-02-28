@@ -40,25 +40,40 @@ const MonthCell = ({
     <td
       key={dayDate.day}
       onMouseEnter={(e) => {
+        if (!dayInfo) return;
         onShowPopover(e, { ...dayInfo, extraDayInfo: extraDayInfo });
       }}
+      onMouseLeave={() => onHidePopover()}
     >
       <div
-        className={clsx(
-          isAnotherMonth && 'text-slate-400 border-0 bg-transparent',
-          isSunday &&
-            !isAnotherMonth &&
-            'text-slate-400 dark:text-slate-200 border-slate-600',
-          'bg-slate-50 dark:bg-slate-800 relative w-full h-12 text-slate-800 dark:text-white font-semibold border border-slate-800 dark:border-slate-400 flex flex-col items-center rounded-md overflow-hidden cursor-pointer transition-shadow duration-200 hover:shadow-[0_0_40px_0] hover:shadow-white hover:z-10'
-        )}
+        className="rounded-md p-px"
         style={{
-          backgroundColor: dayInfo?.legend?.color,
+          background: color
+            ? `linear-gradient(225deg, ${color} 0%, ${lighterColor} 100%)`
+            : '',
         }}
       >
-        <div className="text-md w-full  text-right mr-1.5">{dayDate.day}</div>
-        {!isAnotherMonth && !isSunday && (
-          <div className="h-2 w-2 mt-auto mb-1.5 bg-white rounded-full"></div>
-        )}
+        <div
+          className={clsx(
+            isAnotherMonth && 'text-slate-400 border-0 bg-transparent',
+            isSunday &&
+              !isAnotherMonth &&
+              'text-slate-400 dark:text-slate-200 border-slate-600',
+            'bg-slate-50 dark:bg-slate-800 relative w-full h-12 text-slate-800 dark:text-white font-semibold flex flex-col items-center rounded-md overflow-hidden cursor-pointer transition-shadow duration-200 hover:shadow-[0_0_40px_0] hover:shadow-white hover:z-10'
+          )}
+        >
+          <div className="text-md w-full  text-right mr-1.5">{dayDate.day}</div>
+          {!isAnotherMonth && !isSunday && (
+            <div
+              className="h-2 w-2 mt-auto mb-1.5 bg-white rounded-full"
+              style={{
+                background: color
+                  ? `linear-gradient(225deg, ${color} 0%, ${lighterColor} 100%)`
+                  : '',
+              }}
+            ></div>
+          )}
+        </div>
       </div>
     </td>
   );

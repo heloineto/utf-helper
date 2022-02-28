@@ -84,14 +84,11 @@ const MonthTable = ({ monthDate, monthInfo }: Props) => {
                   extraDayInfo={monthInfo?.extraInfo.parsed[dayDate?.day]}
                   monthDate={monthDate}
                   onShowPopover={(e, completeDayInfo) => {
-                    if (dayInfo) {
-                      setDayInfo(completeDayInfo);
-                      setAnchorEl(e.currentTarget);
-                    }
+                    setDayInfo(completeDayInfo);
+                    setAnchorEl(e.currentTarget);
                   }}
                   onHidePopover={() => {
                     setAnchorEl(null);
-                    setDayInfo(null);
                   }}
                 />
               ))}

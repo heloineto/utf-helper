@@ -19,7 +19,7 @@ const Captions = (props: Props) => {
                 background: `linear-gradient(225deg, ${color} 0%, ${lighterColor} 100%)`,
               }}
             ></div>
-            <div className="dark:text-slate-500 text-xs sm:text-sm font-medium font-mono">
+            <div className="dark:text-slate-400 text-xs sm:text-sm font-medium font-mono">
               {label}
             </div>
           </div>
