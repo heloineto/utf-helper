@@ -7,19 +7,19 @@ const Captions = (props: Props) => {
   const { captions } = useCalendarData();
 
   return (
-    <div className="h-80 md:h-64 xl:h-48 2xl:h-40 px-5 py-2.5 border-2 border-slate-400 border-dashed rounded-lg mb-5 grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-5">
+    <div className="bg-white rounded-lg shadow ring-1 ring-slate-700/5 p-2 dark:bg-slate-900 dark:ring-white/10 h-80 md:h-64 xl:h-48 2xl:h-40 px-5 py-2.5 mb-5 grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-5">
       {captions.map(({ label, color, symbol }) => {
         const lighterColor = colord(color).lighten(0.25).toHex();
 
         return (
           <div key={color ?? symbol} className="flex items-center gap-x-2">
             <div
-              className="rounded-lg h-6 w-6 flex-shrink-0"
+              className="rounded h-7 w-7 flex-shrink-0 pt-full ring-1 ring-inset ring-slate-900/5 dark:ring-0 dark:highlight-white/10"
               style={{
                 background: `linear-gradient(225deg, ${color} 0%, ${lighterColor} 100%)`,
               }}
             ></div>
-            <div className="dark:text-slate-100 text-xs sm:text-sm font-medium">
+            <div className="dark:text-slate-500 text-xs sm:text-sm font-medium font-mono">
               {label}
             </div>
           </div>

@@ -1,5 +1,5 @@
 type Legend = {
-  color?: string;
+  color: string;
   symbol?: string;
   label: string;
 };
@@ -11,17 +11,26 @@ type DayInfo = {
 
 type WeekInfo = DayInfo[];
 
+type ExtraMonthInfo = {
+  raw: {
+    dayStart: string;
+    label: string;
+    dayEnd?: string;
+    operation?: string;
+  }[];
+  parsed: {
+    [k: string]:
+      | {
+          day: number;
+          label: string;
+        }
+      | undefined;
+  };
+};
+
 type MonthInfo = {
   weeks: WeekInfo[];
-  extraInfo: {
-    raw: {
-      dayStart: string;
-      label: string;
-      dayEnd?: string;
-      operation?: string;
-    }[];
-    parsed: Record<string, any>;
-  };
+  extraInfo: ExtraMonthInfo;
 };
 
 type YearInfo = {
