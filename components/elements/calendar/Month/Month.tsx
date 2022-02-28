@@ -22,7 +22,12 @@ const Month = ({ month, year, className, monthInfo }: Props) => {
   }
 
   return (
-    <div className={clsx(className, 'bg-slate-400 dark:bg-slate-700 rounded-xl')}>
+    <div
+      className={clsx(
+        className,
+        'bg-white rounded-lg shadow ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10'
+      )}
+    >
       <MonthHeader monthDate={monthDate} />
       <MonthTable monthDate={monthDate} monthInfo={monthInfo} />
     </div>

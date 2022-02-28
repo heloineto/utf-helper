@@ -9,7 +9,7 @@ type Props = {
   dayInfo: DayInfo | undefined;
   extraDayInfo: ExtraDayInfoParsed;
   onShowPopover: (
-    e: MouseEvent<HTMLTableDataCellElement, globalThis.MouseEvent>,
+    e: MouseEvent<HTMLTableCellElement, globalThis.MouseEvent>,
     completeDayInfo: CompleteDayInfo
   ) => void;
   onHidePopover: () => void;
@@ -45,7 +45,7 @@ const MonthCell = ({
       onMouseLeave={() => onHidePopover()}
     >
       <div
-        className="rounded-md p-px"
+        className="rounded-md p-px transition-shadow duration-200 hover:shadow-[0_0_40px_0] hover:shadow-white  hover:z-10"
         style={{
           background: color
             ? `linear-gradient(225deg, ${color} 0%, ${lighterColor} 100%)`
@@ -58,7 +58,7 @@ const MonthCell = ({
             isSunday &&
               !isAnotherMonth &&
               'text-slate-400 dark:text-slate-200 border-slate-600',
-            'bg-slate-50 dark:bg-slate-800 relative w-full h-12 text-slate-800 dark:text-white font-semibold flex flex-col items-center rounded-md overflow-hidden cursor-pointer transition-shadow duration-200 hover:shadow-[0_0_40px_0] hover:shadow-white hover:z-10'
+            'bg-slate-50 dark:bg-slate-800 relative w-full h-12 text-slate-800 dark:text-white font-semibold flex flex-col items-center rounded-md overflow-hidden cursor-pointer'
           )}
         >
           <div className="text-md w-full  text-right mr-1.5">{dayDate.day}</div>
