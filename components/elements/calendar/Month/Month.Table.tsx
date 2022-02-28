@@ -1,7 +1,9 @@
 import { useMemo, useState } from 'react';
 import { DateTime, Info, Interval } from 'luxon';
-import { Popover, Tooltip } from '@mui/material';
+import { Popover, Slide, Tooltip } from '@mui/material';
 import MonthCell from './Month.Cell';
+import { CircleIcon, TriangleIcon } from '@components/decoration/icons/outlined';
+import MonthCellPopover from './Month.CellPopover';
 
 const WEEK_STARTS_SUNDAY = true;
 
@@ -21,7 +23,9 @@ interface Props {
 
 const MonthTable = ({ monthDate, monthInfo }: Props) => {
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
-  const [dayInfo, setDayInfo] = useState<CompleteDayInfo | null>(null);
+  const [dayInfo, setDayInfo] = useState<
+    (CompleteDayInfo & { dayDate: DateTime }) | null
+  >(null);
 
   const monthData = useMemo(() => {
     const startOfMonth = monthDate.startOf('month');
@@ -95,7 +99,7 @@ const MonthTable = ({ monthDate, monthInfo }: Props) => {
           ))}
         </tbody>
       </table>
-      <Popover
+      <MonthCellPopover
         anchorEl={anchorEl}
         open={anchorEl !== null && dayInfo !== null}
         sx={{
@@ -110,9 +114,9 @@ const MonthTable = ({ monthDate, monthInfo }: Props) => {
           horizontal: 'left',
         }}
         disableRestoreFocus
-      >
-        {JSON.stringify(dayInfo)}
-      </Popover>
+        dayInfo={dayInfo}
+        monthDate={monthDate}
+      />
     </div>
   );
 };

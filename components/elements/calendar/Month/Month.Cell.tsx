@@ -12,7 +12,7 @@ type Props = {
   extraDayInfo: ExtraDayInfoParsed;
   onShowPopover: (
     e: MouseEvent<HTMLTableCellElement, globalThis.MouseEvent>,
-    completeDayInfo: CompleteDayInfo
+    completeDayInfo: CompleteDayInfo & { dayDate: DateTime }
   ) => void;
   onHidePopover: () => void;
 };
@@ -42,9 +42,8 @@ const MonthCell = ({
     <td
       key={dayDate.day}
       onMouseEnter={(e) => {
-        if (!dayInfo) return;
-        if (isAnotherMonth) return;
-        onShowPopover(e, { ...dayInfo, extraDayInfo: extraDayInfo });
+        if (!dayInfo?.legend) return;
+        onShowPopover(e, { ...dayInfo, extraDayInfo: extraDayInfo, dayDate });
         setHover(true);
       }}
       onMouseLeave={() => {

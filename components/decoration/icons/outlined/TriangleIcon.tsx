@@ -2,7 +2,7 @@ interface Props extends ComponentProps<'svg'> {
   strokeWidth?: number;
 }
 
-const TriangleIcon = ({ strokeWidth = 4, ...svgProps }: Props) => (
+const TriangleIcon = ({ strokeWidth = 3.5, ...svgProps }: Props) => (
   <svg
     width="28"
     height="27"
