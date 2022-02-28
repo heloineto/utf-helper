@@ -2976,35 +2976,35 @@ const useCalendarData = () => {
   const captions = useMemo(
     () => [
       {
-        color: '#3399ff',
+        color: '#1878ff',
         label: 'Feriado Nacional',
       },
       {
-        color: '#999999',
+        color: '#b8b8b8',
         label: 'Recesso',
       },
       {
-        color: '#66cc00',
+        color: '#007e23',
         label: 'Conclusão das Atividades Docentes',
       },
       {
-        color: '#ffcc00',
+        color: '#f9861c',
         label: 'Feriado Local',
       },
       {
-        color: '#ff99cc',
+        color: '#ec6cef',
         label: 'Recesso Local',
       },
       {
-        color: '#6666ff',
+        color: '#6e55fe',
         label: 'Finalização dos Diários de Classe',
       },
       {
-        color: '#ffff00',
+        color: '#f9c81c',
         label: 'Férias',
       },
       {
-        color: '#99ffff',
+        color: '#06e6d9',
         label: 'Recesso Acadêmico',
       },
       {
@@ -3012,15 +3012,17 @@ const useCalendarData = () => {
         label: 'Férias Diferenciadas',
       },
       {
-        color: '#ff00ff',
+        color: '#fa05ff',
         label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
       },
       {
         symbol: '△',
+        color: '#da22fe',
         label: 'Início das Ativ. Acad. p/ Calouros',
       },
       {
         symbol: '◯',
+        color: '#f9371c',
         label: 'Início / Término das aulas',
       },
     ],
