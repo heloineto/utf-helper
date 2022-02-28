@@ -591,7 +591,7 @@ const useCalendarData = () => {
               {
                 day: '28',
                 legend: {
-                  color: '#b8b8b8',
+                  color: '#f9371c',
                   label: 'Recesso',
                 },
               },
@@ -777,7 +777,7 @@ const useCalendarData = () => {
               {
                 day: '2',
                 legend: {
-                  color: '#b8b8b8',
+                  color: '#f9371c',
                   label: 'Recesso',
                 },
               },
@@ -785,7 +785,7 @@ const useCalendarData = () => {
                 day: '◯',
                 legend: {
                   symbol: '◯',
-                  color: '#f9371c',
+                  color: '#e11d48',
                   label: 'Início / Término das aulas',
                 },
               },
@@ -1017,7 +1017,7 @@ const useCalendarData = () => {
               {
                 day: '16',
                 legend: {
-                  color: '#b8b8b8',
+                  color: '#f9371c',
                   label: 'Recesso',
                 },
               },
@@ -1049,14 +1049,14 @@ const useCalendarData = () => {
               {
                 day: '22',
                 legend: {
-                  color: '#b8b8b8',
+                  color: '#f9371c',
                   label: 'Recesso',
                 },
               },
               {
                 day: '23',
                 legend: {
-                  color: '#b8b8b8',
+                  color: '#f9371c',
                   label: 'Recesso',
                 },
               },
@@ -1392,14 +1392,14 @@ const useCalendarData = () => {
               {
                 day: '17',
                 legend: {
-                  color: '#b8b8b8',
+                  color: '#f9371c',
                   label: 'Recesso',
                 },
               },
               {
                 day: '18',
                 legend: {
-                  color: '#b8b8b8',
+                  color: '#f9371c',
                   label: 'Recesso',
                 },
               },
@@ -1954,7 +1954,7 @@ const useCalendarData = () => {
                 day: '◯',
                 legend: {
                   symbol: '◯',
-                  color: '#f9371c',
+                  color: '#e11d48',
                   label: 'Início / Término das aulas',
                 },
               },
@@ -2588,7 +2588,7 @@ const useCalendarData = () => {
               {
                 day: '14',
                 legend: {
-                  color: '#b8b8b8',
+                  color: '#f9371c',
                   label: 'Recesso',
                 },
               },
@@ -2818,7 +2818,7 @@ const useCalendarData = () => {
               {
                 day: '24',
                 legend: {
-                  color: '#b8b8b8',
+                  color: '#f9371c',
                   label: 'Recesso',
                 },
               },
@@ -2869,7 +2869,7 @@ const useCalendarData = () => {
               {
                 day: '31',
                 legend: {
-                  color: '#b8b8b8',
+                  color: '#f9371c',
                   label: 'Recesso',
                 },
               },
@@ -2991,7 +2991,7 @@ const useCalendarData = () => {
         label: 'Feriado Nacional',
       },
       {
-        color: '#b8b8b8',
+        color: '#f9371c',
         label: 'Recesso',
       },
       {
@@ -3033,7 +3033,7 @@ const useCalendarData = () => {
       },
       {
         symbol: '◯',
-        color: '#f9371c',
+        color: '#e11d48',
         label: 'Início / Término das aulas',
       },
     ],
