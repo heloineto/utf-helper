@@ -28,7 +28,7 @@ const useCalendarData = () => {
               {
                 day: '1',
                 legend: {
-                  color: '#3399ff',
+                  color: '#1878ff',
                   label: 'Feriado Nacional',
                 },
               },
@@ -40,42 +40,42 @@ const useCalendarData = () => {
               {
                 day: '3',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '4',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '5',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '6',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '7',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '8',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
@@ -84,49 +84,49 @@ const useCalendarData = () => {
               {
                 day: '9',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '10',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '11',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '12',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '13',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '14',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '15',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
@@ -135,49 +135,49 @@ const useCalendarData = () => {
               {
                 day: '16',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '17',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '18',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '19',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '20',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '21',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '22',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
@@ -186,49 +186,49 @@ const useCalendarData = () => {
               {
                 day: '23',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '24',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '25',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '26',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '27',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '28',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '29',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
@@ -237,14 +237,14 @@ const useCalendarData = () => {
               {
                 day: '30',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '31',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
@@ -414,35 +414,35 @@ const useCalendarData = () => {
               {
                 day: '1',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '2',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '3',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '4',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '5',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
@@ -454,42 +454,42 @@ const useCalendarData = () => {
               {
                 day: '7',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '8',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '9',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '10',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '11',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '12',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
@@ -501,42 +501,42 @@ const useCalendarData = () => {
               {
                 day: '14',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '15',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '16',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '17',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '18',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '19',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
@@ -548,21 +548,21 @@ const useCalendarData = () => {
               {
                 day: '21',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '22',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '23',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
@@ -572,14 +572,14 @@ const useCalendarData = () => {
               {
                 day: '25',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '26',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
@@ -591,7 +591,7 @@ const useCalendarData = () => {
               {
                 day: '28',
                 legend: {
-                  color: '#999999',
+                  color: '#b8b8b8',
                   label: 'Recesso',
                 },
               },
@@ -770,14 +770,14 @@ const useCalendarData = () => {
               {
                 day: '1',
                 legend: {
-                  color: '#3399ff',
+                  color: '#1878ff',
                   label: 'Feriado Nacional',
                 },
               },
               {
                 day: '2',
                 legend: {
-                  color: '#999999',
+                  color: '#b8b8b8',
                   label: 'Recesso',
                 },
               },
@@ -785,6 +785,7 @@ const useCalendarData = () => {
                 day: '◯',
                 legend: {
                   symbol: '◯',
+                  color: '#f9371c',
                   label: 'Início / Término das aulas',
                 },
               },
@@ -1009,14 +1010,14 @@ const useCalendarData = () => {
               {
                 day: '15',
                 legend: {
-                  color: '#3399ff',
+                  color: '#1878ff',
                   label: 'Feriado Nacional',
                 },
               },
               {
                 day: '16',
                 legend: {
-                  color: '#999999',
+                  color: '#b8b8b8',
                   label: 'Recesso',
                 },
               },
@@ -1025,7 +1026,7 @@ const useCalendarData = () => {
               {
                 day: '17',
                 legend: {
-                  color: '#3399ff',
+                  color: '#1878ff',
                   label: 'Feriado Nacional',
                 },
               },
@@ -1041,21 +1042,21 @@ const useCalendarData = () => {
               {
                 day: '21',
                 legend: {
-                  color: '#3399ff',
+                  color: '#1878ff',
                   label: 'Feriado Nacional',
                 },
               },
               {
                 day: '22',
                 legend: {
-                  color: '#999999',
+                  color: '#b8b8b8',
                   label: 'Recesso',
                 },
               },
               {
                 day: '23',
                 legend: {
-                  color: '#999999',
+                  color: '#b8b8b8',
                   label: 'Recesso',
                 },
               },
@@ -1166,7 +1167,7 @@ const useCalendarData = () => {
               {
                 day: '1',
                 legend: {
-                  color: '#3399ff',
+                  color: '#1878ff',
                   label: 'Feriado Nacional',
                 },
               },
@@ -1384,21 +1385,21 @@ const useCalendarData = () => {
               {
                 day: '16',
                 legend: {
-                  color: '#3399ff',
+                  color: '#1878ff',
                   label: 'Feriado Nacional',
                 },
               },
               {
                 day: '17',
                 legend: {
-                  color: '#999999',
+                  color: '#b8b8b8',
                   label: 'Recesso',
                 },
               },
               {
                 day: '18',
                 legend: {
-                  color: '#999999',
+                  color: '#b8b8b8',
                   label: 'Recesso',
                 },
               },
@@ -1542,28 +1543,28 @@ const useCalendarData = () => {
               {
                 day: '◯',
                 legend: {
-                  color: '#66cc00',
+                  color: '#007e23',
                   label: 'Conclusão das Atividades Docentes',
                 },
               },
               {
                 day: '7',
                 legend: {
-                  color: '#6666ff',
+                  color: '#6e55fe',
                   label: 'Finalização dos Diários de Classe',
                 },
               },
               {
                 day: '8',
                 legend: {
-                  color: '#6666ff',
+                  color: '#6e55fe',
                   label: 'Finalização dos Diários de Classe',
                 },
               },
               {
                 day: '9',
                 legend: {
-                  color: '#6666ff',
+                  color: '#6e55fe',
                   label: 'Finalização dos Diários de Classe',
                 },
               },
@@ -1575,42 +1576,42 @@ const useCalendarData = () => {
               {
                 day: '11',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '12',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '13',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '14',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '15',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '16',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
@@ -1619,49 +1620,49 @@ const useCalendarData = () => {
               {
                 day: '17',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '18',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '19',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '20',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '21',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '22',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '23',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
@@ -1670,49 +1671,49 @@ const useCalendarData = () => {
               {
                 day: '24',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '25',
                 legend: {
-                  color: '#ffff00',
+                  color: '#f9c81c',
                   label: 'Férias',
                 },
               },
               {
                 day: '26',
                 legend: {
-                  color: '#ffcc00',
+                  color: '#f9861c',
                   label: 'Feriado Local',
                 },
               },
               {
                 day: '27',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '28',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '29',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '30',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
@@ -1883,42 +1884,42 @@ const useCalendarData = () => {
               {
                 day: '1',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '2',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '3',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '4',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '5',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '6',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
@@ -1929,23 +1930,33 @@ const useCalendarData = () => {
               },
               {
                 day: '△',
+                legend: {
+                  symbol: '△',
+                  color: '#da22fe',
+                  label: 'Início das Ativ. Acad. p/ Calouros',
+                },
               },
               {
                 day: '9',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '10',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '◯',
+                legend: {
+                  symbol: '◯',
+                  color: '#f9371c',
+                  label: 'Início / Término das aulas',
+                },
               },
               {
                 day: '12',
@@ -2156,7 +2167,7 @@ const useCalendarData = () => {
               {
                 day: '7',
                 legend: {
-                  color: '#3399ff',
+                  color: '#1878ff',
                   label: 'Feriado Nacional',
                 },
               },
@@ -2186,21 +2197,21 @@ const useCalendarData = () => {
               {
                 day: '15',
                 legend: {
-                  color: '#ffcc00',
+                  color: '#f9861c',
                   label: 'Feriado Local',
                 },
               },
               {
                 day: '16',
                 legend: {
-                  color: '#ff99cc',
+                  color: '#ec6cef',
                   label: 'Recesso Local',
                 },
               },
               {
                 day: '17',
                 legend: {
-                  color: '#ff99cc',
+                  color: '#ec6cef',
                   label: 'Recesso Local',
                 },
               },
@@ -2367,42 +2378,42 @@ const useCalendarData = () => {
               {
                 day: '10',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '11',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '12',
                 legend: {
-                  color: '#3399ff',
+                  color: '#1878ff',
                   label: 'Feriado Nacional',
                 },
               },
               {
                 day: '13',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '14',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
               {
                 day: '15',
                 legend: {
-                  color: '#ff00ff',
+                  color: '#fa05ff',
                   label: 'Planejamento de Ensino/Pesquisa/Extensão e Capacitação',
                 },
               },
@@ -2533,7 +2544,7 @@ const useCalendarData = () => {
               {
                 day: '2',
                 legend: {
-                  color: '#3399ff',
+                  color: '#1878ff',
                   label: 'Feriado Nacional',
                 },
               },
@@ -2577,14 +2588,14 @@ const useCalendarData = () => {
               {
                 day: '14',
                 legend: {
-                  color: '#999999',
+                  color: '#b8b8b8',
                   label: 'Recesso',
                 },
               },
               {
                 day: '15',
                 legend: {
-                  color: '#3399ff',
+                  color: '#1878ff',
                   label: 'Feriado Nacional',
                 },
               },
@@ -2786,28 +2797,28 @@ const useCalendarData = () => {
               {
                 day: '◯',
                 legend: {
-                  color: '#66cc00',
+                  color: '#007e23',
                   label: 'Conclusão das Atividades Docentes',
                 },
               },
               {
                 day: '22',
                 legend: {
-                  color: '#6666ff',
+                  color: '#6e55fe',
                   label: 'Finalização dos Diários de Classe',
                 },
               },
               {
                 day: '23',
                 legend: {
-                  color: '#6666ff',
+                  color: '#6e55fe',
                   label: 'Finalização dos Diários de Classe',
                 },
               },
               {
                 day: '24',
                 legend: {
-                  color: '#999999',
+                  color: '#b8b8b8',
                   label: 'Recesso',
                 },
               },
@@ -2816,49 +2827,49 @@ const useCalendarData = () => {
               {
                 day: '25',
                 legend: {
-                  color: '#3399ff',
+                  color: '#1878ff',
                   label: 'Feriado Nacional',
                 },
               },
               {
                 day: '26',
                 legend: {
-                  color: '#99ffff',
+                  color: '#06e6d9',
                   label: 'Recesso Acadêmico',
                 },
               },
               {
                 day: '27',
                 legend: {
-                  color: '#99ffff',
+                  color: '#06e6d9',
                   label: 'Recesso Acadêmico',
                 },
               },
               {
                 day: '28',
                 legend: {
-                  color: '#99ffff',
+                  color: '#06e6d9',
                   label: 'Recesso Acadêmico',
                 },
               },
               {
                 day: '29',
                 legend: {
-                  color: '#99ffff',
+                  color: '#06e6d9',
                   label: 'Recesso Acadêmico',
                 },
               },
               {
                 day: '30',
                 legend: {
-                  color: '#99ffff',
+                  color: '#06e6d9',
                   label: 'Recesso Acadêmico',
                 },
               },
               {
                 day: '31',
                 legend: {
-                  color: '#999999',
+                  color: '#b8b8b8',
                   label: 'Recesso',
                 },
               },
