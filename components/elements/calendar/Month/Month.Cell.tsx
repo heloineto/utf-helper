@@ -31,9 +31,9 @@ const MonthCell = ({
   const isAnotherMonth = !dayDate.hasSame(monthDate, 'month');
   const isSunday = dayDate.weekday === 7;
 
-  let sundayColor = darkMode ? '#444444' : '#f3f3f3';
-  let normalColor = darkMode ? '#f3f3f3' : '#444444';
-  let fallbackColor = isSunday ? sundayColor : normalColor;
+  const sundayColor = darkMode ? '#444444' : '#f3f3f3';
+  const normalColor = darkMode ? '#f3f3f3' : '#444444';
+  const fallbackColor = isSunday ? sundayColor : normalColor;
 
   const color = dayInfo?.legend?.color ?? fallbackColor;
   const lighterColor = colord(color).lighten(0.25).toHex();

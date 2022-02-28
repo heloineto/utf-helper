@@ -1,8 +1,7 @@
 import { useMemo, useState } from 'react';
 import { DateTime, Info, Interval } from 'luxon';
-import { Popover, Slide, Tooltip } from '@mui/material';
+import { Tooltip } from '@mui/material';
 import MonthCell from './Month.Cell';
-import { CircleIcon, TriangleIcon } from '@components/decoration/icons/outlined';
 import MonthCellPopover from './Month.CellPopover';
 
 const WEEK_STARTS_SUNDAY = true;

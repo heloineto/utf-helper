@@ -14,12 +14,12 @@ const TriangleIcon = ({ strokeWidth = 3.5, ...svgProps }: Props) => (
     <path
       d="M22.1459 22.5H3.8541C3.48241 22.5 3.24066 22.1088 3.40689 21.7764L12.5528 3.4846C12.737 3.11607 13.263 3.11608 13.4472 3.4846L22.5931 21.7764C22.7593 22.1088 22.5176 22.5 22.1459 22.5Z"
       stroke="black"
-      stroke-width={strokeWidth}
+      strokeWidth={strokeWidth}
     />
     <path
       d="M22.1459 22.5H3.8541C3.48241 22.5 3.24066 22.1088 3.40689 21.7764L12.5528 3.4846C12.737 3.11607 13.263 3.11608 13.4472 3.4846L22.5931 21.7764C22.7593 22.1088 22.5176 22.5 22.1459 22.5Z"
       stroke="url(#paint0_linear_812_1339)"
-      stroke-width={strokeWidth}
+      strokeWidth={strokeWidth}
     />
     <defs>
       <linearGradient
@@ -30,8 +30,8 @@ const TriangleIcon = ({ strokeWidth = 3.5, ...svgProps }: Props) => (
         y2="-0.199999"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#DA22FE" />
-        <stop offset="1" stop-color="#FA05FF" />
+        <stop stopColor="#DA22FE" />
+        <stop offset="1" stopColor="#FA05FF" />
       </linearGradient>
     </defs>
   </svg>

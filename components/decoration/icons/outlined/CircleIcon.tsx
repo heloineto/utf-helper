@@ -16,7 +16,7 @@ const CircleIcon = ({ strokeWidth = 4, ...svgProps }: Props) => (
       cy="14"
       r="11.4"
       stroke="url(#paint0_linear_812_1341)"
-      stroke-width={strokeWidth}
+      strokeWidth={strokeWidth}
     />
     <defs>
       <linearGradient
@@ -27,8 +27,8 @@ const CircleIcon = ({ strokeWidth = 4, ...svgProps }: Props) => (
         y2="2.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FF5459" />
-        <stop offset="1" stop-color="#F9371C" />
+        <stop stopColor="#FF5459" />
+        <stop offset="1" stopColor="#F9371C" />
       </linearGradient>
     </defs>
   </svg>
