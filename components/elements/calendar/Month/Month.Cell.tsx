@@ -81,7 +81,7 @@ const MonthCell = ({
           }}
         >
           <div className="text-md w-full  text-right mr-1.5">{dayDate.day}</div>
-          {!isAnotherMonth && !isSunday && (
+          {!isAnotherMonth && (!isSunday || !!dayInfo?.legend) && (
             <div
               className="h-2 w-2 mt-auto mb-1.5 bg-white rounded-full"
               style={{
