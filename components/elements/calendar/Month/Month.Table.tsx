@@ -79,6 +79,11 @@ const MonthTable = ({ date, monthInfo }: Props) => {
                 const isAnotherMonth = !dayData.hasSame(date, 'month');
                 const isSunday = dayData.weekday === 7;
                 const currDayInfo = monthInfo?.weeks[weekIndex][dayIndex];
+                let extraDayInfo;
+
+                if (currDayInfo) {
+                  extraDayInfo = monthInfo?.extraInfo.parsed[currDayInfo?.day];
+                }
 
                 return (
                   <td
