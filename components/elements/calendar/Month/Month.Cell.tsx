@@ -3,6 +3,7 @@ import { DateTime } from 'luxon';
 import classNames from 'clsx';
 import { colord } from 'colord';
 import { SettingsContext } from '@lib/context';
+import { CircleIcon, TriangleIcon } from '@components/decoration/icons/outlined';
 
 type Props = {
   dayDate: DateTime;
@@ -80,16 +81,24 @@ const MonthCell = ({
               : 'radial-gradient(circle, rgb(255,255,255) 0%, rgb(241,245,249) 100%)',
           }}
         >
-          <div className="text-md w-full  text-right mr-1.5">{dayDate.day}</div>
-          {!isAnotherMonth && (!isSunday || !!dayInfo?.legend) && (
-            <div
-              className="h-2 w-2 mt-auto mb-1.5 bg-white rounded-full"
-              style={{
-                background: color
-                  ? `linear-gradient(225deg, ${color} 0%, ${lighterColor} 100%)`
-                  : '',
-              }}
-            ></div>
+          {dayInfo?.legend?.symbol === '◯' ? (
+            <CircleIcon className="m-auto" strokeWidth={3} />
+          ) : dayInfo?.legend?.symbol === '△' ? (
+            <TriangleIcon className="m-auto" strokeWidth={3} />
+          ) : (
+            <>
+              <div className="text-md w-full  text-right mr-1.5">{dayDate.day}</div>
+              {!isAnotherMonth && (!isSunday || !!dayInfo?.legend) && (
+                <div
+                  className="h-2 w-2 mt-auto mb-1.5 bg-white rounded-full"
+                  style={{
+                    background: color
+                      ? `linear-gradient(225deg, ${color} 0%, ${lighterColor} 100%)`
+                      : '',
+                  }}
+                />
+              )}{' '}
+            </>
           )}
         </div>
       </div>
