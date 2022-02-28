@@ -1,8 +1,6 @@
 import { useMemo, useState } from 'react';
 import { DateTime, Info, Interval } from 'luxon';
-import clsx from 'clsx';
 import { Popover, Tooltip } from '@mui/material';
-import { colord } from 'colord';
 import MonthCell from './Month.Cell';
 
 const WEEK_STARTS_SUNDAY = true;
@@ -79,6 +77,7 @@ const MonthTable = ({ monthDate, monthInfo }: Props) => {
             <tr key={weekData[0].weekNumber}>
               {weekData.map((dayDate, dayIndex) => (
                 <MonthCell
+                  key={dayDate.day}
                   dayDate={dayDate}
                   dayInfo={monthInfo?.weeks[weekIndex][dayIndex]}
                   extraDayInfo={monthInfo?.extraInfo.parsed[dayDate?.day]}
