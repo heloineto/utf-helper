@@ -115,7 +115,6 @@ const MonthTable = ({ monthDate, monthInfo }: Props) => {
         }}
         disableRestoreFocus
         dayInfo={dayInfo}
-        monthDate={monthDate}
       />
     </div>
   );
