@@ -1,11 +1,11 @@
 import type { DateTime } from 'luxon';
 
 interface Props {
-  date: DateTime;
+  monthDate: DateTime;
 }
 
-const MonthHeader = ({ date }: Props) => {
-  const { monthLong, year } = date;
+const MonthHeader = ({ monthDate }: Props) => {
+  const { monthLong, year } = monthDate;
 
   return (
     <div className="h-10 flex items-center justify-center text-slate-800 dark:text-slate-100 font-bold text-xl">

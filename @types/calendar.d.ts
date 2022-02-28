@@ -9,6 +9,17 @@ type DayInfo = {
   legend?: Legend;
 };
 
+type ExtraDayInfoParsed =
+  | {
+      day: number;
+      label: string;
+    }
+  | undefined;
+
+type CompleteDayInfo = DayInfo & {
+  extraDayInfo: ExtraDayInfoParsed;
+};
+
 type WeekInfo = DayInfo[];
 
 type ExtraMonthInfo = {
@@ -19,12 +30,7 @@ type ExtraMonthInfo = {
     operation?: string;
   }[];
   parsed: {
-    [k: string]:
-      | {
-          day: number;
-          label: string;
-        }
-      | undefined;
+    [k: string]: ExtraDayInfoParsed;
   };
 };
 
