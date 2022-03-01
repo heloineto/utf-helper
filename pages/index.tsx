@@ -1,5 +1,5 @@
 import MainShell from '@components/appShells/MainShell';
-import Divider from '@components/elements/Resizer';
+import Divider from '@components/elements/enroll/Resizer';
 import Schedule from '@components/elements/Schedule';
 import Table from '@components/elements/Subjects';
 import { SettingsContext } from '@lib/context';
