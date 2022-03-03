@@ -1,7 +1,7 @@
 import MainShell from '@components/appShells/MainShell';
-import Divider from '@components/elements/enroll/Resizer';
-import Schedule from '@components/elements/enroll/Schedule';
-import Table from '@components/elements/enroll/Subjects';
+import Divider from '@components/pageComponents/enroll/Resizer';
+import Schedule from '@components/pageComponents/enroll/Schedule';
+import Table from '@components/pageComponents/enroll/Subjects';
 import { SettingsContext } from '@lib/context';
 import { useResize } from '@lib/hooks';
 import { useContext } from 'react';

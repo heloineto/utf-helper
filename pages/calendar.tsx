@@ -1,6 +1,6 @@
 import MainShell from '@components/appShells/MainShell';
-import Captions from '@components/elements/calendar/Captions';
-import Month from '@components/elements/calendar/Month';
+import Captions from '@components/pageComponents/calendar/Captions';
+import Month from '@components/pageComponents/calendar/Month';
 import useCalendarData from '@lib/hooks/useCalendarData';
 
 const Calendar: NextPage = () => {
@@ -8,7 +8,7 @@ const Calendar: NextPage = () => {
 
   return (
     <MainShell>
-      <div className="bg-gray-50 dark:bg-slate-800 p-5 h-full overflow-y-scroll">
+      <div className="bg-gray-100 dark:bg-slate-800 p-5 h-full overflow-y-scroll">
         <Captions />
         <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-2.5 gap-y-5">
           {Array.from({ length: 12 }, (_, idx) => (
