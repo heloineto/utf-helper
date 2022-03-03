@@ -58,7 +58,7 @@ const MonthTable = ({ monthInfo }: Props) => {
 
   return (
     <div className="p-2">
-      <table className="w-full table-fixed">
+      <table className="w-full">
         <thead>
           <tr className="table-row">
             {weekdays.map((weekday) => (

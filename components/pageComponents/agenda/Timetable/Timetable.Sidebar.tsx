@@ -45,7 +45,7 @@ const TimetableSidebar = (props: Props) => {
           <div className="bg-white rounded-lg shadow ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10 p-1 mb-2.5 flex justify-between">
             <IconButton
               className="dark:text-white p-1 h-7 w-7 sm:h-8 sm:w-8"
-              onClick={() => setDisplayDate?.(displayDate.plus({ months: 1 }))}
+              onClick={() => setDisplayDate?.(displayDate.minus({ months: 1 }))}
             >
               <CaretLeft size={32} weight="bold" />
             </IconButton>
@@ -54,7 +54,7 @@ const TimetableSidebar = (props: Props) => {
             </div>
             <IconButton
               className="dark:text-white p-1 h-7 w-7 sm:h-8 sm:w-8"
-              onClick={() => setDisplayDate?.(displayDate.minus({ months: 1 }))}
+              onClick={() => setDisplayDate?.(displayDate.plus({ months: 1 }))}
             >
               <CaretRight size={32} weight="bold" />
             </IconButton>

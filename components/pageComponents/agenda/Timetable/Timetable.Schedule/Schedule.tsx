@@ -15,7 +15,7 @@ type Props = {};
 
 const Schedule = ({}: Props) => {
   const { schedule } = useContext(UserDataContext);
-  const { selectedDate } = useContext(TimetableContext);
+  const { selectedDate, setSelectedDate } = useContext(TimetableContext);
 
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
   const [dayInfo, setDayInfo] = useState<
@@ -51,18 +51,11 @@ const Schedule = ({}: Props) => {
               .map(({ start }) => (
                 <td key={start.weekdayShort} className="text-sm w-[calc(100%*5/35)]">
                   <div className="text-slate-600 dark:text-slate-300 font-medium">
-                    {start.weekdayShort.slice(0, -1).toUpperCase()}
+                    {start.setLocale('pt-BR').weekdayShort.slice(0, -1).toUpperCase()}
                   </div>
-                  <IconButton className="rounded-full text-xl font-semibold ">
-                    {start.day}
-                  </IconButton>
                   <Day
                     dayDate={start}
-                    dayInfo={
-                      yearInfo.months[start.month - 1].weeks[start.weekNumber - 1][
-                        start.weekday - 1
-                      ]
-                    }
+                    dayInfo={yearInfo.months[start.month - 1].weeks[0][start.weekday - 1]}
                     extraDayInfo={
                       yearInfo.months[start.month - 1].extraInfo.parsed[start.day]
                     }
@@ -74,9 +67,9 @@ const Schedule = ({}: Props) => {
                       setAnchorEl(null);
                     }}
                     monthDate={start}
-                    //  onSelectDate={onSelectDate}
-                    //  selectedDate={selectedDate}
-                  ></Day>
+                    onSelectDate={(date) => setSelectedDate?.(date)}
+                    selectedDate={selectedDate}
+                  />
                 </td>
               ))}
           </tr>

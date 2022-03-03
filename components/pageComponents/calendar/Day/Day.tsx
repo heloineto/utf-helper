@@ -74,7 +74,7 @@ const Day = ({
         className={classNames(
           isAnotherMonth && 'dark:text-slate-700',
           isSunday && !isAnotherMonth && 'text-slate-400 dark:text-slate-200',
-          'bg-slate-50 dark:bg-slate-800 relative w-full h-12 text-slate-800 dark:text-slate-300 font-semibold flex flex-col items-center rounded-md overflow-hidden cursor-pointer'
+          'bg-slate-50 dark:bg-slate-800 relative w-full min-h-[3rem] text-slate-800 dark:text-slate-300 font-semibold flex flex-col items-center rounded-md overflow-hidden cursor-pointer'
         )}
         style={{
           background: isAnotherMonth
