@@ -7,7 +7,7 @@ import Day, { DayPopover } from '../Day';
 
 const WEEK_STARTS_SUNDAY = true;
 
-const weekdays = getWeekdaysStr(WEEK_STARTS_SUNDAY, 'narrow');
+const weekdays = getWeekdaysStr(WEEK_STARTS_SUNDAY, 'long');
 
 interface Props {
   monthInfo?: MonthInfo;
@@ -63,7 +63,7 @@ const MonthTable = ({ monthInfo }: Props) => {
               <th key={weekday} className="table-cell">
                 <Tooltip title={weekday} placement="top">
                   <div className="text-slate-800 dark:text-slate-100 font-semibold text-md cursor-default">
-                    {weekday}
+                    {weekday.charAt(0)}
                   </div>
                 </Tooltip>
               </th>

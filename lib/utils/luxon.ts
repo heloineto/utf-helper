@@ -3,7 +3,7 @@ import { toStartCase } from './typescript';
 
 export const getDateStr = (date: DateTime) => {
   return toStartCase(
-    date.toLocaleString({
+    date.setLocale('pt-BR').toLocaleString({
       weekday: 'long',
       month: 'long',
       day: '2-digit',
@@ -15,7 +15,7 @@ export const getWeekdaysStr = (
   weekStartsSunday: boolean = true,
   length: StringUnitLength = 'long'
 ) => {
-  const weekdays = Info.weekdays(length).map(
+  const weekdays = Info.weekdays(length, { locale: 'pt-BR' }).map(
     (weekday) => weekday.charAt(0).toUpperCase() + weekday.slice(1)
   );
 

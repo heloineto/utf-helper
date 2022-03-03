@@ -50,7 +50,9 @@ const TimetableSidebar = (props: Props) => {
               <CaretLeft size={32} weight="bold" />
             </IconButton>
             <div className="flex items-center justify-center text-slate-800 dark:text-slate-100 font-medium text-xl">
-              {`${toStartCase(displayDate.monthLong)} ${displayDate.year}`}
+              {`${toStartCase(displayDate.setLocale('pt-BR').monthLong)} ${
+                displayDate.year
+              }`}
             </div>
             <IconButton
               className="dark:text-white p-1 h-7 w-7 sm:h-8 sm:w-8"

@@ -8,8 +8,6 @@ import { TimetableContext } from '../lib/context';
 
 const WEEK_STARTS_SUNDAY = true;
 
-const weekdays = getWeekdaysStr(WEEK_STARTS_SUNDAY, 'short');
-
 type Props = {};
 
 const Schedule = ({}: Props) => {

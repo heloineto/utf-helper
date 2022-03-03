@@ -8,7 +8,7 @@ interface Props extends ComponentProps<'div'> {}
 const MonthHeader = ({ className }: Props) => {
   const { monthDate } = useContext(MonthContext);
 
-  const { monthLong, year } = monthDate;
+  const { monthLong, year } = monthDate.setLocale('pt-BR');
 
   return (
     <div
