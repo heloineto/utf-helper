@@ -1,12 +1,22 @@
 import { UserDataContext } from '@lib/context';
+import { getWeekdaysStr, getWeekInterval } from '@lib/utils/luxon';
 import { useContext, useState } from 'react';
+import { TimetableContext } from '../lib/context';
+
+const WEEK_STARTS_SUNDAY = true;
+
+const weekdays = getWeekdaysStr(WEEK_STARTS_SUNDAY, 'short');
 
 type Props = {};
 
 const Schedule = ({}: Props) => {
   const { schedule } = useContext(UserDataContext);
+  const { selectedDate } = useContext(TimetableContext);
+
   const [selectedClass, setSelectedClass] = useState<ClassObject | null>(null);
   const [classDialogOpen, setClassDialogOpen] = useState(false);
+
+  const weekInterval = getWeekInterval(selectedDate);
 
   return (
     <>
@@ -24,18 +34,14 @@ const Schedule = ({}: Props) => {
             <td className="font-bold w-[calc(100%*2/35)] text-sm text-slate-700 dark:text-slate-300">
               Térm.
             </td>
-            {['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'].map(
-              (day, index) => (
-                <td key={day} className="text-sm w-[calc(100%*5/35)] h-8">
-                  <span className="text-slate-600 dark:text-slate-300 font-medium">
-                    {day}
-                  </span>
-                  <span className="text-slate-800 dark:text-slate-100 ml-1 font-bold">
-                    {index + 2}
-                  </span>
-                </td>
-              )
-            )}
+            {weekdays.slice(1).map((weekday, index) => (
+              <td key={weekday} className="text-sm w-[calc(100%*5/35)] h-8">
+                <div className="text-slate-600 dark:text-slate-300 font-medium">
+                  {weekday.slice(0, -1).toUpperCase()}
+                </div>
+                <div className="rounded-full h-8 w-8"></div>
+              </td>
+            ))}
           </tr>
           {schedule &&
             Object.entries(schedule).map(([timeCode, { start, end, days }]) => (

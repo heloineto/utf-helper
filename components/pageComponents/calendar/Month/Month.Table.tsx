@@ -1,20 +1,14 @@
 import { useContext, useMemo, useState } from 'react';
-import { DateTime, Info, Interval } from 'luxon';
+import { DateTime, Interval } from 'luxon';
 import { Tooltip } from '@mui/material';
 import MonthCell from './Month.Cell';
 import MonthCellPopover from './Month.CellPopover';
 import { MonthContext } from './lib/context';
+import { getWeekdaysStr } from '@lib/utils/luxon';
 
 const WEEK_STARTS_SUNDAY = true;
 
-const weekdays = Info.weekdays('long').map(
-  (weekday) => weekday.charAt(0).toUpperCase() + weekday.slice(1)
-);
-
-if (WEEK_STARTS_SUNDAY) {
-  const sunday = weekdays.pop();
-  if (sunday) weekdays.unshift(sunday);
-}
+const weekdays = getWeekdaysStr(WEEK_STARTS_SUNDAY, 'narrow');
 
 interface Props {
   monthInfo?: MonthInfo;
@@ -70,7 +64,7 @@ const MonthTable = ({ monthInfo }: Props) => {
               <th key={weekday} className="table-cell">
                 <Tooltip title={weekday} placement="top">
                   <div className="text-slate-800 dark:text-slate-100 font-semibold text-md cursor-default">
-                    {weekday.charAt(0)}
+                    {weekday}
                   </div>
                 </Tooltip>
               </th>
