@@ -2,7 +2,6 @@ import { DateTime } from 'luxon';
 import { Popover, PopoverProps } from '@mui/material';
 import { CircleIcon, TriangleIcon } from '@components/decoration/icons/outlined';
 import { colord } from 'colord';
-import { toStartCase, toTitleCase } from '@lib/utils/typescript';
 import { getDateStr } from '@lib/utils/luxon';
 
 interface Props extends PopoverProps {

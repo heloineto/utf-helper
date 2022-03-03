@@ -1,9 +1,5 @@
-import Month from '@components/pageComponents/calendar/Month';
-import useCalendarData from '@lib/hooks/useCalendarData';
-import { Drawer, useMediaQuery, useTheme, IconButton } from '@mui/material';
-import { useContext, useEffect, useRef, useState } from 'react';
-import { CaretLeft, CaretRight } from 'phosphor-react';
-import { toStartCase } from '@lib/utils/typescript';
+import { useMediaQuery, useTheme } from '@mui/material';
+import { useState } from 'react';
 import { DateTime } from 'luxon';
 
 const useTimetable = () => {
