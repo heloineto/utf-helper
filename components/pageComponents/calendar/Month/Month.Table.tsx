@@ -76,7 +76,7 @@ const MonthTable = ({ monthInfo }: Props) => {
           {monthData.map((weekData, weekIndex) => (
             <tr key={weekData[0].weekNumber}>
               {weekData.map((dayDate, dayIndex) => (
-                <td>
+                <td key={dayDate.day}>
                   <Day
                     key={dayDate.day}
                     dayDate={dayDate}
