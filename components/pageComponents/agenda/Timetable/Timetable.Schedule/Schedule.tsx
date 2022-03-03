@@ -1,4 +1,6 @@
+import Day, { DayPopover } from '@components/pageComponents/calendar/Day';
 import { UserDataContext } from '@lib/context';
+import useCalendarData from '@lib/hooks/useCalendarData';
 import { getWeekdaysStr, getWeekInterval } from '@lib/utils/luxon';
 import { IconButton } from '@mui/material';
 import { useContext, useState } from 'react';
@@ -13,6 +15,8 @@ type Props = {};
 const Schedule = ({}: Props) => {
   const { schedule } = useContext(UserDataContext);
   const { selectedDate } = useContext(TimetableContext);
+
+  const { yearInfo } = useCalendarData();
 
   const [selectedClass, setSelectedClass] = useState<ClassObject | null>(null);
   const [classDialogOpen, setClassDialogOpen] = useState(false);
@@ -50,6 +54,27 @@ const Schedule = ({}: Props) => {
                   <IconButton className="rounded-full text-xl font-semibold ">
                     {start.day}
                   </IconButton>
+                  <Day
+                    dayDate={start}
+                    dayInfo={
+                      yearInfo.months[start.month - 1].weeks[start.weekNumber - 1][
+                        start.weekday - 1
+                      ]
+                    }
+                    extraDayInfo={
+                      yearInfo.months[start.month - 1].extraInfo.parsed[start.day]
+                    }
+                    onShowPopover={(e, completeDayInfo) => {
+                      setDayInfo(completeDayInfo);
+                      setAnchorEl(e.currentTarget);
+                    }}
+                    onHidePopover={() => {
+                      setAnchorEl(null);
+                    }}
+                    monthDate={start}
+                    //  onSelectDate={onSelectDate}
+                    //  selectedDate={selectedDate}
+                  ></Day>
                 </td>
               ))}
           </tr>
@@ -81,6 +106,23 @@ const Schedule = ({}: Props) => {
             ))}
         </tbody>
       </table>
+      <DayPopover
+        anchorEl={anchorEl}
+        open={anchorEl !== null && dayInfo !== null}
+        sx={{
+          pointerEvents: 'none',
+        }}
+        anchorOrigin={{
+          vertical: 'center',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+        disableRestoreFocus
+        dayInfo={dayInfo}
+      />
     </>
   );
 };

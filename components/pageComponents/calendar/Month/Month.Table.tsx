@@ -5,6 +5,7 @@ import MonthCell from './Month.Cell';
 import MonthCellPopover from './Month.CellPopover';
 import { MonthContext } from './lib/context';
 import { getWeekdaysStr } from '@lib/utils/luxon';
+import Day, { DayPopover } from '../Day';
 
 const WEEK_STARTS_SUNDAY = true;
 
@@ -15,7 +16,7 @@ interface Props {
 }
 
 const MonthTable = ({ monthInfo }: Props) => {
-  const { monthDate } = useContext(MonthContext);
+  const { monthDate, onSelectDate, selectedDate } = useContext(MonthContext);
 
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
   const [dayInfo, setDayInfo] = useState<
@@ -75,25 +76,30 @@ const MonthTable = ({ monthInfo }: Props) => {
           {monthData.map((weekData, weekIndex) => (
             <tr key={weekData[0].weekNumber}>
               {weekData.map((dayDate, dayIndex) => (
-                <MonthCell
-                  key={dayDate.day}
-                  dayDate={dayDate}
-                  dayInfo={monthInfo?.weeks[weekIndex][dayIndex]}
-                  extraDayInfo={monthInfo?.extraInfo.parsed[dayDate?.day]}
-                  onShowPopover={(e, completeDayInfo) => {
-                    setDayInfo(completeDayInfo);
-                    setAnchorEl(e.currentTarget);
-                  }}
-                  onHidePopover={() => {
-                    setAnchorEl(null);
-                  }}
-                />
+                <td>
+                  <Day
+                    key={dayDate.day}
+                    dayDate={dayDate}
+                    dayInfo={monthInfo?.weeks[weekIndex][dayIndex]}
+                    extraDayInfo={monthInfo?.extraInfo.parsed[dayDate?.day]}
+                    onShowPopover={(e, completeDayInfo) => {
+                      setDayInfo(completeDayInfo);
+                      setAnchorEl(e.currentTarget);
+                    }}
+                    onHidePopover={() => {
+                      setAnchorEl(null);
+                    }}
+                    monthDate={monthDate}
+                    onSelectDate={onSelectDate}
+                    selectedDate={selectedDate}
+                  />
+                </td>
               ))}
             </tr>
           ))}
         </tbody>
       </table>
-      <MonthCellPopover
+      <DayPopover
         anchorEl={anchorEl}
         open={anchorEl !== null && dayInfo !== null}
         sx={{
