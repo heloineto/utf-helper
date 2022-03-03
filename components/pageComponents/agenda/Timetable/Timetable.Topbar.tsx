@@ -31,7 +31,6 @@ const TimetableTopbar = (props: Props) => {
         <Tooltip title={todayStr} arrow>
           <div>
             <SecondaryButton
-              className="h-full"
               onClick={() => {
                 setDisplayDate?.(today);
                 setSelectedDate?.(today);
