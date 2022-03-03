@@ -12,8 +12,15 @@ const TimetableSidebar = (props: Props) => {
   const { yearInfo } = useCalendarData();
   const [drawerContainer, setDrawerContainer] = useState<HTMLElement | null>(null);
   const divRef = useRef<HTMLDivElement>(null);
-  const { mobile, sidebarOpen, setSidebarOpen, displayDate, setDisplayDate } =
-    useContext(TimetableContext);
+  const {
+    mobile,
+    sidebarOpen,
+    setSidebarOpen,
+    displayDate,
+    setDisplayDate,
+    selectedDate,
+    setSelectedDate,
+  } = useContext(TimetableContext);
 
   useEffect(() => {
     setDrawerContainer(mobile ? document.body : divRef.current);
@@ -23,7 +30,7 @@ const TimetableSidebar = (props: Props) => {
     <Drawer
       className="w-11/12 sm:w-8/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 h-full"
       classes={{
-        paper: 'static bg-slate-50 dark:bg-slate-900/50 p-2.5',
+        paper: 'static bg-slate-50 dark:bg-slate-900/80 xl:dark:bg-slate-900/50 p-2.5',
       }}
       container={drawerContainer}
       anchor="left"
@@ -56,6 +63,7 @@ const TimetableSidebar = (props: Props) => {
             month={displayDate.month}
             monthInfo={yearInfo.months[displayDate.month - 1]}
             classes={{ monthHeader: 'hidden' }}
+            selectedDate={selectedDate}
           />
         </>
       )}
