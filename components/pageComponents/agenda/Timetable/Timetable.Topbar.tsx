@@ -1,4 +1,4 @@
-import SecondaryButton from '@components/buttons/SecondaryButton';
+import SecondaryButton from '@components/elements/buttons/SecondaryButton';
 import { IconButton, Tooltip } from '@mui/material';
 import { DateTime } from 'luxon';
 import { getDateStr } from '@lib/utils/luxon';
