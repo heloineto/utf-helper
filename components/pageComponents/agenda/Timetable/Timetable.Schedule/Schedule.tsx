@@ -1,12 +1,10 @@
 import Day, { DayPopover } from '@components/pageComponents/calendar/Day';
 import { UserDataContext } from '@lib/context';
 import useCalendarData from '@lib/hooks/useCalendarData';
-import { getWeekInterval, getWeekdaysStr } from '@lib/utils/luxon';
+import { getWeekInterval } from '@lib/utils/luxon';
 import { DateTime } from 'luxon';
 import { useContext, useState } from 'react';
 import { TimetableContext } from '../lib/context';
-
-const WEEK_STARTS_SUNDAY = true;
 
 type Props = {};
 
@@ -50,9 +48,14 @@ const Schedule = ({}: Props) => {
                   <div className="text-slate-600 dark:text-slate-300 font-medium">
                     {start.setLocale('pt-BR').weekdayShort.slice(0, -1).toUpperCase()}
                   </div>
+                  {console.log(Math.ceil(start.day / 7) - 1)}
                   <Day
                     dayDate={start}
-                    dayInfo={yearInfo.months[start.month - 1].weeks[0][start.weekday - 1]}
+                    dayInfo={
+                      yearInfo.months[start.month - 1].weeks[
+                        Math.ceil(start.day / 7) - 1
+                      ][start.weekday]
+                    }
                     extraDayInfo={
                       yearInfo.months[start.month - 1].extraInfo.parsed[start.day]
                     }
