@@ -1,5 +1,6 @@
 import MainShell from '@components/appShells/MainShell';
-import { Drawer, useMediaQuery, useTheme } from '@mui/material';
+import SecondaryButton from '@components/buttons/SecondaryButton';
+import { Button, Drawer, useMediaQuery, useTheme } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
 
 const Agenda: NextPage = () => {
@@ -20,7 +21,7 @@ const Agenda: NextPage = () => {
   return (
     <MainShell>
       <div
-        className="h-full w-full flex overflow-hidden bg-red-100 relative"
+        className="h-full w-full flex overflow-hidden bg-gray-50 dark:bg-slate-800 relative"
         ref={divRef}
       >
         {/* Static sidebar for desktop */}
@@ -38,8 +39,8 @@ const Agenda: NextPage = () => {
             <div>mobile</div>
           </Drawer>
         )}
-        <div className="bg-blue-400 w-full h-14">
-          <div></div>
+        <div className="w-full h-28 sm:h-14 px-5 py-2.5 bg-slate-50 dark:bg-slate-900/90 flex flex-col sm:flex-row justify-between shadow-sm lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06]">
+          <SecondaryButton>Hoje</SecondaryButton>
         </div>
         <div></div>
       </div>

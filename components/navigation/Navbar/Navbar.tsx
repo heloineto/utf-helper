@@ -6,9 +6,9 @@ import NavbarCampusAndCourse from './Navbar.CampusAndCourse';
 import NavbarTotalHours from './Navbar.TotalHours';
 import NavbarReviewButton from './Navbar.ReviewButton';
 
-interface Props {}
+interface Props extends ComponentProps<'header'> {}
 
-const Navbar = ({ className }: Props & ComponentProps<'header'>) => {
+const Navbar = ({ className }: Props) => {
   return (
     <header
       className={classNames(
