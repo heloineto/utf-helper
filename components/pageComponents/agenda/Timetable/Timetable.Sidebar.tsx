@@ -15,7 +15,7 @@ const TimetableSidebar = (props: Props) => {
   const [drawerContainer, setDrawerContainer] = useState<HTMLElement | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const divRef = useRef<HTMLDivElement>(null);
-  const { displayDate } = useContext(TimetableContext);
+  const { displayDate, setDisplayDate } = useContext(TimetableContext);
 
   useEffect(() => {
     setDrawerContainer(mobile ? document.body : divRef.current);
@@ -38,22 +38,26 @@ const TimetableSidebar = (props: Props) => {
       {displayDate && (
         <>
           <div className="bg-white rounded-lg shadow ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10 p-1 mb-2.5 flex justify-between">
-            <IconButton className="dark:text-white p-1 h-7 w-7 sm:h-8 sm:w-8">
+            <IconButton
+              className="dark:text-white p-1 h-7 w-7 sm:h-8 sm:w-8"
+              onClick={() => setDisplayDate?.(displayDate.plus({ months: 1 }))}
+            >
               <CaretLeft size={32} weight="bold" />
             </IconButton>
             <div className="flex items-center justify-center text-slate-800 dark:text-slate-100 font-bold text-xl">
-              {`${toStartCase(displayDate.get.monthLong)} ${displayDate.get.year}`}
+              {`${toStartCase(displayDate.monthLong)} ${displayDate.year}`}
             </div>
-            <IconButton className="dark:text-white p-1 h-7 w-7 sm:h-8 sm:w-8">
+            <IconButton
+              className="dark:text-white p-1 h-7 w-7 sm:h-8 sm:w-8"
+              onClick={() => setDisplayDate?.(displayDate.minus({ months: 1 }))}
+            >
               <CaretRight size={32} weight="bold" />
             </IconButton>
           </div>
           <Month
-            month={displayDate?.get.month}
-            monthInfo={yearInfo.months[displayDate?.get.month - 1]}
-            classes={{
-              monthHeader: 'hidden',
-            }}
+            month={displayDate.month}
+            monthInfo={yearInfo.months[displayDate.month - 1]}
+            classes={{ monthHeader: 'hidden' }}
           />
         </>
       )}

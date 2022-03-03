@@ -6,8 +6,10 @@ const useTimetable = () => {
   const [displayDate, setDisplayDate] = useState(DateTime.now());
 
   return {
-    selectedDate: { get: selectedDate, set: setSelectedDate },
-    displayDate: { get: displayDate, set: setDisplayDate },
+    selectedDate,
+    setSelectedDate,
+    displayDate,
+    setDisplayDate,
   };
 };
 
