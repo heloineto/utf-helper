@@ -1,3 +1,4 @@
+import Schedule from '../Schedule';
 import { TimetableContext } from './lib/context';
 import useTimetable from './lib/hooks/useTimetable';
 import TimetableSidebar from './Timetable.Sidebar';
@@ -9,11 +10,12 @@ const Timetable = (props: Props) => {
   const value = useTimetable();
 
   return (
-    <div className="h-full flex flex-col overflow-hidden bg-gray-100 dark:bg-slate-800 relative">
+    <div className="h-full flex flex-col overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
       <TimetableContext.Provider value={value}>
         <TimetableTopbar />
-        <div className="h-full">
+        <div className="h-full flex">
           <TimetableSidebar />
+          <Schedule />
         </div>
       </TimetableContext.Provider>
     </div>
