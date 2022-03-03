@@ -46,7 +46,7 @@ const Schedule = ({}: Props) => {
               .splitBy({ days: 1 })
               .slice(0, -1)
               .map(({ start }) => (
-                <td key={start.weekdayShort} className="text-sm w-[calc(100%*5/35)]">
+                <td key={start.weekdayShort} className="text-sm w-[calc(100%*5/35)] h-24">
                   <div className="text-slate-600 dark:text-slate-300 font-medium">
                     {start.setLocale('pt-BR').weekdayShort.slice(0, -1).toUpperCase()}
                   </div>
@@ -66,6 +66,12 @@ const Schedule = ({}: Props) => {
                     monthDate={start}
                     onSelectDate={(date) => setSelectedDate?.(date)}
                     selectedDate={selectedDate}
+                    classes={{
+                      root: 'rounded-full h-14 w-14 !rounded-full mx-auto',
+                      highlight: '!rounded-full',
+                      label: 'flex justify-center items-center h-full text-xl mr-0',
+                      dot: 'hidden',
+                    }}
                   />
                 </td>
               ))}
@@ -105,12 +111,12 @@ const Schedule = ({}: Props) => {
           pointerEvents: 'none',
         }}
         anchorOrigin={{
-          vertical: 'center',
-          horizontal: 'right',
+          vertical: 'bottom',
+          horizontal: 'center',
         }}
         transformOrigin={{
-          vertical: 'center',
-          horizontal: 'left',
+          vertical: 'top',
+          horizontal: 'center',
         }}
         disableRestoreFocus
         dayInfo={dayInfo}

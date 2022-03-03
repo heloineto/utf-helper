@@ -4,12 +4,12 @@ import { colord } from 'colord';
 import { SettingsContext } from '@lib/context';
 import twColors from 'tailwindcss/colors';
 
-type Props = {
+interface Props extends ComponentProps<'div'> {
   isToday: boolean;
   isSelected: boolean;
-};
+}
 
-const DayHighlight = ({ isToday, isSelected }: Props) => {
+const DayHighlight = ({ isToday, isSelected, className, ...divProps }: Props) => {
   const { darkMode } = useContext(SettingsContext);
   const highlightColors = useMemo(() => {
     let hexColor = '#000000';
@@ -28,6 +28,7 @@ const DayHighlight = ({ isToday, isSelected }: Props) => {
   return (
     <div
       className={classNames(
+        className,
         !isToday && !isSelected && 'hidden',
         isToday && '!ring-sky-500',
         isSelected && 'ring-indigo-500',
@@ -36,6 +37,7 @@ const DayHighlight = ({ isToday, isSelected }: Props) => {
       style={{
         background: `repeating-linear-gradient(45deg, ${highlightColors[0]}, ${highlightColors[0]} 0.25rem, ${highlightColors[1]} 0.25rem, ${highlightColors[1]} 0.5rem)`,
       }}
+      {...divProps}
     />
   );
 };

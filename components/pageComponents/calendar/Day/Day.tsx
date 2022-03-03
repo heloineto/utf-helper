@@ -18,6 +18,12 @@ type Props = {
   monthDate: DateTime;
   selectedDate?: DateTime;
   onSelectDate?: (date: DateTime) => void;
+  classes?: {
+    root?: string;
+    label?: string;
+    highlight?: string;
+    dot?: string;
+  };
 };
 
 const Day = ({
@@ -29,6 +35,7 @@ const Day = ({
   monthDate,
   selectedDate,
   onSelectDate,
+  classes,
 }: Props) => {
   const [hover, setHover] = useState(false);
   const { darkMode } = useContext(SettingsContext);
@@ -59,6 +66,7 @@ const Day = ({
       }}
       onClick={() => onSelectDate?.(dayDate)}
       className={classNames(
+        classes?.root,
         isAnotherMonth ? '' : 'p-px',
         'rounded-md transition-shadow duration-200'
       )}
@@ -72,6 +80,7 @@ const Day = ({
     >
       <div
         className={classNames(
+          classes?.root,
           isAnotherMonth && 'dark:text-slate-700',
           isSunday && !isAnotherMonth && 'text-slate-400 dark:text-slate-200',
           'bg-slate-50 dark:bg-slate-800 relative w-full min-h-[3rem] text-slate-800 dark:text-slate-300 font-semibold flex flex-col items-center rounded-md overflow-hidden cursor-pointer'
@@ -92,10 +101,17 @@ const Day = ({
           <TriangleIcon className="m-auto" strokeWidth={3} />
         ) : (
           <>
-            <div className="text-md w-full  text-right mr-1.5">{dayDate.day}</div>
+            <div
+              className={classNames(classes?.label, 'text-md w-full  text-right mr-1.5')}
+            >
+              {dayDate.day}
+            </div>
             {!isAnotherMonth && (!isSunday || !!dayInfo?.legend) && (
               <div
-                className="h-2 w-2 mt-auto mb-1.5 bg-white rounded-full"
+                className={classNames(
+                  classes?.dot,
+                  'h-2 w-2 mt-auto mb-1.5 bg-white rounded-full'
+                )}
                 style={{
                   background: color
                     ? `linear-gradient(225deg, ${color} 0%, ${lighterColor} 100%)`
@@ -106,7 +122,11 @@ const Day = ({
           </>
         )}
         {(isToday || isSelected) && (
-          <DayHighlight isToday={isToday} isSelected={isSelected} />
+          <DayHighlight
+            className={classes?.highlight}
+            isToday={isToday}
+            isSelected={isSelected}
+          />
         )}
       </div>
     </div>
