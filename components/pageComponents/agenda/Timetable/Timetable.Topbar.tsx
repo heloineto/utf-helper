@@ -1,7 +1,6 @@
 import SecondaryButton from '@components/buttons/SecondaryButton';
 import { Tooltip } from '@mui/material';
 import { DateTime } from 'luxon';
-import { toTitleCase } from '@lib/utils/typescript';
 import { getDateStr } from '@lib/utils/luxon';
 
 type Props = {};

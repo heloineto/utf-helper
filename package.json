@@ -23,6 +23,7 @@
     "luxon": "^2.3.0",
     "next": "latest",
     "notistack": "^2.0.3",
+    "phosphor-react": "^1.4.1",
     "react": "latest",
     "react-dom": "latest"
   },
