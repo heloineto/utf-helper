@@ -5,17 +5,7 @@ import TimetableTopbar from './Timetable.Topbar';
 type Props = {};
 
 const Timetable = (props: Props) => {
-  const { breakpoints } = useTheme();
-  const mobile = useMediaQuery(breakpoints.down('md'));
-  const [drawerContainer, setDrawerContainer] = useState<HTMLElement | null>(null);
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const divRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setDrawerContainer(mobile ? document.body : divRef.current);
-
-    return () => {};
-  }, [mobile]);
 
   return (
     <div

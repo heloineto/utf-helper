@@ -1,4 +1,4 @@
-const hash = (str: string) => {
+export const hash = (str: string) => {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
     const char = str.charCodeAt(i);
@@ -8,4 +8,9 @@ const hash = (str: string) => {
   return hash;
 };
 
-export default hash;
+export const toTitleCase = (str: string) => {
+  return str.replace(
+    /\w\S*/g,
+    (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+  );
+};

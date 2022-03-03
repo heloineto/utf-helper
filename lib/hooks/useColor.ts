@@ -1,4 +1,4 @@
-import hash from '@lib/utils/typescript';
+import { hash } from '@lib/utils/typescript';
 import twColors from 'tailwindcss/colors';
 import { TailwindColorGroup } from 'tailwindcss/tailwind-config';
 
