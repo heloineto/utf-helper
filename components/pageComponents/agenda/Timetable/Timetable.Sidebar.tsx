@@ -4,7 +4,7 @@ import TimetableTopbar from './Timetable.Topbar';
 
 type Props = {};
 
-const Timetable = (props: Props) => {
+const TimetableSidebar = (props: Props) => {
   const { breakpoints } = useTheme();
   const mobile = useMediaQuery(breakpoints.down('md'));
   const [drawerContainer, setDrawerContainer] = useState<HTMLElement | null>(null);
@@ -18,14 +18,19 @@ const Timetable = (props: Props) => {
   }, [mobile]);
 
   return (
-    <div
-      className="h-full w-full flex overflow-hidden bg-gray-100 dark:bg-slate-800 relative"
-      ref={divRef}
+    <Drawer
+      container={drawerContainer}
+      anchor="left"
+      variant={mobile ? 'temporary' : 'permanent'}
+      open={drawerOpen}
+      PaperProps={{ sx: { position: 'static' } }}
+      onClose={() => setDrawerOpen(false)}
+      // Better open performance on mobile
+      ModalProps={{ keepMounted: true }}
     >
-      <TimetableTopbar />
-      <div></div>
-    </div>
+      <div>mobile</div>
+    </Drawer>
   );
 };
 
-export default Timetable;
+export default TimetableSidebar;
