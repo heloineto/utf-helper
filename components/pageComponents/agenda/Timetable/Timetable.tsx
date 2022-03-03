@@ -1,5 +1,6 @@
 import { Drawer, useMediaQuery, useTheme } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
+import TimetableTopbar from './Timetable.Topbar';
 
 type Props = {};
 
@@ -22,7 +23,7 @@ const Timetable = (props: Props) => {
       ref={divRef}
     >
       {/* Static sidebar for desktop */}
-      {/* {drawerContainer && (
+      {drawerContainer && (
         <Drawer
           container={drawerContainer}
           anchor="left"
@@ -35,7 +36,8 @@ const Timetable = (props: Props) => {
         >
           <div>mobile</div>
         </Drawer>
-      )} */}
+      )}
+      <TimetableTopbar />
     </div>
   );
 };
