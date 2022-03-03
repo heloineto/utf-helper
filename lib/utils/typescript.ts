@@ -11,6 +11,10 @@ export const hash = (str: string) => {
 export const toTitleCase = (str: string) => {
   return str.replace(
     /\w\S*/g,
-    (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase()
   );
+};
+
+export const toStartCase = (str: string) => {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 };

@@ -2,6 +2,8 @@ import { DateTime } from 'luxon';
 import { Popover, PopoverProps } from '@mui/material';
 import { CircleIcon, TriangleIcon } from '@components/decoration/icons/outlined';
 import { colord } from 'colord';
+import { toStartCase, toTitleCase } from '@lib/utils/typescript';
+import { getDateStr } from '@lib/utils/luxon';
 
 interface Props extends PopoverProps {
   dayInfo: (CompleteDayInfo & { dayDate: DateTime }) | null;
@@ -11,11 +13,7 @@ const MonthCellPopover = ({ dayInfo, ...popoverProps }: Props) => {
   const color = dayInfo?.legend?.color ?? '#444444';
   const lighterColor = colord(color).lighten(0.25).toHex();
 
-  const dateStr = dayInfo?.dayDate.toLocaleString({
-    weekday: 'long',
-    month: 'long',
-    day: '2-digit',
-  });
+  const dateStr = dayInfo && getDateStr(dayInfo.dayDate);
 
   return (
     <Popover
