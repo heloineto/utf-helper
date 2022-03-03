@@ -6,10 +6,10 @@ import { SettingsContext } from '@lib/context';
 import { CircleIcon, TriangleIcon } from '@components/decoration/icons/outlined';
 import twColors from 'tailwindcss/colors';
 import MonthCellHighlight from './Month.CellHighlight';
+import { MonthContext } from './lib/context';
 
 type Props = {
   dayDate: DateTime;
-  monthDate: DateTime;
   dayInfo: DayInfo | undefined;
   extraDayInfo: ExtraDayInfoParsed;
   onShowPopover: (
@@ -22,18 +22,18 @@ type Props = {
 const MonthCell = ({
   dayDate,
   dayInfo,
-  monthDate,
   extraDayInfo,
   onShowPopover,
   onHidePopover,
 }: Props) => {
   const [hover, setHover] = useState(false);
   const { darkMode } = useContext(SettingsContext);
+  const { monthDate, selectedDate } = useContext(MonthContext);
 
   const isAnotherMonth = !dayDate.hasSame(monthDate, 'month');
   const isSunday = dayDate.weekday === 7;
   const isToday = dayDate.hasSame(DateTime.now(), 'day');
-  const isSelected = false;
+  const isSelected = selectedDate && dayDate.hasSame(selectedDate, 'day');
 
   const sundayColor = darkMode ? '#444444' : '#f3f3f3';
   const normalColor = darkMode ? '#f3f3f3' : '#444444';
