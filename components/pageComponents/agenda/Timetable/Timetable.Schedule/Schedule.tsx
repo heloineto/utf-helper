@@ -1,5 +1,6 @@
 import { UserDataContext } from '@lib/context';
 import { getWeekdaysStr, getWeekInterval } from '@lib/utils/luxon';
+import { IconButton } from '@mui/material';
 import { useContext, useState } from 'react';
 import { TimetableContext } from '../lib/context';
 
@@ -18,6 +19,10 @@ const Schedule = ({}: Props) => {
 
   const weekInterval = getWeekInterval(selectedDate);
 
+  weekInterval.splitBy({ days: 1 }).map(({ start }) => {
+    start.weekdayShort.charAt(0);
+  });
+
   return (
     <>
       <table
@@ -34,14 +39,19 @@ const Schedule = ({}: Props) => {
             <td className="font-bold w-[calc(100%*2/35)] text-sm text-slate-700 dark:text-slate-300">
               Térm.
             </td>
-            {weekdays.slice(1).map((weekday, index) => (
-              <td key={weekday} className="text-sm w-[calc(100%*5/35)] h-8">
-                <div className="text-slate-600 dark:text-slate-300 font-medium">
-                  {weekday.slice(0, -1).toUpperCase()}
-                </div>
-                <div className="rounded-full h-8 w-8"></div>
-              </td>
-            ))}
+            {weekInterval
+              .splitBy({ days: 1 })
+              .slice(0, -1)
+              .map(({ start }) => (
+                <td key={start.weekdayShort} className="text-sm w-[calc(100%*5/35)]">
+                  <div className="text-slate-600 dark:text-slate-300 font-medium">
+                    {start.weekdayShort.slice(0, -1).toUpperCase()}
+                  </div>
+                  <IconButton className="rounded-full text-xl font-semibold ">
+                    {start.day}
+                  </IconButton>
+                </td>
+              ))}
           </tr>
           {schedule &&
             Object.entries(schedule).map(([timeCode, { start, end, days }]) => (
