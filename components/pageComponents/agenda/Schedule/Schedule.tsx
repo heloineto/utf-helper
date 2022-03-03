@@ -15,7 +15,7 @@ const Schedule = ({}: Props) => {
         cellSpacing={0}
         cellPadding={2}
       >
-        <tbody className="divide-y divide-slate-200/50 dark:divide-slate-700/50 text-center">
+        <tbody className="divide-y divide-slate-200 dark:divide-slate-700/50 text-center">
           <tr className="shadow">
             <td className="w-[calc(100%/35)]" />
             <td className="font-bold w-[calc(100%*2/35)] text-sm text-slate-700 dark:text-slate-300">
@@ -41,7 +41,7 @@ const Schedule = ({}: Props) => {
             Object.entries(schedule).map(([timeCode, { start, end, days }]) => (
               <tr
                 key={timeCode}
-                className="divide-x divide-slate-200 dark:divide-slate-700"
+                className="divide-x divide-slate-300 dark:divide-slate-700"
               >
                 <td className="font-semibold text-slate-800 dark:text-slate-100">
                   {timeCode}
