@@ -19,6 +19,7 @@ const TimetableSidebar = (props: Props) => {
 
   return (
     <Drawer
+      className="w-3/12"
       container={drawerContainer}
       anchor="left"
       variant={mobile ? 'temporary' : 'permanent'}
