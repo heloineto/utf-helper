@@ -1,12 +1,14 @@
 import { DateTime } from 'luxon';
 import classNames from 'clsx';
 import { toStartCase } from '@lib/utils/typescript';
+import { useContext } from 'react';
+import { MonthContext } from './lib/context';
 
-interface Props extends ComponentProps<'div'> {
-  monthDate: DateTime;
-}
+interface Props extends ComponentProps<'div'> {}
 
-const MonthHeader = ({ className, monthDate }: Props) => {
+const MonthHeader = ({ className }: Props) => {
+  const { monthDate } = useContext(MonthContext);
+
   const { monthLong, year } = monthDate;
 
   return (

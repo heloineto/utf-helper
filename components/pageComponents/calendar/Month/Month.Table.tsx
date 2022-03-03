@@ -1,8 +1,9 @@
-import { useMemo, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import { DateTime, Info, Interval } from 'luxon';
 import { Tooltip } from '@mui/material';
 import MonthCell from './Month.Cell';
 import MonthCellPopover from './Month.CellPopover';
+import { MonthContext } from './lib/context';
 
 const WEEK_STARTS_SUNDAY = true;
 
@@ -16,11 +17,12 @@ if (WEEK_STARTS_SUNDAY) {
 }
 
 interface Props {
-  monthDate: DateTime;
   monthInfo?: MonthInfo;
 }
 
-const MonthTable = ({ monthDate, monthInfo }: Props) => {
+const MonthTable = ({ monthInfo }: Props) => {
+  const { monthDate } = useContext(MonthContext);
+
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
   const [dayInfo, setDayInfo] = useState<
     (CompleteDayInfo & { dayDate: DateTime }) | null

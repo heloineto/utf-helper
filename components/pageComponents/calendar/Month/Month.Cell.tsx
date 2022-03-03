@@ -4,6 +4,8 @@ import classNames from 'clsx';
 import { colord } from 'colord';
 import { SettingsContext } from '@lib/context';
 import { CircleIcon, TriangleIcon } from '@components/decoration/icons/outlined';
+import twColors from 'tailwindcss/colors';
+import MonthCellHighlight from './Month.CellHighlight';
 
 type Props = {
   dayDate: DateTime;
@@ -30,6 +32,8 @@ const MonthCell = ({
 
   const isAnotherMonth = !dayDate.hasSame(monthDate, 'month');
   const isSunday = dayDate.weekday === 7;
+  const isToday = dayDate.hasSame(DateTime.now(), 'day');
+  const isSelected = false;
 
   const sundayColor = darkMode ? '#444444' : '#f3f3f3';
   const normalColor = darkMode ? '#f3f3f3' : '#444444';
@@ -96,9 +100,10 @@ const MonthCell = ({
                       : '',
                   }}
                 />
-              )}{' '}
+              )}
             </>
           )}
+          {(isToday || isSelected) && <MonthCellHighlight isToday={isToday} />}
         </div>
       </div>
     </td>

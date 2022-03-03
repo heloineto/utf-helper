@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import { DateTime } from 'luxon';
 import { useMemo } from 'react';
-
+import { MonthContext } from './lib/context';
+import useMonth from './lib/hooks/useMonth';
 import MonthHeader from './Month.Header';
 import MonthTable from './Month.Table';
 
@@ -13,14 +14,7 @@ interface Props extends ComponentProps<'div'> {
 }
 
 const Month = ({ className, classes, month, year, monthInfo }: Props) => {
-  const monthDate = useMemo(
-    () => DateTime.fromObject({ month, year }) || DateTime.now(),
-    [month, year]
-  );
-
-  if (!monthDate.isValid) {
-    throw new Error(`${monthDate.invalidReason}. ${monthDate.invalidExplanation}`);
-  }
+  const value = useMonth(month, year);
 
   return (
     <div
@@ -29,8 +23,10 @@ const Month = ({ className, classes, month, year, monthInfo }: Props) => {
         'bg-white rounded-lg shadow ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10'
       )}
     >
-      <MonthHeader className={classes?.monthHeader} monthDate={monthDate} />
-      <MonthTable monthDate={monthDate} monthInfo={monthInfo} />
+      <MonthContext.Provider value={value}>
+        <MonthHeader className={classes?.monthHeader} />
+        <MonthTable monthInfo={monthInfo} />
+      </MonthContext.Provider>
     </div>
   );
 };
