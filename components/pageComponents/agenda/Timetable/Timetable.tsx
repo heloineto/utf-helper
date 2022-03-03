@@ -1,10 +1,9 @@
-import SecondaryButton from '@components/buttons/SecondaryButton';
-import { Drawer, Tooltip, useMediaQuery, useTheme } from '@mui/material';
+import { Drawer, useMediaQuery, useTheme } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
 
 type Props = {};
 
-const Agenda = (props: Props) => {
+const Timetable = (props: Props) => {
   const { breakpoints } = useTheme();
   const mobile = useMediaQuery(breakpoints.down('md'));
   const [drawerContainer, setDrawerContainer] = useState<HTMLElement | null>(null);
@@ -15,7 +14,7 @@ const Agenda = (props: Props) => {
     setDrawerContainer(mobile ? document.body : divRef.current);
 
     return () => {};
-  }, [mobile, divRef.current]);
+  }, [mobile]);
 
   return (
     <div
@@ -23,7 +22,7 @@ const Agenda = (props: Props) => {
       ref={divRef}
     >
       {/* Static sidebar for desktop */}
-      {drawerContainer && (
+      {/* {drawerContainer && (
         <Drawer
           container={drawerContainer}
           anchor="left"
@@ -36,15 +35,9 @@ const Agenda = (props: Props) => {
         >
           <div>mobile</div>
         </Drawer>
-      )}
-      <div className="w-full h-28 sm:h-14 px-5 py-2.5 bg-slate-50 dark:bg-slate-900/50 flex flex-col sm:flex-row justify-between shadow-sm lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06]">
-        <Tooltip title={''} arrow>
-          <SecondaryButton className="w-20">Hoje</SecondaryButton>
-        </Tooltip>
-      </div>
-      <div></div>
+      )} */}
     </div>
   );
 };
 
-export default Agenda;
+export default Timetable;
