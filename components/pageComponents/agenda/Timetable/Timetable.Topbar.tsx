@@ -2,10 +2,14 @@ import SecondaryButton from '@components/buttons/SecondaryButton';
 import { Tooltip } from '@mui/material';
 import { DateTime } from 'luxon';
 import { getDateStr } from '@lib/utils/luxon';
+import { useContext } from 'react';
+import { TimetableContext } from './lib/context';
 
 type Props = {};
 
 const TimetableTopbar = (props: Props) => {
+  const { setDisplayDate, setSelectedDate } = useContext(TimetableContext);
+
   const today = DateTime.now();
   const todayStr = getDateStr(today);
 
@@ -13,7 +17,15 @@ const TimetableTopbar = (props: Props) => {
     <div className="w-full h-28 sm:h-14 px-5 py-2.5 bg-slate-50 dark:bg-slate-900/50 flex flex-col sm:flex-row justify-between shadow-sm lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06]">
       <Tooltip title={todayStr} arrow>
         <div>
-          <SecondaryButton className="h-full">Hoje</SecondaryButton>
+          <SecondaryButton
+            className="h-full"
+            onClick={() => {
+              setDisplayDate?.(today);
+              setSelectedDate?.(today);
+            }}
+          >
+            Hoje
+          </SecondaryButton>
         </div>
       </Tooltip>
     </div>

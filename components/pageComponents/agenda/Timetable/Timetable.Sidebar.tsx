@@ -44,7 +44,7 @@ const TimetableSidebar = (props: Props) => {
             >
               <CaretLeft size={32} weight="bold" />
             </IconButton>
-            <div className="flex items-center justify-center text-slate-800 dark:text-slate-100 font-bold text-xl">
+            <div className="flex items-center justify-center text-slate-800 dark:text-slate-100 font-medium text-xl">
               {`${toStartCase(displayDate.monthLong)} ${displayDate.year}`}
             </div>
             <IconButton
