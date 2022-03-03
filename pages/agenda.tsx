@@ -40,7 +40,7 @@ const Agenda: NextPage = () => {
           </Drawer>
         )}
         <div className="w-full h-28 sm:h-14 px-5 py-2.5 bg-slate-50 dark:bg-slate-900/90 flex flex-col sm:flex-row justify-between shadow-sm lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06]">
-          <SecondaryButton>Hoje</SecondaryButton>
+          <SecondaryButton className="w-20">Hoje</SecondaryButton>
         </div>
         <div></div>
       </div>

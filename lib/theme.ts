@@ -83,9 +83,6 @@ const themeOptions: ThemeOptions = {
       lineHeight: twTheme.fontSize['base'][1].lineHeight,
     },
   },
-  shape: {
-    borderRadius: 8,
-  },
   components: {
     MuiDialog: {
       styleOverrides: {
