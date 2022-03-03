@@ -11,7 +11,7 @@ interface Props extends ComponentProps<'div'> {
   monthInfo?: MonthInfo;
 }
 
-const Month = ({ month, year, className, monthInfo }: Props) => {
+const Month = ({ className, month, year, monthInfo }: Props) => {
   const monthDate = useMemo(
     () => DateTime.fromObject({ month, year }) || DateTime.now(),
     [month, year]
