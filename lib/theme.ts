@@ -16,9 +16,9 @@ const themeOptions: ThemeOptions = {
   },
   palette: {
     primary: {
-      light: twTheme.colors.blue[500],
-      main: twTheme.colors.blue[600],
-      dark: twTheme.colors.blue[700],
+      light: twTheme.colors.sky[500],
+      main: twTheme.colors.sky[600],
+      dark: twTheme.colors.sky[700],
       contrastText: '#FFF',
     },
     secondary: {
