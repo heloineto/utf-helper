@@ -9,13 +9,11 @@ import { toStartCase } from '@lib/utils/typescript';
 type Props = {};
 
 const TimetableSidebar = (props: Props) => {
-  const { breakpoints } = useTheme();
-  const mobile = useMediaQuery(breakpoints.down('xl'));
   const { yearInfo } = useCalendarData();
   const [drawerContainer, setDrawerContainer] = useState<HTMLElement | null>(null);
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const divRef = useRef<HTMLDivElement>(null);
-  const { displayDate, setDisplayDate } = useContext(TimetableContext);
+  const { mobile, sidebarOpen, setSidebarOpen, displayDate, setDisplayDate } =
+    useContext(TimetableContext);
 
   useEffect(() => {
     setDrawerContainer(mobile ? document.body : divRef.current);
@@ -30,8 +28,8 @@ const TimetableSidebar = (props: Props) => {
       container={drawerContainer}
       anchor="left"
       variant={mobile ? 'temporary' : 'permanent'}
-      open={true}
-      onClose={() => setDrawerOpen(false)}
+      open={sidebarOpen}
+      onClose={() => setSidebarOpen?.(false)}
       // Better open performance on mobile
       ModalProps={{ keepMounted: true }}
     >
