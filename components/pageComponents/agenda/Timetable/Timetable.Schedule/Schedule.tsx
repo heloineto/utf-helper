@@ -3,6 +3,7 @@ import { UserDataContext } from '@lib/context';
 import useCalendarData from '@lib/hooks/useCalendarData';
 import { getWeekdaysStr, getWeekInterval } from '@lib/utils/luxon';
 import { IconButton } from '@mui/material';
+import { DateTime } from 'luxon';
 import { useContext, useState } from 'react';
 import { TimetableContext } from '../lib/context';
 
@@ -16,16 +17,17 @@ const Schedule = ({}: Props) => {
   const { schedule } = useContext(UserDataContext);
   const { selectedDate } = useContext(TimetableContext);
 
+  const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
+  const [dayInfo, setDayInfo] = useState<
+    (CompleteDayInfo & { dayDate: DateTime }) | null
+  >(null);
+
   const { yearInfo } = useCalendarData();
 
   const [selectedClass, setSelectedClass] = useState<ClassObject | null>(null);
   const [classDialogOpen, setClassDialogOpen] = useState(false);
 
   const weekInterval = getWeekInterval(selectedDate);
-
-  weekInterval.splitBy({ days: 1 }).map(({ start }) => {
-    start.weekdayShort.charAt(0);
-  });
 
   return (
     <>
