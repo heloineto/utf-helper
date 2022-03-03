@@ -1,8 +1,7 @@
 import Day, { DayPopover } from '@components/pageComponents/calendar/Day';
 import { UserDataContext } from '@lib/context';
 import useCalendarData from '@lib/hooks/useCalendarData';
-import { getWeekdaysStr, getWeekInterval } from '@lib/utils/luxon';
-import { IconButton } from '@mui/material';
+import { getWeekInterval, getWeekdaysStr } from '@lib/utils/luxon';
 import { DateTime } from 'luxon';
 import { useContext, useState } from 'react';
 import { TimetableContext } from '../lib/context';

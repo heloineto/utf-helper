@@ -1,8 +1,6 @@
 import { useContext, useMemo, useState } from 'react';
 import { DateTime, Interval } from 'luxon';
 import { Tooltip } from '@mui/material';
-import MonthCell from './Month.Cell';
-import MonthCellPopover from './Month.CellPopover';
 import { MonthContext } from './lib/context';
 import { getWeekdaysStr } from '@lib/utils/luxon';
 import Day, { DayPopover } from '../Day';
