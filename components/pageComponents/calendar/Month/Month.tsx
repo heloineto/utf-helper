@@ -9,9 +9,10 @@ interface Props extends ComponentProps<'div'> {
   month?: number;
   year?: number;
   monthInfo?: MonthInfo;
+  classes?: Record<'monthHeader', string>;
 }
 
-const Month = ({ className, month, year, monthInfo }: Props) => {
+const Month = ({ className, classes, month, year, monthInfo }: Props) => {
   const monthDate = useMemo(
     () => DateTime.fromObject({ month, year }) || DateTime.now(),
     [month, year]
@@ -28,7 +29,7 @@ const Month = ({ className, month, year, monthInfo }: Props) => {
         'bg-white rounded-lg shadow ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10'
       )}
     >
-      <MonthHeader monthDate={monthDate} />
+      <MonthHeader className={classes?.monthHeader} monthDate={monthDate} />
       <MonthTable monthDate={monthDate} monthInfo={monthInfo} />
     </div>
   );
