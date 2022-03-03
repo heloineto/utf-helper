@@ -1,19 +1,19 @@
-import { MouseEvent, useContext, useMemo, useState } from 'react';
-import { DateTime } from 'luxon';
+import { useContext, useMemo } from 'react';
 import classNames from 'clsx';
 import { colord } from 'colord';
 import { SettingsContext } from '@lib/context';
-import { CircleIcon, TriangleIcon } from '@components/decoration/icons/outlined';
 import twColors from 'tailwindcss/colors';
 
 type Props = {
   isToday: boolean;
+  isSelected: boolean;
 };
 
-const MonthCellHighlight = ({ isToday }: Props) => {
+const MonthCellHighlight = ({ isToday, isSelected }: Props) => {
   const { darkMode } = useContext(SettingsContext);
   const highlightColors = useMemo(() => {
-    const color = colord(darkMode ? twColors['sky'][600] : twColors['sky'][300]);
+    const twColor = isToday ? twColors['sky'] : twColors['indigo'];
+    const color = colord(darkMode ? twColor[600] : twColor[300]);
 
     return [color.alpha(0.3).toRgbString(), color.alpha(0.4).toRgbString()];
   }, []);
@@ -21,7 +21,9 @@ const MonthCellHighlight = ({ isToday }: Props) => {
   return (
     <div
       className={classNames(
-        isToday ? 'ring-2 ring-inset ring-sky-500' : 'hidden',
+        !isToday && !isSelected && 'hidden',
+        isToday && 'ring-2 ring-inset ring-sky-500',
+        isSelected && 'ring-2 ring-inset ring-indigo-500',
         'absolute w-full h-full top-0 left-0 rounded-md'
       )}
       style={{

@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { DateTime } from 'luxon';
-import { useMemo } from 'react';
 import { MonthContext } from './lib/context';
 import useMonth from './lib/hooks/useMonth';
 import MonthHeader from './Month.Header';

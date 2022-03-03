@@ -86,7 +86,6 @@ const MonthTable = ({ monthInfo }: Props) => {
                   dayDate={dayDate}
                   dayInfo={monthInfo?.weeks[weekIndex][dayIndex]}
                   extraDayInfo={monthInfo?.extraInfo.parsed[dayDate?.day]}
-                  monthDate={monthDate}
                   onShowPopover={(e, completeDayInfo) => {
                     setDayInfo(completeDayInfo);
                     setAnchorEl(e.currentTarget);

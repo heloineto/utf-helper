@@ -64,6 +64,7 @@ const TimetableSidebar = (props: Props) => {
             monthInfo={yearInfo.months[displayDate.month - 1]}
             classes={{ monthHeader: 'hidden' }}
             selectedDate={selectedDate}
+            onSelectDate={(date) => setSelectedDate?.(date)}
           />
         </>
       )}

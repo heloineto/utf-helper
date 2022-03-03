@@ -4,7 +4,6 @@ import classNames from 'clsx';
 import { colord } from 'colord';
 import { SettingsContext } from '@lib/context';
 import { CircleIcon, TriangleIcon } from '@components/decoration/icons/outlined';
-import twColors from 'tailwindcss/colors';
 import MonthCellHighlight from './Month.CellHighlight';
 import { MonthContext } from './lib/context';
 
@@ -28,12 +27,12 @@ const MonthCell = ({
 }: Props) => {
   const [hover, setHover] = useState(false);
   const { darkMode } = useContext(SettingsContext);
-  const { monthDate, selectedDate } = useContext(MonthContext);
+  const { monthDate, selectedDate, onSelectDate } = useContext(MonthContext);
 
   const isAnotherMonth = !dayDate.hasSame(monthDate, 'month');
   const isSunday = dayDate.weekday === 7;
   const isToday = dayDate.hasSame(DateTime.now(), 'day');
-  const isSelected = selectedDate && dayDate.hasSame(selectedDate, 'day');
+  const isSelected = selectedDate ? dayDate.hasSame(selectedDate, 'day') : false;
 
   const sundayColor = darkMode ? '#444444' : '#f3f3f3';
   const normalColor = darkMode ? '#f3f3f3' : '#444444';
@@ -54,6 +53,7 @@ const MonthCell = ({
         onHidePopover();
         setHover(false);
       }}
+      onClick={() => onSelectDate?.(dayDate)}
     >
       <div
         className={classNames(
@@ -103,7 +103,9 @@ const MonthCell = ({
               )}
             </>
           )}
-          {(isToday || isSelected) && <MonthCellHighlight isToday={isToday} />}
+          {(isToday || isSelected) && (
+            <MonthCellHighlight isToday={isToday} isSelected={isSelected} />
+          )}
         </div>
       </div>
     </td>
