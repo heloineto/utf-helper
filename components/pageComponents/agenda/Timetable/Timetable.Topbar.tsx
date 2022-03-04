@@ -21,11 +21,11 @@ const TimetableTopbar = (props: Props) => {
       <div className="flex items-center h-full gap-x-2.5">
         {mobile && (
           <IconButton
-            className="text-sky-700 dark:text-sky-500 h-11"
+            className="text-sky-600 h-11"
             onClick={() => setSidebarOpen?.(true)}
             edge="start"
           >
-            <List className="h-7 w-auto" weight="bold" />
+            <List className="h-7 w-auto" />
           </IconButton>
         )}
 
