@@ -2,7 +2,7 @@ import { TrashIcon } from '@heroicons/react/outline';
 import { UserDataContext } from '@lib/context';
 import { IconButton, Tooltip } from '@mui/material';
 import { useContext, useState } from 'react';
-import ActionDialog from '@components/modals/ActionDialog';
+import ActionDialog from '@components/elements/modals/ActionDialog';
 
 type Props = {};
 

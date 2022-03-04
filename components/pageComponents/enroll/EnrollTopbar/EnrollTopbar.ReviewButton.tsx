@@ -3,7 +3,7 @@ import { ClipboardCopyIcon } from '@heroicons/react/outline';
 import { useContext, useState } from 'react';
 import { UserDataContext } from '@lib/context';
 import { isEmpty } from 'lodash';
-import ReviewDialog from '@components/modals/ReviewDialog';
+import ReviewDialog from '@components/elements/modals/ReviewDialog';
 
 type Props = {};
 
