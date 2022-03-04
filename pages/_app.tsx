@@ -9,8 +9,8 @@ import theme from '../lib/theme';
 import createEmotionCache from '../lib/createEmotionCache';
 import NoAutoCompleteBackground from '@components/styledJsx/NoAutoCompleteBackground';
 import CustomScrollBar from '@components/styledJsx/CustomScrollBar';
-import { SettingsContext, UserDataContext, UserDataNewContext } from '@lib/context';
-import { useSettings, useUserData, useUserDataNew } from '@lib/hooks';
+import { SettingsContext, UserDataContext } from '@lib/context';
+import { useSettings, useUserData } from '@lib/hooks';
 import CustomSnackbarProvider from '@components/feedback/CustomSnackbarProvider';
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -24,7 +24,6 @@ export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const settings = useSettings();
   const userData = useUserData();
-  const userDataNew = useUserDataNew();
 
   return (
     <CacheProvider value={emotionCache}>
@@ -38,11 +37,9 @@ export default function MyApp(props: MyAppProps) {
         <CssBaseline />
         <SettingsContext.Provider value={settings}>
           <UserDataContext.Provider value={userData}>
-            <UserDataNewContext.Provider value={userDataNew}>
-              <CustomSnackbarProvider>
-                <Component {...pageProps} />
-              </CustomSnackbarProvider>
-            </UserDataNewContext.Provider>
+            <CustomSnackbarProvider>
+              <Component {...pageProps} />
+            </CustomSnackbarProvider>
           </UserDataContext.Provider>
         </SettingsContext.Provider>
       </ThemeProvider>

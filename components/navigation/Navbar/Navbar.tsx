@@ -5,13 +5,13 @@ import NavbarContributeButton from './Navbar.ContributeButton';
 import NavbarItems from './Navbar.Items';
 import NavbarGoogleSignIn from './Navbar.GoogleSignIn';
 import { useContext } from 'react';
-import { UserDataNewContext } from '@lib/context';
+import { UserDataContext } from '@lib/context';
 import NavbarAvatar from './Navbar.Avatar';
 
 interface Props extends ComponentProps<'header'> {}
 
 const Navbar = ({ className }: Props) => {
-  const { userDetails } = useContext(UserDataNewContext);
+  const { userDetails, loading } = useContext(UserDataContext);
 
   return (
     <header
