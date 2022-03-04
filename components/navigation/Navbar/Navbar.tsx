@@ -4,10 +4,15 @@ import NavbarCampusAndCourse from './Navbar.CampusAndCourse';
 import NavbarContributeButton from './Navbar.ContributeButton';
 import NavbarItems from './Navbar.Items';
 import NavbarGoogleSignIn from './Navbar.GoogleSignIn';
+import { useContext } from 'react';
+import { UserDataNewContext } from '@lib/context';
+import NavbarAvatar from './Navbar.Avatar';
 
 interface Props extends ComponentProps<'header'> {}
 
 const Navbar = ({ className }: Props) => {
+  const { userDetails } = useContext(UserDataNewContext);
+
   return (
     <header
       className={classNames(
@@ -25,7 +30,11 @@ const Navbar = ({ className }: Props) => {
         <div className="w-full flex lg:justify-end">
           <NavbarCampusAndCourse className="text-left lg:text-right" />
         </div>
-        <NavbarGoogleSignIn className="mr-2.5" />
+        {userDetails ? (
+          <NavbarAvatar className="mr-2.5" userDetails={userDetails} />
+        ) : (
+          <NavbarGoogleSignIn className="mr-2.5" />
+        )}
         <NavbarThemeSwitch />
       </div>
     </header>

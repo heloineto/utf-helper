@@ -1,5 +1,5 @@
 import { firestore } from '@lib/firebase';
-import { doc, getDoc, QueryDocumentSnapshot } from 'firebase/firestore';
+import { QueryDocumentSnapshot, doc, getDoc } from 'firebase/firestore';
 
 export const docExists = async (docPath: string) => {
   const currRef = doc(firestore, docPath);
