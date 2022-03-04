@@ -21,7 +21,7 @@ const NavbarContributeButton = (props: Props) => {
       >
         <circle cx="1" cy="1" r="1"></circle>
       </svg>
-      <span className="ml-2">Contribua para o projeto no Github!</span>
+      <span className="ml-2">Criado por Heloi Neto - Contribua no Github!</span>
       <ChevronRightIcon className="w-4 h-8 ml-3 overflow-visible text-sky-300 dark:text-sky-400" />
     </a>
   );

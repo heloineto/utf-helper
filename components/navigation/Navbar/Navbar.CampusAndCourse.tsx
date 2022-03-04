@@ -1,7 +1,8 @@
 import CustomAutocomplete from '@components/inputs/CustomAutocomplete';
 import { UserDataContext } from '@lib/context';
+import { Dialog } from '@mui/material';
 import { NotePencil } from 'phosphor-react';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 type Props = {};
 
@@ -22,11 +23,16 @@ const campuses = [
 ];
 
 const NavbarCampusAndCourse = (props: Props) => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+
   const { campus, setCampus, course, setCourse } = useContext(UserDataContext);
 
   return (
-    <div>
-      <button className="group flex flex-col items-end rounded-md px-2.5 relative">
+    <>
+      <button
+        className="group flex flex-col items-end rounded-md px-2.5 relative"
+        onClick={() => setDialogOpen(true)}
+      >
         <div className="hidden group-hover:flex justify-center items-center absolute w-full h-full bg-slate-900/10 dark:bg-slate-50/10 top-0 left-0 rounded-md">
           <NotePencil
             className="h-7 w-auto text-slate-900/50 dark:text-slate-50/50"
@@ -38,22 +44,29 @@ const NavbarCampusAndCourse = (props: Props) => {
           Ciência Da Computação
         </p>
       </button>
-
-      {/* <div className="flex w-full gap-x-2">
-      <CustomAutocomplete
-        options={[]}
-        textFieldProps={{ label: 'Câmpus' }}
-        // disabled={true}
-        inputValue="Ponta Grossa"
-      />
-      <CustomAutocomplete
-        options={[]}
-        // disabled={true}
-        textFieldProps={{ label: 'Curso' }}
-        inputValue="Ciência Da Computação"
-      />
-    </div> */}
-    </div>
+      <Dialog
+        maxWidth="sm"
+        fullWidth
+        classes={{ paper: 'bg-white dark:bg-slate-900' }}
+        onClose={() => setDialogOpen(false)}
+        open={dialogOpen}
+      >
+        <div className="flex w-full gap-x-2">
+          <CustomAutocomplete
+            options={[]}
+            textFieldProps={{ label: 'Câmpus' }}
+            // disabled={true}
+            inputValue="Ponta Grossa"
+          />
+          <CustomAutocomplete
+            options={[]}
+            // disabled={true}
+            textFieldProps={{ label: 'Curso' }}
+            inputValue="Ciência Da Computação"
+          />
+        </div>
+      </Dialog>
+    </>
   );
 };
 
