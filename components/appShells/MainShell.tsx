@@ -8,7 +8,9 @@ const MainShell = ({ children }: Props) => {
   return (
     <div className="h-screen flex flex-col">
       <Navbar className="flex-shrink-0" />
-      <main className="overflow-hidden h-full">{children}</main>
+      <main className="overflow-hidden h-full bg-slate-100 dark:bg-slate-800">
+        {children}
+      </main>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { SettingsContext } from '@lib/context';
 import { useResize } from '@lib/hooks';
 import { useContext } from 'react';
 import classNames from 'clsx';
+import EnrollTopbar from '@components/pageComponents/enroll/EnrollTopbar';
 
 const Enroll: NextPage = () => {
   const { direction } = useContext(SettingsContext);
@@ -13,6 +14,7 @@ const Enroll: NextPage = () => {
 
   return (
     <MainShell>
+      <EnrollTopbar />
       <div
         className={classNames(
           direction === 'horizontal' ? 'flex-row' : 'flex-col',

@@ -5,6 +5,7 @@ import { getDateStr } from '@lib/utils/luxon';
 import { useContext } from 'react';
 import { TimetableContext } from './lib/context';
 import { List } from 'phosphor-react';
+import Topbar from '@components/navigation/Topbar';
 
 type Props = {};
 
@@ -16,7 +17,7 @@ const TimetableTopbar = (props: Props) => {
   const todayStr = getDateStr(today);
 
   return (
-    <div className="w-full flex-shrink-0 h-12 px-5 bg-slate-50 dark:bg-slate-900/50 flex flex-col sm:flex-row justify-between shadow-sm lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06]">
+    <Topbar>
       <div className="flex items-center h-full gap-x-2.5">
         {mobile && (
           <IconButton
@@ -42,7 +43,7 @@ const TimetableTopbar = (props: Props) => {
           </div>
         </Tooltip>
       </div>
-    </div>
+    </Topbar>
   );
 };
 

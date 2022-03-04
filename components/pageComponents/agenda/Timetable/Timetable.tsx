@@ -10,7 +10,7 @@ const Timetable = (props: Props) => {
   const value = useTimetable();
 
   return (
-    <div className="h-full flex flex-col overflow-hidden bg-slate-100 dark:bg-slate-800 relative">
+    <div className="h-full flex flex-col overflow-hidden relative">
       <TimetableContext.Provider value={value}>
         <TimetableTopbar />
         <div className="h-full flex">
