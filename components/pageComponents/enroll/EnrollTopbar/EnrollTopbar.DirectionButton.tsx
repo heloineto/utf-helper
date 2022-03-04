@@ -2,7 +2,7 @@ import { SettingsContext } from '@lib/context';
 import { IconButton, Tooltip } from '@mui/material';
 import { useContext } from 'react';
 import classNames from 'clsx';
-import { ArrowsDownUp, ArrowsLeftRight } from 'phosphor-react';
+import { ArrowsDownUp } from 'phosphor-react';
 
 type Props = {};
 

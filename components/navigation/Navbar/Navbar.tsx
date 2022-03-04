@@ -22,7 +22,9 @@ const Navbar = ({ className }: Props) => {
         <NavbarItems />
       </div>
       <div className="h-full w-full xl:w-1/3 flex items-center justify-end gap-x-2">
-        <NavbarCampusAndCourse />
+        <div className="w-full flex lg:justify-end">
+          <NavbarCampusAndCourse className="text-left lg:text-right" />
+        </div>
         <NavbarGoogleSignIn className="mr-2.5" />
         <NavbarThemeSwitch />
       </div>

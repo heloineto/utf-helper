@@ -3,8 +3,7 @@ import { UserDataContext } from '@lib/context';
 import { Dialog } from '@mui/material';
 import { NotePencil } from 'phosphor-react';
 import { useContext, useState } from 'react';
-
-type Props = {};
+import classNames from 'clsx';
 
 const campuses = [
   { label: 'Curitiba', value: 'curitiba' },
@@ -22,7 +21,9 @@ const campuses = [
   { label: 'Santa Helena', value: 'santaHelena' },
 ];
 
-const NavbarCampusAndCourse = (props: Props) => {
+interface Props extends ComponentProps<'button'> {}
+
+const NavbarCampusAndCourse = ({ className, ...buttonProps }: Props) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [hover, setHover] = useState(false);
 
@@ -33,8 +34,9 @@ const NavbarCampusAndCourse = (props: Props) => {
       <button
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        className="flex flex-col items-end rounded-md px-2.5 relative"
+        className={classNames(className, 'rounded-md px-2.5 relative')}
         onClick={() => setDialogOpen(true)}
+        {...buttonProps}
       >
         {hover && (
           <div className="flex justify-center items-center absolute w-full h-full bg-slate-900/10 dark:bg-slate-50/10 top-0 left-0 rounded-md">
