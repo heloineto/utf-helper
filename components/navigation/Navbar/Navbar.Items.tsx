@@ -30,7 +30,7 @@ const NavbarItems = (props: Props) => {
 
     width.set(rect.width);
     x.set(rect.x - wrapperRect.x);
-  }, []);
+  }, [width, x]);
 
   return (
     <div
@@ -51,9 +51,8 @@ const NavbarItems = (props: Props) => {
         const current = href === currentPage;
 
         return (
-          <Link href={href} passHref>
+          <Link key={key} href={href} passHref>
             <a
-              key={key}
               ref={current ? currentRef : undefined}
               className={classNames(
                 current && 'text-slate-600 dark:text-slate-300',

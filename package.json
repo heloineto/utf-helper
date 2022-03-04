@@ -18,6 +18,7 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "colord": "^2.9.2",
+    "firebase": "^9.6.7",
     "framer-motion": "^6.2.8",
     "lodash": "^4.17.21",
     "luxon": "^2.3.0",
@@ -25,7 +26,8 @@
     "notistack": "^2.0.3",
     "phosphor-react": "^1.4.1",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-firebase-hooks": "^5.0.3"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.178",
