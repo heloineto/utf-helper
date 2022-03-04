@@ -1,5 +1,5 @@
 import MainShell from '@components/appShells/MainShell';
-import { Logomark } from '@components/decoration/logo';
+import { Logomark } from '@components/decoration/logos/utfHelper';
 
 const Home: NextPage = () => {
   return (

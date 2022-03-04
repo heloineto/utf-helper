@@ -3,6 +3,7 @@ import NavbarThemeSwitch from './Navbar.ThemeSwitch';
 import NavbarCampusAndCourse from './Navbar.CampusAndCourse';
 import NavbarContributeButton from './Navbar.ContributeButton';
 import NavbarItems from './Navbar.Items';
+import NavbarGoogleSignIn from './Navbar.GoogleSignIn';
 
 interface Props extends ComponentProps<'header'> {}
 
@@ -22,6 +23,7 @@ const Navbar = ({ className }: Props) => {
       </div>
       <div className="h-full w-full xl:w-1/3 flex items-center justify-end gap-x-2">
         <NavbarCampusAndCourse />
+        <NavbarGoogleSignIn className="mr-2.5" />
         <NavbarThemeSwitch />
       </div>
     </header>
