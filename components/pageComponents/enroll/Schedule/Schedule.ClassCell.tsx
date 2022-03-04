@@ -4,18 +4,13 @@ import { useTimeCodes } from '@lib/hooks';
 import { SettingsContext, UserDataContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
 
-type Props = {
+interface Props extends ComponentProps<'div'> {
   classObject: ClassObject;
   timeCode: string;
   dayCode: string;
-};
+}
 
-const ScheduleClassCell = ({
-  classObject,
-  timeCode,
-  dayCode,
-  ...divProps
-}: Props & Omit<ComponentProps<'div'>, keyof Props>) => {
+const ScheduleClassCell = ({ classObject, timeCode, dayCode, ...divProps }: Props) => {
   const { darkMode } = useContext(SettingsContext);
   const { schedule } = useContext(UserDataContext);
   const timeCodes = useTimeCodes();

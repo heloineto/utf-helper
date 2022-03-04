@@ -3,14 +3,11 @@ import { useContext, useMemo } from 'react';
 import { UserDataContext } from '@lib/context';
 import { useSnackbar } from 'notistack';
 
-type Props = {
+interface Props extends DialogProps {
   onClose: () => void;
-};
+}
 
-const ReviewDialog = ({
-  onClose,
-  ...dialogProps
-}: Props & Omit<DialogProps, keyof Props>) => {
+const ReviewDialog = ({ onClose, ...dialogProps }: Props) => {
   const { selectedClasses } = useContext(UserDataContext);
   const { enqueueSnackbar } = useSnackbar();
 

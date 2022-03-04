@@ -4,7 +4,7 @@ import { useContext, useState } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
 import classNames from 'clsx';
-import ActionDialog from '@components/modals/ActionDialog';
+import ActionDialog from '@components/elements/modals/ActionDialog';
 import SubjectsConflictBadge from './Subjects.ConflictBadge';
 import { IconButton, Tooltip } from '@mui/material';
 
@@ -136,49 +136,51 @@ const SubjectsTableRow = ({ classObject, subject }: Props) => {
         variant="warning"
         open={!!conflictsDialogOpen}
         onClose={() => setConflictsDialogOpen(false)}
-        title={
-          <div className="my-4">
-            <div>
-              <span className="bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-md px-2 py-1 mr-2 text-base">
-                {classObject.code}
+        preview={
+          <div>
+            <div className="my-4">
+              <div>
+                <span className="bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-md px-2 py-1 mr-2 text-base">
+                  {classObject.code}
+                </span>
+                <span className="uppercase text-lg leading-6 font-medium text-slate-900 dark:text-slate-200">
+                  {classObject.subjectName}
+                </span>
+              </div>
+              <span className="text-slate-600 dark:text-slate-300 text-base">
+                possui os seguintes conflitos de horário:
               </span>
-              <span className="uppercase">{classObject.subjectName}</span>
             </div>
-            <span className="text-slate-600 dark:text-slate-300 text-base">
-              possui os seguintes conflitos de horário:
-            </span>
-          </div>
-        }
-        subtitle={
-          <div className="w-full flex flex-col gap-y-2 justify-center items-center">
-            {conflicts?.map(({ withClass, dayTimeCodes }, index) => (
-              <SubjectsConflictBadge
-                key={withClass.subjectCode + withClass.code}
-                classObject={withClass}
-                dayTimeCodes={dayTimeCodes}
-                onRemove={() => {
-                  if (!setSelectedClasses || !setSchedule || !selectedClasses) return;
+            <div className="w-full flex flex-col gap-y-2 justify-center items-center">
+              {conflicts?.map(({ withClass, dayTimeCodes }, index) => (
+                <SubjectsConflictBadge
+                  key={withClass.subjectCode + withClass.code}
+                  classObject={withClass}
+                  dayTimeCodes={dayTimeCodes}
+                  onRemove={() => {
+                    if (!setSelectedClasses || !setSchedule || !selectedClasses) return;
 
-                  unselectGroup(
-                    setSelectedClasses,
-                    setSchedule,
-                    withClass,
-                    selectedClasses
-                  );
+                    unselectGroup(
+                      setSelectedClasses,
+                      setSchedule,
+                      withClass,
+                      selectedClasses
+                    );
 
-                  setConflicts((value) => {
-                    if (value === null) return null;
+                    setConflicts((value) => {
+                      if (value === null) return null;
 
-                    const newValue = [...value];
-                    newValue.splice(index, 1);
+                      const newValue = [...value];
+                      newValue.splice(index, 1);
 
-                    if (!newValue.length) setConflictsDialogOpen(false);
+                      if (!newValue.length) setConflictsDialogOpen(false);
 
-                    return newValue;
-                  });
-                }}
-              />
-            ))}
+                      return newValue;
+                    });
+                  }}
+                />
+              ))}
+            </div>
           </div>
         }
         actionButtons={[

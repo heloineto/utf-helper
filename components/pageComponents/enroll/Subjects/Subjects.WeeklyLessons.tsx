@@ -1,11 +1,10 @@
 import classNames from 'clsx';
 
-type Props = { subject: Subject };
+interface Props extends ComponentProps<'span'> {
+  subject: Subject;
+}
 
-const SubjectsWeeklyLessons = ({
-  subject,
-  className,
-}: Props & Omit<ComponentProps<'span'>, keyof Props>) => {
+const SubjectsWeeklyLessons = ({ subject, className }: Props) => {
   const { weeklyLessons } = subject;
 
   return (

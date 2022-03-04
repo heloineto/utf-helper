@@ -3,12 +3,11 @@ import { useColor } from '@lib/hooks';
 import classNames from 'clsx';
 import { useContext } from 'react';
 
-type Props = { subject: Subject };
+interface Props extends ComponentProps<'span'> {
+  subject: Subject;
+}
 
-const SubjectsBadge = ({
-  subject,
-  className,
-}: Props & Omit<ComponentProps<'span'>, keyof Props>) => {
+const SubjectsBadge = ({ subject, className }: Props) => {
   const { darkMode } = useContext(SettingsContext);
   const [color] = useColor(subject.code);
 

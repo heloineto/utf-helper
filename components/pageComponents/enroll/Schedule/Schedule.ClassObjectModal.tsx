@@ -4,17 +4,12 @@ import { Button, Dialog, DialogProps } from '@mui/material';
 import { useContext } from 'react';
 import SubjectsDayTimeCell from '../Subjects/Subjects.DayTimeCell';
 
-type Props = {
+interface Props extends DialogProps {
   classObject: ClassObject | null;
   onClose: () => void;
-};
+}
 
-const ScheduleClassDialog = ({
-  classObject,
-  open,
-  onClose,
-  ...dialogProps
-}: Props & Omit<DialogProps, keyof Props>) => {
+const ScheduleClassDialog = ({ classObject, open, onClose, ...dialogProps }: Props) => {
   const { setSelectedClasses, setSchedule, selectedClasses } =
     useContext(UserDataContext);
 

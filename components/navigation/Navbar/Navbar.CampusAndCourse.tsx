@@ -59,7 +59,7 @@ const NavbarCampusAndCourse = (props: Props) => {
         onClose={() => setDialogOpen(false)}
         open={dialogOpen}
       >
-        <div className="flex w-full gap-x-2">
+        <div className="flex flex-col w-full gap-x-2 gap-y-5 p-5">
           <CustomAutocomplete
             options={[]}
             textFieldProps={{ label: 'Câmpus' }}

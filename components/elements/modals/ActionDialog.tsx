@@ -3,9 +3,9 @@ import { Button, ButtonProps, Dialog, DialogProps } from '@mui/material';
 import classNames from 'clsx';
 import { useMemo } from 'react';
 
-interface Props {
-  title?: ReactNode;
-  subtitle?: ReactNode;
+interface Props extends DialogProps {
+  title?: string;
+  subtitle?: string;
   variant?: 'success' | 'warning';
   preview?: ReactNode;
   actionButtons?: ({ label: string } & ButtonProps)[];
@@ -19,7 +19,7 @@ const ActionDialog = ({
   preview,
   actionButtons = [],
   variant = 'success',
-}: Props & Omit<DialogProps, keyof Props>) => {
+}: Props) => {
   const variantData = useMemo(
     () => ({
       success: {
