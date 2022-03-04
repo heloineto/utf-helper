@@ -1,10 +1,6 @@
-import { MouseEvent, useContext, useState } from 'react';
 import { DateTime } from 'luxon';
 import classNames from 'clsx';
-import { colord } from 'colord';
-import { SettingsContext } from '@lib/context';
 import { CircleIcon, TriangleIcon } from '@components/decoration/icons/outlined';
-import DayHighlight from './Day.Highlight';
 
 interface Props extends ComponentProps<'div'> {
   dayDate: DateTime;

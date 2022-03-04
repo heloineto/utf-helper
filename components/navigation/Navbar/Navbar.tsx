@@ -1,10 +1,7 @@
 import classNames from 'clsx';
 import NavbarThemeSwitch from './Navbar.ThemeSwitch';
-import NavbarDirectionButton from './Navbar.DirectionButton';
-import NavbarResetButton from './Navbar.ResetButton';
 import NavbarCampusAndCourse from './Navbar.CampusAndCourse';
-import NavbarTotalHours from './Navbar.TotalHours';
-import NavbarReviewButton from './Navbar.ReviewButton';
+import NavbarContributeButton from './Navbar.ContributeButton';
 
 interface Props extends ComponentProps<'header'> {}
 
@@ -17,17 +14,13 @@ const Navbar = ({ className }: Props) => {
       )}
     >
       <div className="h-full w-1/3 hidden xl:flex items-center">
-        {/* <NavbarContributeButton /> */}
-        <NavbarTotalHours />
+        <NavbarContributeButton />
       </div>
       <div className="h-full w-full xl:w-1/3 flex items-center">
         <NavbarCampusAndCourse />
       </div>
       <div className="h-full w-full xl:w-1/3 flex items-center justify-between flex-row-reverse sm:flex-row sm:justify-end gap-x-2">
         <NavbarThemeSwitch />
-        <NavbarReviewButton />
-        <NavbarDirectionButton />
-        <NavbarResetButton />
       </div>
     </header>
   );

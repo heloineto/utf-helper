@@ -4,7 +4,7 @@ import { useContext, useMemo } from 'react';
 
 type Props = {};
 
-const NavbarTotalHours = (props: Props) => {
+const EnrollTopbarTotalHours = (props: Props) => {
   const { selectedClasses } = useContext(UserDataContext);
 
   const totalTime = useMemo(() => {
@@ -43,4 +43,4 @@ const NavbarTotalHours = (props: Props) => {
   );
 };
 
-export default NavbarTotalHours;
+export default EnrollTopbarTotalHours;

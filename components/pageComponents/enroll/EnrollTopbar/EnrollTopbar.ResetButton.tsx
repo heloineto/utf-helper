@@ -6,7 +6,7 @@ import ActionDialog from '@components/modals/ActionDialog';
 
 type Props = {};
 
-const NavbarResetButton = (props: Props) => {
+const EnrollTopbarResetButton = (props: Props) => {
   const { setSchedule, setSelectedClasses } = useContext(UserDataContext);
   const [resetDialogOpen, setResetDialogOpen] = useState(false);
 
@@ -153,4 +153,4 @@ Ok
 </Button> */
 }
 
-export default NavbarResetButton;
+export default EnrollTopbarResetButton;

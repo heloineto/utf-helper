@@ -7,7 +7,7 @@ import ReviewDialog from '@components/modals/ReviewDialog';
 
 type Props = {};
 
-const NavbarReviewButton = (props: Props) => {
+const EnrollTopbarReviewButton = (props: Props) => {
   const [reportOpen, setReportOpen] = useState(false);
   const { selectedClasses } = useContext(UserDataContext);
 
@@ -28,4 +28,4 @@ const NavbarReviewButton = (props: Props) => {
   );
 };
 
-export default NavbarReviewButton;
+export default EnrollTopbarReviewButton;

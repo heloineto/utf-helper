@@ -6,7 +6,7 @@ import classNames from 'clsx';
 
 type Props = {};
 
-const NavbarDirectionButton = (props: Props) => {
+const EnrollTopbarDirectionButton = (props: Props) => {
   const { direction, setDirection } = useContext(SettingsContext);
 
   return (
@@ -33,4 +33,4 @@ const NavbarDirectionButton = (props: Props) => {
   );
 };
 
-export default NavbarDirectionButton;
+export default EnrollTopbarDirectionButton;
