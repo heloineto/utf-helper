@@ -25,7 +25,7 @@ const EnrollTopbarTotalHours = (props: Props) => {
   }, [selectedClasses]);
 
   return (
-    <div className="text-[0.8rem] h-9 font-medium gap-x-2 text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full px-3 flex items-center hover:bg-sky-400/20">
+    <div className="text-[0.8rem] h-9 font-medium gap-x-2 text-slate-700 dark:text-slate-300 bg-slate-400/10 rounded-md px-3 flex items-center">
       <AcademicCapIcon className="h-[1.2rem] w-auto" />
       <span className="">{totalTime} Aulas Semanais</span>
       <svg
@@ -33,7 +33,7 @@ const EnrollTopbarTotalHours = (props: Props) => {
         height="2"
         fill="currentColor"
         aria-hidden="true"
-        className="text-sky-600 dark:text-sky-400/70"
+        className="text-slate-700 dark:text-slate-300/70"
       >
         <circle cx="1" cy="1" r="1"></circle>
       </svg>
