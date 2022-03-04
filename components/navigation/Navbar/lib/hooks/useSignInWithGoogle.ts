@@ -10,13 +10,12 @@ const useSignInWithGoogle = () => {
 
   const signInWithGoogle = async () => {
     const response = await signInWithPopup(auth, googleAuthProvider).catch((error) => {
+      enqueueSnackbar('Não foi possível entrar', { variant: 'error' });
+
       if (process.env.NODE_ENV === 'development') console.error(error);
     });
 
-    if (!response) {
-      enqueueSnackbar('Não foi possível entrar', { variant: 'error' });
-      return;
-    }
+    if (!response) return;
 
     const user = response.user;
     if (await docExists(`users/${user.uid}`)) return;

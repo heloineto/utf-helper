@@ -1,11 +1,11 @@
 const firebaseConfig = {
-  apiKey: 'AIzaSyDFSCILjbvGDlhp6xojOv9l4T3g7Azj5k4',
-  authDomain: 'diet-manager-co.firebaseapp.com',
-  projectId: 'diet-manager-co',
-  storageBucket: 'diet-manager-co.appspot.com',
-  messagingSenderId: '385439945857',
-  appId: '1:385439945857:web:25e2ebea6a9caab1ebe980',
-  measurementId: 'G-Q6EGJ1FSS8',
+  apiKey: 'AIzaSyAPi1R5c394h_isjcTeP1nNBczS_YEKcCw',
+  authDomain: 'utf-helper.firebaseapp.com',
+  projectId: 'utf-helper',
+  storageBucket: 'utf-helper.appspot.com',
+  messagingSenderId: '589169894545',
+  appId: '1:589169894545:web:d8a9a444382577ebaecb30',
+  measurementId: 'G-9BYMN6J2W7',
 };
 
 import { initializeApp } from 'firebase/app';
