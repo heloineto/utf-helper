@@ -16,7 +16,7 @@ const TimetableTopbar = (props: Props) => {
   const todayStr = getDateStr(today);
 
   return (
-    <div className="w-full flex-shrink-0 h-14 px-5 bg-slate-50 dark:bg-slate-900/50 flex flex-col sm:flex-row justify-between shadow-sm lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06]">
+    <div className="w-full flex-shrink-0 h-12 px-5 bg-slate-50 dark:bg-slate-900/50 flex flex-col sm:flex-row justify-between shadow-sm lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06]">
       <div className="flex items-center h-full gap-x-2.5">
         {mobile && (
           <IconButton
@@ -31,6 +31,7 @@ const TimetableTopbar = (props: Props) => {
         <Tooltip title={todayStr} arrow>
           <div>
             <SecondaryButton
+              size="small"
               onClick={() => {
                 setDisplayDate?.(today);
                 setSelectedDate?.(today);
