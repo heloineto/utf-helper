@@ -23,6 +23,7 @@ type Props = {
     label?: string;
     highlight?: string;
     dot?: string;
+    labelWrapper?: string;
   };
 };
 
@@ -80,7 +81,7 @@ const Day = ({
     >
       <div
         className={classNames(
-          classes?.root,
+          classes?.labelWrapper,
           'absolute top-px left-px w-[calc(100%-2px)] h-[calc(100%-2px)] rounded-md bg-slate-50 dark:bg-slate-800 flex flex-col items-center text-slate-800 dark:text-slate-300 font-semibold'
         )}
         style={{
