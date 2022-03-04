@@ -3,3 +3,5 @@ interface UserDetails {
   photoUrl?: string;
   name?: string;
 }
+
+type UserDetailsWithRef = UserDetails & { ref: FirebaseRef };
