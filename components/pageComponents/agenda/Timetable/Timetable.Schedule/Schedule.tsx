@@ -1,6 +1,6 @@
 import Day, { DayPopover } from '@components/pageComponents/calendar/Day';
 import { UserDataContext } from '@lib/context';
-import useCalendarData from '@lib/hooks/useCalendarData';
+import { useCalendarData } from '@lib/hooks';
 import { getWeekInterval } from '@lib/utils/luxon';
 import { DateTime } from 'luxon';
 import { useContext, useState } from 'react';

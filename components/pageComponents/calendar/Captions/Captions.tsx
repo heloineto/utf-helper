@@ -1,5 +1,5 @@
 import { CircleIcon, TriangleIcon } from '@components/decoration/icons/outlined';
-import useCalendarData from '@lib/hooks/useCalendarData';
+import { useCalendarData } from '@lib/hooks';
 import { colord } from 'colord';
 
 type Props = {};

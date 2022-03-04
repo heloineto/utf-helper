@@ -1,7 +1,7 @@
 import MainShell from '@components/appShells/MainShell';
 import Captions from '@components/pageComponents/calendar/Captions';
 import Month from '@components/pageComponents/calendar/Month';
-import useCalendarData from '@lib/hooks/useCalendarData';
+import { useCalendarData } from '@lib/hooks';
 
 const Calendar: NextPage = () => {
   const { yearInfo } = useCalendarData();

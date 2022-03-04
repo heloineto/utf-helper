@@ -1,5 +1,5 @@
 import Month from '@components/pageComponents/calendar/Month';
-import useCalendarData from '@lib/hooks/useCalendarData';
+import { useCalendarData } from '@lib/hooks';
 import { Drawer, IconButton } from '@mui/material';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { TimetableContext } from './lib/context';
