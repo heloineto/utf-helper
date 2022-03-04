@@ -5,25 +5,25 @@ const useNavItems = () => {
   const sidebarNavItems = useMemo(
     () => [
       {
-        name: 'home',
+        key: 'home',
         label: 'Home',
         Icon: House,
         href: '/',
       },
       {
-        name: 'enroll',
+        key: 'enroll',
         label: 'Matrícula',
         Icon: Student,
         href: '/enroll',
       },
       {
-        name: 'calendar',
+        key: 'calendar',
         label: 'Calendário',
         Icon: Calendar,
         href: '/calendar',
       },
       {
-        name: 'agenda',
+        key: 'agenda',
         label: 'Agenda',
         Icon: Clock,
         href: '/agenda',

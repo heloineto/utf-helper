@@ -19,6 +19,7 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "colord": "^2.9.2",
+    "framer-motion": "^6.2.8",
     "lodash": "^4.17.21",
     "luxon": "^2.3.0",
     "next": "latest",
