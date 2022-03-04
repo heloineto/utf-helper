@@ -1,12 +1,28 @@
 import { GoogleLogomark } from '@components/decoration/logos/google';
-import { Button, ButtonProps, Tooltip } from '@mui/material';
+import { UserDataNewContext } from '@lib/context';
+import { useUserDataNew } from '@lib/hooks';
+import { Avatar, Button, ButtonProps, Tooltip } from '@mui/material';
 import classNames from 'clsx';
+import { useContext } from 'react';
 import useSignInWithGoogle from './lib/hooks/useSignInWithGoogle';
 
 interface Props extends ButtonProps {}
 
 const NavbarGoogleSignIn = ({ className, ...muiButtonProps }: Props) => {
+  const { userDetails } = useContext(UserDataNewContext);
   const signInWithGoogle = useSignInWithGoogle();
+
+  if (userDetails) {
+    return (
+      <Avatar
+        className={classNames(className, 'font-semibold ring-2 ring-sky-500')}
+        alt={'avatar'}
+        src={userDetails?.photoUrl}
+      >
+        {userDetails.name?.charAt(0)}
+      </Avatar>
+    );
+  }
 
   return (
     <Tooltip

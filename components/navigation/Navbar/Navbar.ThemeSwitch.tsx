@@ -11,7 +11,7 @@ const NavbarThemeSwitch = (props: Props) => {
   return (
     <Tooltip title={`Mudar para o Tema ${darkMode ? 'Claro' : 'Escuro'}`} arrow>
       <button
-        className="relative inline-flex items-center py-2 px-2 rounded-full focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus:outline-none bg-cyan-500 dark:bg-slate-700 text-cyan-200 dark:text-slate-400 focus-visible:ring-cyan-600 dark:focus-visible:ring-slate-500"
+        className="relative inline-flex items-center py-2 px-2 rounded-full focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus:outline-none bg-sky-500 dark:bg-slate-700 text-sky-200 dark:text-slate-400 focus-visible:ring-sky-600 dark:focus-visible:ring-slate-500"
         onClick={toggleDarkMode}
       >
         <Sun
@@ -24,7 +24,7 @@ const NavbarThemeSwitch = (props: Props) => {
         />
         <span className="absolute top-1/2 -translate-y-1/2 left-1 bg-white w-8 h-8 rounded-full flex items-center justify-center transition duration-500 transform dark:translate-x-[2.3rem]">
           <Sun
-            className="h-6 w-6 flex-none transition duration-500 transform text-cyan-500 opacity-100 dark:opacity-0 scale-100 dark:scale-0"
+            className="h-6 w-6 flex-none transition duration-500 transform text-sky-500 opacity-100 dark:opacity-0 scale-100 dark:scale-0"
             weight="fill"
           />
           <MoonStars
