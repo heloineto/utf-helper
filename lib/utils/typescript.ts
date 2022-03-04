@@ -18,3 +18,6 @@ export const toTitleCase = (str: string) => {
 export const toStartCase = (str: string) => {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 };
+
+export const indexOfNth = (str: string, subStr: string, index: number) =>
+  str.split(subStr, index).join(subStr).length;
