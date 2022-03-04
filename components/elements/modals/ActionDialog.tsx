@@ -1,6 +1,6 @@
-import { CheckIcon, ExclamationIcon } from '@heroicons/react/outline';
 import { Button, ButtonProps, Dialog, DialogProps } from '@mui/material';
 import classNames from 'clsx';
+import { Check, Warning } from 'phosphor-react';
 import { useMemo } from 'react';
 
 interface Props extends DialogProps {
@@ -23,10 +23,10 @@ const ActionDialog = ({
   const variantData = useMemo(
     () => ({
       success: {
-        Icon: CheckIcon,
+        Icon: Check,
       },
       warning: {
-        Icon: ExclamationIcon,
+        Icon: Warning,
       },
     }),
     []
@@ -59,6 +59,7 @@ const ActionDialog = ({
               variant === 'warning' && 'text-red-600 dark:text-red-200',
               'h-6 w-6'
             )}
+            weight="bold"
             aria-hidden="true"
           />
         </div>
