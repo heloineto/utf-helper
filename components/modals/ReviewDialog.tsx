@@ -47,7 +47,8 @@ const ReviewDialog = ({
       maxWidth="sm"
       fullWidth
       classes={{
-        paper: 'bg-white dark:bg-slate-900',
+        paper:
+          'bg-white dark:bg-slate-900 ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10',
       }}
       onClose={onClose}
       {...dialogProps}

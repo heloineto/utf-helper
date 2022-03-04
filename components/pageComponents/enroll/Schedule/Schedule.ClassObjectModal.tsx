@@ -25,7 +25,8 @@ const ScheduleClassDialog = ({
       maxWidth="sm"
       fullWidth
       classes={{
-        paper: 'bg-white dark:bg-slate-900 px-8 py-6',
+        paper:
+          'bg-white dark:bg-slate-900 px-8 py-6 ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10',
       }}
       {...dialogProps}
     >

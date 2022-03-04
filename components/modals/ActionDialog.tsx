@@ -1,10 +1,5 @@
 import { CheckIcon, ExclamationIcon } from '@heroicons/react/outline';
-import {
-  Button,
-  ButtonProps,
-  Dialog,
-  DialogProps,
-} from '@mui/material';
+import { Button, ButtonProps, Dialog, DialogProps } from '@mui/material';
 import classNames from 'clsx';
 import { useMemo } from 'react';
 
@@ -46,7 +41,8 @@ const ActionDialog = ({
       open={open}
       onClose={onClose}
       classes={{
-        paper: 'bg-white dark:bg-slate-900 p-5',
+        paper:
+          'bg-white dark:bg-slate-900 p-5 ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10',
       }}
     >
       <div>
