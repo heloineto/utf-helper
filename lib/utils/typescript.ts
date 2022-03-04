@@ -21,3 +21,17 @@ export const toStartCase = (str: string) => {
 
 export const indexOfNth = (str: string, subStr: string, index: number) =>
   str.split(subStr, index).join(subStr).length;
+
+export const deepFreeze = <T>(obj: T) => {
+  const propNames = Object.getOwnPropertyNames(obj) as (keyof T)[];
+
+  for (const name of propNames) {
+    const value = obj[name];
+
+    if (value && typeof value === 'object') {
+      deepFreeze(value);
+    }
+  }
+
+  return Object.freeze(obj);
+};
