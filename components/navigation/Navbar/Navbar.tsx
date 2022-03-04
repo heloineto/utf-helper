@@ -17,7 +17,7 @@ const Navbar = ({ className }: Props) => {
         <NavbarContributeButton />
       </div>
       <div className="h-full w-full xl:w-1/3 flex items-center"></div>
-      <div className="h-full w-full xl:w-1/3 flex items-center justify-between flex-row-reverse sm:flex-row sm:justify-end gap-x-2">
+      <div className="h-full w-full xl:w-1/3 flex items-center justify-end gap-x-2">
         <NavbarCampusAndCourse />
         <NavbarThemeSwitch />
       </div>
