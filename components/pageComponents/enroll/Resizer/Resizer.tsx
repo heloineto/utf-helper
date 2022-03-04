@@ -37,6 +37,7 @@ const Resizer = (
             resizing && '!h-6 !text-slate-600 dark:!text-white',
             'h-4 group-hover:h-6 transition-all text-slate-500 dark:text-slate-50 group-hover:text-slate-600 dark:group-hover:text-white w-auto ease-in-out'
           )}
+          weight="bold"
         />
       </div>
     </div>
