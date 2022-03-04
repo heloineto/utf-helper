@@ -15,7 +15,6 @@
     "@emotion/react": "latest",
     "@emotion/server": "latest",
     "@emotion/styled": "latest",
-    "@heroicons/react": "^1.0.5",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "colord": "^2.9.2",

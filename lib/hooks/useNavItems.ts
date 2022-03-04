@@ -1,4 +1,4 @@
-import { Calendar, Clock, GraduationCap, House, Student } from 'phosphor-react';
+import { CalendarBlank, Clock, GraduationCap, House } from 'phosphor-react';
 import { useMemo } from 'react';
 
 const useNavItems = () => {
@@ -19,7 +19,7 @@ const useNavItems = () => {
       {
         key: 'calendar',
         label: 'Calendário',
-        Icon: Calendar,
+        Icon: CalendarBlank,
         href: '/calendar',
       },
       {

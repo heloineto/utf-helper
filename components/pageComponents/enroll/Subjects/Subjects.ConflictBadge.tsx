@@ -1,8 +1,8 @@
 import { SettingsContext } from '@lib/context';
 import { useContext } from 'react';
 import { IconButton, Tooltip } from '@mui/material';
-import { TrashIcon } from '@heroicons/react/outline';
 import { useColor } from '@lib/hooks';
+import { Trash } from 'phosphor-react';
 
 type Props = {
   classObject: ClassObject;
@@ -42,7 +42,7 @@ const SubjectsConflictBadge = ({ classObject, dayTimeCodes, onRemove }: Props) =
           style={color && (darkMode ? { color: color[100] } : { color: color[500] })}
           onClick={onRemove}
         >
-          <TrashIcon className="h-[1.1rem] w-auto" />
+          <Trash className="h-5 w-auto" weight="bold" />
         </IconButton>
       </Tooltip>
     </div>

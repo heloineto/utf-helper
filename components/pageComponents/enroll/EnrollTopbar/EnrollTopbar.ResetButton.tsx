@@ -1,8 +1,8 @@
-import { TrashIcon } from '@heroicons/react/outline';
 import { UserDataContext } from '@lib/context';
 import { IconButton, Tooltip } from '@mui/material';
 import { useContext, useState } from 'react';
 import ActionDialog from '@components/elements/modals/ActionDialog';
+import { Trash } from 'phosphor-react';
 
 type Props = {};
 
@@ -14,7 +14,10 @@ const EnrollTopbarResetButton = (props: Props) => {
     <>
       <Tooltip title="Limpar Cronograma" arrow>
         <IconButton className="group" onClick={() => setResetDialogOpen(true)}>
-          <TrashIcon className="h-6 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400" />
+          <Trash
+            className="h-6 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400"
+            weight="bold"
+          />
         </IconButton>
       </Tooltip>
       <ActionDialog

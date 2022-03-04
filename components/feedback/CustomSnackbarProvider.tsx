@@ -1,10 +1,5 @@
-import {
-  CheckCircleIcon,
-  ExclamationCircleIcon,
-  InformationCircleIcon,
-  XCircleIcon,
-} from '@heroicons/react/solid';
 import { SnackbarProvider } from 'notistack';
+import { CheckCircle, Info, WarningCircle, XCircle } from 'phosphor-react';
 
 type Props = {
   children: ReactNode;
@@ -16,14 +11,28 @@ const CustomSnackbarProvider = ({ children }: Props) => {
       maxSnack={3}
       iconVariant={{
         success: (
-          <CheckCircleIcon className="h-6 w-auto text-emerald-500 dark:text-emerald-300 mr-2" />
+          <CheckCircle
+            className="h-6 w-auto text-emerald-500 dark:text-emerald-300 mr-2"
+            weight="fill"
+          />
         ),
-        error: <XCircleIcon className="h-6 w-auto text-red-500 dark:text-red-300 mr-2" />,
+        error: (
+          <XCircle
+            className="h-6 w-auto text-red-500 dark:text-red-300 mr-2"
+            weight="fill"
+          />
+        ),
         warning: (
-          <ExclamationCircleIcon className="h-6 w-auto text-orange-500 dark:text-orange-300 mr-2" />
+          <WarningCircle
+            className="h-6 w-auto text-orange-500 dark:text-orange-300 mr-2"
+            weight="fill"
+          />
         ),
         info: (
-          <InformationCircleIcon className="h-6 w-auto text-sky-500 dark:text-sky-300 mr-2" />
+          <Info
+            className="h-6 w-auto text-sky-500 dark:text-sky-300 mr-2"
+            weight="fill"
+          />
         ),
       }}
       classes={{

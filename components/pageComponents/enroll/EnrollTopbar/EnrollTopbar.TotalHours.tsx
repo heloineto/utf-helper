@@ -1,5 +1,5 @@
-import { AcademicCapIcon } from '@heroicons/react/outline';
 import { UserDataContext } from '@lib/context';
+import { GraduationCap } from 'phosphor-react';
 import { useContext, useMemo } from 'react';
 
 type Props = {};
@@ -26,7 +26,7 @@ const EnrollTopbarTotalHours = (props: Props) => {
 
   return (
     <div className="text-[0.8rem] h-9 font-medium gap-x-2 text-slate-700 dark:text-slate-300 bg-slate-400/10 rounded-md px-3 flex items-center">
-      <AcademicCapIcon className="h-[1.2rem] w-auto" />
+      <GraduationCap className="h-4 w-auto" weight="bold" />
       <span className="">{totalTime} Aulas Semanais</span>
       <svg
         width="2"

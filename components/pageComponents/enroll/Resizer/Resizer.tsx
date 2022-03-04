@@ -1,5 +1,5 @@
-import { SwitchVerticalIcon } from '@heroicons/react/outline';
 import classNames from 'clsx';
+import { ArrowsDownUp } from 'phosphor-react';
 import { ForwardedRef, forwardRef } from 'react';
 
 type Props = {
@@ -31,7 +31,7 @@ const Resizer = (
         )}
         ref={ref}
       >
-        <SwitchVerticalIcon
+        <ArrowsDownUp
           className={classNames(
             direction === 'horizontal' ? '-rotate-90' : 'rotate-0',
             resizing && '!h-6 !text-slate-600 dark:!text-white',

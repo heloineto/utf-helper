@@ -1,17 +1,16 @@
-import { GitHubIcon } from '@components/decoration/icons/outlined';
-import { ChevronRightIcon } from '@heroicons/react/solid';
+import { CaretRight, GithubLogo } from 'phosphor-react';
 
 type Props = {};
 
 const NavbarContributeButton = (props: Props) => {
   return (
     <a
-      className="text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full px-3 flex items-center hover:bg-sky-400/20"
+      className="h-7 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full px-3 flex items-center hover:bg-sky-400/20"
       target="_blank"
       href="https://github.com/heloineto/utf-helper"
       rel="noreferrer"
     >
-      <GitHubIcon className="h-4 w-auto" />
+      <GithubLogo className="h-4 w-auto" weight="bold" />
       <svg
         width="2"
         height="2"
@@ -22,7 +21,10 @@ const NavbarContributeButton = (props: Props) => {
         <circle cx="1" cy="1" r="1"></circle>
       </svg>
       <span className="ml-2">Criado por Heloi Neto - Contribua no Github!</span>
-      <ChevronRightIcon className="w-4 h-8 ml-3 overflow-visible text-sky-300 dark:text-sky-400" />
+      <CaretRight
+        className="h-3 w-auto ml-3 overflow-visible text-sky-300 dark:text-sky-400"
+        weight="bold"
+      />
     </a>
   );
 };
