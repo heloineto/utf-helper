@@ -60,7 +60,7 @@ const MonthTable = ({ monthInfo }: Props) => {
         <thead>
           <tr className="table-row">
             {weekdays.map((weekday) => (
-              <th key={weekday} className="table-cell">
+              <th key={weekday} className="w-[calc(100%*1/7)]">
                 <Tooltip title={weekday} placement="top">
                   <div className="text-slate-800 dark:text-slate-100 font-semibold text-md cursor-default">
                     {weekday.charAt(0)}

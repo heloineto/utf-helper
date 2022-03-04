@@ -48,7 +48,6 @@ const Schedule = ({}: Props) => {
                   <div className="text-slate-600 dark:text-slate-300 font-medium">
                     {start.setLocale('pt-BR').weekdayShort.slice(0, -1).toUpperCase()}
                   </div>
-                  {console.log(Math.ceil(start.day / 7) - 1)}
                   <Day
                     dayDate={start}
                     dayInfo={
