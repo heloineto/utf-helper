@@ -5,29 +5,13 @@ import { NotePencil } from 'phosphor-react';
 import { useContext, useState } from 'react';
 import classNames from 'clsx';
 
-const campuses = [
-  { label: 'Curitiba', value: 'curitiba' },
-  { label: 'Cornélio Procópio', value: 'cornelioProcopio' },
-  { label: 'Campo Mourão', value: 'campoMourao' },
-  { label: 'Medianeira', value: 'medianeira' },
-  { label: 'Pato Branco', value: 'patoBranco' },
-  { label: 'Ponta Grossa', value: 'pontaGrossa' },
-  { label: 'Dois Vizinhos', value: 'doisVizinhos' },
-  { label: 'Londrina', value: 'londrina' },
-  { label: 'Toledo', value: 'toledo' },
-  { label: 'Apucarana', value: 'apucarana' },
-  { label: 'Francisco Beltrão', value: 'franciscoBeltrao' },
-  { label: 'Guarapuava', value: 'guarapuava' },
-  { label: 'Santa Helena', value: 'santaHelena' },
-];
-
 interface Props extends ComponentProps<'button'> {}
 
 const NavbarCampusAndCourse = ({ className, ...buttonProps }: Props) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [hover, setHover] = useState(false);
 
-  const { campus, setCampus, course, setCourse } = useContext(UserDataContext);
+  // const { campus, setCampus, course, setCourse } = useContext(UserDataContext);
 
   return (
     <>
