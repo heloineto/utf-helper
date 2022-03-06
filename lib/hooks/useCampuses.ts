@@ -3,21 +3,26 @@ import { useMemo } from 'react';
 const useCampuses = () => {
   const campuses = useMemo(
     () => ({
-      curitiba: {
-        label: 'Curitiba',
-      },
-      'cornelio-procopio': {
-        label: 'Cornélio Procópio',
-      },
-      'campo-mourao': {
-        label: 'Campo Mourão',
-      },
-      medianeira: {
-        label: 'Medianeira',
-      },
-      'pato-branco': {
-        label: 'Pato Branco',
-      },
+      // curitiba: {
+      //   label: 'Curitiba',
+      //   courses: {},
+      // },
+      // 'cornelio-procopio': {
+      //   label: 'Cornélio Procópio',
+      //   courses: {},
+      // },
+      // 'campo-mourao': {
+      //   label: 'Campo Mourão',
+      //   courses: {},
+      // },
+      // medianeira: {
+      //   label: 'Medianeira',
+      //   courses: {},
+      // },
+      // 'pato-branco': {
+      //   label: 'Pato Branco',
+      //   courses: {},
+      // },
       'ponta-grossa': {
         label: 'Ponta Grossa',
         courses: {
@@ -98,7 +103,7 @@ const useCampuses = () => {
             numberCode: '0001',
           },
           'tecnol-analise-d-sist': {
-            label: 'Tecnol. Análise D.Sist',
+            label: 'Tecnol. Análise D. Sist',
             numberCode: '0024',
           },
           'tecnol-automacao-ind': {
@@ -111,27 +116,34 @@ const useCampuses = () => {
           },
         },
       },
-      'dois-vizinhos': {
-        label: 'Dois Vizinhos',
-      },
-      londrina: {
-        label: 'Londrina',
-      },
-      toledo: {
-        label: 'Toledo',
-      },
-      apucarana: {
-        label: 'Apucarana',
-      },
-      'francisco-beltrao': {
-        label: 'Francisco Beltrão',
-      },
-      guarapuava: {
-        label: 'Guarapuava',
-      },
-      'santa-helena': {
-        label: 'Santa Helena',
-      },
+      // 'dois-vizinhos': {
+      //   label: 'Dois Vizinhos',
+      //   courses: {},
+      // },
+      // londrina: {
+      //   label: 'Londrina',
+      //   courses: {},
+      // },
+      // toledo: {
+      //   label: 'Toledo',
+      //   courses: {},
+      // },
+      // apucarana: {
+      //   label: 'Apucarana',
+      //   courses: {},
+      // },
+      // 'francisco-beltrao': {
+      //   label: 'Francisco Beltrão',
+      //   courses: {},
+      // },
+      // guarapuava: {
+      //   label: 'Guarapuava',
+      //   courses: {},
+      // },
+      // 'santa-helena': {
+      //   label: 'Santa Helena',
+      //   courses: {},
+      // },
     }),
     []
   );

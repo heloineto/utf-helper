@@ -1,7 +1,7 @@
 import CustomAutocomplete from '@components/inputs/CustomAutocomplete';
 import { Button, Dialog, Tooltip } from '@mui/material';
 import { NotePencil } from 'phosphor-react';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import classNames from 'clsx';
 import { useCampuses } from '@lib/hooks';
 import { Form } from 'react-final-form';
@@ -14,6 +14,33 @@ const NavbarCampusAndCourse = ({ className, ...buttonProps }: Props) => {
   const [hover, setHover] = useState(false);
 
   const campuses = useCampuses();
+
+  const campusOptions = useMemo(
+    () =>
+      Object.entries(campuses).map(([key, { label }]) => ({
+        label,
+        value: key,
+      })),
+    [campuses]
+  );
+
+  const coursesOptions = useMemo(() => {
+    const coursesOptions: {
+      [k: string]: {
+        label: string;
+        value: string;
+      }[];
+    } = {};
+
+    Object.entries(campuses).forEach(([key, { courses }]) => {
+      coursesOptions[key] = Object.entries(courses).map(([key, { label }]) => ({
+        label,
+        value: key,
+      }));
+    });
+
+    return coursesOptions;
+  }, [campuses]);
 
   return (
     <>
@@ -53,13 +80,24 @@ const NavbarCampusAndCourse = ({ className, ...buttonProps }: Props) => {
             setDialogOpen(false);
           }}
         >
-          {({ handleSubmit, submitting, submitError }) => (
+          {({ handleSubmit, submitting, submitError, values }) => (
             <form className="flex flex-col w-full gap-y-4 p-8" onSubmit={handleSubmit}>
               <div className="flex justify-center items-center text-slate-800 dark:text-slate-200 text-2xl font-semibold border-b border-slate-200 dark:border-slate-700 -mx-8 -mt-8 p-4">
                 Selecione um Câmpus e Curso
               </div>
-              <Autocomplete label="Câmpus" name="campus" options={[]} />
-              <Autocomplete label="Curso" name="course" options={[]} />
+              <Autocomplete
+                label="Câmpus"
+                name="campus"
+                options={campusOptions}
+                getOptionValue={(option) => option.value}
+              />
+              <Autocomplete
+                label="Curso"
+                name="course"
+                disabled={!values.campus}
+                options={values.campus ? coursesOptions[values.campus] : []}
+                getOptionValue={(option) => option.value}
+              />
               <div className="mt-5 dark:border-slate-700 flex flex-row justify-end">
                 <Button
                   className="w-1/4 border-sky-500 text-sky-500 bg-sky-100 hover:bg-sky-200 hover:border-sky-600 dark:bg-sky-600 dark:text-sky-200 dark:hover:bg-sky-700 dark:border-transparent"
@@ -69,6 +107,7 @@ const NavbarCampusAndCourse = ({ className, ...buttonProps }: Props) => {
                   Ok
                 </Button>
               </div>
+              <pre>{JSON.stringify(values, null, 2)}</pre>
             </form>
           )}
         </Form>
