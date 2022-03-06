@@ -29,7 +29,13 @@ const useSignInWithGoogle = () => {
       isNil
     );
 
-    await setDoc(userRef, userDetails);
+    await setDoc(userRef, userDetails).catch((error) => {
+      enqueueSnackbar('Não foi possível criar usuário no banco de dados', {
+        variant: 'error',
+      });
+
+      if (process.env.NODE_ENV === 'development') console.error(error);
+    });
   };
 
   return signInWithGoogle;

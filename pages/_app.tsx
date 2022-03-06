@@ -5,7 +5,7 @@ import { AppProps } from 'next/app';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
-// import theme from '../lib/theme';
+
 import createEmotionCache from '../lib/createEmotionCache';
 import NoAutoCompleteBackground from '@components/styledJsx/NoAutoCompleteBackground';
 import CustomScrollBar from '@components/styledJsx/CustomScrollBar';

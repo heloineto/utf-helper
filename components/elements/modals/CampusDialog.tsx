@@ -1,12 +1,22 @@
 import { Button, Dialog, DialogProps } from '@mui/material';
-import { useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 import { useCampuses } from '@lib/hooks';
 import { Form } from 'react-final-form';
 import { Autocomplete } from '@components/elements/inputs/Autocomplete';
 
-interface Props extends DialogProps {}
+import { UserDataContext } from '@lib/context';
+import { signInAnonymously } from 'firebase/auth';
+import { auth } from '@lib/firebase';
+import useUserOperations from '@lib/database/user/useUserOperations';
+
+interface Props extends DialogProps {
+  onClose: () => void;
+}
 
 const CampusDialog = ({ onClose, ...dialogProps }: Props) => {
+  const { userDetails } = useContext(UserDataContext);
+  const { update: updateUser } = useUserOperations();
+
   const campuses = useCampuses();
 
   const campusOptions = useMemo(
@@ -46,9 +56,16 @@ const CampusDialog = ({ onClose, ...dialogProps }: Props) => {
       {...dialogProps}
     >
       <Form
-        onSubmit={(values) => {
+        onSubmit={async (values) => {
+          const { campus, course } = values;
+
+          await signInAnonymously(auth);
+
+          updateUser(userDetails.ref, { campus, course });
+
           onClose();
         }}
+        initialValues={{ campus: userDetails?.campus, course: userDetails?.course }}
       >
         {({ handleSubmit, submitting, submitError, values }) => (
           <form className="flex flex-col w-full gap-y-4 p-8" onSubmit={handleSubmit}>
