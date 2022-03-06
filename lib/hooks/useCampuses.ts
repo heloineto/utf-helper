@@ -103,7 +103,7 @@ const useCampuses = () => {
             numberCode: '0001',
           },
           'tecnol-analise-d-sist': {
-            label: 'Tecnol. Análise D. Sist',
+            label: 'Tecnol. Análise D.Sist',
             numberCode: '0024',
           },
           'tecnol-automacao-ind': {
