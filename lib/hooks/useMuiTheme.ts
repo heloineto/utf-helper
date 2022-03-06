@@ -88,6 +88,13 @@ const useMuiTheme = (darkMode: boolean) => {
         },
       },
       components: {
+        MuiPaper: {
+          styleOverrides: {
+            root: {
+              backgroundImage: 'none',
+            },
+          },
+        },
         MuiDialog: {
           styleOverrides: {
             container: {

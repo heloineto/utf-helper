@@ -42,7 +42,7 @@ const ActionDialog = ({
       onClose={onClose}
       classes={{
         paper:
-          'bg-white dark:bg-slate-900 p-5 ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10',
+          'bg-white dark:bg-slate-900 p-5 ring-1 ring-slate-700/5 dark:ring-white/10',
       }}
     >
       <div>
