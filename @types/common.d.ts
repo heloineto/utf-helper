@@ -14,3 +14,8 @@ type FirebaseRef = import('firebase/firestore').DocumentReference<
 >;
 type FieldValue = import('firebase/firestore').FieldValue;
 type Timestamp = import('firebase/firestore').Timestamp;
+
+type IconProps = import('phosphor-react').IconProps;
+type PhosphorIcon = React.ForwardRefExoticComponent<
+  IconProps & React.RefAttributes<SVGSVGElement>
+>;
