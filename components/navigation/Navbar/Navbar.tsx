@@ -1,6 +1,6 @@
 import classNames from 'clsx';
 import NavbarThemeSwitch from './Navbar.ThemeSwitch';
-import NavbarCampusAndCourse from './Navbar.CampusAndCourse';
+import NavbarCampusAndCourse from './Navbar.Campus';
 import NavbarContributeButton from './Navbar.ContributeButton';
 import NavbarItems from './Navbar.Items';
 import NavbarGoogleSignIn from './Navbar.GoogleSignIn';
