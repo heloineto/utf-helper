@@ -13,35 +13,6 @@ const NavbarCampus = ({ className, ...buttonProps }: Props) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [hover, setHover] = useState(false);
 
-  const campuses = useCampuses();
-
-  const campusOptions = useMemo(
-    () =>
-      Object.entries(campuses).map(([key, { label }]) => ({
-        label,
-        value: key,
-      })),
-    [campuses]
-  );
-
-  const coursesOptions = useMemo(() => {
-    const coursesOptions: {
-      [k: string]: {
-        label: string;
-        value: string;
-      }[];
-    } = {};
-
-    Object.entries(campuses).forEach(([key, { courses }]) => {
-      coursesOptions[key] = Object.entries(courses).map(([key, { label }]) => ({
-        label,
-        value: key,
-      }));
-    });
-
-    return coursesOptions;
-  }, [campuses]);
-
   return (
     <>
       <Tooltip title="Selecionar Câmpus e Curso" arrow>

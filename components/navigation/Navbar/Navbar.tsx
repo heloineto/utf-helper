@@ -1,6 +1,6 @@
 import classNames from 'clsx';
 import NavbarThemeSwitch from './Navbar.ThemeSwitch';
-import NavbarCampusAndCourse from './Navbar.Campus';
+import NavbarCampus from './Navbar.Campus';
 import NavbarContributeButton from './Navbar.ContributeButton';
 import NavbarItems from './Navbar.Items';
 import NavbarGoogleSignIn from './Navbar.GoogleSignIn';
@@ -28,7 +28,7 @@ const Navbar = ({ className }: Props) => {
       </div>
       <div className="h-full w-full xl:w-1/3 flex items-center justify-end gap-x-2">
         <div className="w-full flex lg:justify-end">
-          <NavbarCampusAndCourse className="text-left lg:text-right" />
+          <NavbarCampus className="text-left lg:text-right" />
         </div>
         {userDetails ? (
           <NavbarAvatar className="mr-2.5" userDetails={userDetails} />
