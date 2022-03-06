@@ -1,14 +1,18 @@
 import { Tooltip } from '@mui/material';
 import { NotePencil } from 'phosphor-react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import classNames from 'clsx';
-import CampusDialog from '@components/elements/modals/CampusDialog';
+import CampusDialog from '@components/elements/modals/CustomDialog';
+import { UserDataContext } from '@lib/context';
+import CustomDialog from '@components/elements/modals/CustomDialog';
+import CampusForm from '@components/elements/forms/CampusForm';
 
 interface Props extends ComponentProps<'button'> {}
 
 const NavbarCampus = ({ className, ...buttonProps }: Props) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [hover, setHover] = useState(false);
+  const { userDetails } = useContext(UserDataContext);
 
   return (
     <>
@@ -28,14 +32,18 @@ const NavbarCampus = ({ className, ...buttonProps }: Props) => {
               />
             </div>
           )}
-          <p className="text-sky-500 dark:text-sky-400 text-sm">Ponta Grossa</p>
-          <p className="text-slate-700 dark:text-slate-500 text-sm">
-            Ciência Da Computação
+          <p className="text-sky-500 dark:text-sky-400 text-sm font-medium">
+            {userDetails?.campus ? userDetails.campus.label : 'Selecione um Campus'}
+          </p>
+          <p className="text-slate-700 dark:text-slate-500 text-sm font-medium">
+            {userDetails?.course ? userDetails.course.label : 'Selecione um Curso'}
           </p>
         </button>
       </Tooltip>
 
-      <CampusDialog onClose={() => setDialogOpen(false)} open={dialogOpen} />
+      <CustomDialog onClose={() => setDialogOpen(false)} open={dialogOpen}>
+        <CampusForm afterSubmit={() => setDialogOpen(false)} />
+      </CustomDialog>
     </>
   );
 };

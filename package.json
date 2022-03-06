@@ -30,7 +30,8 @@
     "react": "latest",
     "react-dom": "latest",
     "react-final-form": "^6.5.8",
-    "react-firebase-hooks": "^5.0.3"
+    "react-firebase-hooks": "^5.0.3",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.178",
