@@ -8,7 +8,7 @@ import {
   AutocompleteValue,
   UseAutocompleteProps as MuiUseAutocompleteProps,
 } from '@mui/material/useAutocomplete';
-import { Field, FieldProps, FieldRenderProps, FieldMetaState } from 'react-final-form';
+import { Field, FieldMetaState, FieldProps, FieldRenderProps } from 'react-final-form';
 import React, { ReactNode } from 'react';
 import TextField, { TextFieldProps as MuiTextFieldProps } from '@mui/material/TextField';
 
@@ -149,7 +149,6 @@ function AutocompleteWrapper<
   }
 
   const onChangeFunc = (
-    // eslint-disable-next-line @typescript-eslint/ban-types
     event: React.SyntheticEvent,
     value: AutocompleteValue<T, Multiple, DisableClearable, FreeSolo>,
     reason: AutocompleteChangeReason,

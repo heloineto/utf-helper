@@ -1,4 +1,3 @@
-import CustomAutocomplete from '@components/elements/inputs/CustomAutocomplete';
 import { Button, Dialog, Tooltip } from '@mui/material';
 import { NotePencil } from 'phosphor-react';
 import { useMemo, useState } from 'react';
