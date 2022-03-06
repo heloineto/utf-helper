@@ -1,4 +1,5 @@
 import { UserDataContext } from '@lib/context';
+import { scheduleStructure } from '@lib/utils/schedule';
 import { useContext, useState } from 'react';
 import ScheduleClassCell from './Schedule.ClassCell';
 import ScheduleClassDialog from './Schedule.ClassObjectModal';
@@ -6,7 +7,7 @@ import ScheduleClassDialog from './Schedule.ClassObjectModal';
 type Props = {};
 
 const Schedule = ({}: Props) => {
-  const { schedule } = useContext(UserDataContext);
+  // const { schedule } = useContext(UserDataContext);
   const [selectedClass, setSelectedClass] = useState<ClassObject | null>(null);
   const [classDialogOpen, setClassDialogOpen] = useState(false);
 
@@ -39,40 +40,37 @@ const Schedule = ({}: Props) => {
               )
             )}
           </tr>
-          {schedule &&
-            Object.entries(schedule).map(([timeCode, { start, end, days }]) => (
-              <tr
-                key={timeCode}
-                className="divide-x divide-slate-200 dark:divide-slate-700"
-              >
-                <td className="font-semibold text-slate-800 dark:text-slate-100">
-                  {timeCode}
-                </td>
-                <th className="font-medium text-slate-600 dark:text-slate-400">
-                  {start}
-                </th>
-                <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
-                {Object.entries(days).map(([dayCode, classObject]) => {
-                  const [shitfCode, numberCode] = timeCode.split('');
+          {Object.entries(scheduleStructure).map(([timeCode, { start, end, days }]) => (
+            <tr
+              key={timeCode}
+              className="divide-x divide-slate-200 dark:divide-slate-700"
+            >
+              <td className="font-semibold text-slate-800 dark:text-slate-100">
+                {timeCode}
+              </td>
+              <th className="font-medium text-slate-600 dark:text-slate-400">{start}</th>
+              <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
+              {Object.entries(days).map(([dayCode, classObject]) => {
+                const [shitfCode, numberCode] = timeCode.split('');
 
-                  return (
-                    <td key={dayCode} className="relative" id={`${dayCode}${timeCode}`}>
-                      {classObject && (
-                        <ScheduleClassCell
-                          classObject={classObject}
-                          timeCode={timeCode}
-                          dayCode={dayCode}
-                          onClick={() => {
-                            setSelectedClass(classObject);
-                            setClassDialogOpen(true);
-                          }}
-                        />
-                      )}
-                    </td>
-                  );
-                })}
-              </tr>
-            ))}
+                return (
+                  <td key={dayCode} className="relative" id={`${dayCode}${timeCode}`}>
+                    {classObject && (
+                      <ScheduleClassCell
+                        classObject={classObject}
+                        timeCode={timeCode}
+                        dayCode={dayCode}
+                        onClick={() => {
+                          setSelectedClass(classObject);
+                          setClassDialogOpen(true);
+                        }}
+                      />
+                    )}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
         </tbody>
       </table>
       <ScheduleClassDialog

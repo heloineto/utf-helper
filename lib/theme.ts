@@ -2,6 +2,8 @@ import { ThemeOptions, createTheme } from '@mui/material';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from '../tailwind.config.js';
 
+//! REMOVE IF NO ERROR OCCURS (06/03/22)
+
 const { theme: twTheme } = resolveConfig(tailwindConfig as any) as any;
 
 const themeOptions: ThemeOptions = {
@@ -15,6 +17,7 @@ const themeOptions: ThemeOptions = {
     } as any,
   },
   palette: {
+    mode: 'dark',
     primary: {
       light: twTheme.colors.sky[500],
       main: twTheme.colors.sky[600],

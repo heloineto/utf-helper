@@ -5,13 +5,14 @@ import { AppProps } from 'next/app';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
-import theme from '../lib/theme';
+// import theme from '../lib/theme';
 import createEmotionCache from '../lib/createEmotionCache';
 import NoAutoCompleteBackground from '@components/styledJsx/NoAutoCompleteBackground';
 import CustomScrollBar from '@components/styledJsx/CustomScrollBar';
 import { SettingsContext, UserDataContext } from '@lib/context';
 import { useSettings, useUserData } from '@lib/hooks';
 import CustomSnackbarProvider from '@components/feedback/CustomSnackbarProvider';
+import useMuiTheme from '@lib/hooks/useMuiTheme';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -24,6 +25,7 @@ export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const settings = useSettings();
   const userData = useUserData();
+  const theme = useMuiTheme(settings.darkMode);
 
   return (
     <CacheProvider value={emotionCache}>

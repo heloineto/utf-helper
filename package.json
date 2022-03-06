@@ -18,15 +18,18 @@
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "colord": "^2.9.2",
+    "final-form": "^4.20.6",
     "firebase": "^9.6.7",
     "framer-motion": "^6.2.8",
     "lodash": "^4.17.21",
     "luxon": "^2.3.0",
+    "mui-rff": "^5.0.0",
     "next": "latest",
     "notistack": "^2.0.3",
     "phosphor-react": "^1.4.1",
     "react": "latest",
     "react-dom": "latest",
+    "react-final-form": "^6.5.8",
     "react-firebase-hooks": "^5.0.3"
   },
   "devDependencies": {
