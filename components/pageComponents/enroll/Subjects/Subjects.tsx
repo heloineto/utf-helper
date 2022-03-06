@@ -5,6 +5,7 @@ import SubjectsTableHeader from './Subjects.TableHeader';
 import SubjectsTableRow from './Subjects.TableRow';
 import SubjectsWeeklyLessons from './Subjects.WeeklyLessons';
 import EmptyState from '@components/elements/feedback/EmptyState';
+import { GraduationCap } from 'phosphor-react';
 
 interface Props {}
 
@@ -14,7 +15,9 @@ const Subjects = (props: Props) => {
   const subjects = useSubjects();
 
   if (!userDetails?.campus || !userDetails?.course) {
-    return <EmptyState title="Selecione o Campus e Curso"></EmptyState>;
+    return (
+      <EmptyState title="Selecione o Campus e Curso" Icon={GraduationCap}></EmptyState>
+    );
   }
 
   return (
