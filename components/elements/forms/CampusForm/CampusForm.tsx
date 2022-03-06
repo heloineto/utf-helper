@@ -72,6 +72,7 @@ const CampusForm = ({ afterSubmit }: Props) => {
       course: {
         key: course,
         label: campuses[campus].courses[course].label,
+        numberCode: campuses[campus].courses[course].numberCode,
       },
     });
 
