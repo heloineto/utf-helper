@@ -1,4 +1,4 @@
-import { auth, firestore, googleAuthProvider } from '@lib/firebase';
+import { auth, firestore } from '@lib/firebase';
 import { converter, docExists } from '@lib/utils/firebase';
 import { signInAnonymously } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
@@ -24,12 +24,7 @@ const useSignInAnonymously = () => {
       converter<UserDetails>()
     );
 
-    const userDetails = omitBy(
-      { email: user.email, photoUrl: user.photoURL, name: user.displayName },
-      isNil
-    );
-
-    await setDoc(userRef, userDetails).catch((error) => {
+    await setDoc(userRef, { isAnonymous: true }).catch((error) => {
       enqueueSnackbar('Não foi possível criar usuário no banco de dados', {
         variant: 'error',
       });

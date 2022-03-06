@@ -2,7 +2,6 @@ import { Tooltip } from '@mui/material';
 import { NotePencil } from 'phosphor-react';
 import { useContext, useState } from 'react';
 import classNames from 'clsx';
-import CampusDialog from '@components/elements/modals/CustomDialog';
 import { UserDataContext } from '@lib/context';
 import CustomDialog from '@components/elements/modals/CustomDialog';
 import CampusForm from '@components/elements/forms/CampusForm';

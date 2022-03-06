@@ -9,10 +9,7 @@ const NavbarGoogleSignIn = ({ className, ...muiButtonProps }: Props) => {
   const signInWithGoogle = useSignInWithGoogle();
 
   return (
-    <Tooltip
-      title="Entre com o google para poder acessar seus dados em qualquer dispositivo."
-      arrow
-    >
+    <Tooltip title="Entre com o google salvar seus dados" arrow>
       <Button
         size="small"
         className={classNames(

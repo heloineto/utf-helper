@@ -1,7 +1,7 @@
 import MainShell from '@components/appShells/MainShell';
 import Divider from '@components/pageComponents/enroll/Resizer';
 import Schedule from '@components/pageComponents/enroll/Schedule';
-import Table from '@components/pageComponents/enroll/Subjects';
+import Subjects from '@components/pageComponents/enroll/Subjects';
 import { SettingsContext } from '@lib/context';
 import { useResize } from '@lib/hooks';
 import { useContext } from 'react';
@@ -22,7 +22,7 @@ const Enroll: NextPage = () => {
         )}
       >
         <div className="h-2/3 w-1/2 overflow-auto" ref={resize1Ref}>
-          <Table />
+          <Subjects />
         </div>
         <Divider direction={direction} ref={handleRef} resizing={resizing} />
         <div className="flex-grow flex overflow-auto" ref={resize2Ref}>
