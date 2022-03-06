@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { debounce } from 'lodash';
 
 const useResize = (direction: Direction = 'vertical') => {
   const [resizing, setResizing] = useState(false);

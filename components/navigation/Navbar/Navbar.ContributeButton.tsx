@@ -20,7 +20,8 @@ const NavbarContributeButton = (props: Props) => {
       >
         <circle cx="1" cy="1" r="1"></circle>
       </svg>
-      <span className="ml-2">Open Source - Criado por Heloi Neto</span>
+      <span className="ml-2">Open Source</span>
+      {/*  - Criado por Heloi Neto */}
       <CaretRight
         className="group-hover:ml-4 transition-all h-3 w-auto ml-3 overflow-visible text-sky-300 dark:text-sky-400"
         weight="bold"

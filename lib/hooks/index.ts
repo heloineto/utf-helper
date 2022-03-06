@@ -1,4 +1,5 @@
 export { default as useCalendarData } from './useCalendarData';
+export { default as useCampuses } from './useCampuses';
 export { default as useColor } from './useColor';
 export { default as useLocalStorage } from './useLocalStorage';
 export { default as useNavItems } from './useNavItems';

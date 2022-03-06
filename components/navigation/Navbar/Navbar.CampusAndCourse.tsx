@@ -1,9 +1,9 @@
 import CustomAutocomplete from '@components/inputs/CustomAutocomplete';
-import { UserDataContext } from '@lib/context';
-import { Dialog, Tooltip } from '@mui/material';
+import { Button, Dialog, Tooltip } from '@mui/material';
 import { NotePencil } from 'phosphor-react';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import classNames from 'clsx';
+import { useCampuses } from '@lib/hooks';
 
 interface Props extends ComponentProps<'button'> {}
 
@@ -11,7 +11,7 @@ const NavbarCampusAndCourse = ({ className, ...buttonProps }: Props) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [hover, setHover] = useState(false);
 
-  // const { campus, setCampus, course, setCourse } = useContext(UserDataContext);
+  const campuses = useCampuses();
 
   return (
     <>
@@ -63,6 +63,15 @@ const NavbarCampusAndCourse = ({ className, ...buttonProps }: Props) => {
             textFieldProps={{ label: 'Curso' }}
             inputValue="Ciência Da Computação"
           />
+          <div className="mt-5 dark:border-slate-700 flex flex-row justify-end">
+            <Button
+              className="w-1/4 border-sky-500 text-sky-500 bg-sky-100 hover:bg-sky-200 hover:border-sky-600 dark:bg-sky-600 dark:text-sky-200 dark:hover:bg-sky-700 dark:border-transparent"
+              variant="outlined"
+              type="submit"
+            >
+              Ok
+            </Button>
+          </div>
         </div>
       </Dialog>
     </>

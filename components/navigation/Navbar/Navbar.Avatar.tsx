@@ -9,6 +9,7 @@ import {
 import classNames from 'clsx';
 import { SignOut } from 'phosphor-react';
 import { useState } from 'react';
+import { auth } from '@lib/firebase';
 
 interface Props extends IconButtonProps {
   userDetails: UserDetails;
@@ -53,7 +54,10 @@ const NavbarAvatar = ({ className, userDetails, ...IconButtonProps }: Props) => 
       >
         <ul>
           <li className="py-1 px-2 flex items-center cursor-pointer">
-            <Button className="justify-start py-2 px-1 m-0 text-sm text-slate-700 font-semibold dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800">
+            <Button
+              className="justify-start py-2 px-1 m-0 text-sm text-slate-700 font-semibold dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800"
+              onClick={() => auth.signOut()}
+            >
               <SignOut className="h-5 w-auto mr-2 text-slate-500" weight="bold" />
               Sair
             </Button>
