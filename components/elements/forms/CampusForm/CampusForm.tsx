@@ -83,7 +83,10 @@ const CampusForm = ({ afterSubmit }: Props) => {
     <Form
       onSubmit={onSubmit}
       validate={makeValidate<Partial<CampusFormValues>>(campusFormSchema)}
-      initialValues={{ campus: userDetails?.campus, course: userDetails?.course }}
+      initialValues={{
+        campus: userDetails?.campus?.key,
+        course: userDetails?.course?.key,
+      }}
     >
       {({ handleSubmit, submitting, submitError, values }) => (
         <form className="flex flex-col w-full gap-y-4 p-8" onSubmit={handleSubmit}>
