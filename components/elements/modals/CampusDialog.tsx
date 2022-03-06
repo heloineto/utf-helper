@@ -3,11 +3,9 @@ import { useContext, useMemo } from 'react';
 import { useCampuses } from '@lib/hooks';
 import { Form } from 'react-final-form';
 import { Autocomplete } from '@components/elements/inputs/Autocomplete';
-
 import { UserDataContext } from '@lib/context';
-import { signInAnonymously } from 'firebase/auth';
-import { auth } from '@lib/firebase';
 import useUserOperations from '@lib/database/user/useUserOperations';
+import useSignInAnonymously from '@lib/database/user/useSignInAnonymously';
 
 interface Props extends DialogProps {
   onClose: () => void;
@@ -16,6 +14,7 @@ interface Props extends DialogProps {
 const CampusDialog = ({ onClose, ...dialogProps }: Props) => {
   const { userDetails } = useContext(UserDataContext);
   const { update: updateUser } = useUserOperations();
+  const signInAnonymously = useSignInAnonymously();
 
   const campuses = useCampuses();
 
@@ -59,9 +58,11 @@ const CampusDialog = ({ onClose, ...dialogProps }: Props) => {
         onSubmit={async (values) => {
           const { campus, course } = values;
 
-          await signInAnonymously(auth);
+          const userRef = userDetails?.ref ?? (await signInAnonymously());
 
-          updateUser(userDetails.ref, { campus, course });
+          if (!userRef) return;
+
+          updateUser(userRef, { campus, course });
 
           onClose();
         }}

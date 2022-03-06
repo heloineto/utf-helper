@@ -36,6 +36,8 @@ const useSignInWithGoogle = () => {
 
       if (process.env.NODE_ENV === 'development') console.error(error);
     });
+
+    return userRef;
   };
 
   return signInWithGoogle;

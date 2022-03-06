@@ -1,6 +1,6 @@
 import { auth, firestore, googleAuthProvider } from '@lib/firebase';
 import { converter, docExists } from '@lib/utils/firebase';
-import { signInAnonymously, signInWithPopup } from 'firebase/auth';
+import { signInAnonymously } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { isNil, omitBy } from 'lodash';
 import { useSnackbar } from 'notistack';
@@ -36,6 +36,8 @@ const useSignInAnonymously = () => {
 
       if (process.env.NODE_ENV === 'development') console.error(error);
     });
+
+    return userRef;
   };
 
   return _signInAnonymously;
