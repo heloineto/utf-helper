@@ -1,7 +1,3 @@
-type Shift = 'M' | 'T' | 'N';
-
-type TimeCode = `${Shift}${number}`;
-
 type ScheduleObject = {
   [x: string]: {
     start: string;
@@ -12,8 +8,8 @@ type ScheduleObject = {
   };
 };
 
-type DayTimeCode = `${number}${Shift}${number}`;
-
 type SelectedDayTime = { [x: string]: ClassObject };
 
 type Conflict = { withClass: ClassObject; dayTimeCodes: string[] };
+
+type ScheduleMap<T> = { [timeCode: string]: { [dayCode: string]: T } };
