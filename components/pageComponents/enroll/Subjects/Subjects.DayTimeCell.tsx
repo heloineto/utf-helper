@@ -1,21 +1,16 @@
-import { SettingsContext } from '@lib/context';
-import { useContext } from 'react';
 import classNames from 'clsx';
 import useHighlights from '@lib/hooks/useHighlights';
-import { Portal } from '@mui/material';
 import Highlights from '@components/elements/feedback/Highlights';
 
 type Props = {
   dayTimeCode: string;
   locationCode: string;
-  selected: boolean;
 };
 
 const SubjectsDayTimeCell = ({
   dayTimeCode,
   locationCode,
   className,
-  selected,
 }: Props & ComponentProps<'div'>) => {
   const { highlights, addHighlights, removeHighlights } = useHighlights();
 

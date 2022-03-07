@@ -1,6 +1,8 @@
 import { UserDataContext } from '@lib/context';
+import { useFirestoreOperations } from '@lib/hooks';
 import { unselectGroup } from '@lib/utils/schedule';
 import { Button, Dialog, DialogProps } from '@mui/material';
+import { deleteField } from 'firebase/firestore';
 import { useContext } from 'react';
 import SubjectsDayTimeCell from '../Subjects/Subjects.DayTimeCell';
 
@@ -10,8 +12,8 @@ interface Props extends DialogProps {
 }
 
 const ScheduleClassDialog = ({ classObject, open, onClose, ...dialogProps }: Props) => {
-  const { setSelectedClasses, setSchedule, selectedClasses } =
-    useContext(UserDataContext);
+  const { userDetails } = useContext(UserDataContext);
+  const { update: updateUserDetails } = useFirestoreOperations();
 
   return (
     <Dialog
@@ -127,7 +129,6 @@ const ScheduleClassDialog = ({ classObject, open, onClose, ...dialogProps }: Pro
                     className="relative"
                     dayTimeCode={dayTimeCode}
                     locationCode={locationCode}
-                    selected={true}
                   />
                 ))}
               </dd>
@@ -150,16 +151,13 @@ const ScheduleClassDialog = ({ classObject, open, onClose, ...dialogProps }: Pro
           <Button
             className="w-1/3 sm:w-1/4 border-red-500 text-red-500 bg-red-100 hover:bg-red-200 hover:border-red-600 dark:bg-red-600 dark:text-red-200 dark:hover:bg-red-700 dark:border-transparent"
             variant="outlined"
-            onClick={() => {
-              if (!setSelectedClasses || !setSchedule || !selectedClasses || !classObject)
-                return;
+            onClick={async () => {
+              if (!userDetails?.ref || !classObject) return;
 
-              unselectGroup(
-                setSelectedClasses,
-                setSchedule,
-                classObject,
-                selectedClasses
-              );
+              // await updateUserDetails<UserDetails>(userDetails?.ref, {
+              //   [`classes.${campus}.${course}.${classObject?.subjectCode}.${classObject.code}`]:
+              //     deleteField(),
+              // });
 
               onClose();
             }}

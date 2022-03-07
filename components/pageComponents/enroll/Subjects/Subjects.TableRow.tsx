@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
 import classNames from 'clsx';
-import { IconButton, Portal, Tooltip } from '@mui/material';
+import { IconButton, Tooltip } from '@mui/material';
 import { useFirestoreOperations } from '@lib/hooks';
 import { getConflicts, getFramingDescription } from '@lib/utils/schedule';
 import { deleteField } from 'firebase/firestore';
@@ -62,7 +62,6 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
   return (
     <>
       {highlights && <Highlights highlights={highlights} />}
-
       <tr
         className={classNames(
           selected
@@ -99,7 +98,6 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
               className="relative"
               dayTimeCode={dayTimeCode}
               locationCode={locationCode}
-              selected={selected}
             />
           ))}
         </SubjectsTableData>
