@@ -1,5 +1,5 @@
-import { SettingsContext, UserDataContext } from '@lib/context';
-import { highlightGroup, selectGroup, unselectGroup } from '@lib/utils/schedule';
+import { HighlightContext, SettingsContext, UserDataContext } from '@lib/context';
+import { selectGroup, unselectGroup } from '@lib/utils/schedule';
 import { useContext, useState } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
@@ -20,6 +20,8 @@ type Props = {
 
 const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
   const { darkMode } = useContext(SettingsContext);
+
+  const { addHighlight } = useContext(HighlightContext);
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
   const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);
   const { userDetails } = useContext(UserDataContext);
@@ -63,26 +65,23 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
               classObject as any,
           });
 
-          highlightGroup(
+          addHighlight?.(
             classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
-            false,
-            darkMode
+            'sky'
           );
         }}
         onMouseEnter={() =>
           !selected &&
-          highlightGroup(
+          addHighlight?.(
             classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
-            true,
-            darkMode
+            'sky'
           )
         }
         onMouseLeave={() =>
           !selected &&
-          highlightGroup(
+          addHighlight?.(
             classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
-            false,
-            darkMode
+            'sky'
           )
         }
       >

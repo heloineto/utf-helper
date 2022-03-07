@@ -21,6 +21,8 @@ const ScheduleClassCell = ({ classObject, timeCode, dayCode, ...divProps }: Prop
 
   const highlightColor = highlights?.[timeCode]?.[dayCode];
 
+  highlightColor && console.log({ highlightColor });
+
   useEffect(() => {
     if (!schedule) return;
 

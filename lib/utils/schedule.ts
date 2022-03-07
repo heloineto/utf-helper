@@ -71,23 +71,6 @@ export const highlightCell = (
   );
 };
 
-export const highlightGroup = (
-  dayTimeCodes: string[],
-  shouldHighlight: boolean,
-  darkMode?: boolean
-) => {
-  dayTimeCodes.forEach((dayTimeCode) => {
-    highlight(
-      'group',
-      dayTimeCode,
-      shouldHighlight,
-      darkMode
-        ? { r: 2, g: 132, b: 199 } /* bg-sky-600 */
-        : { r: 125, g: 211, b: 252 } /* bg-sky-300 */
-    );
-  });
-};
-
 export const selectGroup = (
   setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>>,
   setSchedule: Dispatch<SetStateAction<ScheduleObject>>,

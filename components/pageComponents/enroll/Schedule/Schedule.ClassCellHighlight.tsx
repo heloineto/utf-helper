@@ -15,7 +15,7 @@ const ScheduleClassCellHighlight = ({ highlightColor }: Props) => {
 
     const color = colord(hexColor);
 
-    return [color.alpha(0.3).toRgbString(), color.alpha(0.4).toRgbString()];
+    return [color.alpha(0.6).toRgbString(), color.alpha(0.8).toRgbString()];
   }, [highlightColor]);
 
   return (

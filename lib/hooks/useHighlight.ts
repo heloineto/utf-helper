@@ -1,3 +1,4 @@
+import { merge } from 'lodash';
 import { useState } from 'react';
 
 const useHighlight = () => {
@@ -5,7 +6,7 @@ const useHighlight = () => {
 
   const addHighlight = (dayTimeCodes: string | string[], colorName: string) =>
     setHighlights((value) => {
-      const newValue = { ...value };
+      let newValue = { ...value };
 
       if (typeof dayTimeCodes === 'string') dayTimeCodes = [dayTimeCodes];
 
@@ -13,7 +14,7 @@ const useHighlight = () => {
         const dayCode = dayTimeCode.charAt(0);
         const timeCode = dayTimeCode.slice(1);
 
-        newValue[timeCode][dayCode] = colorName;
+        newValue = merge(newValue, { [timeCode]: { [dayCode]: colorName } });
       });
 
       return newValue;
