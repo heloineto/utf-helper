@@ -1,13 +1,16 @@
 import { scheduleStructure } from '@lib/utils/schedule';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import ScheduleClassCell from './Schedule.ClassCell';
 import ScheduleClassDialog from './Schedule.ScheduleClassDialog';
+import ScheduleHighlight from './Schedule.Highlight';
+import { HighlightContext } from '@lib/context';
 
 type Props = {};
 
 const Schedule = ({}: Props) => {
   const [selectedClass, setSelectedClass] = useState<ClassObject | null>(null);
   const [classDialogOpen, setClassDialogOpen] = useState(false);
+  const { highlights } = useContext(HighlightContext);
 
   return (
     <>
@@ -49,10 +52,13 @@ const Schedule = ({}: Props) => {
               <th className="font-medium text-slate-600 dark:text-slate-400">{start}</th>
               <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
               {Object.entries(days).map(([dayCode, classObject]) => {
-                const [shitfCode, numberCode] = timeCode.split('');
-
+                const highlightColor = highlights?.[timeCode]?.[dayCode];
                 return (
                   <td key={dayCode} className="relative">
+                    {highlightColor && (
+                      <ScheduleHighlight highlightColor={highlightColor} />
+                    )}
+
                     {classObject && (
                       <ScheduleClassCell
                         classObject={classObject}

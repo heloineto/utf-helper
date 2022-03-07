@@ -7,9 +7,7 @@ type Props = {
   highlightColor: string;
 };
 
-const ScheduleClassCellHighlight = ({ highlightColor }: Props) => {
-  // const { darkMode } = useContext(SettingsContext);
-
+const ScheduleHighlight = ({ highlightColor }: Props) => {
   const highlightColors = useMemo(() => {
     const hexColor = (twColors as any)[highlightColor][500];
 
@@ -28,4 +26,4 @@ const ScheduleClassCellHighlight = ({ highlightColor }: Props) => {
   );
 };
 
-export default ScheduleClassCellHighlight;
+export default ScheduleHighlight;

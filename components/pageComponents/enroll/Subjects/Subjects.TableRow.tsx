@@ -25,7 +25,7 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
   const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);
   const { userDetails } = useContext(UserDataContext);
-  const { set: setUserDetails, update: updateUserDetails } = useFirestoreOperations();
+  const { update: updateUserDetails } = useFirestoreOperations();
 
   const selectedClasses = userDetails?.classes?.[campus]?.[course];
   const selected = !!selectedClasses?.[subject.code]?.[classObject.code];
