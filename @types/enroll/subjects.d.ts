@@ -21,6 +21,7 @@ interface ClassObject {
   vacanciesFreshman: number;
   reservationType: string;
   priorityMajors: string;
+  pa: PA;
   schedule: {
     dayTimeCode: string;
     locationCode: string;
@@ -31,4 +32,23 @@ interface ClassObject {
 
 interface SelectedClasses {
   [x: string]: { [x: string]: ClassObject | undefined } | undefined;
+}
+
+interface PA {
+  code: string | null;
+  subjectCode: string;
+  className: string;
+  classCode: string;
+  professor: string;
+  lessons: Lesson[];
+}
+
+interface Lesson {
+  index: string;
+  date: string;
+  type: string;
+  isSync: boolean;
+  numberOfLessonsOrWeight: string;
+  numberOfSyncLessons: number;
+  description: string;
 }
