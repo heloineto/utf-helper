@@ -1,11 +1,11 @@
 import { UpdateData, updateDoc } from 'firebase/firestore';
 import { useSnackbar } from 'notistack';
 
-const useUserOperations = () => {
+const useFirestoreOperations = () => {
   const { enqueueSnackbar } = useSnackbar();
 
-  const update = async <T>(userRef: DocumentReference<T>, updates: UpdateData<T>) => {
-    await updateDoc(userRef, updates).catch((error) => {
+  const update = async <T>(ref: DocumentReference<T>, updates: UpdateData<T>) => {
+    await updateDoc(ref, updates).catch((error) => {
       enqueueSnackbar('Não foi possível atualizar dados do usuário', {
         variant: 'error',
       });
@@ -17,4 +17,4 @@ const useUserOperations = () => {
   return { update };
 };
 
-export default useUserOperations;
+export default useFirestoreOperations;

@@ -4,7 +4,7 @@ import { useCampuses } from '@lib/hooks';
 import { Form } from 'react-final-form';
 import { Autocomplete } from '@components/elements/inputs/Autocomplete';
 import { UserDataContext } from '@lib/context';
-import useFirestoreOperations from '@lib/hooks/useFirestoreOperations';
+import { useFirestoreOperations } from '@lib/hooks';
 import useSignInAnonymously from '@lib/database/user/useSignInAnonymously';
 import * as yup from 'yup';
 import { makeValidate } from 'mui-rff';

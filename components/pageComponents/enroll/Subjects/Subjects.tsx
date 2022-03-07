@@ -1,7 +1,7 @@
 import SubjectsTableHeader from './Subjects.TableHeader';
 import SubjectsTableRow from './Subjects.TableRow';
 import SubjectsWeeklyLessons from './Subjects.WeeklyLessons';
-import useCollectionObject from '@lib/hooks/useCollectionObject';
+import { useCollectionObject } from '@lib/hooks';
 import SubjectsLoading from './Subjects.Loading';
 import { orderBy } from 'firebase/firestore';
 import SubjectsEmptyState from './Subjects.EmptyState';
