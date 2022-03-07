@@ -1,7 +1,7 @@
 import MainShell from '@components/appShells/MainShell';
 import Divider from '@components/pageComponents/enroll/Resizer';
 import Schedule from '@components/pageComponents/enroll/Schedule';
-import Subjects, { SubjectsEmptyState } from '@components/pageComponents/enroll/Subjects';
+import Subjects, { SubjectsSafeguard } from '@components/pageComponents/enroll/Subjects';
 import { SettingsContext, UserDataContext } from '@lib/context';
 import { useResize } from '@lib/hooks';
 import { useContext } from 'react';
@@ -26,7 +26,7 @@ const Enroll: NextPage = () => {
           {userDetails?.campus && userDetails?.course ? (
             <Subjects campus={userDetails?.campus} course={userDetails?.course} />
           ) : (
-            <SubjectsEmptyState />
+            <SubjectsSafeguard />
           )}
         </div>
         <Divider direction={direction} ref={handleRef} resizing={resizing} />

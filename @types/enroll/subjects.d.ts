@@ -1,13 +1,17 @@
-type Subject = {
+interface Subjects {
+  [k: string]: Subject;
+}
+
+interface Subject {
   code: string;
   name: string;
   weeklyLessons: number;
   classes: {
     [x: string]: ClassObject;
   };
-};
+}
 
-type ClassObject = {
+interface ClassObject {
   subjectCode: string;
   subjectName: string;
   weeklyLessons: number;
@@ -23,8 +27,8 @@ type ClassObject = {
   }[];
   teacher: string;
   optional: string;
-};
+}
 
-type SelectedClasses = {
+interface SelectedClasses {
   [x: string]: { [x: string]: ClassObject | undefined } | undefined;
-};
+}

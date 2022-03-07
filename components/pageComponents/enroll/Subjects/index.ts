@@ -1,3 +1,3 @@
 export { default } from './Subjects';
 
-export { default as SubjectsEmptyState } from './Subjects.EmptyState';
+export { default as SubjectsSafeguard } from './Subjects.Safeguard';

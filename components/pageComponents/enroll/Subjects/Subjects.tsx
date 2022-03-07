@@ -1,15 +1,9 @@
-import { UserDataContext } from '@lib/context';
-import { useSubjects } from '@lib/hooks';
-import { useContext, useState } from 'react';
 import SubjectsTableHeader from './Subjects.TableHeader';
 import SubjectsTableRow from './Subjects.TableRow';
 import SubjectsWeeklyLessons from './Subjects.WeeklyLessons';
-import EmptyState from '@components/elements/feedback/EmptyState';
-import { GraduationCap } from 'phosphor-react';
-import PrimaryButton from '@components/elements/buttons/PrimaryButton';
-import CustomDialog from '@components/elements/modals/CustomDialog';
-import CampusForm from '@components/elements/forms/CampusForm';
-import useSubjectsOperations from '@lib/database/subjects/useSubjectsOperations';
+import useCollectionObject from '@lib/hooks/useCollectionObject';
+import SubjectsLoading from './Subjects.Loading';
+import { orderBy } from 'firebase/firestore';
 
 interface Props {
   campus: Campus;
@@ -17,11 +11,24 @@ interface Props {
 }
 
 const Subjects = ({ campus, course }: Props) => {
-  const subjects = useSubjects();
+  const [subjects, loading, error, isEmpty] = useCollectionObject<Subjects>(
+    `campuses/${campus.key}/courses/${course.key}/subjects-2022-01`,
+    orderBy('name')
+  );
 
-  const { getSubjects } = useSubjectsOperations();
+  if (loading) {
+    return (
+      <div className="h-full grid place-items-center">
+        <SubjectsLoading />
+      </div>
+    );
+  }
 
-  ('campuses/${campus.key}/courses/${course.key}/subjects-2022-01');
+  if (isEmpty) {
+    return null;
+  }
+
+  if (!subjects) return null;
 
   return (
     <div className="min-w-min bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
