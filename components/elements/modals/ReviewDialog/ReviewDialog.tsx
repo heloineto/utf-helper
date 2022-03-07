@@ -1,5 +1,6 @@
 import { Button, Dialog, DialogProps } from '@mui/material';
 import { useSnackbar } from 'notistack';
+import CustomDialog from '../CustomDialog';
 import ReviewClasses from './ReviewClasses';
 
 interface Props extends DialogProps {
@@ -8,46 +9,8 @@ interface Props extends DialogProps {
 }
 
 const ReviewDialog = ({ onClose, classes, ...dialogProps }: Props) => {
-  const { enqueueSnackbar } = useSnackbar();
-
-  // const selectedClassesArr = useMemo(() => {
-  //   if (!selectedClasses) return [];
-
-  //   const result: ClassObject[] = [];
-
-  //   Object.values(selectedClasses).map((selectedClass) => {
-  //     if (!selectedClass) return;
-
-  //     Object.values(selectedClass).map((classObject) => {
-  //       if (classObject) result.push(classObject);
-  //     });
-  //   });
-
-  //   return result;
-  // }, [selectedClasses]);
-
-  const copyText = (str: string) => {
-    navigator.clipboard.writeText(str);
-    enqueueSnackbar('Copiado para a área de transferência', {
-      variant: 'success',
-      anchorOrigin: {
-        horizontal: 'center',
-        vertical: 'bottom',
-      },
-      autoHideDuration: 2000,
-    });
-  };
-
   return (
-    <Dialog
-      maxWidth="sm"
-      fullWidth
-      classes={{
-        paper: 'bg-white dark:bg-slate-900 ring-1 ring-slate-700/5 dark:ring-white/10',
-      }}
-      onClose={onClose}
-      {...dialogProps}
-    >
+    <CustomDialog onClose={onClose} {...dialogProps}>
       <div>
         <div className="flex flex-col justify-center items-center text-slate-800 dark:text-slate-200 text-2xl font-semibold border-b border-slate-200 dark:border-slate-700 pt-8 pb-6">
           Relatório das Matérias
@@ -67,7 +30,7 @@ const ReviewDialog = ({ onClose, classes, ...dialogProps }: Props) => {
           </Button>
         </div>
       </div>
-    </Dialog>
+    </CustomDialog>
   );
 };
 
