@@ -1,16 +1,15 @@
-import { HighlightContext, UserDataContext } from '@lib/context';
+import { UserDataContext } from '@lib/context';
 import { useContext, useState } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
 import classNames from 'clsx';
-import ActionDialog from '@components/elements/modals/ActionDialog';
-import SubjectsConflictBadge from './Subjects.ConflictBadge';
-import { IconButton, Tooltip } from '@mui/material';
+import { IconButton, Portal, Tooltip } from '@mui/material';
 import { useFirestoreOperations } from '@lib/hooks';
 import { getConflicts, getFramingDescription } from '@lib/utils/schedule';
-import { deleteField, writeBatch } from 'firebase/firestore';
-import { firestore } from '@lib/firebase';
+import { deleteField } from 'firebase/firestore';
 import SubjectsConfictsDialog from './Subjects.ConfictsDialog';
+import twColors from 'tailwindcss/colors';
+import { colord } from 'colord';
 
 type Props = {
   classObject: ClassObject;
@@ -20,7 +19,35 @@ type Props = {
 };
 
 const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
-  const { addHighlight, removeHighlight } = useContext(HighlightContext);
+  const [highlight, setHighlight] = useState<{ dayTimeCode: string; colors: string[] }[]>(
+    []
+  );
+
+  const addHighlight = (dayTimeCodes: string | string[], colorName: string) => {
+    setHighlight((value) => {
+      let lol = [...value];
+
+      console.log(lol);
+
+      if (typeof dayTimeCodes === 'string') dayTimeCodes = [dayTimeCodes];
+
+      dayTimeCodes.forEach((dayTimeCode) => {
+        const dayCode = dayTimeCode.charAt(0);
+        const timeCode = dayTimeCode.slice(1);
+
+        const hexColor = (twColors as any)[colorName][500];
+
+        const color = colord(hexColor);
+
+        lol.push({
+          dayTimeCode,
+          colors: [color.alpha(0.6).toRgbString(), color.alpha(0.8).toRgbString()],
+        });
+      });
+
+      return lol;
+    });
+  };
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
   const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);
   const { userDetails } = useContext(UserDataContext);
@@ -29,8 +56,50 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
   const selectedClasses = userDetails?.classes?.[campus]?.[course];
   const selected = !!selectedClasses?.[subject.code]?.[classObject.code];
 
+  const toggleSelected = async () => {
+    if (!userDetails?.ref) return;
+
+    if (selected) {
+      await updateUserDetails<UserDetails>(userDetails?.ref, {
+        [`classes.${campus}.${course}.${subject.code}.${classObject.code}`]:
+          deleteField(),
+      });
+      return;
+    }
+
+    const conflicts = selectedClasses && getConflicts(selectedClasses, classObject);
+    if (conflicts) {
+      setConflicts(conflicts);
+      setConflictsDialogOpen(true);
+      return;
+    }
+
+    await updateUserDetails<UserDetails>(userDetails?.ref, {
+      [`classes.${campus}.${course}.${subject.code}.${classObject.code}`]:
+        classObject as any,
+    });
+
+    // addHighlight?.(
+    //   classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
+    //   'sky'
+    // );
+  };
+
   return (
     <>
+      {highlight.map(({ dayTimeCode, colors }) => (
+        <Portal
+          key={dayTimeCode}
+          container={document && document.getElementById(`schedule-${dayTimeCode}`)}
+        >
+          <div
+            className="absolute top-0 left-0 h-full w-full z-50"
+            style={{
+              background: `repeating-linear-gradient(45deg, ${colors[0]}, ${colors[0]} 0.25rem, ${colors[1]} 0.25rem, ${colors[1]} 0.5rem)`,
+            }}
+          />
+        </Portal>
+      ))}
       <tr
         className={classNames(
           selected
@@ -38,37 +107,7 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
             : 'hover:bg-sky-100 dark:hover:bg-sky-900/50 odd:bg-slate-100/90 dark:odd:bg-slate-900/30',
           'cursor-pointer relative'
         )}
-        onClick={async () => {
-          if (!userDetails?.ref) return;
-
-          if (selected) {
-            await updateUserDetails<UserDetails>(userDetails?.ref, {
-              [`classes.${campus}.${course}.${subject.code}.${classObject.code}`]:
-                deleteField(),
-            });
-
-            return;
-          }
-
-          const conflicts = selectedClasses && getConflicts(selectedClasses, classObject);
-
-          if (conflicts) {
-            setConflicts(conflicts);
-            setConflictsDialogOpen(true);
-
-            return;
-          }
-
-          await updateUserDetails<UserDetails>(userDetails?.ref, {
-            [`classes.${campus}.${course}.${subject.code}.${classObject.code}`]:
-              classObject as any,
-          });
-
-          addHighlight?.(
-            classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
-            'sky'
-          );
-        }}
+        onClick={toggleSelected}
         onMouseEnter={() =>
           !selected &&
           addHighlight?.(
@@ -76,10 +115,10 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
             'sky'
           )
         }
-        onMouseLeave={() =>
-          !selected &&
-          removeHighlight?.(classObject.schedule.map(({ dayTimeCode }) => dayTimeCode))
-        }
+        // onMouseLeave={() =>
+        //   !selected &&
+        //   removeHighlight?.(classObject.schedule.map(({ dayTimeCode }) => dayTimeCode))
+        // }
       >
         <SubjectsTableData
           className={classNames(

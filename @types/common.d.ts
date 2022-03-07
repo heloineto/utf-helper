@@ -5,7 +5,7 @@ type RefObject<A> = import('react').RefObject<A>;
 type ComponentProps<A> = import('react').ComponentProps<A>;
 type SetStateAction<A> = import('react').SetStateAction<A>;
 type Dispatch<A> = import('react').Dispatch<A>;
-type SetValue<A> = Dispatch<SetStateAction<A>>;
+type SetState<A> = Dispatch<SetStateAction<A>>;
 
 type NextPage = import('next').NextPage;
 

@@ -2,7 +2,6 @@ import { scheduleStructure } from '@lib/utils/schedule';
 import { useState } from 'react';
 import ScheduleClassCell from './Schedule.ClassCell';
 import ScheduleClassDialog from './Schedule.ScheduleClassDialog';
-import ScheduleHighlight from './Schedule.Highlight';
 
 type Props = {};
 
@@ -53,10 +52,9 @@ const Schedule = ({}: Props) => {
                 return (
                   <td
                     key={dayCode}
-                    id={`schedule-${dayCode}${timeCode}}`}
+                    id={`schedule-${dayCode}${timeCode}`}
                     className="relative"
                   >
-                    <ScheduleHighlight timeCode={timeCode} dayCode={dayCode} />
                     {classObject && (
                       <ScheduleClassCell
                         classObject={classObject}

@@ -1,13 +1,8 @@
-import { HighlightContext, UserDataContext } from '@lib/context';
-import { useContext, useState } from 'react';
-import SubjectsDayTimeCell from './Subjects.DayTimeCell';
-import SubjectsTableData from './Subjects.TableData';
-import classNames from 'clsx';
 import ActionDialog from '@components/elements/modals/ActionDialog';
 import SubjectsConflictBadge from './Subjects.ConflictBadge';
-import { DialogProps, IconButton, Tooltip } from '@mui/material';
+import { DialogProps } from '@mui/material';
 import { useFirestoreOperations } from '@lib/hooks';
-import { getConflicts, getFramingDescription } from '@lib/utils/schedule';
+import { getConflicts } from '@lib/utils/schedule';
 import { deleteField, writeBatch } from 'firebase/firestore';
 import { firestore } from '@lib/firebase';
 
