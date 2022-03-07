@@ -55,9 +55,6 @@ const Subjects = ({ campus, course }: Props) => {
                   Horário &amp; Local
                 </SubjectsTableHeader>
                 <SubjectsTableHeader className="w-[20%]">Professor</SubjectsTableHeader>
-                {/* <SubjectsTableHeader className="w-[5%] text-center">
-                  Vagas
-                </SubjectsTableHeader> */}
                 <SubjectsTableHeader className="w-[5%] text-center">
                   Enquadramento
                 </SubjectsTableHeader>

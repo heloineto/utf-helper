@@ -1,5 +1,4 @@
 import { HighlightContext, UserDataContext } from '@lib/context';
-import { selectGroup, unselectGroup } from '@lib/utils/schedule';
 import { useContext, useState } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
 import SubjectsTableData from './Subjects.TableData';
