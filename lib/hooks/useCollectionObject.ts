@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react';
 import { QueryConstraint, collection, query } from 'firebase/firestore';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { firestore } from '@lib/firebase';
-import { isEmpty } from 'lodash';
 
 const useCollectionObject = <T>(path: string, ...queryConstraints: QueryConstraint[]) => {
   const colRef = collection(firestore, path);
@@ -10,30 +8,34 @@ const useCollectionObject = <T>(path: string, ...queryConstraints: QueryConstrai
 
   const [colQuerySnapshot, loading, error] = useCollection(colQuery);
 
-  type Col =
+  let _collection:
     | {
         [key: string]: T & { ref: FirebaseRef };
       }
-    | undefined;
-
-  let col: Col = undefined;
+    | undefined = undefined;
 
   if (colQuerySnapshot !== undefined) {
-    const col2: NonNullable<Col> = {};
+    const _collectionObj: {
+      [key: string]: T & { ref: FirebaseRef };
+    } = {};
 
     colQuerySnapshot.docs.map((colQueryDocSnapshot) => {
       const data = colQueryDocSnapshot.data() as T;
 
-      col2[colQueryDocSnapshot.id] = {
+      _collectionObj[colQueryDocSnapshot.id] = {
         ...data,
         ref: colQueryDocSnapshot.ref,
       };
     });
 
-    col = col2;
+    _collection = _collectionObj;
   }
 
-  return [col, loading, error] as [typeof col, typeof loading, typeof error];
+  return [_collection, loading, error] as [
+    typeof _collection,
+    typeof loading,
+    typeof error
+  ];
 };
 
 export default useCollectionObject;
