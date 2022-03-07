@@ -1,6 +1,4 @@
 import { scheduleStructure } from '@lib/utils/schedule';
-import { useState } from 'react';
-import SubjectsSelectedClasses from '../Subjects/Subjects.SelectedClasses';
 
 type Props = {};
 

@@ -1,7 +1,6 @@
 import { UserDataContext } from '@lib/context';
-import { useFirestoreOperations, useTimeCodes } from '@lib/hooks';
-import { merge } from 'lodash';
-import { useContext } from 'react';
+import { Fragment, useContext } from 'react';
+import ClassCells from '../ClassCells';
 
 type Props = {
   campus: string;
@@ -10,18 +9,22 @@ type Props = {
 
 const SubjectsSelectedClasses = ({ campus, course }: Props) => {
   const { userDetails } = useContext(UserDataContext);
-  const { update: updateUserDetails } = useFirestoreOperations();
-  const timeCodes = useTimeCodes();
 
   const selectedSubjects = userDetails?.classes?.[campus]?.[course];
 
-  if (!selectedSubjects) return;
+  if (!selectedSubjects) return null;
 
-  Object.values(selectedSubjects).map((selectedSubject) =>
-    Object.values(selectedSubject).map((classeObjs) => {})
+  return (
+    <>
+      {Object.entries(selectedSubjects).map(([key, subject]) => (
+        <Fragment key={key}>
+          {Object.entries(subject).map(([key, classObject]) => (
+            <ClassCells key={key} classObject={classObject} />
+          ))}
+        </Fragment>
+      ))}
+    </>
   );
-
-  return null;
 };
 
 export default SubjectsSelectedClasses;

@@ -1,4 +1,4 @@
-import { DateTime, Info, Interval, StringUnitLength } from 'luxon';
+import { DateTime, Info, Interval, StringUnitlength } from 'luxon';
 import { toStartCase } from './typescript';
 
 export const getDateStr = (date: DateTime) => {
@@ -13,7 +13,7 @@ export const getDateStr = (date: DateTime) => {
 
 export const getWeekdaysStr = (
   weekStartsSunday: boolean = true,
-  length: StringUnitLength = 'long'
+  length: StringUnitlength = 'long'
 ) => {
   const weekdays = Info.weekdays(length, { locale: 'pt-BR' }).map(
     (weekday) => weekday.charAt(0).toUpperCase() + weekday.slice(1)

@@ -1,17 +1,15 @@
 import { UserDataContext } from '@lib/context';
 import { useFirestoreOperations } from '@lib/hooks';
-import { unselectGroup } from '@lib/utils/schedule';
 import { Button, Dialog, DialogProps } from '@mui/material';
-import { deleteField } from 'firebase/firestore';
 import { useContext } from 'react';
-import SubjectsDayTimeCell from '../Subjects/Subjects.DayTimeCell';
+import SubjectsDayTimeCell from '../../pageComponents/enroll/Subjects/Subjects.DayTimeCell';
 
 interface Props extends DialogProps {
   classObject: ClassObject | null;
   onClose: () => void;
 }
 
-const ClassCellsDialog = ({ classObject, open, onClose, ...dialogProps }: Props) => {
+const ClassDialog = ({ classObject, open, onClose, ...dialogProps }: Props) => {
   const { userDetails } = useContext(UserDataContext);
   const { update: updateUserDetails } = useFirestoreOperations();
 
@@ -178,4 +176,4 @@ const ClassCellsDialog = ({ classObject, open, onClose, ...dialogProps }: Props)
   );
 };
 
-export default ClassCellsDialog;
+export default ClassDialog;
