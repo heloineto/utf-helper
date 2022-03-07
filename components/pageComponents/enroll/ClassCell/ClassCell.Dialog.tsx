@@ -11,7 +11,7 @@ interface Props extends DialogProps {
   onClose: () => void;
 }
 
-const ScheduleClassDialog = ({ classObject, open, onClose, ...dialogProps }: Props) => {
+const ClassCellDialog = ({ classObject, open, onClose, ...dialogProps }: Props) => {
   const { userDetails } = useContext(UserDataContext);
   const { update: updateUserDetails } = useFirestoreOperations();
 
@@ -178,4 +178,4 @@ const ScheduleClassDialog = ({ classObject, open, onClose, ...dialogProps }: Pro
   );
 };
 
-export default ScheduleClassDialog;
+export default ClassCellDialog;
