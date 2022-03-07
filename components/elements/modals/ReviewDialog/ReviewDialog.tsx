@@ -1,6 +1,4 @@
 import { Button, Dialog, DialogProps } from '@mui/material';
-import { useContext, useMemo } from 'react';
-import { UserDataContext } from '@lib/context';
 import { useSnackbar } from 'notistack';
 import ReviewClasses from './ReviewClasses';
 

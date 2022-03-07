@@ -1,7 +1,6 @@
 import { IconButton, Tooltip } from '@mui/material';
 import { useContext, useState } from 'react';
 import { UserDataContext } from '@lib/context';
-import { isEmpty } from 'lodash';
 import ReviewDialog from '@components/elements/modals/ReviewDialog';
 import { ClipboardText } from 'phosphor-react';
 
