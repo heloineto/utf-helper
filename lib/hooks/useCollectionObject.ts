@@ -5,45 +5,35 @@ import { firestore } from '@lib/firebase';
 import { isEmpty } from 'lodash';
 
 const useCollectionObject = <T>(path: string, ...queryConstraints: QueryConstraint[]) => {
-  const [col, setCol] = useState<{
-    [key: string]: (T & { ref: FirebaseRef }) | undefined;
-  }>({});
-  const [empty, setEmpty] = useState(false);
-
   const colRef = collection(firestore, path);
   const colQuery = query(colRef, ...queryConstraints);
 
   const [colQuerySnapshot, loading, error] = useCollection(colQuery);
 
-  useEffect(() => {
-    if (!colQuerySnapshot) return;
+  type Col =
+    | {
+        [key: string]: T & { ref: FirebaseRef };
+      }
+    | undefined;
 
-    const colObject: { [key: string]: T & { ref: FirebaseRef } } = {};
+  let col: Col = undefined;
 
-    if (isEmpty(colQuerySnapshot.docs)) {
-      setCol(colObject);
-      setEmpty(true);
-      return;
-    }
+  if (colQuerySnapshot !== undefined) {
+    const col2: NonNullable<Col> = {};
 
     colQuerySnapshot.docs.map((colQueryDocSnapshot) => {
       const data = colQueryDocSnapshot.data() as T;
 
-      colObject[colQueryDocSnapshot.id] = {
+      col2[colQueryDocSnapshot.id] = {
         ...data,
         ref: colQueryDocSnapshot.ref,
       };
     });
 
-    setCol(colObject);
-  }, [colQuerySnapshot]);
+    col = col2;
+  }
 
-  return [col, loading, error, empty] as [
-    typeof col,
-    typeof loading,
-    typeof error,
-    typeof empty
-  ];
+  return [col, loading, error] as [typeof col, typeof loading, typeof error];
 };
 
 export default useCollectionObject;
