@@ -18,36 +18,42 @@ type Props = {
   course: string;
 };
 
+type Highlights = { [dayTimeCode: string]: string[] };
+
 const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
-  const [highlight, setHighlight] = useState<{ dayTimeCode: string; colors: string[] }[]>(
-    []
-  );
+  const [highlights, setHighlights] = useState<Highlights | null>(null);
 
-  const addHighlight = (dayTimeCodes: string | string[], colorName: string) => {
-    setHighlight((value) => {
-      let lol = [...value];
-
-      console.log(lol);
-
-      if (typeof dayTimeCodes === 'string') dayTimeCodes = [dayTimeCodes];
+  const addHighlight = (dayTimeCodes: string[], colorName: string) => {
+    setHighlights((value) => {
+      let newValue = { ...value };
 
       dayTimeCodes.forEach((dayTimeCode) => {
-        const dayCode = dayTimeCode.charAt(0);
-        const timeCode = dayTimeCode.slice(1);
-
         const hexColor = (twColors as any)[colorName][500];
 
         const color = colord(hexColor);
 
-        lol.push({
-          dayTimeCode,
-          colors: [color.alpha(0.6).toRgbString(), color.alpha(0.8).toRgbString()],
-        });
+        newValue[dayTimeCode] = [
+          color.alpha(0.6).toRgbString(),
+          color.alpha(0.8).toRgbString(),
+        ];
       });
 
-      return lol;
+      return newValue;
     });
   };
+
+  const removeHighlight = (dayTimeCodes: string[]) => {
+    setHighlights((value) => {
+      let newValue = { ...value };
+
+      dayTimeCodes.forEach((dayTimeCode) => {
+        delete newValue[dayTimeCode];
+      });
+
+      return newValue;
+    });
+  };
+
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
   const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);
   const { userDetails } = useContext(UserDataContext);
@@ -79,27 +85,28 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
         classObject as any,
     });
 
-    // addHighlight?.(
-    //   classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
-    //   'sky'
-    // );
+    addHighlight?.(
+      classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
+      'sky'
+    );
   };
 
   return (
     <>
-      {highlight.map(({ dayTimeCode, colors }) => (
-        <Portal
-          key={dayTimeCode}
-          container={document && document.getElementById(`schedule-${dayTimeCode}`)}
-        >
-          <div
-            className="absolute top-0 left-0 h-full w-full z-50"
-            style={{
-              background: `repeating-linear-gradient(45deg, ${colors[0]}, ${colors[0]} 0.25rem, ${colors[1]} 0.25rem, ${colors[1]} 0.5rem)`,
-            }}
-          />
-        </Portal>
-      ))}
+      {highlights &&
+        Object.entries(highlights).map(([dayTimeCode, colors]) => (
+          <Portal
+            key={dayTimeCode}
+            container={document && document.getElementById(`schedule-${dayTimeCode}`)}
+          >
+            <div
+              className="absolute top-0 left-0 h-full w-full z-50"
+              style={{
+                background: `repeating-linear-gradient(45deg, ${colors[0]}, ${colors[0]} 0.25rem, ${colors[1]} 0.25rem, ${colors[1]} 0.5rem)`,
+              }}
+            />
+          </Portal>
+        ))}
       <tr
         className={classNames(
           selected
@@ -115,10 +122,10 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
             'sky'
           )
         }
-        // onMouseLeave={() =>
-        //   !selected &&
-        //   removeHighlight?.(classObject.schedule.map(({ dayTimeCode }) => dayTimeCode))
-        // }
+        onMouseLeave={() =>
+          !selected &&
+          removeHighlight?.(classObject.schedule.map(({ dayTimeCode }) => dayTimeCode))
+        }
       >
         <SubjectsTableData
           className={classNames(
