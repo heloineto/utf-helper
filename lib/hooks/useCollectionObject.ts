@@ -10,13 +10,13 @@ const useCollectionObject = <T>(path: string, ...queryConstraints: QueryConstrai
 
   let _collection:
     | {
-        [key: string]: T & { ref: FirebaseRef };
+        [key: string]: T & { ref: DocumentReference };
       }
     | undefined = undefined;
 
   if (colQuerySnapshot !== undefined) {
     const _collectionObj: {
-      [key: string]: T & { ref: FirebaseRef };
+      [key: string]: T & { ref: DocumentReference };
     } = {};
 
     colQuerySnapshot.docs.map((colQueryDocSnapshot) => {

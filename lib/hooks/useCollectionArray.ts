@@ -5,7 +5,7 @@ import { firestore } from '@lib/firebase';
 import { isEmpty } from 'lodash';
 
 const useCollectionArray = <T>(path: string, ...queryConstraints: QueryConstraint[]) => {
-  const [col, setCol] = useState<(T & { ref: FirebaseRef })[]>([]);
+  const [col, setCol] = useState<(T & { ref: DocumentReference })[]>([]);
   const [empty, setEmpty] = useState(false);
 
   const colRef = collection(firestore, path);

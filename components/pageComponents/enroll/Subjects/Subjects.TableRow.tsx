@@ -11,16 +11,16 @@ import { IconButton, Tooltip } from '@mui/material';
 type Props = {
   classObject: ClassObject;
   subject: Subject;
+  selectedSubjects: Subjects;
 };
 
-const SubjectsTableRow = ({ classObject, subject }: Props) => {
+const SubjectsTableRow = ({ classObject, subject, selectedSubjects }: Props) => {
   const { darkMode } = useContext(SettingsContext);
-  const { selectedClasses, setSelectedClasses, setSchedule } =
-    useContext(UserDataContext);
+  const { userDetails } = useContext(UserDataContext);
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
   const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);
 
-  const selected = !!selectedClasses?.[subject.code]?.[classObject.code];
+  const selected = !!selectedSubjects?.[subject.code]?.[classObject.code];
 
   return (
     <>

@@ -4,7 +4,7 @@ import { useCampuses } from '@lib/hooks';
 import { Form } from 'react-final-form';
 import { Autocomplete } from '@components/elements/inputs/Autocomplete';
 import { UserDataContext } from '@lib/context';
-import useUserOperations from '@lib/database/user/useUserOperations';
+import useFirestoreOperations from '@lib/hooks/useFirestoreOperations';
 import useSignInAnonymously from '@lib/database/user/useSignInAnonymously';
 import * as yup from 'yup';
 import { makeValidate } from 'mui-rff';
@@ -20,7 +20,7 @@ interface Props {
 
 const CampusForm = ({ afterSubmit }: Props) => {
   const { userDetails } = useContext(UserDataContext);
-  const { updateUser } = useUserOperations();
+  const { update: updateUser } = useFirestoreOperations();
   const signInAnonymously = useSignInAnonymously();
 
   const campusFormSchema = yup.object().shape({
@@ -64,16 +64,9 @@ const CampusForm = ({ afterSubmit }: Props) => {
 
     if (!userRef) return;
 
-    updateUser(userRef, {
-      campus: {
-        key: campus,
-        label: campuses[campus].label,
-      },
-      course: {
-        key: course,
-        label: campuses[campus].courses[course].label,
-        numberCode: campuses[campus].courses[course].numberCode,
-      },
+    updateUser<UserDetails>(userRef, {
+      campus,
+      course,
     });
 
     afterSubmit?.();

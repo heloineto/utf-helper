@@ -9,6 +9,16 @@ interface Course {
   numberCode: string;
 }
 
+interface UserDetailsClasses {
+  [campus: string]: Exclude<Campus, 'key'> & {
+    courses: {
+      [course: string]: Exclude<Course, 'key'> & {
+        subjects: Subjects;
+      };
+    };
+  };
+}
+
 interface UserDetails {
   email?: string;
   photoUrl?: string;
@@ -16,6 +26,7 @@ interface UserDetails {
   isAnonymous?: boolean;
   campus?: Campus;
   course?: Course;
+  classes?: UserDetailsClasses;
 }
 
-type UserDetailsWithRef = UserDetails & { ref: FirebaseRef };
+type UserDetailsWithRef = UserDetails & { ref: DocumentReference };

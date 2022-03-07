@@ -9,9 +9,9 @@ type SetValue<A> = Dispatch<SetStateAction<A>>;
 
 type NextPage = import('next').NextPage;
 
-type FirebaseRef = import('firebase/firestore').DocumentReference<
-  import('firebase/firestore').DocumentData
->;
+type DocumentData = import('firebase/firestore').DocumentData;
+type DocumentReference<A = DocumentData> =
+  import('firebase/firestore').DocumentReference<A>;
 type FieldValue = import('firebase/firestore').FieldValue;
 type Timestamp = import('firebase/firestore').Timestamp;
 
