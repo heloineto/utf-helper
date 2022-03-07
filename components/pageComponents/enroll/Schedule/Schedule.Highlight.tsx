@@ -1,20 +1,19 @@
-import { SettingsContext } from '@lib/context';
+import { HighlightContext, SettingsContext } from '@lib/context';
 import { colord } from 'colord';
 import { useContext, useMemo } from 'react';
 import twColors from 'tailwindcss/colors';
 
 type Props = {
-  highlightColor: string;
+  timeCode: string;
+  dayCode: string;
 };
 
-const ScheduleHighlight = ({ highlightColor }: Props) => {
-  const highlightColors = useMemo(() => {
-    const hexColor = (twColors as any)[highlightColor][500];
+const ScheduleHighlight = ({ timeCode, dayCode }: Props) => {
+  const { highlights } = useContext(HighlightContext);
 
-    const color = colord(hexColor);
+  const highlightColors = highlights?.[timeCode]?.[dayCode];
 
-    return [color.alpha(0.6).toRgbString(), color.alpha(0.8).toRgbString()];
-  }, [highlightColor]);
+  if (!highlightColors) return null;
 
   return (
     <div

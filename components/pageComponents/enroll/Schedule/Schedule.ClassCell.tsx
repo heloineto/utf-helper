@@ -3,7 +3,6 @@ import classNames from 'clsx';
 import { useTimeCodes } from '@lib/hooks';
 import { HighlightContext, SettingsContext, UserDataContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
-import ScheduleHighlight from './Schedule.Highlight';
 
 interface Props extends ComponentProps<'div'> {
   classObject: ClassObject;
@@ -14,12 +13,9 @@ interface Props extends ComponentProps<'div'> {
 const ScheduleClassCell = ({ classObject, timeCode, dayCode, ...divProps }: Props) => {
   const { darkMode } = useContext(SettingsContext);
   const { schedule } = useContext(UserDataContext);
-  const { highlights } = useContext(HighlightContext);
   const timeCodes = useTimeCodes();
   const [sameClass, setSameClass] = useState({ above: false, below: false });
   const [color] = useColor(classObject.subjectCode);
-
-  const highlightColor = highlights?.[timeCode]?.[dayCode];
 
   console.log('hi');
   console.log({ highlights });
@@ -62,7 +58,6 @@ const ScheduleClassCell = ({ classObject, timeCode, dayCode, ...divProps }: Prop
       )}
       {...divProps}
     >
-      {highlightColor && <ScheduleHighlight highlightColor={highlightColor} />}
       <div
         className={classNames(
           sameClass.below && 'rounded-b-none mt-1',

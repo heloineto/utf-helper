@@ -19,9 +19,7 @@ type Props = {
 };
 
 const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
-  const { darkMode } = useContext(SettingsContext);
-
-  const { addHighlight } = useContext(HighlightContext);
+  const { addHighlight, removeHighlight } = useContext(HighlightContext);
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
   const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);
   const { userDetails } = useContext(UserDataContext);
@@ -79,10 +77,7 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
         }
         onMouseLeave={() =>
           !selected &&
-          addHighlight?.(
-            classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
-            'sky'
-          )
+          removeHighlight?.(classObject.schedule.map(({ dayTimeCode }) => dayTimeCode))
         }
       >
         <SubjectsTableData

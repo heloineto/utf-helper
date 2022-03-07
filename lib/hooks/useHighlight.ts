@@ -1,8 +1,10 @@
+import { colord } from 'colord';
 import { merge } from 'lodash';
 import { useState } from 'react';
+import twColors from 'tailwindcss/colors';
 
 const useHighlight = () => {
-  const [highlights, setHighlights] = useState<ScheduleMap<string>>({});
+  const [highlights, setHighlights] = useState<ScheduleMap<string[]>>({});
 
   const addHighlight = (dayTimeCodes: string | string[], colorName: string) =>
     setHighlights((value) => {
@@ -14,7 +16,15 @@ const useHighlight = () => {
         const dayCode = dayTimeCode.charAt(0);
         const timeCode = dayTimeCode.slice(1);
 
-        newValue = merge(newValue, { [timeCode]: { [dayCode]: colorName } });
+        const hexColor = (twColors as any)[colorName][500];
+
+        const color = colord(hexColor);
+
+        newValue = merge(newValue, {
+          [timeCode]: {
+            [dayCode]: [color.alpha(0.6).toRgbString(), color.alpha(0.8).toRgbString()],
+          },
+        });
       });
 
       return newValue;
