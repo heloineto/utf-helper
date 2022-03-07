@@ -1,21 +1,6 @@
-interface Campus {
-  key: string;
-  label: string;
-}
-
-interface Course {
-  key: string;
-  label: string;
-  numberCode: string;
-}
-
 interface UserDetailsClasses {
-  [campus: string]: Exclude<Campus, 'key'> & {
-    courses: {
-      [course: string]: Exclude<Course, 'key'> & {
-        subjects: Subjects;
-      };
-    };
+  [campus: string]: {
+    [course: string]: { [subject: string]: { [_class: string]: ClassObject } };
   };
 }
 
@@ -24,8 +9,8 @@ interface UserDetails {
   photoUrl?: string;
   name?: string;
   isAnonymous?: boolean;
-  campus?: Campus;
-  course?: Course;
+  campus?: string;
+  course?: string;
   classes?: UserDetailsClasses;
 }
 

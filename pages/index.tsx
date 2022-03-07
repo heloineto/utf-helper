@@ -1,7 +1,7 @@
 import MainShell from '@components/appShells/MainShell';
 import { Logomark } from '@components/decoration/logos/utfHelper';
 
-const Home: NextPage = () => {
+const Index: NextPage = () => {
   return (
     <MainShell>
       <div className="bg-slate-100 dark:bg-slate-800 p-5 h-full overflow-y-scroll">
@@ -13,4 +13,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Index;

@@ -22,13 +22,12 @@ const CampusForm = ({ afterSubmit }: Props) => {
   const { userDetails } = useContext(UserDataContext);
   const { update: updateUser } = useFirestoreOperations();
   const signInAnonymously = useSignInAnonymously();
+  const campuses = useCampuses();
 
   const campusFormSchema = yup.object().shape({
     campus: yup.string().required('Forneça o Câmpus'),
     course: yup.string().required('Forneça o Curso'),
   });
-
-  const campuses = useCampuses();
 
   const campusOptions = useMemo(
     () =>
@@ -77,8 +76,8 @@ const CampusForm = ({ afterSubmit }: Props) => {
       onSubmit={onSubmit}
       validate={makeValidate<Partial<CampusFormValues>>(campusFormSchema)}
       initialValues={{
-        campus: userDetails?.campus?.key,
-        course: userDetails?.course?.key,
+        campus: userDetails?.campus,
+        course: userDetails?.course,
       }}
     >
       {({ handleSubmit, submitting, submitError, values }) => (

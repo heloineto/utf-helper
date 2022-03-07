@@ -5,6 +5,7 @@ import classNames from 'clsx';
 import { UserDataContext } from '@lib/context';
 import CustomDialog from '@components/elements/modals/CustomDialog';
 import CampusForm from '@components/elements/forms/CampusForm';
+import { useCampuses } from '@lib/hooks';
 
 interface Props extends ComponentProps<'button'> {}
 
@@ -12,6 +13,10 @@ const NavbarCampus = ({ className, ...buttonProps }: Props) => {
   const [campusDialogOpen, setCampusDialogOpen] = useState(false);
   const [hover, setHover] = useState(false);
   const { userDetails } = useContext(UserDataContext);
+  const campuses = useCampuses();
+
+  const campus = userDetails?.campus;
+  const course = userDetails?.course;
 
   return (
     <>
@@ -32,10 +37,12 @@ const NavbarCampus = ({ className, ...buttonProps }: Props) => {
             </div>
           )}
           <p className="text-sky-500 dark:text-sky-400 text-sm font-medium">
-            {userDetails?.campus ? userDetails.campus.label : 'Selecione um Campus'}
+            {campus ? campuses[campus].label : 'Selecione um Campus'}
           </p>
           <p className="text-slate-700 dark:text-slate-500 text-sm font-medium">
-            {userDetails?.course ? userDetails.course.label : 'Selecione um Curso'}
+            {campus && course
+              ? campuses[campus].courses[course].label
+              : 'Selecione um Curso'}
           </p>
         </button>
       </Tooltip>

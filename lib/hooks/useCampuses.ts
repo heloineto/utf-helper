@@ -1,19 +1,17 @@
 import { useMemo } from 'react';
 
 const useCampuses = () => {
-  const campuses: Record<
-    string,
-    {
+  const campuses: {
+    [campus: string]: {
       label: string;
-      courses: Record<
-        string,
-        {
+      courses: {
+        [course: string]: {
           label: string;
           numberCode: string;
-        }
-      >;
-    }
-  > = useMemo(
+        };
+      };
+    };
+  } = useMemo(
     () => ({
       // curitiba: {
       //   label: 'Curitiba',

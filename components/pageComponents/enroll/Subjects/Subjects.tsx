@@ -10,18 +10,13 @@ import { useContext } from 'react';
 import { UserDataContext } from '@lib/context';
 
 interface Props {
-  campus: Campus;
-  course: Course;
+  campus: string;
+  course: string;
 }
 
 const Subjects = ({ campus, course }: Props) => {
-  const { userDetails } = useContext(UserDataContext);
-
-  const selectedSubjects =
-    userDetails?.classes?.[campus.key].courses[course.key].subjects;
-
   const [subjects, loading, error] = useCollectionObject<Subject>(
-    `campuses/${campus.key}/courses/${course.key}/subjects-2022-01`,
+    `campuses/${campus}/courses/${course}/subjects-2022-01`,
     orderBy('name')
   );
 
@@ -77,7 +72,8 @@ const Subjects = ({ campus, course }: Props) => {
                   key={classCode}
                   classObject={classObject}
                   subject={subject}
-                  selectedSubjects={selectedSubjects}
+                  campus={campus}
+                  course={course}
                 />
               ))}
             </tbody>
