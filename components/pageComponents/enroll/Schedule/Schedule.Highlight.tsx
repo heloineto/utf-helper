@@ -1,7 +1,5 @@
-import { HighlightContext, SettingsContext } from '@lib/context';
-import { colord } from 'colord';
-import { useContext, useMemo } from 'react';
-import twColors from 'tailwindcss/colors';
+import { HighlightContext } from '@lib/context';
+import { useContext } from 'react';
 
 type Props = {
   timeCode: string;

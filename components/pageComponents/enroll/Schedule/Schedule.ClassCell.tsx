@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import classNames from 'clsx';
 import { useTimeCodes } from '@lib/hooks';
-import { HighlightContext, SettingsContext, UserDataContext } from '@lib/context';
+import { SettingsContext, UserDataContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
 
 interface Props extends ComponentProps<'div'> {

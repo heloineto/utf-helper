@@ -1,9 +1,8 @@
 import { scheduleStructure } from '@lib/utils/schedule';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import ScheduleClassCell from './Schedule.ClassCell';
 import ScheduleClassDialog from './Schedule.ScheduleClassDialog';
 import ScheduleHighlight from './Schedule.Highlight';
-import { HighlightContext } from '@lib/context';
 
 type Props = {};
 

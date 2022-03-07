@@ -1,9 +1,9 @@
 import {
-  setDoc,
   SetOptions,
   UpdateData,
-  updateDoc,
   WithFieldValue,
+  setDoc,
+  updateDoc,
 } from 'firebase/firestore';
 import { useSnackbar } from 'notistack';
 

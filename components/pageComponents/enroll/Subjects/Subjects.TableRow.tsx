@@ -1,4 +1,4 @@
-import { HighlightContext, SettingsContext, UserDataContext } from '@lib/context';
+import { HighlightContext, UserDataContext } from '@lib/context';
 import { selectGroup, unselectGroup } from '@lib/utils/schedule';
 import { useContext, useState } from 'react';
 import SubjectsDayTimeCell from './Subjects.DayTimeCell';
@@ -8,8 +8,9 @@ import ActionDialog from '@components/elements/modals/ActionDialog';
 import SubjectsConflictBadge from './Subjects.ConflictBadge';
 import { IconButton, Tooltip } from '@mui/material';
 import { useFirestoreOperations } from '@lib/hooks';
-import { getFramingDescription, getConflicts } from '@lib/utils/schedule';
-import { deleteField } from 'firebase/firestore';
+import { getConflicts, getFramingDescription } from '@lib/utils/schedule';
+import { deleteField, writeBatch } from 'firebase/firestore';
+import { firestore } from '@lib/firebase';
 
 type Props = {
   classObject: ClassObject;
@@ -151,15 +152,13 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
                   key={withClass.subjectCode + withClass.code}
                   classObject={withClass}
                   dayTimeCodes={dayTimeCodes}
-                  onRemove={() => {
-                    if (!setSelectedClasses || !setSchedule || !selectedClasses) return;
+                  onRemove={async () => {
+                    if (!userDetails?.ref) return;
 
-                    unselectGroup(
-                      setSelectedClasses,
-                      setSchedule,
-                      withClass,
-                      selectedClasses
-                    );
+                    await updateUserDetails<UserDetails>(userDetails?.ref, {
+                      [`classes.${campus}.${course}.${withClass.subjectCode}.${withClass.code}`]:
+                        deleteField(),
+                    });
 
                     setConflicts((value) => {
                       if (value === null) return null;
@@ -184,32 +183,32 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
             variant: 'outlined',
             label: `Remover esses conflitos e adiconar`,
             onClick: async () => {
-              if (!setSelectedClasses || !setSchedule || !selectedClasses || !conflicts)
-                return;
+              if (!userDetails?.ref) return;
+              if (!conflicts) return;
 
-              /**
-               * await here is necessary because of how setState works
-               */
+              const batch = writeBatch(firestore);
+
               for (const { withClass } of conflicts) {
-                await unselectGroup(
-                  setSelectedClasses,
-                  setSchedule,
-                  withClass,
-                  selectedClasses
-                );
+                batch.update<UserDetails>(userDetails?.ref, {
+                  [`classes.${campus}.${course}.${withClass.subjectCode}.${withClass.code}`]:
+                    deleteField(),
+                });
               }
 
-              const conflictsFound = await selectGroup(
-                setSelectedClasses,
-                setSchedule,
-                classObject,
-                selectedClasses
-              );
+              const newConflicts =
+                selectedClasses && getConflicts(selectedClasses, classObject);
 
-              if (conflictsFound) {
-                setConflicts(conflictsFound);
+              if (newConflicts) {
+                setConflicts(newConflicts);
                 setConflictsDialogOpen(true);
+
+                return;
               }
+
+              await updateUserDetails<UserDetails>(userDetails?.ref, {
+                [`classes.${campus}.${course}.${subject.code}.${classObject.code}`]:
+                  classObject as any,
+              });
 
               setConflictsDialogOpen(false);
             },
