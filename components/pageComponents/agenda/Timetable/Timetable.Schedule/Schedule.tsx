@@ -92,13 +92,7 @@ const Schedule = ({}: Props) => {
               {Object.entries(days).map(([dayCode, classObject]) => {
                 const [shitfCode, numberCode] = timeCode.split('');
 
-                return (
-                  <td
-                    key={dayCode}
-                    className="relative"
-                    id={`${dayCode}${timeCode}`}
-                  ></td>
-                );
+                return <td key={dayCode} className="relative"></td>;
               })}
             </tr>
           ))}

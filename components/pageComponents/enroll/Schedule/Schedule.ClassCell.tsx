@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import classNames from 'clsx';
 import { useTimeCodes } from '@lib/hooks';
-import { SettingsContext, UserDataContext } from '@lib/context';
+import { HighlightContext, SettingsContext, UserDataContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
+import ScheduleClassCellHighlight from './Schedule.ClassCellHighlight';
 
 interface Props extends ComponentProps<'div'> {
   classObject: ClassObject;
@@ -13,9 +14,12 @@ interface Props extends ComponentProps<'div'> {
 const ScheduleClassCell = ({ classObject, timeCode, dayCode, ...divProps }: Props) => {
   const { darkMode } = useContext(SettingsContext);
   const { schedule } = useContext(UserDataContext);
+  const { highlights } = useContext(HighlightContext);
   const timeCodes = useTimeCodes();
   const [sameClass, setSameClass] = useState({ above: false, below: false });
   const [color] = useColor(classObject.subjectCode);
+
+  const highlightColor = highlights?.[timeCode]?.[dayCode];
 
   useEffect(() => {
     if (!schedule) return;
@@ -51,10 +55,11 @@ const ScheduleClassCell = ({ classObject, timeCode, dayCode, ...divProps }: Prop
     <div
       className={classNames(
         sameClass.below && sameClass.above && 'h-[calc(100%+1px)]',
-        'class-cell flex absolute top-0 left-0 w-full h-full cursor-pointer'
+        'flex absolute top-0 left-0 w-full h-full cursor-pointer'
       )}
       {...divProps}
     >
+      {highlightColor && <ScheduleClassCellHighlight highlightColor={highlightColor} />}
       <div
         className={classNames(
           sameClass.below && 'rounded-b-none mt-1',
