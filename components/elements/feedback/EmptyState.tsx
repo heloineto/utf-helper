@@ -14,6 +14,7 @@ const EmptyState = ({
   Icon = Placeholder,
   classes,
   className,
+  children,
   ...divProps
 }: Props) => {
   return (
@@ -29,6 +30,7 @@ const EmptyState = ({
         {title}
       </h3>
       {subtitle && <p className="mt-1 text-sm text-slate-500">{subtitle}</p>}
+      {children}
     </div>
   );
 };

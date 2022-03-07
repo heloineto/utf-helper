@@ -6,6 +6,7 @@ import SubjectsTableRow from './Subjects.TableRow';
 import SubjectsWeeklyLessons from './Subjects.WeeklyLessons';
 import EmptyState from '@components/elements/feedback/EmptyState';
 import { GraduationCap } from 'phosphor-react';
+import PrimaryButton from '@components/elements/buttons/PrimaryButton';
 
 interface Props {}
 
@@ -16,7 +17,13 @@ const Subjects = (props: Props) => {
 
   if (!userDetails?.campus || !userDetails?.course) {
     return (
-      <EmptyState title="Selecione o Campus e Curso" Icon={GraduationCap}></EmptyState>
+      <EmptyState
+        className="h-full"
+        title="Selecione o Campus e Curso"
+        Icon={GraduationCap}
+      >
+        <PrimaryButton>Selecionar</PrimaryButton>
+      </EmptyState>
     );
   }
 

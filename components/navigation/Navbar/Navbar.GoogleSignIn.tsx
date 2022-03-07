@@ -1,4 +1,5 @@
 import { GoogleLogomark } from '@components/decoration/logos/google';
+import PrimaryButton from '@components/elements/buttons/PrimaryButton';
 import useSignInWithGoogle from '@lib/database/user/useSignInWithGoogle';
 import { Button, ButtonProps, Tooltip } from '@mui/material';
 import classNames from 'clsx';
@@ -10,18 +11,15 @@ const NavbarGoogleSignIn = ({ className, ...muiButtonProps }: Props) => {
 
   return (
     <Tooltip title="Entre com o google salvar seus dados" arrow>
-      <Button
+      <PrimaryButton
         size="small"
-        className={classNames(
-          className,
-          'w-40 bg-transparent hover:bg-sky-100 border-2 dark:border-none border-solid border-sky-400 hover:border-sky-500 text-sky-400 text-base py-2 font-semibold dark:bg-sky-900 dark:highlight-white/20 dark:hover:bg-sky-400 dark:text-sky-300 dark:hover:text-sky-900'
-        )}
+        className={classNames(className, 'w-40')}
         onClick={signInWithGoogle}
         {...muiButtonProps}
       >
         Entar
         <GoogleLogomark className="ml-2" />
-      </Button>
+      </PrimaryButton>
     </Tooltip>
   );
 };
