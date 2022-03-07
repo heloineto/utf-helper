@@ -1,5 +1,4 @@
-import { Button, Dialog, DialogProps } from '@mui/material';
-import { useSnackbar } from 'notistack';
+import { Button, DialogProps } from '@mui/material';
 import CustomDialog from '../CustomDialog';
 import ReviewClasses from './ReviewClasses';
 

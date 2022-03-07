@@ -3,11 +3,9 @@ import {
   AccordionDetails,
   AccordionProps,
   AccordionSummary,
-  AccordionSummaryProps,
 } from '@mui/material';
 import { CaretDown } from 'phosphor-react';
 import { ComponentProps, useState } from 'react';
-import classNames from 'clsx';
 
 interface Props extends AccordionProps {
   title: string;
