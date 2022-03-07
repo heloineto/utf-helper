@@ -193,7 +193,7 @@ export const getConflicts = (
     });
   });
 
-  return conflicts;
+  return isEmpty(conflicts) ? null : conflicts;
 };
 
 export const getSubjectType = (subject: {
@@ -451,3 +451,16 @@ export const campuses = deepFreeze({
     label: 'Santa Helena',
   },
 });
+
+export const getFramingDescription = (framing: string) => {
+  switch (framing) {
+    case 'P':
+      return 'P - Turma 100% Presencial, conforme Resolução 123/2021 - COGEP';
+    case 'H':
+      return 'H - Turma híbrida, com atividades desenvolvidas de forma mista entre remoto e presencial conforme Resolução 123/2021-COGEP';
+    case 'R':
+      return 'R - Turma 100% remota, conforme Resolução 123/2021 - COGEP';
+    default:
+      return 'Error: framing code is not P, H or R';
+  }
+};

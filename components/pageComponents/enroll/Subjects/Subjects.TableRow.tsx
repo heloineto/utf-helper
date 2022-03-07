@@ -7,6 +7,9 @@ import classNames from 'clsx';
 import ActionDialog from '@components/elements/modals/ActionDialog';
 import SubjectsConflictBadge from './Subjects.ConflictBadge';
 import { IconButton, Tooltip } from '@mui/material';
+import { useFirestoreOperations } from '@lib/hooks';
+import { getFramingDescription, getConflicts } from '@lib/utils/schedule';
+import { deleteField } from 'firebase/firestore';
 
 type Props = {
   classObject: ClassObject;
@@ -19,8 +22,8 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
   const { darkMode } = useContext(SettingsContext);
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
   const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);
-
   const { userDetails } = useContext(UserDataContext);
+  const { set: setUserDetails, update: updateUserDetails } = useFirestoreOperations();
 
   const selectedClasses = userDetails?.classes?.[campus]?.[course];
   const selected = !!selectedClasses?.[subject.code]?.[classObject.code];
@@ -34,25 +37,31 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
             : 'hover:bg-sky-100 dark:hover:bg-sky-900/50 odd:bg-slate-100/90 dark:odd:bg-slate-900/30',
           'cursor-pointer relative'
         )}
-        onClick={() => {
-          if (!setSelectedClasses || !setSchedule || !selectedClasses) return;
+        onClick={async () => {
+          if (!userDetails?.ref) return;
 
           if (selected) {
-            unselectGroup(setSelectedClasses, setSchedule, classObject, selectedClasses);
+            await updateUserDetails<UserDetails>(userDetails?.ref, {
+              [`classes.${campus}.${course}.${subject.code}.${classObject.code}`]:
+                deleteField(),
+            });
+
             return;
           }
 
-          const conflictsFound = selectGroup(
-            setSelectedClasses,
-            setSchedule,
-            classObject,
-            selectedClasses
-          );
+          const conflicts = selectedClasses && getConflicts(selectedClasses, classObject);
 
-          if (conflictsFound) {
-            setConflicts(conflictsFound);
+          if (conflicts) {
+            setConflicts(conflicts);
             setConflictsDialogOpen(true);
+
+            return;
           }
+
+          await updateUserDetails<UserDetails>(userDetails?.ref, {
+            [`classes.${campus}.${course}.${subject.code}.${classObject.code}`]:
+              classObject as any,
+          });
 
           highlightGroup(
             classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
@@ -100,21 +109,9 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
         <SubjectsTableData className="whitespace-pre-line">
           {classObject.teacher}
         </SubjectsTableData>
-        {/* <SubjectsTableData className="text-slate-500 font-normal text-center">
-          {classObject.vacanciesTotal}
-        </SubjectsTableData> */}
         <SubjectsTableData className="text-slate-500 font-normal text-center">
           {classObject.framing && (
-            <Tooltip
-              title={
-                classObject.framing === 'P'
-                  ? 'P - Turma 100% Presencial, conforme Resolução 123/2021 - COGEP'
-                  : classObject.framing === 'H'
-                  ? 'H - Turma híbrida, com atividades desenvolvidas de forma mista entre remoto e presencial conforme Resolução 123/2021-COGEP'
-                  : 'R - Turma 100% remota, conforme Resolução 123/2021 - COGEP'
-              }
-              arrow
-            >
+            <Tooltip title={getFramingDescription(classObject.framing)} arrow>
               <IconButton
                 className={classNames(
                   classObject.framing === 'P' &&

@@ -1,6 +1,6 @@
 import { GoogleLogomark } from '@components/decoration/logos/google';
 import PrimaryButton from '@components/elements/buttons/PrimaryButton';
-import useSignInWithGoogle from '@lib/database/user/useSignInWithGoogle';
+import { useSignInWithGoogle } from '@lib/hooks';
 import { ButtonProps, Tooltip } from '@mui/material';
 import classNames from 'clsx';
 
