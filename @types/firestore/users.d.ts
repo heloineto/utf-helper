@@ -1,8 +1,14 @@
-interface UserDetailsClasses {
+type ClassMap<T> = {
   [campus: string]: {
-    [course: string]: { [subject: string]: { [_class: string]: ClassObject } };
+    [course: string]: { [subject: string]: { [_class: string]: T } };
   };
-}
+};
+
+// interface ClassMap {
+//   [campus: string]: {
+//     [course: string]: { [subject: string]: { [_class: string]: ClassObject } };
+//   };
+// }
 
 interface UserDetails {
   email?: string;
@@ -11,7 +17,7 @@ interface UserDetails {
   isAnonymous?: boolean;
   campus?: string;
   course?: string;
-  classes?: UserDetailsClasses;
+  classes?: ClassMap<ClassObject>;
 }
 
 type UserDetailsWithRef = UserDetails & { ref: DocumentReference };

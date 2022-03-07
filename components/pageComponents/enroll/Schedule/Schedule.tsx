@@ -6,7 +6,6 @@ import ScheduleClassDialog from './Schedule.ClassObjectModal';
 type Props = {};
 
 const Schedule = ({}: Props) => {
-  // const { schedule } = useContext(UserDataContext);
   const [selectedClass, setSelectedClass] = useState<ClassObject | null>(null);
   const [classDialogOpen, setClassDialogOpen] = useState(false);
 

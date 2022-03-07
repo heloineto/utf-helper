@@ -19,7 +19,7 @@ const Enroll: NextPage = () => {
       <div
         className={classNames(
           direction === 'horizontal' ? 'flex-row' : 'flex-col',
-          'h-full w-full flex overflow-hidden'
+          'h-[calc(100%-3rem)] flex overflow-hidden'
         )}
       >
         <div className="h-2/3 w-1/2 overflow-auto" ref={resize1Ref}>
