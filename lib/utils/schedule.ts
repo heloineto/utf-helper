@@ -54,23 +54,6 @@ const highlight = (
   cell.appendChild(highlightElem);
 };
 
-export const highlightCell = (
-  dayTimeCode: string,
-  shouldHighlight: boolean,
-  darkMode?: boolean,
-  surpressRed?: boolean
-) => {
-  highlight(
-    'cell',
-    dayTimeCode,
-    shouldHighlight,
-    darkMode
-      ? { r: 14, g: 165, b: 233 } /* bg-sky-500 */
-      : { r: 14, g: 165, b: 233 } /* bg-sky-500 */,
-    surpressRed
-  );
-};
-
 export const selectGroup = (
   setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>>,
   setSchedule: Dispatch<SetStateAction<ScheduleObject>>,

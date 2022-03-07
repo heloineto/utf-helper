@@ -8,8 +8,9 @@ import { useFirestoreOperations } from '@lib/hooks';
 import { getConflicts, getFramingDescription } from '@lib/utils/schedule';
 import { deleteField } from 'firebase/firestore';
 import SubjectsConfictsDialog from './Subjects.ConfictsDialog';
-import twColors from 'tailwindcss/colors';
-import { colord } from 'colord';
+
+import useHighlights from '@lib/hooks/useHighlights';
+import Highlights from '@components/elements/feedback/Highlights';
 
 type Props = {
   classObject: ClassObject;
@@ -18,41 +19,8 @@ type Props = {
   course: string;
 };
 
-type Highlights = { [dayTimeCode: string]: string[] };
-
 const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
-  const [highlights, setHighlights] = useState<Highlights | null>(null);
-
-  const addHighlight = (dayTimeCodes: string[], colorName: string) => {
-    setHighlights((value) => {
-      let newValue = { ...value };
-
-      dayTimeCodes.forEach((dayTimeCode) => {
-        const hexColor = (twColors as any)[colorName][500];
-
-        const color = colord(hexColor);
-
-        newValue[dayTimeCode] = [
-          color.alpha(0.6).toRgbString(),
-          color.alpha(0.8).toRgbString(),
-        ];
-      });
-
-      return newValue;
-    });
-  };
-
-  const removeHighlight = (dayTimeCodes: string[]) => {
-    setHighlights((value) => {
-      let newValue = { ...value };
-
-      dayTimeCodes.forEach((dayTimeCode) => {
-        delete newValue[dayTimeCode];
-      });
-
-      return newValue;
-    });
-  };
+  const { highlights, addHighlights, removeHighlights } = useHighlights();
 
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
   const [conflictsDialogOpen, setConflictsDialogOpen] = useState(false);
@@ -85,7 +53,7 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
         classObject as any,
     });
 
-    addHighlight?.(
+    addHighlights(
       classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
       'sky'
     );
@@ -93,20 +61,8 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
 
   return (
     <>
-      {highlights &&
-        Object.entries(highlights).map(([dayTimeCode, colors]) => (
-          <Portal
-            key={dayTimeCode}
-            container={document && document.getElementById(`schedule-${dayTimeCode}`)}
-          >
-            <div
-              className="absolute top-0 left-0 h-full w-full z-50"
-              style={{
-                background: `repeating-linear-gradient(45deg, ${colors[0]}, ${colors[0]} 0.25rem, ${colors[1]} 0.25rem, ${colors[1]} 0.5rem)`,
-              }}
-            />
-          </Portal>
-        ))}
+      {highlights && <Highlights highlights={highlights} />}
+
       <tr
         className={classNames(
           selected
@@ -117,14 +73,14 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
         onClick={toggleSelected}
         onMouseEnter={() =>
           !selected &&
-          addHighlight?.(
+          addHighlights(
             classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
             'sky'
           )
         }
         onMouseLeave={() =>
           !selected &&
-          removeHighlight?.(classObject.schedule.map(({ dayTimeCode }) => dayTimeCode))
+          removeHighlights(classObject.schedule.map(({ dayTimeCode }) => dayTimeCode))
         }
       >
         <SubjectsTableData

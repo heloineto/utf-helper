@@ -13,3 +13,5 @@ type SelectedDayTime = { [x: string]: ClassObject };
 type Conflict = { withClass: ClassObject; dayTimeCodes: string[] };
 
 type ScheduleMap<T> = { [timeCode: string]: { [dayCode: string]: T } };
+
+type Highlights = { [dayTimeCode: string]: string[] };
