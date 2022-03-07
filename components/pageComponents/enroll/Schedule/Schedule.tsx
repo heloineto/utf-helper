@@ -51,7 +51,11 @@ const Schedule = ({}: Props) => {
               <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
               {Object.entries(days).map(([dayCode, classObject]) => {
                 return (
-                  <td key={dayCode} className="relative">
+                  <td
+                    key={dayCode}
+                    id={`schedule-${dayCode}${timeCode}}`}
+                    className="relative"
+                  >
                     <ScheduleHighlight timeCode={timeCode} dayCode={dayCode} />
                     {classObject && (
                       <ScheduleClassCell
