@@ -1,14 +1,9 @@
 import { scheduleStructure } from '@lib/utils/schedule';
 import { useState } from 'react';
-import ScheduleClassCell from './Schedule.ClassCell';
-import ScheduleClassDialog from './Schedule.ScheduleClassDialog';
 
 type Props = {};
 
 const Schedule = ({}: Props) => {
-  const [selectedClass, setSelectedClass] = useState<ClassObject | null>(null);
-  const [classDialogOpen, setClassDialogOpen] = useState(false);
-
   return (
     <>
       <table
@@ -55,8 +50,8 @@ const Schedule = ({}: Props) => {
                     id={`schedule-${dayCode}${timeCode}`}
                     className="relative"
                   >
-                    {classObject && (
-                      <ScheduleClassCell
+                    {/* //! {classObject && (
+                      <ClassCell
                         classObject={classObject}
                         timeCode={timeCode}
                         dayCode={dayCode}
@@ -65,7 +60,7 @@ const Schedule = ({}: Props) => {
                           setClassDialogOpen(true);
                         }}
                       />
-                    )}
+                    )} */}
                   </td>
                 );
               })}
@@ -73,11 +68,6 @@ const Schedule = ({}: Props) => {
           ))}
         </tbody>
       </table>
-      <ScheduleClassDialog
-        open={classDialogOpen}
-        onClose={() => setClassDialogOpen(false)}
-        classObject={selectedClass}
-      />
     </>
   );
 };
