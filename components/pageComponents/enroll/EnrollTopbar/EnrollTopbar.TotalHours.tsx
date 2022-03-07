@@ -5,24 +5,28 @@ import { useContext, useMemo } from 'react';
 type Props = {};
 
 const EnrollTopbarTotalHours = (props: Props) => {
-  const { selectedClasses } = useContext(UserDataContext);
+  const { userDetails } = useContext(UserDataContext);
+  const classes = userDetails?.classes;
 
   const totalTime = useMemo(() => {
-    if (!selectedClasses) return 0;
+    if (!classes) return 0;
 
     let total = 0;
 
-    Object.values(selectedClasses).forEach((classObjects) => {
-      if (!classObjects) return;
+    Object.entries(classes).forEach(([campusKey, campus]) => {
+      Object.entries(campus).forEach(([courseKey, course]) => {
+        Object.entries(course).forEach(([subjectKey, subject]) => {
+          Object.entries(subject).forEach(([classKey, classObject]) => {
+            if (!classObject?.weeklyLessons) return;
 
-      Object.values(classObjects).forEach((classObject) => {
-        if (!classObject?.weeklyLessons) return;
-
-        total += classObject.weeklyLessons;
+            total += classObject.weeklyLessons;
+          });
+        });
       });
     });
+
     return total;
-  }, [selectedClasses]);
+  }, [classes]);
 
   return (
     <div className="text-[0.8rem] h-9 font-medium gap-x-2 text-slate-700 dark:text-slate-300 bg-slate-400/10 rounded-md px-3 flex items-center">

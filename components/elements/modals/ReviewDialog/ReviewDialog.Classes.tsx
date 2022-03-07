@@ -7,7 +7,7 @@ type Props = {
   classes: ClassMap<ClassObject>;
 };
 
-const ReviewClasses = ({ classes }: Props) => {
+const ReviewDialogClasses = ({ classes }: Props) => {
   const campuses = useCampuses();
   const { enqueueSnackbar } = useSnackbar();
 
@@ -78,4 +78,4 @@ const ReviewClasses = ({ classes }: Props) => {
   );
 };
 
-export default ReviewClasses;
+export default ReviewDialogClasses;

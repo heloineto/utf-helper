@@ -1,6 +1,6 @@
 import { Button, DialogProps } from '@mui/material';
 import CustomDialog from '../CustomDialog';
-import ReviewClasses from './ReviewClasses';
+import ReviewDialogClasses from './ReviewDialog.Classes';
 
 interface Props extends DialogProps {
   classes: ClassMap<ClassObject>;
@@ -16,7 +16,7 @@ const ReviewDialog = ({ onClose, classes, ...dialogProps }: Props) => {
           <span className="text-sm font-medium text-slate-500">Clique para copiar</span>
         </div>
         <div className="text-sm text-slate-900 dark:text-slate-200 sm:mt-0 sm:col-span-2">
-          <ReviewClasses classes={classes} />
+          <ReviewDialogClasses classes={classes} />
         </div>
         <div className="px-8 py-6 border-t border-slate-200 dark:border-slate-700 pt-6 flex flex-row justify-end gap-5 ">
           <Button
