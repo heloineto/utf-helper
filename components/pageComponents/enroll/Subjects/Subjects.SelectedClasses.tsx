@@ -1,5 +1,6 @@
 import { UserDataContext } from '@lib/context';
-import { useFirestoreOperations } from '@lib/hooks';
+import { useFirestoreOperations, useTimeCodes } from '@lib/hooks';
+import { merge } from 'lodash';
 import { useContext } from 'react';
 
 type Props = {
@@ -10,10 +11,15 @@ type Props = {
 const SubjectsSelectedClasses = ({ campus, course }: Props) => {
   const { userDetails } = useContext(UserDataContext);
   const { update: updateUserDetails } = useFirestoreOperations();
+  const timeCodes = useTimeCodes();
 
-  const selectedClasses = userDetails?.classes?.[campus]?.[course];
+  const selectedSubjects = userDetails?.classes?.[campus]?.[course];
 
-  console.log(selectedClasses);
+  if (!selectedSubjects) return;
+
+  Object.values(selectedSubjects).map((selectedSubject) =>
+    Object.values(selectedSubject).map((classeObjs) => {})
+  );
 
   return null;
 };

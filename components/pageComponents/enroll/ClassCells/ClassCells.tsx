@@ -3,7 +3,7 @@ import classNames from 'clsx';
 import { useTimeCodes } from '@lib/hooks';
 import { SettingsContext, UserDataContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
-import ClassCellDialog from './ClassCell.Dialog';
+import ClassCellsDialog from './ClassCells.Dialog';
 
 interface Props extends ComponentProps<'div'> {
   classObject: ClassObject;
@@ -11,7 +11,7 @@ interface Props extends ComponentProps<'div'> {
   dayCode: string;
 }
 
-const ClassCell = ({ classObject, timeCode, dayCode, ...divProps }: Props) => {
+const ClassCells = ({ classObject, timeCode, dayCode, ...divProps }: Props) => {
   const [selectedClass, setSelectedClass] = useState<ClassObject | null>(null);
   const [classDialogOpen, setClassDialogOpen] = useState(false);
 
@@ -105,7 +105,7 @@ const ClassCell = ({ classObject, timeCode, dayCode, ...divProps }: Props) => {
           )}
         </div>
       </div>
-      <ClassCellDialog
+      <ClassCellsDialog
         classObject={classObject}
         open={classDialogOpen}
         onClose={() => setClassDialogOpen(false)}
@@ -114,4 +114,4 @@ const ClassCell = ({ classObject, timeCode, dayCode, ...divProps }: Props) => {
   );
 };
 
-export default ClassCell;
+export default ClassCells;

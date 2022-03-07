@@ -11,7 +11,7 @@ interface Props extends DialogProps {
   onClose: () => void;
 }
 
-const ClassCellDialog = ({ classObject, open, onClose, ...dialogProps }: Props) => {
+const ClassCellsDialog = ({ classObject, open, onClose, ...dialogProps }: Props) => {
   const { userDetails } = useContext(UserDataContext);
   const { update: updateUserDetails } = useFirestoreOperations();
 
@@ -178,4 +178,4 @@ const ClassCellDialog = ({ classObject, open, onClose, ...dialogProps }: Props) 
   );
 };
 
-export default ClassCellDialog;
+export default ClassCellsDialog;
