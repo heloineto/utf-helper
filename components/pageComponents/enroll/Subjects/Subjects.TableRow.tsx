@@ -53,10 +53,7 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
         classObject as any,
     });
 
-    addHighlights(
-      classObject.schedule.map(({ dayTimeCode }) => dayTimeCode),
-      'sky'
-    );
+    removeHighlights(classObject.schedule.map(({ dayTimeCode }) => dayTimeCode));
   };
 
   return (

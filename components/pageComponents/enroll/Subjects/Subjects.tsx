@@ -6,6 +6,7 @@ import SubjectsLoading from './Subjects.Loading';
 import { orderBy } from 'firebase/firestore';
 import SubjectsEmptyState from './Subjects.EmptyState';
 import { isEmpty } from 'lodash';
+import SubjectsSelectedClasses from './Subjects.SelectedClasses';
 
 interface Props {
   campus: string;
@@ -35,47 +36,50 @@ const Subjects = ({ campus, course }: Props) => {
   }
 
   return (
-    <div className="min-w-min bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
-      {Object.entries(subjects).map(([subjectCode, subject]) => (
-        <div key={subjectCode}>
-          <div className="bg-slate-200/90 dark:bg-slate-600 px-6 py-3 flex items-center gap-x-2 text-md h-12 w-full font-medium tracking-wider">
-            <span className="bg-slate-300 dark:bg-slate-500 rounded-md p-1 text-sm text-slate-500 dark:text-slate-300">
-              {subject.code}
-            </span>
-            <span className="uppercase text-slate-700 dark:text-slate-300">
-              {subject.name}
-            </span>
-            <SubjectsWeeklyLessons subject={subject} />
+    <>
+      <SubjectsSelectedClasses campus={campus} course={course} />
+      <div className="min-w-min bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
+        {Object.entries(subjects).map(([subjectCode, subject]) => (
+          <div key={subjectCode}>
+            <div className="bg-slate-200/90 dark:bg-slate-600 px-6 py-3 flex items-center gap-x-2 text-md h-12 w-full font-medium tracking-wider">
+              <span className="bg-slate-300 dark:bg-slate-500 rounded-md p-1 text-sm text-slate-500 dark:text-slate-300">
+                {subject.code}
+              </span>
+              <span className="uppercase text-slate-700 dark:text-slate-300">
+                {subject.name}
+              </span>
+              <SubjectsWeeklyLessons subject={subject} />
+            </div>
+            <table className="w-full">
+              <tbody className="w-full">
+                <tr className="bg-slate-100 dark:bg-slate-900 text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                  <SubjectsTableHeader className="w-[5%]">Turma</SubjectsTableHeader>
+                  <SubjectsTableHeader className="w-[45%]">
+                    Horário &amp; Local
+                  </SubjectsTableHeader>
+                  <SubjectsTableHeader className="w-[20%]">Professor</SubjectsTableHeader>
+                  <SubjectsTableHeader className="w-[5%] text-center">
+                    Enquadramento
+                  </SubjectsTableHeader>
+                  <SubjectsTableHeader className="w-[20%] text-right">
+                    Optativa
+                  </SubjectsTableHeader>
+                </tr>
+                {Object.entries(subject.classes).map(([classCode, classObject]) => (
+                  <SubjectsTableRow
+                    key={classCode}
+                    classObject={classObject}
+                    subject={subject}
+                    campus={campus}
+                    course={course}
+                  />
+                ))}
+              </tbody>
+            </table>
           </div>
-          <table className="w-full">
-            <tbody className="w-full">
-              <tr className="bg-slate-100 dark:bg-slate-900 text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                <SubjectsTableHeader className="w-[5%]">Turma</SubjectsTableHeader>
-                <SubjectsTableHeader className="w-[45%]">
-                  Horário &amp; Local
-                </SubjectsTableHeader>
-                <SubjectsTableHeader className="w-[20%]">Professor</SubjectsTableHeader>
-                <SubjectsTableHeader className="w-[5%] text-center">
-                  Enquadramento
-                </SubjectsTableHeader>
-                <SubjectsTableHeader className="w-[20%] text-right">
-                  Optativa
-                </SubjectsTableHeader>
-              </tr>
-              {Object.entries(subject.classes).map(([classCode, classObject]) => (
-                <SubjectsTableRow
-                  key={classCode}
-                  classObject={classObject}
-                  subject={subject}
-                  campus={campus}
-                  course={course}
-                />
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 };
 
