@@ -19,7 +19,12 @@ const SubjectsSelectedClasses = ({ campus, course }: Props) => {
       {Object.entries(selectedSubjects).map(([key, subject]) => (
         <Fragment key={key}>
           {Object.entries(subject).map(([key, classObject]) => (
-            <ClassCells key={key} classObject={classObject} />
+            <ClassCells
+              key={key}
+              classObject={classObject}
+              campus={campus}
+              course={course}
+            />
           ))}
         </Fragment>
       ))}

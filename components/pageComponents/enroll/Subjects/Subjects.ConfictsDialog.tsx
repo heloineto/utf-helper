@@ -91,7 +91,7 @@ const SubjectsConfictsDialog = ({
           className:
             'w-full border-red-500 text-red-500 bg-red-100 hover:bg-red-200 hover:border-red-600 dark:bg-red-600 dark:text-red-200 dark:hover:bg-red-700 dark:border-transparent',
           variant: 'outlined',
-          label: `Remover esses conflitos e adiconar`,
+          label: `Remover esses Conflitos e Adiconar`,
           onClick: async () => {
             if (!userDetails?.ref) return;
             if (!conflicts) return;
@@ -105,12 +105,13 @@ const SubjectsConfictsDialog = ({
               });
             }
 
+            await batch.commit();
+
             const newConflicts =
               selectedClasses && getConflicts(selectedClasses, classObject);
 
             if (newConflicts) {
               setConflicts(newConflicts);
-
               return;
             }
 
@@ -119,7 +120,7 @@ const SubjectsConfictsDialog = ({
                 classObject as any,
             });
 
-            onClose?.();
+            onClose();
           },
         },
         {
@@ -127,7 +128,7 @@ const SubjectsConfictsDialog = ({
             'w-full border-slate-500 !text-slate-500 bg-slate-100 hover:bg-slate-200 hover:border-slate-600 dark:bg-slate-600 dark:!text-slate-200 dark:hover:bg-slate-700 dark:border-transparent',
           variant: 'outlined',
           label: 'Cancelar',
-          onClick: () => onClose?.(),
+          onClick: () => onClose(),
         },
       ]}
       {...muiDialogProps}

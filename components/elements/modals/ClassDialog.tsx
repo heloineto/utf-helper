@@ -1,15 +1,25 @@
 import { UserDataContext } from '@lib/context';
 import { useFirestoreOperations } from '@lib/hooks';
 import { Button, Dialog, DialogProps } from '@mui/material';
+import { deleteField } from 'firebase/firestore';
 import { useContext } from 'react';
 import SubjectsDayTimeCell from '../../pageComponents/enroll/Subjects/Subjects.DayTimeCell';
 
 interface Props extends DialogProps {
   classObject: ClassObject | null;
   onClose: () => void;
+  campus: string;
+  course: string;
 }
 
-const ClassDialog = ({ classObject, open, onClose, ...dialogProps }: Props) => {
+const ClassDialog = ({
+  classObject,
+  open,
+  campus,
+  course,
+  onClose,
+  ...dialogProps
+}: Props) => {
   const { userDetails } = useContext(UserDataContext);
   const { update: updateUserDetails } = useFirestoreOperations();
 
@@ -152,10 +162,10 @@ const ClassDialog = ({ classObject, open, onClose, ...dialogProps }: Props) => {
             onClick={async () => {
               if (!userDetails?.ref || !classObject) return;
 
-              // await updateUserDetails<UserDetails>(userDetails?.ref, {
-              //   [`classes.${campus}.${course}.${classObject?.subjectCode}.${classObject.code}`]:
-              //     deleteField(),
-              // });
+              await updateUserDetails<UserDetails>(userDetails?.ref, {
+                [`classes.${campus}.${course}.${classObject?.subjectCode}.${classObject.code}`]:
+                  deleteField(),
+              });
 
               onClose();
             }}
