@@ -1,31 +1,27 @@
 import { UserDataContext } from '@lib/context';
 import { useSubjects } from '@lib/hooks';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import SubjectsTableHeader from './Subjects.TableHeader';
 import SubjectsTableRow from './Subjects.TableRow';
 import SubjectsWeeklyLessons from './Subjects.WeeklyLessons';
 import EmptyState from '@components/elements/feedback/EmptyState';
 import { GraduationCap } from 'phosphor-react';
 import PrimaryButton from '@components/elements/buttons/PrimaryButton';
+import CustomDialog from '@components/elements/modals/CustomDialog';
+import CampusForm from '@components/elements/forms/CampusForm';
+import useSubjectsOperations from '@lib/database/subjects/useSubjectsOperations';
 
-interface Props {}
+interface Props {
+  campus: Campus;
+  course: Course;
+}
 
-const Subjects = (props: Props) => {
-  const { userDetails } = useContext(UserDataContext);
-
+const Subjects = ({ campus, course }: Props) => {
   const subjects = useSubjects();
 
-  if (!userDetails?.campus || !userDetails?.course) {
-    return (
-      <EmptyState
-        className="h-full"
-        title="Selecione o Campus e Curso"
-        Icon={GraduationCap}
-      >
-        <PrimaryButton>Selecionar</PrimaryButton>
-      </EmptyState>
-    );
-  }
+  const { getSubjects } = useSubjectsOperations();
+
+  ('campuses/${campus.key}/courses/${course.key}/subjects-2022-01');
 
   return (
     <div className="min-w-min bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">

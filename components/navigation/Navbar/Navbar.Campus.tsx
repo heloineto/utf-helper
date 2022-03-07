@@ -9,7 +9,7 @@ import CampusForm from '@components/elements/forms/CampusForm';
 interface Props extends ComponentProps<'button'> {}
 
 const NavbarCampus = ({ className, ...buttonProps }: Props) => {
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const [campusDialogOpen, setCampusDialogOpen] = useState(false);
   const [hover, setHover] = useState(false);
   const { userDetails } = useContext(UserDataContext);
 
@@ -20,7 +20,7 @@ const NavbarCampus = ({ className, ...buttonProps }: Props) => {
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           className={classNames(className, 'rounded-md px-2.5 relative')}
-          onClick={() => setDialogOpen(true)}
+          onClick={() => setCampusDialogOpen(true)}
           {...buttonProps}
         >
           {hover && (
@@ -40,8 +40,8 @@ const NavbarCampus = ({ className, ...buttonProps }: Props) => {
         </button>
       </Tooltip>
 
-      <CustomDialog onClose={() => setDialogOpen(false)} open={dialogOpen}>
-        <CampusForm afterSubmit={() => setDialogOpen(false)} />
+      <CustomDialog onClose={() => setCampusDialogOpen(false)} open={campusDialogOpen}>
+        <CampusForm afterSubmit={() => setCampusDialogOpen(false)} />
       </CustomDialog>
     </>
   );

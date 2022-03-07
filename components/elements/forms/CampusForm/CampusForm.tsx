@@ -20,7 +20,7 @@ interface Props {
 
 const CampusForm = ({ afterSubmit }: Props) => {
   const { userDetails } = useContext(UserDataContext);
-  const { update: updateUser } = useUserOperations();
+  const { updateUser } = useUserOperations();
   const signInAnonymously = useSignInAnonymously();
 
   const campusFormSchema = yup.object().shape({

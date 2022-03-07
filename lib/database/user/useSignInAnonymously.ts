@@ -2,7 +2,6 @@ import { auth, firestore } from '@lib/firebase';
 import { converter, docExists } from '@lib/utils/firebase';
 import { signInAnonymously } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
-import { isNil, omitBy } from 'lodash';
 import { useSnackbar } from 'notistack';
 
 const useSignInAnonymously = () => {
