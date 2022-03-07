@@ -9,7 +9,9 @@ type Props = {};
 
 const EnrollTopbarReviewButton = (props: Props) => {
   const [reportOpen, setReportOpen] = useState(false);
-  const { selectedClasses } = useContext(UserDataContext);
+  const { userDetails } = useContext(UserDataContext);
+
+  const classes = userDetails?.classes;
 
   return (
     <>
@@ -17,7 +19,7 @@ const EnrollTopbarReviewButton = (props: Props) => {
         <IconButton
           className="group"
           onClick={() => {
-            if (selectedClasses && !isEmpty(selectedClasses)) setReportOpen(true);
+            if (classes) setReportOpen(true);
           }}
         >
           <ClipboardText
@@ -26,7 +28,13 @@ const EnrollTopbarReviewButton = (props: Props) => {
           />
         </IconButton>
       </Tooltip>
-      <ReviewDialog open={reportOpen} onClose={() => setReportOpen(false)} />
+      {classes && (
+        <ReviewDialog
+          open={reportOpen}
+          onClose={() => setReportOpen(false)}
+          classes={classes}
+        />
+      )}
     </>
   );
 };

@@ -2,29 +2,32 @@ import { UserDataContext } from '@lib/context';
 import { Fragment, useContext } from 'react';
 import ClassCells from '../ClassCells';
 
-type Props = {
-  campus: string;
-  course: string;
-};
+type Props = {};
 
-const SubjectsSelectedClasses = ({ campus, course }: Props) => {
+const SubjectsSelectedClasses = ({}: Props) => {
   const { userDetails } = useContext(UserDataContext);
 
-  const selectedSubjects = userDetails?.classes?.[campus]?.[course];
-
-  if (!selectedSubjects) return null;
+  if (!userDetails?.classes) return null;
 
   return (
     <>
-      {Object.entries(selectedSubjects).map(([key, subject]) => (
-        <Fragment key={key}>
-          {Object.entries(subject).map(([key, classObject]) => (
-            <ClassCells
-              key={key}
-              classObject={classObject}
-              campus={campus}
-              course={course}
-            />
+      {Object.entries(userDetails.classes).map(([campusKey, campus]) => (
+        <Fragment key={campusKey}>
+          {Object.entries(campus).map(([courseKey, course]) => (
+            <Fragment key={courseKey}>
+              {Object.entries(course).map(([subjectKey, subject]) => (
+                <Fragment key={subjectKey}>
+                  {Object.entries(subject).map(([classKey, classObject]) => (
+                    <ClassCells
+                      key={classKey}
+                      classObject={classObject}
+                      campus={campusKey}
+                      course={courseKey}
+                    />
+                  ))}
+                </Fragment>
+              ))}
+            </Fragment>
           ))}
         </Fragment>
       ))}

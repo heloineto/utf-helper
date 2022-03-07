@@ -37,7 +37,7 @@ const Subjects = ({ campus, course }: Props) => {
 
   return (
     <>
-      <SubjectsSelectedClasses campus={campus} course={course} />
+      <SubjectsSelectedClasses />
       <div className="min-w-min bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
         {Object.entries(subjects).map(([subjectCode, subject]) => (
           <div key={subjectCode}>

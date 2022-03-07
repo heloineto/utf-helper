@@ -6,6 +6,7 @@
     "dev": "next dev",
     "dev-gdrive-compat": "(if exist .next rd /s /q .next 2>nul) && next dev",
     "build": "next build",
+    "build-gdrive-compat": "(if exist .next rd /s /q .next 2>nul) && next build",
     "start": "next start",
     "lint": "next lint",
     "fix": "next lint --fix"
