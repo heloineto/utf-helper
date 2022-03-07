@@ -11,10 +11,7 @@ interface Props extends ComponentProps<'div'> {
 
 const ClassCells = ({ classObject, campus, course, ...divProps }: Props) => {
   const [classDialogOpen, setClassDialogOpen] = useState(false);
-
   const cellsInfo = useCellsInfo(classObject);
-
-  console.log(cellsInfo);
 
   return (
     <>
