@@ -6,8 +6,6 @@ import SubjectsLoading from './Subjects.Loading';
 import { orderBy } from 'firebase/firestore';
 import SubjectsEmptyState from './Subjects.EmptyState';
 import { isEmpty } from 'lodash';
-import { useContext } from 'react';
-import { UserDataContext } from '@lib/context';
 
 interface Props {
   campus: string;

@@ -1,15 +1,14 @@
 import Day, { DayPopover } from '@components/pageComponents/calendar/Day';
-import { UserDataContext } from '@lib/context';
 import { useCalendarData } from '@lib/hooks';
 import { getWeekInterval } from '@lib/utils/luxon';
 import { DateTime } from 'luxon';
 import { useContext, useState } from 'react';
 import { TimetableContext } from '../lib/context';
+import { scheduleStructure } from '@lib/utils/schedule';
 
 type Props = {};
 
 const Schedule = ({}: Props) => {
-  const { schedule } = useContext(UserDataContext);
   const { selectedDate, setSelectedDate } = useContext(TimetableContext);
 
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
@@ -45,7 +44,7 @@ const Schedule = ({}: Props) => {
               .slice(0, -1)
               .map(({ start }) => (
                 <td key={start.weekdayShort} className="text-sm w-[calc(100%*5/35)] h-24">
-                  <div className="text-slate-600 dark:text-slate-300 font-medium">
+                  <div className="text-slate-600 dark:text-slate-300 font-medium mb-1">
                     {start.setLocale('pt-BR').weekdayShort.slice(0, -1).toUpperCase()}
                   </div>
                   <Day
@@ -80,32 +79,29 @@ const Schedule = ({}: Props) => {
                 </td>
               ))}
           </tr>
-          {schedule &&
-            Object.entries(schedule).map(([timeCode, { start, end, days }]) => (
-              <tr
-                key={timeCode}
-                className="divide-x divide-slate-300 dark:divide-slate-700"
-              >
-                <td className="font-semibold text-slate-800 dark:text-slate-100">
-                  {timeCode}
-                </td>
-                <th className="font-medium text-slate-600 dark:text-slate-400">
-                  {start}
-                </th>
-                <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
-                {Object.entries(days).map(([dayCode, classObject]) => {
-                  const [shitfCode, numberCode] = timeCode.split('');
+          {Object.entries(scheduleStructure).map(([timeCode, { start, end, days }]) => (
+            <tr
+              key={timeCode}
+              className="divide-x divide-slate-300 dark:divide-slate-700"
+            >
+              <td className="font-semibold text-slate-800 dark:text-slate-100">
+                {timeCode}
+              </td>
+              <th className="font-medium text-slate-600 dark:text-slate-400">{start}</th>
+              <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
+              {Object.entries(days).map(([dayCode, classObject]) => {
+                const [shitfCode, numberCode] = timeCode.split('');
 
-                  return (
-                    <td
-                      key={dayCode}
-                      className="relative"
-                      id={`${dayCode}${timeCode}`}
-                    ></td>
-                  );
-                })}
-              </tr>
-            ))}
+                return (
+                  <td
+                    key={dayCode}
+                    className="relative"
+                    id={`${dayCode}${timeCode}`}
+                  ></td>
+                );
+              })}
+            </tr>
+          ))}
         </tbody>
       </table>
       <DayPopover
