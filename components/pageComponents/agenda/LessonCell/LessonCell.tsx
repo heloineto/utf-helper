@@ -95,6 +95,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
         open={hover}
         placement={'right'}
         lesson={lesson}
+        color={color}
       />
     </div>
   );

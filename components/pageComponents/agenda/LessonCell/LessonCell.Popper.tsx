@@ -2,25 +2,25 @@ import { DateTime } from 'luxon';
 import { Popper, PopperProps } from '@mui/material';
 import { getDateStr } from '@lib/utils/luxon';
 import { useColor } from '@lib/hooks';
+import { TailwindColorGroup } from 'tailwindcss/tailwind-config';
 
-interface Props extends PopperProps {
+interface Props extends Omit<PopperProps, 'color'> {
   lesson: CompleteLesson;
+  color: TailwindColorGroup;
 }
 
-const LessonCellPopper = ({ lesson, ...popperProps }: Props) => {
+const LessonCellPopper = ({ lesson, color, ...popperProps }: Props) => {
   const timeCode = lesson.scheduleCell.startTimeCode;
   const length = lesson.scheduleCell.length;
   const { classObject, dayCode } = lesson;
 
   const isInPerson = classObject.framing !== 'R' && lesson.isSync;
 
-  const [color] = useColor(classObject.subjectCode);
-
   const dateStr = lesson?.date && getDateStr(DateTime.fromISO(lesson.date));
 
   return (
     <Popper
-      className="text-base bg-slate-50 text-left w-[28rem] rounded-xl shadow-xl ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10 divide-y divide-slate-100 my-auto dark:divide-slate-200/5 dark:highlight-white/10 z-[10000]"
+      className="overflow-hidden text-base bg-slate-50 text-left w-[28rem] rounded-xl shadow-xl ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10 divide-y divide-slate-100 my-auto dark:divide-slate-200/5 dark:highlight-white/10 z-[10000]"
       {...popperProps}
     >
       <div className="p-3 flex items-center justify-start gap-x-3">
@@ -30,7 +30,7 @@ const LessonCellPopper = ({ lesson, ...popperProps }: Props) => {
             background: color
               ? `linear-gradient(225deg, ${color[400]} 0%, ${color[300]} 100%)`
               : undefined,
-            color: color ? color[900] : undefined,
+            color: color[900],
           }}
         >
           <div>{classObject.subjectCode}</div>
@@ -54,7 +54,7 @@ const LessonCellPopper = ({ lesson, ...popperProps }: Props) => {
           </div>
         </div>
       </div>
-      <div className="p-3 max-w-lg">
+      <div className="p-3">
         <div>
           <div className="text-[0.9rem] font-medium text-slate-500 dark:text-slate-100">
             Conteúdo Previsto
@@ -64,6 +64,12 @@ const LessonCellPopper = ({ lesson, ...popperProps }: Props) => {
           </div>
         </div>
       </div>
+      <button
+        className="w-full h-6 text-xs flex justify-center items-center"
+        style={{ backgroundColor: color[800] }}
+      >
+        Ver mais
+      </button>
     </Popper>
   );
 };

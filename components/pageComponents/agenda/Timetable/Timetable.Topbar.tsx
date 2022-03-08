@@ -42,7 +42,7 @@ const TimetableTopbar = (props: Props) => {
             </SecondaryButton>
           </div>
         </Tooltip>
-        <div className="flex">
+        {/* <div className="flex text-md">
           <div className="flex items-center">
             <Checkbox defaultChecked size="small" />
             Aulas Presenciais
@@ -51,7 +51,7 @@ const TimetableTopbar = (props: Props) => {
             <Checkbox defaultChecked size="small" />
             Aulas Remotas
           </div>
-        </div>
+        </div> */}
       </div>
     </Topbar>
   );
