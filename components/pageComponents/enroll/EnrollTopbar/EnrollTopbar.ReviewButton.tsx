@@ -16,15 +16,12 @@ const EnrollTopbarReviewButton = (props: Props) => {
     <>
       <Tooltip title="Criar Relatório" arrow>
         <IconButton
-          className="group"
+          className="text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 dark:text-slate-400"
           onClick={() => {
             if (classes) setReportOpen(true);
           }}
         >
-          <ClipboardText
-            className="h-6 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400"
-            weight="bold"
-          />
+          <ClipboardText className="h-6 " weight="regular" />
         </IconButton>
       </Tooltip>
       {classes && (

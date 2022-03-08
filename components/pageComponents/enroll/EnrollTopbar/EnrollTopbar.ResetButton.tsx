@@ -16,11 +16,11 @@ const EnrollTopbarResetButton = (props: Props) => {
   return (
     <>
       <Tooltip title="Limpar Cronograma" arrow>
-        <IconButton className="group" onClick={() => setResetDialogOpen(true)}>
-          <Trash
-            className="h-6 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400"
-            weight="bold"
-          />
+        <IconButton
+          className="text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 dark:text-slate-400"
+          onClick={() => setResetDialogOpen(true)}
+        >
+          <Trash className="h-6" />
         </IconButton>
       </Tooltip>
       <ActionDialog

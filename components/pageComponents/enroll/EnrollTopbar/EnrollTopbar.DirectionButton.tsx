@@ -17,7 +17,7 @@ const EnrollTopbarDirectionButton = (props: Props) => {
       arrow
     >
       <IconButton
-        className="group"
+        className="text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 dark:text-slate-400"
         onClick={() =>
           setDirection?.((value) => (value === 'horizontal' ? 'vertical' : 'horizontal'))
         }
@@ -25,9 +25,8 @@ const EnrollTopbarDirectionButton = (props: Props) => {
         <ArrowsDownUp
           className={classNames(
             direction === 'horizontal' ? '-rotate-90' : 'rotate-0',
-            'transition-transform duration-500 h-6 w-auto group-hover:text-slate-600 dark:group-hover:text-slate-300 dark:text-slate-400'
+            'transition-transform duration-500 h-6 w-auto'
           )}
-          weight="bold"
         />
       </IconButton>
     </Tooltip>
