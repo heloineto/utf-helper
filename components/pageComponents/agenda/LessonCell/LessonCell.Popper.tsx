@@ -7,7 +7,7 @@ interface Props extends PopperProps {
   lesson: CompleteLesson;
 }
 
-const LessonCellPopper = ({ lesson, ...popoverProps }: Props) => {
+const LessonCellPopper = ({ lesson, ...popperProps }: Props) => {
   const timeCode = lesson.scheduleCell.startTimeCode;
   const length = lesson.scheduleCell.length;
   const { classObject, dayCode } = lesson;
@@ -21,7 +21,7 @@ const LessonCellPopper = ({ lesson, ...popoverProps }: Props) => {
   return (
     <Popper
       className="text-base bg-slate-50 text-left w-[28rem] rounded-xl shadow-xl ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10 divide-y divide-slate-100 my-auto dark:divide-slate-200/5 dark:highlight-white/10 z-[10000]"
-      {...popoverProps}
+      {...popperProps}
     >
       <div className="p-3 flex items-center justify-start gap-x-3">
         <div
