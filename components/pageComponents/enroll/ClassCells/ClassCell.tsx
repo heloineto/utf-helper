@@ -17,7 +17,7 @@ const ClassCell = ({ classObject, timeCode, dayCode, length, ...divProps }: Prop
   const { darkMode } = useContext(SettingsContext);
   let [color] = useColor(classObject.subjectCode);
 
-  if (!color) color = twColors['slate'];
+  if (!color) color = twColors.slate;
 
   return (
     <Portal

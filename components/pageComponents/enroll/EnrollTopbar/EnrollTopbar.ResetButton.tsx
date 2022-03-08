@@ -2,7 +2,7 @@ import { UserDataContext } from '@lib/context';
 import { IconButton, Tooltip } from '@mui/material';
 import { useContext, useState } from 'react';
 import ActionDialog from '@components/elements/modals/ActionDialog';
-import { Trash } from 'phosphor-react';
+import { Trash, Warning } from 'phosphor-react';
 import { useFirestoreOperations } from '@lib/hooks';
 import { deleteField } from 'firebase/firestore';
 
@@ -26,7 +26,8 @@ const EnrollTopbarResetButton = (props: Props) => {
       <ActionDialog
         open={resetDialogOpen}
         onClose={() => setResetDialogOpen(false)}
-        variant="warning"
+        Icon={Warning}
+        colorName="red"
         title="Limpar o Cronograma"
         subtitle="Todas as matérias seram removidas e o cronograma voltará para o estado inicial."
         actionButtons={[

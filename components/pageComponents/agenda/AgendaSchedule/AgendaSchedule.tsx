@@ -8,6 +8,8 @@ import { scheduleStructure } from '@lib/utils/schedule';
 import { UserDataContext } from '@lib/context';
 import useLessons from './lib/hooks/useLessons';
 import LessonCell from '../LessonCell';
+import ActionDialog from '@components/elements/modals/ActionDialog';
+import { Info } from 'phosphor-react';
 
 type Props = {};
 
@@ -125,6 +127,7 @@ const AgendaSchedule = ({}: Props) => {
         disableRestoreFocus
         dayInfo={dayInfo}
       />
+      <ActionDialog open={!lessonsObject} colorName="blue" Icon={Info} />
     </>
   );
 };

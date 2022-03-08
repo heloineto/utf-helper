@@ -1,14 +1,17 @@
+import { SettingsContext } from '@lib/context';
 import { Button, ButtonProps, Dialog, DialogProps } from '@mui/material';
 import classNames from 'clsx';
-import { Check, Warning } from 'phosphor-react';
-import { useMemo } from 'react';
+import { Check, Info, Warning } from 'phosphor-react';
+import { useContext, useMemo } from 'react';
+import twColors from 'tailwindcss/colors';
 
 interface Props extends DialogProps {
   title?: string;
   subtitle?: string;
-  variant?: 'success' | 'warning';
+  Icon: PhosphorIcon;
   preview?: ReactNode;
   actionButtons?: ({ label: string } & ButtonProps)[];
+  colorName: keyof typeof twColors;
 }
 
 const ActionDialog = ({
@@ -18,21 +21,12 @@ const ActionDialog = ({
   subtitle,
   preview,
   actionButtons = [],
-  variant = 'success',
+  Icon,
+  colorName,
 }: Props) => {
-  const variantData = useMemo(
-    () => ({
-      success: {
-        Icon: Check,
-      },
-      warning: {
-        Icon: Warning,
-      },
-    }),
-    []
-  );
+  const { darkMode } = useContext(SettingsContext);
 
-  const { Icon } = variantData[variant];
+  const color = twColors[colorName];
 
   return (
     <Dialog
@@ -47,20 +41,18 @@ const ActionDialog = ({
     >
       <div>
         <div
-          className={classNames(
-            variant === 'success' && 'bg-green-100 dark:bg-green-600',
-            variant === 'warning' && 'bg-red-100 dark:bg-red-600',
-            'mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full'
-          )}
+          className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full"
+          style={{
+            backgroundColor: color[darkMode ? 600 : 100],
+          }}
         >
           <Icon
-            className={classNames(
-              variant === 'success' && 'text-green-600 dark:text-green-200',
-              variant === 'warning' && 'text-red-600 dark:text-red-200',
-              'h-6 w-6'
-            )}
+            className="h-6 w-6"
             weight="bold"
             aria-hidden="true"
+            style={{
+              color: color[darkMode ? 200 : 600],
+            }}
           />
         </div>
         <div className="mt-3 text-center">

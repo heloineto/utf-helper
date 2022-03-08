@@ -5,6 +5,7 @@ import { useFirestoreOperations } from '@lib/hooks';
 import { getConflicts } from '@lib/utils/schedule';
 import { deleteField, writeBatch } from 'firebase/firestore';
 import { firestore } from '@lib/firebase';
+import { Warning } from 'phosphor-react';
 
 interface Props extends DialogProps {
   classObject: ClassObject;
@@ -40,7 +41,8 @@ const SubjectsConfictsDialog = ({
 
   return (
     <ActionDialog
-      variant="warning"
+      Icon={Warning}
+      colorName="red"
       preview={
         <div>
           <div className="my-4">
