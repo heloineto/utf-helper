@@ -61,7 +61,11 @@ interface Lesson {
 }
 
 interface CompleteLesson extends Lesson {
-  pa: Omit<PA, 'lessons'>;
   dayCode: string;
   scheduleCells: ScheduleCell[];
+  classObject: ClassObject;
+}
+
+interface CompleteLessons {
+  [timeCode: string]: CompleteLesson;
 }

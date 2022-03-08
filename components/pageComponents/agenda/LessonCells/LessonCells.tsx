@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react';
 import LessonCell from './LessonCell';
-import ClassDialog from '../../../elements/modals/ClassDialog';
+import ClassDialog from '@components/elements/modals/ClassDialog';
 
 interface Props extends ComponentProps<'div'> {
   classObject: ClassObject;

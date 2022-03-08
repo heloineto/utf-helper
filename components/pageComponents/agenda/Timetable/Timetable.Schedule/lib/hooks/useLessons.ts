@@ -2,15 +2,12 @@ import { isEmpty, omit } from 'lodash';
 import { Interval } from 'luxon';
 import { useMemo } from 'react';
 
-const useLessons = (
-  classes: ClassMap<ClassObject> | undefined,
-  weekDates: Interval[]
-) => {
+const useLessons = (classes: ClassMap<ClassObject> | undefined, interval: Interval[]) => {
   const lessons = useMemo(() => {
     if (!classes) return;
 
-    return weekDates.map(({ start }, index) => {
-      const lessons: CompleteLesson[] = [];
+    return interval.map(({ start }, index) => {
+      const lessons: CompleteLessons = {};
 
       const dateStr = start.toFormat('dd/MM/yyyy');
 
@@ -19,17 +16,20 @@ const useLessons = (
           Object.entries(course).forEach(([subjectKey, subject]) => {
             Object.entries(subject).forEach(([classKey, classObject]) => {
               const lesson: Lesson | undefined = classObject.pa.lessons?.[dateStr];
+              if (!lesson) return;
 
-              if (lesson) {
-                const completeLesson: CompleteLesson = {
-                  pa: omit(classObject.pa, 'lessons'),
-                  dayCode: String(index + 2),
-                  scheduleCells: classObject.scheduleCells[index + 2],
-                  ...lesson,
-                };
+              const scheduleCell: ScheduleCell | undefined =
+                classObject?.scheduleCells?.[index + 2]?.[0];
+              if (!scheduleCell) return;
 
-                lessons.push(completeLesson);
-              }
+              const completeLesson: CompleteLesson = {
+                dayCode: String(index + 2),
+                scheduleCells: classObject.scheduleCells[index + 2],
+                classObject: classObject,
+                ...lesson,
+              };
+
+              lessons[scheduleCell.startTimeCode] = completeLesson;
             });
           });
         });
@@ -37,7 +37,7 @@ const useLessons = (
 
       return lessons;
     });
-  }, [classes, weekDates]);
+  }, [classes, interval]);
 
   return lessons;
 };

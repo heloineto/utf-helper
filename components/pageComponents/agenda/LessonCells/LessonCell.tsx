@@ -12,7 +12,7 @@ interface Props extends ComponentProps<'div'> {
   length: number;
 }
 
-const ClassCell = ({ classObject, timeCode, dayCode, length, ...divProps }: Props) => {
+const LessonCell = ({ classObject, timeCode, dayCode, length, ...divProps }: Props) => {
   const { darkMode } = useContext(SettingsContext);
   const [color] = useColor(classObject.subjectCode);
 
@@ -68,4 +68,4 @@ const ClassCell = ({ classObject, timeCode, dayCode, length, ...divProps }: Prop
   );
 };
 
-export default ClassCell;
+export default LessonCell;
