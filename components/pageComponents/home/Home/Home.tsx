@@ -21,7 +21,9 @@ const Home = (props: Props) => {
           <h1 className="mt-2 text-4xl font-bold text-slate-900 dark:text-slate-300 tracking-tight sm:text-5xl uppercase">
             UTF Helper
           </h1>
-          <p className="mt-2 text-lg text-slate-500">O UTF Helper te ajuda </p>
+          <p className="mt-2 text-lg text-slate-500 dark:text-slate-400">
+            O UTF Helper te ajuda{' '}
+          </p>
         </div>
         <div className="mt-10">
           <h2 className="text-sm font-semibold text-slate-500 tracking-wide uppercase">
@@ -29,11 +31,13 @@ const Home = (props: Props) => {
           </h2>
           <ul
             role="list"
-            className="mt-4 border-t border-b border-slate-200 divide-y divide-slate-200"
+            className="mt-4 border-t border-b border-slate-300 dark:border-slate-700 divide-y divide-slate-300 dark:divide-slate-700"
           >
             {Object.entries(omit(navItems, 'home')).map(
               ([key, { href, label, Icon }]) => (
-                <HomeLink key={key} href={href} label={label} Icon={Icon} />
+                <li key={key}>
+                  <HomeLink href={href} label={label} Icon={Icon} />
+                </li>
               )
             )}
           </ul>
