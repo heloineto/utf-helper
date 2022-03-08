@@ -1,9 +1,6 @@
 import { Logomark } from '@components/decoration/logos/utfHelper';
 import { useNavItems } from '@lib/hooks';
-import { Button } from '@mui/material';
 import { omit } from 'lodash';
-import Link from 'next/link';
-import { CaretRight } from 'phosphor-react';
 import HomeLink from './Home.Link';
 
 type Props = {};
@@ -21,8 +18,9 @@ const Home = (props: Props) => {
           <h1 className="mt-2 text-4xl font-bold text-slate-900 dark:text-slate-300 tracking-tight sm:text-5xl uppercase">
             UTF Helper
           </h1>
-          <p className="mt-2 text-lg text-slate-500 dark:text-slate-400">
-            O UTF Helper te ajuda{' '}
+          <p className="mt-2 mx-5 text-slate-500 dark:text-slate-400">
+            O UTF Helper é um site de aulo para aluno que facilita sua vida universitária
+            na UTFPR
           </p>
         </div>
         <div className="mt-10">
@@ -34,34 +32,20 @@ const Home = (props: Props) => {
             className="mt-4 border-t border-b border-slate-300 dark:border-slate-700 divide-y divide-slate-300 dark:divide-slate-700"
           >
             {Object.entries(omit(navItems, 'home')).map(
-              ([key, { href, label, Icon }]) => (
+              ([key, { href, label, Icon, description }]) => (
                 <li key={key}>
-                  <HomeLink href={href} label={label} Icon={Icon} />
+                  <HomeLink
+                    href={href}
+                    label={label}
+                    Icon={Icon}
+                    description={description}
+                  />
                 </li>
               )
             )}
           </ul>
         </div>
       </div>
-      {/* <footer className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="border-t border-slate-200 py-12 text-center md:flex md:justify-between">
-          <p className="text-base text-slate-400">
-            &copy; Workflow, Inc. All rights reserved.
-          </p>
-          <div className="mt-6 flex justify-center space-x-8 md:mt-0">
-            {social.map((item, itemIdx) => (
-              <a
-                key={itemIdx}
-                href={item.href}
-                className="inline-flex text-slate-400 hover:text-slate-500"
-              >
-                <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
-              </a>
-            ))}
-          </div>
-        </div>
-      </footer> */}
     </div>
   );
 };
