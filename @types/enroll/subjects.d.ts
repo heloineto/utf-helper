@@ -11,6 +11,12 @@ interface Subject {
   };
 }
 
+type ScheduleCell = { startTimeCode: string; length: number };
+
+type ScheduleCells = {
+  [day: string]: ScheduleCell[];
+};
+
 interface ClassObject {
   subjectCode: string;
   subjectName: string;
@@ -26,6 +32,7 @@ interface ClassObject {
     dayTimeCode: string;
     locationCode: string;
   }[];
+  scheduleCells: ScheduleCells;
   teacher: string;
   optional: string;
 }
