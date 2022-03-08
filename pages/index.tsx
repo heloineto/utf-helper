@@ -1,8 +1,8 @@
 import MainShell from '@components/appShells/MainShell';
 import { Logomark } from '@components/decoration/logos/utfHelper';
-import Rename from '@components/pageComponents/home/Rename';
+import Home from '@components/pageComponents/home/Home';
 
-const Home: NextPage = () => {
+const HomePage: NextPage = () => {
   return (
     <MainShell>
       <div className="bg-slate-100 dark:bg-slate-800 p-5 h-full overflow-y-scroll">
@@ -10,10 +10,8 @@ const Home: NextPage = () => {
           <Logomark />
         </div>
       </div>
-
-      <Rename />
     </MainShell>
   );
 };
 
-export default Home;
+export default HomePage;
