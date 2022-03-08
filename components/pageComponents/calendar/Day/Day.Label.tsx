@@ -34,7 +34,7 @@ const DayLabel = ({
 
   return (
     <>
-      <div className={classNames(className, 'text-md w-full  text-right mr-1.5')}>
+      <div className={classNames(className, 'text-md w-full text-right mr-1.5')}>
         {dayDate.day}
       </div>
       {!isAnotherMonth && (!isSunday || !!dayInfo?.legend) && (

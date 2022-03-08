@@ -74,7 +74,7 @@ const AgendaSchedule = ({}: Props) => {
                   classes={{
                     root: 'h-14 w-14 !rounded-full mx-auto',
                     highlight: '!rounded-full',
-                    label: 'flex justify-center items-center h-full text-xl mr-0',
+                    label: 'flex justify-center items-center h-full text-xl !mr-0',
                     dot: 'hidden',
                     labelWrapper:
                       '!rounded-full top-0.5 left-0.5 w-[calc(100%-4px)] h-[calc(100%-4px)]',
