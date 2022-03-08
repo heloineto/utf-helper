@@ -20,7 +20,6 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
 
   const { darkMode } = useContext(SettingsContext);
   const [hover, setHover] = useState(false);
-  const [popperHover, setPopperHover] = useState(false);
 
   let [color] = useColor(classObject.subjectCode);
   if (!color) color = twColors['slate'];
@@ -38,8 +37,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
 
   useEffect(() => {
     const divElem = divRef.current;
-    const event = window.event;
-    if (!divElem || !event) return;
+    if (!divElem) return;
 
     const handleMouseOver = (event: MouseEvent) => {
       const { x, y, height, width } = divElem.getBoundingClientRect();
@@ -111,11 +109,9 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
         </div>
       </div>
       <LessonCellPopper
-        onMouseEnter={() => setPopperHover(true)}
-        onMouseLeave={() => setPopperHover(false)}
         disablePortal
         anchorEl={divRef.current}
-        open={hover || popperHover}
+        open={hover}
         placement={'right'}
         lesson={lesson}
         color={color}

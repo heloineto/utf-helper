@@ -63,12 +63,13 @@ const LessonCellPopper = ({ lesson, color, ...popperProps }: Props) => {
           </div>
         </div>
       </div>
-      <button
+      {/* {JSON.stringify(lesson, null, 2)} */}
+      <div
         className="w-full h-6 text-xs flex justify-center items-center"
         style={{ backgroundColor: color[800] }}
       >
-        Ver mais
-      </button>
+        Clique para ver mais
+      </div>
     </Popper>
   );
 };

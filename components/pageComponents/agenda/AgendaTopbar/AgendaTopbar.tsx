@@ -43,11 +43,11 @@ const AgendaTopbar = (props: Props) => {
           </div>
         </Tooltip>
 
-        <Tooltip title="Filtrar" arrow>
+        {/* <Tooltip title="Filtrar" arrow>
           <IconButton className="text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 dark:text-slate-400">
             <Funnel className="h-6" />
           </IconButton>
-        </Tooltip>
+        </Tooltip> */}
         {/* <div className="flex text-md">
           <div className="flex items-center">
             <Checkbox defaultChecked size="small" />

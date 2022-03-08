@@ -31,7 +31,7 @@ const EnrollTopbarTotalHours = (props: Props) => {
   return (
     <div className="text-[0.8rem] h-9 font-medium gap-x-2 text-slate-700 dark:text-slate-300 bg-slate-400/10 rounded-md px-3 flex items-center">
       <GraduationCap className="h-4 w-auto" weight="bold" />
-      <span className="">{totalTime} Aulas Semanais</span>
+      <span>{totalTime} Aulas Semanais</span>
       <svg
         width="2"
         height="2"

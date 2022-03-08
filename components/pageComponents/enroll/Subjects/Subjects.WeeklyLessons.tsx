@@ -8,14 +8,14 @@ const SubjectsWeeklyLessons = ({ subject, className }: Props) => {
   const { weeklyLessons } = subject;
 
   return (
-    <span
+    <div
       className={classNames(
         className,
-        'border border-slate-500 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-200 ml-auto inline-flex items-center px-2.5 py-0.5 rounded-full text-[0.8rem] font-medium'
+        'whitespace-nowrap border border-slate-500 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-200 ml-auto inline-flex items-center px-2.5 py-0.5 rounded-full text-[0.8rem] font-medium'
       )}
     >
       {weeklyLessons} Aulas Semanais
-    </span>
+    </div>
   );
 };
 
