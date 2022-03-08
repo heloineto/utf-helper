@@ -1,8 +1,8 @@
-import { useCallback, useContext, useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { SettingsContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
 import { limitText } from '@lib/utils/typescript';
-import LessonCellPopover from './LessonCell.Popover';
+import LessonCellPopper from './LessonCell.Popper';
 import classNames from 'clsx';
 import twColors from 'tailwindcss/colors';
 import { colord } from 'colord';
@@ -37,7 +37,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
 
   return (
     <div
-      className="flex absolute top-0 left-0 w-full cursor-pointer py-1 "
+      className="flex absolute top-0 left-0 w-full cursor-pointer py-1"
       style={{
         height: `${100 * length}%`,
       }}
@@ -89,22 +89,11 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
           )}
         </div>
       </div>
-      <LessonCellPopover
+      <LessonCellPopper
         disablePortal
         anchorEl={divRef.current}
         open={hover}
-        sx={{
-          pointerEvents: 'none',
-        }}
-        anchorOrigin={{
-          vertical: 'center',
-          horizontal: 'right',
-        }}
-        transformOrigin={{
-          vertical: 'center',
-          horizontal: 'left',
-        }}
-        disableRestoreFocus
+        placement={'right'}
         lesson={lesson}
       />
     </div>

@@ -1,2 +1,2 @@
 export { default } from './LessonCell';
-export { default as LessonCellPopover } from './LessonCell.Popover';
+export { default as LessonCellPopper } from './LessonCell.Popper';
