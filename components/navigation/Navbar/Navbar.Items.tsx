@@ -47,7 +47,7 @@ const NavbarItems = (props: Props) => {
         className="absolute h-9 bg-slate-200 dark:bg-slate-800 top-0 z-10 rounded"
         style={{ x, width }}
       />
-      {navItems.map(({ key, label, Icon, href }) => {
+      {Object.entries(navItems).map(([key, { label, Icon, href }]) => {
         const current = href === currentPage;
 
         return (

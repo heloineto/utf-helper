@@ -3,32 +3,28 @@ import { useMemo } from 'react';
 
 const useNavItems = () => {
   const sidebarNavItems = useMemo(
-    () => [
-      {
-        key: 'home',
+    () => ({
+      home: {
         label: 'Home',
         Icon: House,
         href: '/',
       },
-      {
-        key: 'enroll',
+      enroll: {
         label: 'Matrícula',
         Icon: GraduationCap,
         href: '/enroll',
       },
-      {
-        key: 'calendar',
+      calendar: {
         label: 'Calendário',
         Icon: CalendarBlank,
         href: '/calendar',
       },
-      {
-        key: 'agenda',
+      agenda: {
         label: 'Agenda',
         Icon: Clock,
         href: '/agenda',
       },
-    ],
+    }),
     []
   );
 
