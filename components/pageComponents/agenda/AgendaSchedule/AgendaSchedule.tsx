@@ -2,7 +2,7 @@ import Day, { DayPopover } from '@components/pageComponents/calendar/Day';
 import { useCalendarData } from '@lib/hooks';
 import { getWeekInterval } from '@lib/utils/luxon';
 import { DateTime } from 'luxon';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AgendaContext } from '../Agenda/lib/context';
 import { scheduleStructure } from '@lib/utils/schedule';
 import { UserDataContext } from '@lib/context';
@@ -10,12 +10,17 @@ import useLessons from './lib/hooks/useLessons';
 import LessonCell from '../LessonCell';
 import ActionDialog from '@components/elements/modals/ActionDialog';
 import { Info } from 'phosphor-react';
+import PrimaryButton from '@components/elements/buttons/PrimaryButton';
+import SecondaryButton from '@components/elements/buttons/SecondaryButton';
+import Link from 'next/link';
 
 type Props = {};
 
 const AgendaSchedule = ({}: Props) => {
   const { selectedDate, setSelectedDate } = useContext(AgendaContext);
-  const { userDetails } = useContext(UserDataContext);
+  const { userDetails, loading } = useContext(UserDataContext);
+  console.log({ userDetails, loading });
+
   const classes = userDetails?.classes;
 
   const weekDates = getWeekInterval(selectedDate).splitBy({ days: 1 }).slice(0, -1);
@@ -26,11 +31,15 @@ const AgendaSchedule = ({}: Props) => {
   const [dayInfo, setDayInfo] = useState<
     (CompleteDayInfo & { dayDate: DateTime }) | null
   >(null);
+  const [selectedClass, setSelectedClass] = useState<ClassObject | null>(null);
+  const [enrollDialogOpen, setEnrollDialogOpen] = useState(false);
+  const [classDialogOpen, setClassDialogOpen] = useState(false);
+
+  useEffect(() => {
+    if (!loading && !classes) setEnrollDialogOpen(true);
+  }, [loading, classes]);
 
   const { yearInfo } = useCalendarData();
-
-  const [selectedClass, setSelectedClass] = useState<ClassObject | null>(null);
-  const [classDialogOpen, setClassDialogOpen] = useState(false);
 
   return (
     <>
@@ -127,7 +136,23 @@ const AgendaSchedule = ({}: Props) => {
         disableRestoreFocus
         dayInfo={dayInfo}
       />
-      <ActionDialog open={!lessonsObject} colorName="blue" Icon={Info} />
+      <ActionDialog
+        open={enrollDialogOpen}
+        onClose={() => setEnrollDialogOpen(false)}
+        colorName="blue"
+        Icon={Info}
+        title={'Escolha suas Matérias'}
+        subtitle={'Para vê-las na sua Agenda'}
+      >
+        <Link href="/enroll" passHref>
+          <a>
+            <PrimaryButton>Escolher Matérias</PrimaryButton>
+          </a>
+        </Link>
+        <SecondaryButton onClick={() => setEnrollDialogOpen(false)}>
+          Cancelar
+        </SecondaryButton>
+      </ActionDialog>
     </>
   );
 };

@@ -6,7 +6,6 @@ import { useContext } from 'react';
 import { AgendaContext } from '../Agenda/lib/context';
 import { List } from 'phosphor-react';
 import Topbar from '@components/navigation/Topbar';
-import { UserDataContext } from '@lib/context';
 
 type Props = {};
 

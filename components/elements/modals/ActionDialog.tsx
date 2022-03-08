@@ -1,8 +1,7 @@
 import { SettingsContext } from '@lib/context';
 import { Button, ButtonProps, Dialog, DialogProps } from '@mui/material';
 import classNames from 'clsx';
-import { Check, Info, Warning } from 'phosphor-react';
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import twColors from 'tailwindcss/colors';
 
 interface Props extends DialogProps {
@@ -23,10 +22,11 @@ const ActionDialog = ({
   actionButtons = [],
   Icon,
   colorName,
+  children,
 }: Props) => {
   const { darkMode } = useContext(SettingsContext);
 
-  const color = twColors[colorName];
+  const color = twColors[colorName] as any;
 
   return (
     <Dialog
@@ -81,6 +81,7 @@ const ActionDialog = ({
             </Button>
           );
         })}
+        {children}
       </div>
     </Dialog>
   );

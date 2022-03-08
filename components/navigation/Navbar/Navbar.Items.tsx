@@ -36,9 +36,9 @@ const NavbarItems = (props: Props) => {
         const hover = href === hoverItem;
 
         return (
-          <div className="h-full flex flex-col justify-between z-20">
+          <div key={href} className="h-full flex flex-col justify-between z-20">
             <div className="h-px" />
-            <Link key={href} href={href} passHref>
+            <Link href={href} passHref>
               <a
                 className={classNames(
                   current
