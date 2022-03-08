@@ -4,7 +4,7 @@ import { DateTime } from 'luxon';
 import { getDateStr } from '@lib/utils/luxon';
 import { useContext } from 'react';
 import { AgendaContext } from '../Agenda/lib/context';
-import { Funnel, List } from 'phosphor-react';
+import { List } from 'phosphor-react';
 import Topbar from '@components/navigation/Topbar';
 
 type Props = {};
