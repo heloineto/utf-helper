@@ -52,7 +52,6 @@ const AgendaSidebar = (props: Props) => {
       variant={mobile ? 'temporary' : 'permanent'}
       open={sidebarOpen}
       onClose={() => setSidebarOpen?.(false)}
-      // Better open performance on mobile
       ModalProps={{ keepMounted: true }}
     >
       {displayDate && (

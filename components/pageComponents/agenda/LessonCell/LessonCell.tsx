@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { SettingsContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
 import { limitText } from '@lib/utils/typescript';
@@ -20,6 +20,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
 
   const { darkMode } = useContext(SettingsContext);
   const [hover, setHover] = useState(false);
+  const [popperHover, setPopperHover] = useState(false);
 
   let [color] = useColor(classObject.subjectCode);
   if (!color) color = twColors['slate'];
@@ -35,6 +36,28 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
 
   const divRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const divElem = divRef.current;
+    const event = window.event;
+    if (!divElem || !event) return;
+
+    const handleMouseOver = (event: MouseEvent) => {
+      const { x, y, height, width } = divElem.getBoundingClientRect();
+      const { pageX, pageY } = event;
+
+      const testX = pageX >= x && pageX <= x + width;
+      const textY = pageY >= y && pageY <= y + height;
+
+      setHover(testX && textY);
+    };
+
+    document.addEventListener('mousemove', handleMouseOver);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseOver);
+    };
+  }, []);
+
   return (
     <div
       className="flex absolute top-0 left-0 w-full cursor-pointer py-1"
@@ -42,8 +65,6 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
         height: `${100 * length}%`,
       }}
       ref={divRef}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
       {...divProps}
     >
       <div
@@ -90,9 +111,11 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
         </div>
       </div>
       <LessonCellPopper
+        onMouseEnter={() => setPopperHover(true)}
+        onMouseLeave={() => setPopperHover(false)}
         disablePortal
         anchorEl={divRef.current}
-        open={hover}
+        open={hover || popperHover}
         placement={'right'}
         lesson={lesson}
         color={color}
