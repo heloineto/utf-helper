@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { SettingsContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
 import { limitText } from '@lib/utils/typescript';
@@ -16,10 +16,13 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
 
   const isSync = classObject.framing !== 'R' && lesson.isSync;
 
-  const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
+  // const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
   const { darkMode } = useContext(SettingsContext);
   const [hover, setHover] = useState(false);
+
   const [color] = useColor(classObject.subjectCode);
+
+  const divRef = useRef<HTMLDivElement>(null);
 
   return (
     <div
@@ -27,13 +30,13 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
       style={{
         height: `${100 * length}%`,
       }}
-      onMouseEnter={(e) => setAnchorEl(e.currentTarget)}
-      onMouseLeave={() => setAnchorEl(null)}
+      ref={divRef}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
       {...divProps}
     >
       <div
         className={classNames(
-          hover && 'ring-2 ring-offset-1 dark:ring-offset-slate-800',
           'w-full h-full rounded mx-1 p-1 text-left flex flex-col border-2'
         )}
         style={
@@ -76,8 +79,8 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
         </div>
       </div>
       <LessonCellPopover
-        anchorEl={anchorEl}
-        open={anchorEl !== null}
+        anchorEl={divRef.current}
+        open={hover}
         sx={{
           pointerEvents: 'none',
         }}
