@@ -33,7 +33,7 @@ const Schedule = ({}: Props) => {
   return (
     <>
       <table
-        className="bg-slte-100 dark:bg-slate-800 border-slate-100 dark:border-slate-800 text-xs flex-grow w-full min-w-[55rem] min-h-[52rem]"
+        className="bg-slte-100 dark:bg-slate-800 border-slate-100 dark:border-slate-800 text-xs flex-grow w-full min-w-[55rem] min-h-[56rem]"
         cellSpacing={0}
         cellPadding={2}
       >
