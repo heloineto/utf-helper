@@ -44,19 +44,7 @@ const Schedule = ({}: Props) => {
                   key={dayCode}
                   id={`schedule-${dayCode}${timeCode}`}
                   className="relative"
-                >
-                  {/* //! {classObject && (
-                      <ClassCell
-                        classObject={classObject}
-                        timeCode={timeCode}
-                        dayCode={dayCode}
-                        onClick={() => {
-                          setSelectedClass(classObject);
-                          setClassDialogOpen(true);
-                        }}
-                      />
-                    )} */}
-                </td>
+                />
               );
             })}
           </tr>

@@ -3,13 +3,15 @@ import { Interval } from 'luxon';
 import { useMemo } from 'react';
 
 const useLessons = (classes: ClassMap<ClassObject> | undefined, interval: Interval[]) => {
-  const lessons = useMemo(() => {
+  const lessonsObject = useMemo(() => {
     if (!classes) return;
 
-    return interval.map(({ start }, index) => {
-      const lessons: CompleteLessons = {};
+    const lessonsObject: CompleteLessonsObject = {};
 
+    interval.forEach(({ start }, index) => {
+      const lessons: CompleteLessons = {};
       const dateStr = start.toFormat('dd/MM/yyyy');
+      const dayCode = String(index + 2);
 
       Object.entries(classes).forEach(([campusKey, campus]) => {
         Object.entries(campus).forEach(([courseKey, course]) => {
@@ -19,12 +21,12 @@ const useLessons = (classes: ClassMap<ClassObject> | undefined, interval: Interv
               if (!lesson) return;
 
               const scheduleCell: ScheduleCell | undefined =
-                classObject?.scheduleCells?.[index + 2]?.[0];
+                classObject?.scheduleCells?.[dayCode]?.[0];
               if (!scheduleCell) return;
 
               const completeLesson: CompleteLesson = {
-                dayCode: String(index + 2),
-                scheduleCells: classObject.scheduleCells[index + 2],
+                dayCode,
+                scheduleCell,
                 classObject: classObject,
                 ...lesson,
               };
@@ -35,11 +37,13 @@ const useLessons = (classes: ClassMap<ClassObject> | undefined, interval: Interv
         });
       });
 
-      return lessons;
+      lessonsObject[dayCode] = lessons;
     });
+
+    return lessonsObject;
   }, [classes, interval]);
 
-  return lessons;
+  return lessonsObject;
 };
 
 export default useLessons;

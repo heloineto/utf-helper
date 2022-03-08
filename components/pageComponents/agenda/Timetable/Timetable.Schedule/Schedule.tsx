@@ -7,6 +7,7 @@ import { TimetableContext } from '../lib/context';
 import { scheduleStructure } from '@lib/utils/schedule';
 import { UserDataContext } from '@lib/context';
 import useLessons from './lib/hooks/useLessons';
+import LessonCell from '../../LessonCell';
 
 type Props = {};
 
@@ -17,9 +18,7 @@ const Schedule = ({}: Props) => {
 
   const weekDates = getWeekInterval(selectedDate).splitBy({ days: 1 }).slice(0, -1);
 
-  const lessons = useLessons(classes, weekDates);
-
-  console.log(lessons);
+  const lessonsObject = useLessons(classes, weekDates);
 
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
   const [dayInfo, setDayInfo] = useState<
@@ -97,10 +96,11 @@ const Schedule = ({}: Props) => {
               {Object.entries(days).map(([dayCode, classObject]) => {
                 const [shitfCode, numberCode] = timeCode.split('');
 
+                const lesson = lessonsObject?.[dayCode][timeCode];
+
                 return (
                   <td key={dayCode} className="relative">
-                    {/* {weekDates[Number(dayCode) - 2].start.toLocaleString()} */}
-                    {/* {pas[Number(dayCode) - 2]} */}
+                    {lesson && <LessonCell lesson={lesson} />}
                   </td>
                 );
               })}

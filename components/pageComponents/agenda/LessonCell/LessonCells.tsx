@@ -13,7 +13,7 @@ const LessonCells = ({ classObject, campus, course, ...divProps }: Props) => {
 
   return (
     <>
-      {classObject.scheduleCells &&
+      {/* {classObject.scheduleCells &&
         Object.entries(classObject.scheduleCells).map(
           ([dayCode, cellInfo]) =>
             dayCode && (
@@ -39,7 +39,7 @@ const LessonCells = ({ classObject, campus, course, ...divProps }: Props) => {
         classObject={classObject}
         open={classDialogOpen}
         onClose={() => setClassDialogOpen(false)}
-      />
+      /> */}
     </>
   );
 };
