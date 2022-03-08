@@ -6,7 +6,7 @@ import { useContext, useState } from 'react';
 import { TimetableContext } from '../lib/context';
 import { scheduleStructure } from '@lib/utils/schedule';
 import { UserDataContext } from '@lib/context';
-import usePas from './lib/hooks/usePas';
+import useLessons from './lib/hooks/useLessons';
 
 type Props = {};
 
@@ -17,9 +17,9 @@ const Schedule = ({}: Props) => {
 
   const weekDates = getWeekInterval(selectedDate).splitBy({ days: 1 }).slice(0, -1);
 
-  const pas = usePas(classes, weekDates);
+  const lessons = useLessons(classes, weekDates);
 
-  console.log(pas);
+  console.log(lessons);
 
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
   const [dayInfo, setDayInfo] = useState<
