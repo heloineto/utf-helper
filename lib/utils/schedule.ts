@@ -34,8 +34,6 @@ export const getConflicts = (
   return isEmpty(conflicts) ? null : conflicts;
 };
 
-export const getStrippedBackground = (color: string) => {};
-
 export const getSubjectType = (subject: {
   code: string;
   classes: {

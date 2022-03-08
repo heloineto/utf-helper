@@ -1,11 +1,11 @@
-import { useContext, useRef, useState } from 'react';
+import { useCallback, useContext, useRef, useState } from 'react';
 import { SettingsContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
 import { limitText } from '@lib/utils/typescript';
 import LessonCellPopover from './LessonCell.Popover';
 import classNames from 'clsx';
-import { getStrippedBackground } from '@lib/utils/schedule';
 import twColors from 'tailwindcss/colors';
+import { colord } from 'colord';
 
 interface Props extends ComponentProps<'div'> {
   lesson: CompleteLesson;
@@ -18,13 +18,20 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
 
   const isSync = classObject.framing !== 'R' && lesson.isSync;
 
-  // const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
   const { darkMode } = useContext(SettingsContext);
   const [hover, setHover] = useState(false);
 
   let [color] = useColor(classObject.subjectCode);
-
   if (!color) color = twColors['slate'];
+
+  const getStrippedBackground = (hexColor: string) => {
+    const color = colord(hexColor);
+
+    const lighterColor = color.alpha(darkMode ? 0.3 : 0.6).toRgbString();
+    const darkerColor = color.alpha(darkMode ? 0.4 : 0.8).toRgbString();
+
+    return `repeating-linear-gradient(45deg, ${lighterColor}, ${lighterColor} 0.25rem, ${darkerColor} 0.25rem, ${darkerColor} 0.5rem)`;
+  };
 
   const divRef = useRef<HTMLDivElement>(null);
 
@@ -47,9 +54,9 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
           background: isSync
             ? undefined
             : getStrippedBackground(color[darkMode ? 600 : 200]),
-          backgroundColor: color[darkMode ? 600 : 200],
+          backgroundColor: isSync ? color[darkMode ? 600 : 200] : undefined,
           borderColor: color[darkMode ? 500 : 300],
-          opacity: isSync ? undefined : darkMode ? 0.75 : 0.85,
+          // opacity: isSync ? undefined : darkMode ? 0.75 : 0.85,
         }}
       >
         <div
@@ -83,6 +90,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
         </div>
       </div>
       <LessonCellPopover
+        disablePortal
         anchorEl={divRef.current}
         open={hover}
         sx={{
