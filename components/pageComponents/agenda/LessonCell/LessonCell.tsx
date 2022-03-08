@@ -4,6 +4,8 @@ import { useColor } from '@lib/hooks';
 import { limitText } from '@lib/utils/typescript';
 import LessonCellPopover from './LessonCell.Popover';
 import classNames from 'clsx';
+import { getStrippedBackground } from '@lib/utils/schedule';
+import twColors from 'tailwindcss/colors';
 
 interface Props extends ComponentProps<'div'> {
   lesson: CompleteLesson;
@@ -20,7 +22,9 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
   const { darkMode } = useContext(SettingsContext);
   const [hover, setHover] = useState(false);
 
-  const [color] = useColor(classObject.subjectCode);
+  let [color] = useColor(classObject.subjectCode);
+
+  if (!color) color = twColors['slate'];
 
   const divRef = useRef<HTMLDivElement>(null);
 
@@ -39,19 +43,19 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
         className={classNames(
           'w-full h-full rounded mx-1 p-1 text-left flex flex-col border-2'
         )}
-        style={
-          {
-            backgroundColor: color ? color[darkMode ? 600 : 200] : undefined,
-            borderColor: color ? color[darkMode ? 500 : 300] : undefined,
-            opacity: isSync ? undefined : darkMode ? 0.75 : 0.85,
-            '--tw-ring-color': color ? color[darkMode ? 500 : 300] : undefined,
-          } as any
-        }
+        style={{
+          background: isSync
+            ? undefined
+            : getStrippedBackground(color[darkMode ? 600 : 200]),
+          backgroundColor: color[darkMode ? 600 : 200],
+          borderColor: color[darkMode ? 500 : 300],
+          opacity: isSync ? undefined : darkMode ? 0.75 : 0.85,
+        }}
       >
         <div
           className="font-semibold break-all overflow-hidden text-ellipsis"
           style={{
-            color: color ? color[darkMode ? 100 : 800] : undefined,
+            color: color[darkMode ? 100 : 800],
             lineHeight: '.9rem',
           }}
         >
@@ -60,7 +64,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
         <div
           className="text-[0.7rem] font-medium"
           style={{
-            color: color ? color[darkMode ? 200 : 600] : undefined,
+            color: color[darkMode ? 200 : 600],
           }}
         >
           {`${classObject.subjectCode} - ${classObject.code}`}
@@ -68,7 +72,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
         <div
           className="text-[0.75rem] font-medium -mt-0.5"
           style={{
-            color: color ? color[darkMode ? 200 : 600] : undefined,
+            color: color[darkMode ? 200 : 600],
           }}
         >
           {isSync ? (

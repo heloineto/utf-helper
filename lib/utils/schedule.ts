@@ -1,135 +1,7 @@
 import { isEmpty } from 'lodash';
 import { deepFreeze } from './typescript';
 
-const createHighlightElement = (
-  id: string,
-  colorRgb: { r: number; g: number; b: number }
-) => {
-  const highlightElem = document.createElement('div');
-  const colorStr = Object.values(colorRgb).join(',');
-
-  highlightElem.id = id;
-  highlightElem.style.position = 'absolute';
-  highlightElem.style.top = '0';
-  highlightElem.style.left = '0';
-  highlightElem.style.height = '100%';
-  highlightElem.style.width = '100%';
-  highlightElem.style.background = `repeating-linear-gradient(45deg, rgba(${colorStr}, 0.6), rgba(${colorStr}, 0.6) 0.25rem, rgba(${colorStr}, 0.8) 0.25rem, rgba(${colorStr}, 0.8) 0.5rem)`;
-  highlightElem.style.zIndex = '1000';
-
-  return highlightElem;
-};
-
-const highlight = (
-  type: string,
-  dayTimeCode: string,
-  shouldHighlight: boolean,
-  colorRgb: { r: number; g: number; b: number },
-  surpressRed?: boolean
-) => {
-  if (!shouldHighlight) {
-    const oldHighlightElem = document.getElementById(`${dayTimeCode}-${type}-highlight`);
-    oldHighlightElem?.remove();
-
-    return;
-  }
-
-  const cell = document.getElementById(dayTimeCode);
-  if (!cell) return;
-
-  if (cell.querySelector('.class-cell') && !surpressRed) {
-    const highlightElem = createHighlightElement(
-      `${dayTimeCode}-${type}-highlight`,
-      { r: 239, g: 68, b: 68 } /* bg-red-500 */
-    );
-    cell.appendChild(highlightElem);
-    return;
-  }
-
-  const highlightElem = createHighlightElement(
-    `${dayTimeCode}-${type}-highlight`,
-    colorRgb
-  );
-
-  cell.appendChild(highlightElem);
-};
-
-export const selectGroup = (
-  setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>>,
-  setSchedule: Dispatch<SetStateAction<ScheduleObject>>,
-  classObject: ClassObject,
-  selectedClasses: SelectedClasses
-) => {
-  const conflicts = getConflicts(selectedClasses, classObject);
-
-  if (!isEmpty(conflicts)) return conflicts;
-
-  setSelectedClasses((value) => {
-    const newValue = { ...value };
-
-    newValue[classObject.subjectCode] = {
-      ...newValue[classObject.subjectCode],
-      [classObject.code]: classObject,
-    };
-
-    return newValue;
-  });
-
-  setSchedule((value) => {
-    const newValue = { ...value };
-
-    classObject.schedule.forEach(({ dayTimeCode }) => {
-      const [dayCode, shiftCode, numberCode] = dayTimeCode.split('');
-
-      try {
-        newValue[`${shiftCode}${numberCode}`].days[dayCode] = classObject;
-      } catch (error) {
-        if (process.env.NODE_ENV === 'development') console.error(error);
-        return;
-      }
-    });
-
-    return newValue;
-  });
-
-  return null;
-};
-
-export const unselectGroup = (
-  setSelectedClasses: Dispatch<SetStateAction<SelectedClasses>>,
-  setSchedule: Dispatch<SetStateAction<ScheduleObject>>,
-  classObject: ClassObject,
-  selectedClasses: SelectedClasses
-) => {
-  setSelectedClasses((value) => {
-    const newValue = { ...value };
-
-    delete newValue?.[classObject.subjectCode]?.[classObject.code];
-
-    if (isEmpty(newValue?.[classObject.subjectCode]))
-      delete newValue?.[classObject.subjectCode];
-
-    return newValue;
-  });
-
-  setSchedule((value) => {
-    const newValue = { ...value };
-
-    classObject.schedule.forEach(({ dayTimeCode }) => {
-      const [dayCode, shiftCode, numberCode] = dayTimeCode.split('');
-
-      try {
-        newValue[`${shiftCode}${numberCode}`].days[dayCode] = null;
-      } catch (error) {
-        if (process.env.NODE_ENV === 'development') console.error(error);
-        return;
-      }
-    });
-
-    return newValue;
-  });
-};
-
+//! Bug: Needs to iterate over all campuses and courses too
 export const getConflicts = (
   selectedClasses: SelectedClasses,
   classObject: ClassObject
@@ -161,6 +33,8 @@ export const getConflicts = (
 
   return isEmpty(conflicts) ? null : conflicts;
 };
+
+export const getStrippedBackground = (color: string) => {};
 
 export const getSubjectType = (subject: {
   code: string;

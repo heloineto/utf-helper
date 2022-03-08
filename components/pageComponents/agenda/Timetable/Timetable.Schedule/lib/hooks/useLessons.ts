@@ -16,7 +16,7 @@ const useLessons = (classes: ClassMap<ClassObject> | undefined, interval: Interv
         Object.entries(campus).forEach(([courseKey, course]) => {
           Object.entries(course).forEach(([subjectKey, subject]) => {
             Object.entries(subject).forEach(([classKey, classObject]) => {
-              const lesson: Lesson | undefined = classObject.pa.lessons?.[dateStr];
+              const lesson: Lesson | undefined = classObject?.pa?.lessons?.[dateStr];
               if (!lesson) return;
 
               const scheduleCell: ScheduleCell | undefined =

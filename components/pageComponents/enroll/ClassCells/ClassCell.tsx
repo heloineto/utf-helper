@@ -4,6 +4,7 @@ import { SettingsContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
 import { Portal } from '@mui/material';
 import { limitText } from '@lib/utils/typescript';
+import twColors from 'tailwindcss/colors';
 
 interface Props extends ComponentProps<'div'> {
   classObject: ClassObject;
@@ -14,7 +15,9 @@ interface Props extends ComponentProps<'div'> {
 
 const ClassCell = ({ classObject, timeCode, dayCode, length, ...divProps }: Props) => {
   const { darkMode } = useContext(SettingsContext);
-  const [color] = useColor(classObject.subjectCode);
+  let [color] = useColor(classObject.subjectCode);
+
+  if (!color) color = twColors['slate'];
 
   return (
     <Portal
@@ -29,14 +32,12 @@ const ClassCell = ({ classObject, timeCode, dayCode, length, ...divProps }: Prop
       >
         <div
           className="w-full h-full rounded mx-1 p-1 text-left flex flex-col"
-          style={{
-            backgroundColor: color ? color[darkMode ? 600 : 200] : undefined,
-          }}
+          style={{ backgroundColor: color[darkMode ? 600 : 200] }}
         >
           <div
             className="font-semibold break-all overflow-hidden text-ellipsis"
             style={{
-              color: color ? color[darkMode ? 100 : 800] : undefined,
+              color: color[darkMode ? 100 : 800],
               lineHeight: '.9rem',
             }}
           >
@@ -44,17 +45,13 @@ const ClassCell = ({ classObject, timeCode, dayCode, length, ...divProps }: Prop
           </div>
           <div
             className="text-[0.7rem] font-medium"
-            style={{
-              color: color ? color[darkMode ? 200 : 600] : undefined,
-            }}
+            style={{ color: color[darkMode ? 200 : 600] }}
           >
             {`${classObject.subjectCode} - ${classObject.code}`}
           </div>
           <div
             className="text-[0.7rem] font-medium -mt-0.5"
-            style={{
-              color: color ? color[darkMode ? 200 : 600] : undefined,
-            }}
+            style={{ color: color[darkMode ? 200 : 600] }}
           >
             {classObject.framing === 'P'
               ? 'Presencial'
