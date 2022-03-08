@@ -14,7 +14,7 @@ interface Subject {
 type ScheduleCell = { startTimeCode: string; length: number };
 
 type ScheduleCells = {
-  [day: string]: ScheduleCell[];
+  [dayCode: string]: ScheduleCell[];
 };
 
 interface ClassObject {
@@ -47,7 +47,7 @@ interface PA {
   className: string;
   classCode: string;
   professor: string;
-  lessons: Lesson[];
+  lessons: { [k: string]: Lesson };
 }
 
 interface Lesson {
@@ -58,4 +58,10 @@ interface Lesson {
   numberOfLessonsOrWeight: string;
   numberOfSyncLessons: number;
   description: string;
+}
+
+interface CompleteLesson extends Lesson {
+  pa: Omit<PA, 'lessons'>;
+  dayCode: string;
+  scheduleCells: ScheduleCell[];
 }
