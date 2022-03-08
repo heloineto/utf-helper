@@ -16,6 +16,8 @@ const LessonCellPopover = ({ lesson, ...popoverProps }: Props) => {
   const length = lesson.scheduleCell.length;
   const { classObject, dayCode } = lesson;
 
+  const isSync = classObject.framing !== 'R' && lesson.isSync;
+
   const { darkMode } = useContext(SettingsContext);
   const [color] = useColor(classObject.subjectCode);
 
@@ -29,22 +31,41 @@ const LessonCellPopover = ({ lesson, ...popoverProps }: Props) => {
       }}
       {...popoverProps}
     >
-      <div className="p-3 flex items-center justify-center gap-x-3">
+      <div className="p-3 flex items-center justify-start gap-x-3">
         <div
-          className="rounded h-10 w-10 flex-shrink-0 pt-full ring-1 ring-inset ring-slate-900/5 dark:ring-0 dark:highlight-white/10"
+          className="rounded h-10 w-16 flex-shrink-0 pt-full ring-1 ring-inset ring-slate-900/5 dark:ring-0 dark:highlight-white/10 flex flex-col justify-center items-center text-xs font-bold"
           style={{
             background: color
-              ? `linear-gradient(225deg, ${color[500]} 0%, ${color[300]} 100%)`
+              ? `linear-gradient(225deg, ${color[400]} 0%, ${color[300]} 100%)`
               : undefined,
+            color: color ? color[900] : undefined,
           }}
-        />
+        >
+          <div>{classObject.subjectCode}</div>
+          <div>{classObject.code}</div>
+        </div>
         <div>
-          <div className="text-slate-900 truncate sm:pr-20 dark:text-slate-100">
-            {/* {dayInfo?.extraDayInfo?.label ?? dayInfo?.legend?.label} */}
+          <div className="text-slate-900 dark:text-slate-100">
+            {classObject.subjectName}
           </div>
-          {dateStr && (
-            <div className="text-sm leading-6 dark:text-slate-500">{dateStr}</div>
-          )}
+          <div className="flex justify-center items-center gap-x-2">
+            <div className="text-slate-900 text-sm dark:text-slate-100">
+              {isSync ? 'Aula Presencial' : 'Aula Remota'}
+            </div>
+            {dateStr && (
+              <div className="text-sm leading-6 dark:text-slate-500">{dateStr}</div>
+            )}
+          </div>
+        </div>
+      </div>
+      <div className="p-3 max-w-lg">
+        <div>
+          <div className="text-[0.9rem] font-medium text-slate-500 dark:text-slate-100">
+            Conteúdo Previsto
+          </div>
+          <div className="mt-1 text-sm text-slate-900 dark:text-slate-300 font-light">
+            {lesson.description}
+          </div>
         </div>
       </div>
     </Popover>

@@ -3,6 +3,7 @@ import { SettingsContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
 import { limitText } from '@lib/utils/typescript';
 import LessonCellPopover from './LessonCell.Popover';
+import classNames from 'clsx';
 
 interface Props extends ComponentProps<'div'> {
   lesson: CompleteLesson;
@@ -13,13 +14,16 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
   const length = lesson.scheduleCell.length;
   const { classObject, dayCode } = lesson;
 
+  const isSync = classObject.framing !== 'R' && lesson.isSync;
+
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
   const { darkMode } = useContext(SettingsContext);
+  const [hover, setHover] = useState(false);
   const [color] = useColor(classObject.subjectCode);
 
   return (
     <div
-      className="flex absolute top-0 left-0 w-full cursor-pointer py-1"
+      className="flex absolute top-0 left-0 w-full cursor-pointer py-1 "
       style={{
         height: `${100 * length}%`,
       }}
@@ -28,10 +32,18 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
       {...divProps}
     >
       <div
-        className="w-full h-full rounded mx-1 p-1 text-left flex flex-col"
-        style={{
-          backgroundColor: color ? color[darkMode ? 600 : 200] : undefined,
-        }}
+        className={classNames(
+          hover && 'ring-2 ring-offset-1 dark:ring-offset-slate-800',
+          'w-full h-full rounded mx-1 p-1 text-left flex flex-col border-2'
+        )}
+        style={
+          {
+            backgroundColor: color ? color[darkMode ? 600 : 200] : undefined,
+            borderColor: color ? color[darkMode ? 500 : 300] : undefined,
+            opacity: isSync ? undefined : darkMode ? 0.75 : 0.85,
+            '--tw-ring-color': color ? color[darkMode ? 500 : 300] : undefined,
+          } as any
+        }
       >
         <div
           className="font-semibold break-all overflow-hidden text-ellipsis"
@@ -51,16 +63,16 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
           {`${classObject.subjectCode} - ${classObject.code}`}
         </div>
         <div
-          className="text-[0.7rem] font-medium -mt-0.5"
+          className="text-[0.75rem] font-medium -mt-0.5"
           style={{
             color: color ? color[darkMode ? 200 : 600] : undefined,
           }}
         >
-          {classObject.framing === 'P'
-            ? 'Presencial'
-            : classObject.framing === 'H'
-            ? 'Híbrida'
-            : 'Remota'}
+          {isSync ? (
+            <div className="underline font-semibold">Aula Presencial</div>
+          ) : (
+            'Aula Remota'
+          )}
         </div>
       </div>
       <LessonCellPopover
