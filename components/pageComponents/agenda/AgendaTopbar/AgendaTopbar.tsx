@@ -1,5 +1,5 @@
 import SecondaryButton from '@components/elements/buttons/SecondaryButton';
-import { Checkbox, IconButton, Tooltip } from '@mui/material';
+import { IconButton, Tooltip } from '@mui/material';
 import { DateTime } from 'luxon';
 import { getDateStr } from '@lib/utils/luxon';
 import { useContext } from 'react';

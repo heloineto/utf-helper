@@ -1,7 +1,6 @@
 import { DateTime } from 'luxon';
 import { Popper, PopperProps } from '@mui/material';
 import { getDateStr } from '@lib/utils/luxon';
-import { useColor } from '@lib/hooks';
 import { TailwindColorGroup } from 'tailwindcss/tailwind-config';
 
 interface Props extends Omit<PopperProps, 'color'> {
