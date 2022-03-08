@@ -2,7 +2,7 @@ import { useMediaQuery, useTheme } from '@mui/material';
 import { useState } from 'react';
 import { DateTime } from 'luxon';
 
-const useTimetable = () => {
+const useAgenda = () => {
   const { breakpoints } = useTheme();
   const mobile = useMediaQuery(breakpoints.down('xl'));
 
@@ -21,4 +21,4 @@ const useTimetable = () => {
   };
 };
 
-export default useTimetable;
+export default useAgenda;

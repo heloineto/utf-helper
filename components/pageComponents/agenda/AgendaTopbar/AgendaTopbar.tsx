@@ -3,15 +3,15 @@ import { Checkbox, IconButton, Tooltip } from '@mui/material';
 import { DateTime } from 'luxon';
 import { getDateStr } from '@lib/utils/luxon';
 import { useContext } from 'react';
-import { TimetableContext } from './lib/context';
-import { List } from 'phosphor-react';
+import { AgendaContext } from '../Agenda/lib/context';
+import { Funnel, List } from 'phosphor-react';
 import Topbar from '@components/navigation/Topbar';
 
 type Props = {};
 
-const TimetableTopbar = (props: Props) => {
+const AgendaTopbar = (props: Props) => {
   const { mobile, setSidebarOpen, setDisplayDate, setSelectedDate } =
-    useContext(TimetableContext);
+    useContext(AgendaContext);
 
   const today = DateTime.now();
   const todayStr = getDateStr(today);
@@ -42,6 +42,12 @@ const TimetableTopbar = (props: Props) => {
             </SecondaryButton>
           </div>
         </Tooltip>
+
+        <Tooltip title="Filtrar" arrow>
+          <IconButton className="text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 dark:text-slate-400">
+            <Funnel className="h-6" />
+          </IconButton>
+        </Tooltip>
         {/* <div className="flex text-md">
           <div className="flex items-center">
             <Checkbox defaultChecked size="small" />
@@ -57,4 +63,4 @@ const TimetableTopbar = (props: Props) => {
   );
 };
 
-export default TimetableTopbar;
+export default AgendaTopbar;

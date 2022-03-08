@@ -3,16 +3,16 @@ import { useCalendarData } from '@lib/hooks';
 import { getWeekInterval } from '@lib/utils/luxon';
 import { DateTime } from 'luxon';
 import { useContext, useState } from 'react';
-import { TimetableContext } from '../lib/context';
+import { AgendaContext } from '../Agenda/lib/context';
 import { scheduleStructure } from '@lib/utils/schedule';
 import { UserDataContext } from '@lib/context';
 import useLessons from './lib/hooks/useLessons';
-import LessonCell from '../../LessonCell';
+import LessonCell from '../LessonCell';
 
 type Props = {};
 
-const Schedule = ({}: Props) => {
-  const { selectedDate, setSelectedDate } = useContext(TimetableContext);
+const AgendaSchedule = ({}: Props) => {
+  const { selectedDate, setSelectedDate } = useContext(AgendaContext);
   const { userDetails } = useContext(UserDataContext);
   const classes = userDetails?.classes;
 
@@ -129,4 +129,4 @@ const Schedule = ({}: Props) => {
   );
 };
 
-export default Schedule;
+export default AgendaSchedule;

@@ -1,12 +1,12 @@
 import MainShell from '@components/appShells/MainShell';
-import Timetable from '@components/pageComponents/agenda/Timetable';
+import Agenda from '@components/pageComponents/agenda/Agenda';
 
-const Agenda: NextPage = () => {
+const AgendaPage: NextPage = () => {
   return (
     <MainShell>
-      <Timetable />
+      <Agenda />
     </MainShell>
   );
 };
 
-export default Agenda;
+export default AgendaPage;

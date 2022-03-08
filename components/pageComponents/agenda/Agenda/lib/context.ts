@@ -1,9 +1,9 @@
 import { DateTime } from 'luxon';
 import { createContext } from 'react';
-import useTimetable from './hooks/useTimetable';
+import useAgenda from './hooks/useAgenda';
 
-export const TimetableContext = createContext<
-  Partial<ReturnType<typeof useTimetable>> & {
+export const AgendaContext = createContext<
+  Partial<ReturnType<typeof useAgenda>> & {
     selectedDate: DateTime;
   }
 >({

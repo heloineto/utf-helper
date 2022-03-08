@@ -3,7 +3,7 @@ import Captions from '@components/pageComponents/calendar/Captions';
 import Month from '@components/pageComponents/calendar/Month';
 import { useCalendarData } from '@lib/hooks';
 
-const Calendar: NextPage = () => {
+const CalendarPage: NextPage = () => {
   const { yearInfo } = useCalendarData();
 
   return (
@@ -20,4 +20,4 @@ const Calendar: NextPage = () => {
   );
 };
 
-export default Calendar;
+export default CalendarPage;

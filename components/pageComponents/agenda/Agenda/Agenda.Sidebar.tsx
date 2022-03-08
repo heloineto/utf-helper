@@ -2,13 +2,13 @@ import Month from '@components/pageComponents/calendar/Month';
 import { useCalendarData } from '@lib/hooks';
 import { Drawer, IconButton } from '@mui/material';
 import { useContext, useEffect, useRef, useState } from 'react';
-import { TimetableContext } from './lib/context';
+import { AgendaContext } from './lib/context';
 import { CaretLeft, CaretRight } from 'phosphor-react';
 import { toStartCase } from '@lib/utils/typescript';
 
 type Props = {};
 
-const TimetableSidebar = (props: Props) => {
+const AgendaSidebar = (props: Props) => {
   const { yearInfo } = useCalendarData();
   const [drawerContainer, setDrawerContainer] = useState<HTMLElement | null>(null);
   const divRef = useRef<HTMLDivElement>(null);
@@ -20,7 +20,7 @@ const TimetableSidebar = (props: Props) => {
     setDisplayDate,
     selectedDate,
     setSelectedDate,
-  } = useContext(TimetableContext);
+  } = useContext(AgendaContext);
 
   useEffect(() => {
     setDrawerContainer(mobile ? document.body : divRef.current);
@@ -89,4 +89,4 @@ const TimetableSidebar = (props: Props) => {
   );
 };
 
-export default TimetableSidebar;
+export default AgendaSidebar;

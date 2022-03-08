@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import classNames from 'clsx';
 import EnrollTopbar from '@components/pageComponents/enroll/EnrollTopbar';
 
-const Enroll: NextPage = () => {
+const EnrollPage: NextPage = () => {
   const { direction } = useContext(SettingsContext);
   const { userDetails } = useContext(UserDataContext);
   const { handleRef, resize1Ref, resize2Ref, resizing } = useResize(direction);
@@ -38,4 +38,4 @@ const Enroll: NextPage = () => {
   );
 };
 
-export default Enroll;
+export default EnrollPage;
