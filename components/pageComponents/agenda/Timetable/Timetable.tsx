@@ -10,15 +10,17 @@ const Timetable = (props: Props) => {
   const value = useTimetable();
 
   return (
-    <div className="h-full flex flex-col overflow-hidden relative">
+    <>
       <TimetableContext.Provider value={value}>
         <TimetableTopbar />
-        <div className="h-full flex">
+        <div className="h-[calc(100%-3rem)] flex">
           <TimetableSidebar />
-          <TimetableSchedule />
+          <div className="overflow-y-scroll flex-grow">
+            <TimetableSchedule />
+          </div>
         </div>
       </TimetableContext.Provider>
-    </div>
+    </>
   );
 };
 

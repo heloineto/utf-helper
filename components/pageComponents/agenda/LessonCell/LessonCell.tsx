@@ -1,9 +1,8 @@
-import { useContext } from 'react';
-import classNames from 'clsx';
+import { useContext, useState } from 'react';
 import { SettingsContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
-import { Portal } from '@mui/material';
 import { limitText } from '@lib/utils/typescript';
+import LessonCellPopover from './LessonCell.Popover';
 
 interface Props extends ComponentProps<'div'> {
   lesson: CompleteLesson;
@@ -14,6 +13,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
   const length = lesson.scheduleCell.length;
   const { classObject, dayCode } = lesson;
 
+  const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
   const { darkMode } = useContext(SettingsContext);
   const [color] = useColor(classObject.subjectCode);
 
@@ -23,6 +23,8 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
       style={{
         height: `${100 * length}%`,
       }}
+      onMouseEnter={(e) => setAnchorEl(e.currentTarget)}
+      onMouseLeave={() => setAnchorEl(null)}
       {...divProps}
     >
       <div
@@ -61,6 +63,23 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
             : 'Remota'}
         </div>
       </div>
+      <LessonCellPopover
+        anchorEl={anchorEl}
+        open={anchorEl !== null}
+        sx={{
+          pointerEvents: 'none',
+        }}
+        anchorOrigin={{
+          vertical: 'center',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+        disableRestoreFocus
+        lesson={lesson}
+      />
     </div>
   );
 };
