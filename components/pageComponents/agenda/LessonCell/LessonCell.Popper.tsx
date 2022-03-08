@@ -12,7 +12,7 @@ const LessonCellPopper = ({ lesson, ...popperProps }: Props) => {
   const length = lesson.scheduleCell.length;
   const { classObject, dayCode } = lesson;
 
-  const isSync = classObject.framing !== 'R' && lesson.isSync;
+  const isInPerson = classObject.framing !== 'R' && lesson.isSync;
 
   const [color] = useColor(classObject.subjectCode);
 
@@ -42,7 +42,11 @@ const LessonCellPopper = ({ lesson, ...popperProps }: Props) => {
           </div>
           <div className="flex justify-start items-center gap-x-2">
             <div className="text-slate-900 text-sm dark:text-slate-100">
-              {isSync ? <div className="underline">Aula Presencial</div> : 'Aula Remota'}
+              {isInPerson ? (
+                <div className="underline">Aula Presencial</div>
+              ) : (
+                <div>Aula Remota {lesson.isSync ? 'Síncrona' : 'Assíncrona'}</div>
+              )}
             </div>
             {dateStr && (
               <div className="text-sm leading-6 dark:text-slate-500">{dateStr}</div>

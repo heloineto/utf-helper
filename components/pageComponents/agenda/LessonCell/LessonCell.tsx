@@ -16,7 +16,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
   const length = lesson.scheduleCell.length;
   const { classObject, dayCode } = lesson;
 
-  const isSync = classObject.framing !== 'R' && lesson.isSync;
+  const isInPerson = classObject.framing !== 'R' && lesson.isSync;
 
   const { darkMode } = useContext(SettingsContext);
   const [hover, setHover] = useState(false);
@@ -51,12 +51,12 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
           'w-full h-full rounded mx-1 p-1 text-left flex flex-col border-2'
         )}
         style={{
-          background: isSync
+          background: isInPerson
             ? undefined
             : getStrippedBackground(color[darkMode ? 600 : 200]),
-          backgroundColor: isSync ? color[darkMode ? 600 : 200] : undefined,
+          backgroundColor: isInPerson ? color[darkMode ? 600 : 200] : undefined,
           borderColor: color[darkMode ? 500 : 300],
-          // opacity: isSync ? undefined : darkMode ? 0.75 : 0.85,
+          opacity: lesson.isSync ? undefined : darkMode ? 0.75 : 0.85,
         }}
       >
         <div
@@ -82,10 +82,10 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
             color: color[darkMode ? 200 : 600],
           }}
         >
-          {isSync ? (
+          {isInPerson ? (
             <div className="underline font-semibold">Aula Presencial</div>
           ) : (
-            'Aula Remota'
+            <div>Aula Remota {lesson.isSync ? 'Síncrona' : 'Assíncrona'}</div>
           )}
         </div>
       </div>

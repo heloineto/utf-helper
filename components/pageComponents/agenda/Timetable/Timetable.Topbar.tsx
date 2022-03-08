@@ -1,5 +1,5 @@
 import SecondaryButton from '@components/elements/buttons/SecondaryButton';
-import { IconButton, Tooltip } from '@mui/material';
+import { Checkbox, IconButton, Tooltip } from '@mui/material';
 import { DateTime } from 'luxon';
 import { getDateStr } from '@lib/utils/luxon';
 import { useContext } from 'react';
@@ -42,6 +42,16 @@ const TimetableTopbar = (props: Props) => {
             </SecondaryButton>
           </div>
         </Tooltip>
+        <div className="flex">
+          <div className="flex items-center">
+            <Checkbox defaultChecked size="small" />
+            Aulas Presenciais
+          </div>
+          <div className="flex items-center">
+            <Checkbox defaultChecked size="small" />
+            Aulas Remotas
+          </div>
+        </div>
       </div>
     </Topbar>
   );
