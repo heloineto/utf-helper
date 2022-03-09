@@ -29,15 +29,16 @@ const useUserDataNew = () => {
   }, [user]);
 
   useEffect(() => {
-    //(!d & u) | (d & !u) | l
-    const d = !!userDetails;
-    const u = !!user;
-    const l = !!_loading;
-
     // if(_loading) setLoading(true);
     //   else if((!userDetails && user) || (userDetails && !user)) setLoading(true);
     //   else setLoading(false);
-    setLoading((!d && u) || (d && !u) || l);
+    //
+    // const d = !!userDetails;
+    // const u = !!user;
+    // const l = !!_loading;
+    // setLoading((!d && u) || (d && !u) || l);
+
+    setLoading((!userDetails && !!user) || (!!userDetails && !user) || !!_loading);
   }, [user, _loading, userDetails]);
 
   return { user, loading, userDetails };
