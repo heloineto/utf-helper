@@ -18,7 +18,7 @@ const EnrollPage: NextPage = () => {
 
   useEffect(() => {
     if (mobile) setDirection?.('vertical');
-  }, [mobile]);
+  }, [mobile, setDirection]);
 
   return (
     <MainShell>
