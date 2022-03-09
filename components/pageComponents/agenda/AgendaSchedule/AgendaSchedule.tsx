@@ -55,15 +55,15 @@ const AgendaSchedule = ({}: Props) => {
       >
         <tbody className="divide-y divide-slate-200 dark:divide-slate-700/50 text-center">
           <tr className="shadow">
-            <td className="w-[calc(100%/35)]" />
-            <td className="font-bold w-[calc(100%*2/35)] text-sm text-slate-700 dark:text-slate-300">
+            <td className="w-[calc(100%/47)]" />
+            <td className="font-bold w-[calc(100%*2/47)] text-sm text-slate-700 dark:text-slate-300">
               Início
             </td>
-            <td className="font-bold w-[calc(100%*2/35)] text-sm text-slate-700 dark:text-slate-300">
+            <td className="font-bold w-[calc(100%*2/47)] text-sm text-slate-700 dark:text-slate-300">
               Térm.
             </td>
             {weekDates.map(({ start }) => (
-              <td key={start.weekdayShort} className="text-sm w-[calc(100%*5/35)] h-24">
+              <td key={start.weekdayShort} className="text-sm w-[calc(100%*7/47)] h-24">
                 <div className="text-slate-600 dark:text-slate-300 font-medium mb-1">
                   {start.setLocale('pt-BR').weekdayShort.slice(0, -1).toUpperCase()}
                 </div>
