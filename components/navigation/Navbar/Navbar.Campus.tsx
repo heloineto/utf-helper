@@ -1,4 +1,4 @@
-import { Tooltip } from '@mui/material';
+import { Skeleton, Tooltip } from '@mui/material';
 import { NotePencil } from 'phosphor-react';
 import { useContext, useState } from 'react';
 import classNames from 'clsx';
@@ -12,19 +12,28 @@ interface Props extends ComponentProps<'button'> {}
 const NavbarCampus = ({ className, ...buttonProps }: Props) => {
   const [campusDialogOpen, setCampusDialogOpen] = useState(false);
   const [hover, setHover] = useState(false);
-  const { userDetails } = useContext(UserDataContext);
+  const { userDetails, loading } = useContext(UserDataContext);
   const campuses = useCampuses();
 
   const campus = userDetails?.campus;
   const course = userDetails?.course;
 
+  if (loading) {
+    return (
+      <div className="px-2.5 flex flex-col items-end">
+        <Skeleton className="mr-2.5 h-5 w-28 rounded-md flex-shrink-0" />
+        <Skeleton className="mr-2.5 h-5 w-40 rounded-md flex-shrink-0" />
+      </div>
+    );
+  }
+
   return (
     <>
       <Tooltip title="Selecionar Câmpus e Curso" arrow>
         <button
+          className={classNames(className, 'rounded-md px-2.5 relative')}
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
-          className={classNames(className, 'rounded-md px-2.5 relative')}
           onClick={() => setCampusDialogOpen(true)}
           {...buttonProps}
         >

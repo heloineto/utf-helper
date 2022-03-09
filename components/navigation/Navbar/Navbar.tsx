@@ -7,6 +7,7 @@ import NavbarGoogleSignIn from './Navbar.GoogleSignIn';
 import { useContext } from 'react';
 import { UserDataContext } from '@lib/context';
 import NavbarAvatar from './Navbar.Avatar';
+import { Skeleton } from '@mui/material';
 
 interface Props extends ComponentProps<'header'> {}
 
@@ -30,7 +31,9 @@ const Navbar = ({ className }: Props) => {
         <div className="w-full flex lg:justify-end">
           <NavbarCampus className="text-left lg:text-right" />
         </div>
-        {userDetails && !userDetails?.isAnonymous ? (
+        {loading ? (
+          <Skeleton className="mr-2.5 h-10 w-10 flex-shrink-0" variant="circular" />
+        ) : userDetails && !userDetails?.isAnonymous ? (
           <NavbarAvatar className="mr-2.5" userDetails={userDetails} />
         ) : (
           <NavbarGoogleSignIn className="mr-2.5" />
