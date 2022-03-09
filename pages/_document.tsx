@@ -22,13 +22,33 @@ export default class MyDocument extends Document {
             name="description"
             content="O UTF Helper é um site de aulo para aluno que facilita sua vida universitária na UTFPR"
           />
-          <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="msapplication-TileColor" content="#2d89ef" />
           <meta name="theme-color" content="#0ea5e9" />
           <meta name="language" content="Portuguese" />
           <meta name="author" content="Heloi Vieira de Abreu Neto" />
           <meta name="robots" content="index, follow" />
+
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://utf-helper.vercel.app/" />
+          <meta property="og:title" content="UTF Helper" />
+          <meta
+            property="og:description"
+            content="O UTF Helper é um site de aulo para aluno que facilita sua vida universitária na UTFPR"
+          />
+          <meta property="og:image" content="/image-512x256.jpg" />
+
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://utf-helper.vercel.app/" />
+          <meta property="twitter:title" content="UTF Helper" />
+          <meta
+            property="twitter:description"
+            content="O UTF Helper é um site de aulo para aluno que facilita sua vida universitária na UTFPR"
+          />
+          <meta property="twitter:image" content="/image-512x256.jpg" />
+
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {(this.props as any).emotionStyleTags}
         </Head>
