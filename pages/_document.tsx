@@ -26,6 +26,9 @@ export default class MyDocument extends Document {
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="msapplication-TileColor" content="#2d89ef" />
           <meta name="theme-color" content="#0ea5e9" />
+          <meta name="language" content="Portuguese" />
+          <meta name="author" content="Heloi Vieira de Abreu Neto" />
+          <meta name="robots" content="index, follow" />
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {(this.props as any).emotionStyleTags}
         </Head>
