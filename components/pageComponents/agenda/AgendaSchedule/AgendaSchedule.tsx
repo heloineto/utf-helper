@@ -13,13 +13,14 @@ import { Info } from 'phosphor-react';
 import PrimaryButton from '@components/elements/buttons/PrimaryButton';
 import SecondaryButton from '@components/elements/buttons/SecondaryButton';
 import Link from 'next/link';
+import { CircularProgress } from '@mui/material';
 
 type Props = {};
 
 const AgendaSchedule = ({}: Props) => {
   const { selectedDate, setSelectedDate } = useContext(AgendaContext);
   const { userDetails, loading } = useContext(UserDataContext);
-  console.log({ userDetails, loading });
+  console.log({ loading, userDetails: !!userDetails });
 
   const classes = userDetails?.classes;
 
@@ -42,7 +43,12 @@ const AgendaSchedule = ({}: Props) => {
   const { yearInfo } = useCalendarData();
 
   return (
-    <>
+    <div className="relative">
+      {loading && (
+        <div className="absolute top-0 left-0 w-full h-full grid place-items-center">
+          <CircularProgress />
+        </div>
+      )}
       <table
         className="bg-slte-100 dark:bg-slate-800 border-slate-100 dark:border-slate-800 text-xs flex-grow w-full min-w-[55rem] min-h-[56rem]"
         cellSpacing={0}
@@ -153,7 +159,7 @@ const AgendaSchedule = ({}: Props) => {
           Cancelar
         </SecondaryButton>
       </ActionDialog>
-    </>
+    </div>
   );
 };
 

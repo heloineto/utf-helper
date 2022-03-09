@@ -4,8 +4,8 @@ import { doc, onSnapshot } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 const useUserDataNew = () => {
-  const [user, loading] = useAuthState(auth);
-
+  const [user, _loading] = useAuthState(auth);
+  const [loading, setLoading] = useState(true);
   const [userDetails, setUserDetails] = useState<UserDetailsWithRef | null>(null);
 
   useEffect(() => {
@@ -27,6 +27,18 @@ const useUserDataNew = () => {
 
     return unsubscribe;
   }, [user]);
+
+  useEffect(() => {
+    //(!d & u) | (d & !u) | l
+    const d = !!userDetails;
+    const u = !!user;
+    const l = !!_loading;
+
+    // if(_loading) setLoading(true);
+    //   else if((!userDetails && user) || (userDetails && !user)) setLoading(true);
+    //   else setLoading(false);
+    setLoading((!d && u) || (d && !u) || l);
+  }, [user, _loading, userDetails]);
 
   return { user, loading, userDetails };
 };
