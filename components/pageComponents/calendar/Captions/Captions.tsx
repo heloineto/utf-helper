@@ -8,12 +8,12 @@ const Captions = (props: Props) => {
   const { captions } = useCalendarData();
 
   return (
-    <div className="bg-white rounded-lg shadow ring-1 ring-slate-700/5 p-2 dark:bg-slate-900 dark:ring-white/10 h-80 md:h-64 xl:h-48 2xl:h-40 px-5 py-2.5 mb-5 grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-5">
+    <div className="bg-white rounded-lg shadow ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10 h-80 md:h-64 xl:h-48 2xl:h-40 px-2.5 sm:px-5 py-1 sm:py-2.5 mb-5 grid grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-2 sm:gap-x-5">
       {captions.map(({ label, color, symbol }) => {
         const lighterColor = colord(color).lighten(0.25).toHex();
 
         return (
-          <div key={color ?? symbol} className="flex items-center gap-x-2">
+          <div key={color ?? symbol} className="flex items-center gap-x-1.5 sm:gap-x-2">
             {symbol === '◯' ? (
               <CircleIcon />
             ) : symbol === '△' ? (
@@ -26,7 +26,7 @@ const Captions = (props: Props) => {
                 }}
               />
             )}
-            <div className="dark:text-slate-400 text-xs sm:text-sm font-medium font-mono">
+            <div className="dark:text-slate-400 text-[0.7rem] sm:text-sm font-medium break-all">
               {label}
             </div>
           </div>

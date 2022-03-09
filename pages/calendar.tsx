@@ -8,7 +8,7 @@ const CalendarPage: NextPage = () => {
 
   return (
     <MainShell>
-      <div className="p-5 h-full overflow-y-scroll">
+      <div className="p-2 sm:p-5 h-full overflow-y-scroll">
         <Captions />
         <div className="grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-2.5 gap-y-5">
           {Array.from({ length: 12 }, (_, idx) => (

@@ -4,14 +4,21 @@ import Schedule from '@components/pageComponents/enroll/Schedule';
 import Subjects, { SubjectsSafeguard } from '@components/pageComponents/enroll/Subjects';
 import { SettingsContext, UserDataContext } from '@lib/context';
 import { useResize } from '@lib/hooks';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import classNames from 'clsx';
 import EnrollTopbar from '@components/pageComponents/enroll/EnrollTopbar';
+import { useMediaQuery, useTheme } from '@mui/material';
 
 const EnrollPage: NextPage = () => {
-  const { direction } = useContext(SettingsContext);
+  const { direction, setDirection } = useContext(SettingsContext);
   const { userDetails } = useContext(UserDataContext);
   const { handleRef, resize1Ref, resize2Ref, resizing } = useResize(direction);
+  const { breakpoints } = useTheme();
+  const mobile = useMediaQuery(breakpoints.down('xl'));
+
+  useEffect(() => {
+    if (mobile) setDirection?.('vertical');
+  }, [mobile]);
 
   return (
     <MainShell>
