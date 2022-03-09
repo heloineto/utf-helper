@@ -12,8 +12,6 @@ interface Props extends ComponentProps<'div'> {
 }
 
 const LessonCell = ({ lesson, ...divProps }: Props) => {
-  if (!lesson?.type && !lesson.index && !lesson.numberOfLessonsOrWeight) return null;
-
   const timeCode = lesson.scheduleCell.startTimeCode;
   const length = lesson.scheduleCell.length;
   const { classObject, dayCode } = lesson;

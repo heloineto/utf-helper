@@ -116,7 +116,12 @@ const AgendaSchedule = ({}: Props) => {
 
                 return (
                   <td key={dayCode} className="relative">
-                    {lesson && <LessonCell lesson={lesson} />}
+                    {lesson &&
+                      (lesson?.type ||
+                        lesson?.index ||
+                        lesson?.numberOfLessonsOrWeight) && (
+                        <LessonCell lesson={lesson} />
+                      )}
                   </td>
                 );
               })}

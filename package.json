@@ -26,6 +26,7 @@
     "luxon": "^2.3.0",
     "mui-rff": "^5.0.0",
     "next": "latest",
+    "next-pwa": "^5.4.5",
     "notistack": "^2.0.3",
     "phosphor-react": "^1.4.1",
     "react": "latest",
