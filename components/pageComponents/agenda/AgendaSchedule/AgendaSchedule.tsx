@@ -109,19 +109,14 @@ const AgendaSchedule = ({}: Props) => {
               </td>
               <th className="font-medium text-slate-600 dark:text-slate-400">{start}</th>
               <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
-              {Object.entries(days).map(([dayCode, classObject]) => {
-                const [shitfCode, numberCode] = timeCode.split('');
-
+              {Object.keys(days).map((dayCode) => {
                 const lesson = lessonsObject?.[dayCode][timeCode];
+                const isHoliday =
+                  !lesson?.type && !lesson?.index && !lesson?.numberOfLessonsOrWeight;
 
                 return (
                   <td key={dayCode} className="relative">
-                    {lesson &&
-                      (lesson?.type ||
-                        lesson?.index ||
-                        lesson?.numberOfLessonsOrWeight) && (
-                        <LessonCell lesson={lesson} />
-                      )}
+                    {lesson && !isHoliday && <LessonCell lesson={lesson} />}
                   </td>
                 );
               })}

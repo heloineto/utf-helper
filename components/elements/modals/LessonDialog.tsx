@@ -54,8 +54,8 @@ const LessonDialog = ({ lesson, onClose, ...muiDialogProps }: Props) => {
         </div>
       </div>
       <div className="px-6 py-8">
-        <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-4">
-          <div className="sm:col-span-4">
+        <dl className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4">
+          <div className="col-span-2 sm:col-span-4">
             <dt className="text-sm text-slate-500 dark:text-slate-400">
               Conteúdo Previsto
             </dt>
@@ -96,7 +96,7 @@ const LessonDialog = ({ lesson, onClose, ...muiDialogProps }: Props) => {
             </dd>
           </div>
           <div className="sm:col-span-2">
-            <dt className="text-sm text-slate-500 dark:text-slate-400">Professor</dt>
+            <dt className="text-sm text-slate-500 dark:text-slate-400">Professor (a)</dt>
             <dd className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">
               {classObject.teacher}
             </dd>
@@ -108,7 +108,8 @@ const LessonDialog = ({ lesson, onClose, ...muiDialogProps }: Props) => {
           <a
             href={`https://sistemas2.utfpr.edu.br/dpls/sistema/aluno06/mpPlanejamentoAula.pcPlanejFinalizado?p_turmidvc=${classObject.paCode}&p_print=1`}
             target="_blank"
-            className="w-1/3" rel="noreferrer"
+            className="w-1/3"
+            rel="noreferrer"
           >
             <SecondaryButton>Ver PA</SecondaryButton>
           </a>

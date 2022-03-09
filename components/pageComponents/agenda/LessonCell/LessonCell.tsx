@@ -6,15 +6,16 @@ import LessonCellPopper from './LessonCell.Popper';
 import classNames from 'clsx';
 import { colord } from 'colord';
 import LessonCellDialog from '../../../elements/modals/LessonDialog';
+import { MapPin } from 'phosphor-react';
 
 interface Props extends ComponentProps<'div'> {
   lesson: CompleteLesson;
 }
 
 const LessonCell = ({ lesson, ...divProps }: Props) => {
-  const timeCode = lesson.scheduleCell.startTimeCode;
-  const length = lesson.scheduleCell.length;
-  const { classObject, dayCode } = lesson;
+  const { classObject, dayCode, scheduleCell } = lesson;
+  const timeCode = scheduleCell.startTimeCode;
+  const length = scheduleCell.length;
 
   const isInPerson = classObject.framing !== 'R' && lesson.isSync;
 
@@ -40,7 +41,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
     if (!divElem) return;
 
     const handleMouseOver = (event: MouseEvent) => {
-      const muiModal = document.querySelector('.MuiModal-root');
+      const muiModal = document.getElementById('lesson-cell-dialog');
       if (muiModal) return;
 
       const { x, y, height, width } = divElem.getBoundingClientRect();
@@ -53,7 +54,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
     };
 
     const handleClick = (event: MouseEvent) => {
-      const muiModal = document.querySelector('.MuiModal-root');
+      const muiModal = document.getElementById('lesson-cell-dialog');
       if (muiModal) return;
 
       const { x, y, height, width } = divElem.getBoundingClientRect();
@@ -78,9 +79,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
   return (
     <div
       className="flex absolute top-0 left-0 w-full cursor-pointer py-1"
-      style={{
-        height: `${100 * length}%`,
-      }}
+      style={{ height: `${100 * length}%` }}
       ref={divRef}
       {...divProps}
     >
@@ -108,18 +107,21 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
           {limitText(classObject.subjectName, 50)}
         </div>
         <div
-          className="text-[0.7rem] font-medium"
-          style={{
-            color: color[darkMode ? 200 : 600],
-          }}
+          className="text-xs font-medium"
+          style={{ color: color[darkMode ? 200 : 600] }}
         >
-          {`${classObject.subjectCode} - ${classObject.code}`}
+          {scheduleCell?.locationCodes ? (
+            <div className="flex items-center gap-x-1">
+              <MapPin weight="fill" />
+              {scheduleCell?.locationCodes?.join(' ou ')}
+            </div>
+          ) : (
+            `${classObject.subjectCode} - ${classObject.code}`
+          )}
         </div>
         <div
-          className="text-[0.75rem] font-medium -mt-0.5"
-          style={{
-            color: color[darkMode ? 200 : 600],
-          }}
+          className="text-xs font-medium -mt-0.5"
+          style={{ color: color[darkMode ? 200 : 600] }}
         >
           {isInPerson ? (
             <div className="underline font-semibold">Aula Presencial</div>
@@ -137,6 +139,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
         color={color}
       />
       <LessonCellDialog
+        id="lesson-cell-dialog"
         open={dialogOpen}
         onClose={() => setDialogOpen(false)}
         lesson={lesson}

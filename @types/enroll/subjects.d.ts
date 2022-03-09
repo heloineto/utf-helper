@@ -11,7 +11,7 @@ interface Subject {
   };
 }
 
-type ScheduleCell = { startTimeCode: string; length: number };
+type ScheduleCell = { startTimeCode: string; length: number; locationCodes: string[] };
 
 type ScheduleCells = {
   [dayCode: string]: ScheduleCell[];
