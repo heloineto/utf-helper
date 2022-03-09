@@ -20,7 +20,6 @@ type Props = {};
 const AgendaSchedule = ({}: Props) => {
   const { selectedDate, setSelectedDate } = useContext(AgendaContext);
   const { userDetails, loading } = useContext(UserDataContext);
-  console.log({ loading, userDetails: !!userDetails });
 
   const classes = userDetails?.classes;
 

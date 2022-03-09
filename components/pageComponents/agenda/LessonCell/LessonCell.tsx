@@ -4,7 +4,6 @@ import { useColor } from '@lib/hooks';
 import { limitText } from '@lib/utils/typescript';
 import LessonCellPopper from './LessonCell.Popper';
 import classNames from 'clsx';
-import twColors from 'tailwindcss/colors';
 import { colord } from 'colord';
 import LessonCellDialog from '../../../elements/modals/LessonDialog';
 

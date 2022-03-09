@@ -10,9 +10,10 @@ import SecondaryButton from '../buttons/SecondaryButton';
 
 interface Props extends Omit<DialogProps, 'color'> {
   lesson: CompleteLesson;
+  onClose: () => void;
 }
 
-const LessonDialog = ({ lesson, ...muiDialogProps }: Props) => {
+const LessonDialog = ({ lesson, onClose, ...muiDialogProps }: Props) => {
   const { darkMode } = useContext(SettingsContext);
   const { classObject, dayCode } = lesson;
 
@@ -22,7 +23,7 @@ const LessonDialog = ({ lesson, ...muiDialogProps }: Props) => {
   const dateStr = lesson?.date && getDateStr(DateTime.fromISO(lesson.date));
 
   return (
-    <CustomDialog {...muiDialogProps}>
+    <CustomDialog onClose={onClose} {...muiDialogProps}>
       <div className="px-6 py-8 flex items-center justify-start gap-x-3 border-b border-slate-200 dark:border-slate-700">
         <div
           className="rounded h-14 w-20 flex-shrink-0 pt-full ring-1 ring-inset ring-slate-900/5 dark:ring-0 dark:highlight-white/10 flex flex-col justify-center items-center text-sm font-bold"
@@ -75,7 +76,7 @@ const LessonDialog = ({ lesson, ...muiDialogProps }: Props) => {
             </dd>
           </div>
           <div className="sm:col-span-1">
-            <dt className="text-sm text-slate-500 dark:text-slate-400">#</dt>
+            <dt className="text-sm text-slate-500 dark:text-slate-400">Aula Número</dt>
             <dd className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">
               {lesson?.index}
             </dd>
@@ -86,7 +87,7 @@ const LessonDialog = ({ lesson, ...muiDialogProps }: Props) => {
               {lesson?.numberOfLessonsOrWeight}
             </dd>
           </div>
-          <div className="sm:col-span-1">
+          <div className="sm:col-span-2">
             <dt className="text-sm text-slate-500 dark:text-slate-400">
               Quant. de Aulas Síncronas
             </dt>
@@ -94,12 +95,28 @@ const LessonDialog = ({ lesson, ...muiDialogProps }: Props) => {
               {lesson?.numberOfSyncLessons}
             </dd>
           </div>
+          <div className="sm:col-span-2">
+            <dt className="text-sm text-slate-500 dark:text-slate-400">Professor</dt>
+            <dd className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">
+              {classObject.teacher}
+            </dd>
+          </div>
         </dl>
       </div>
       <div className="px-6 py-8 border-t border-slate-200 dark:border-slate-700 flex justify-between flex-row gap-5 ">
-        <SecondaryButton className="w-1/3">Ver PA</SecondaryButton>
+        {classObject?.paCode && (
+          <a
+            href={`https://sistemas2.utfpr.edu.br/dpls/sistema/aluno06/mpPlanejamentoAula.pcPlanejFinalizado?p_turmidvc=${classObject.paCode}&p_print=1`}
+            target="_blank"
+            className="w-1/3" rel="noreferrer"
+          >
+            <SecondaryButton>Ver PA</SecondaryButton>
+          </a>
+        )}
 
-        <PrimaryButton className="w-1/3 ">Ok</PrimaryButton>
+        <PrimaryButton className="w-1/3" onClick={onClose}>
+          Ok
+        </PrimaryButton>
       </div>
     </CustomDialog>
   );

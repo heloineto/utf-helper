@@ -1,6 +1,6 @@
 import { UserDataContext } from '@lib/context';
 import { useFirestoreOperations } from '@lib/hooks';
-import { Button, Dialog, DialogProps } from '@mui/material';
+import { Dialog, DialogProps } from '@mui/material';
 import { deleteField } from 'firebase/firestore';
 import { useContext } from 'react';
 import SubjectsDayTimeCell from '../../pageComponents/enroll/Subjects/Subjects.DayTimeCell';

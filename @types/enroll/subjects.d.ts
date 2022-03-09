@@ -27,7 +27,8 @@ interface ClassObject {
   vacanciesFreshman: number;
   reservationType: string;
   priorityMajors: string;
-  pa: PA;
+  paCode: string | null;
+  pa?: PA;
   schedule: {
     dayTimeCode: string;
     locationCode: string;

@@ -4,7 +4,6 @@ import { SettingsContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
 import { Portal } from '@mui/material';
 import { limitText } from '@lib/utils/typescript';
-import twColors from 'tailwindcss/colors';
 
 interface Props extends ComponentProps<'div'> {
   classObject: ClassObject;
