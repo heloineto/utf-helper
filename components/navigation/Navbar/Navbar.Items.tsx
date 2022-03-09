@@ -21,7 +21,7 @@ const NavbarItems = (props: Props) => {
 
   return (
     <div
-      className="flex gap-x-2 h-full font-medium text-slate-700 dark:text-slate-400 relative"
+      className="flex gap-x-0.5 sm:gap-x-2 h-full font-medium text-slate-700 dark:text-slate-400 relative"
       ref={wrapperRef}
       onMouseLeave={() => {
         setHoverItem(null);
@@ -44,7 +44,7 @@ const NavbarItems = (props: Props) => {
                   current
                     ? 'text-slate-500 dark:text-slate-200'
                     : hover && 'text-slate-600 dark:text-slate-300',
-                  'flex justify-center items-center gap-x-1.5 px-2 sm:px-3 h-9 text-xs sm:text-sm'
+                  'flex justify-center items-center gap-x-1.5 px-1 sm:px-3 h-9 text-xs sm:text-sm'
                 )}
                 onMouseEnter={(e) => {
                   if (!wrapperRef.current) return;
