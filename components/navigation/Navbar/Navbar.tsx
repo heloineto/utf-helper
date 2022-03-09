@@ -18,7 +18,7 @@ const Navbar = ({ className }: Props) => {
     <header
       className={classNames(
         className,
-        'w-full h-28 lg:h-14 px-5 bg-white dark:bg-slate-900 flex flex-col lg:flex-row justify-between shadow-sm lg:border-b lg:pb-px lg:border-slate-900/10 dark:border-slate-50/[0.06]'
+        'w-full h-28 lg:h-14 px-2.5 sm:px-5 bg-white dark:bg-slate-900 flex flex-col lg:flex-row justify-between shadow-sm lg:border-b lg:pb-px lg:border-slate-900/10 dark:border-slate-50/[0.06]'
       )}
     >
       <div className="h-full w-1/3 hidden xl:flex items-center">

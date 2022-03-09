@@ -20,7 +20,7 @@ const NavbarCampus = ({ className, ...buttonProps }: Props) => {
 
   if (loading) {
     return (
-      <div className="px-2.5 flex flex-col items-end">
+      <div className="px-2.5 flex flex-col items-start lg:items-end">
         <Skeleton className="mr-2.5 h-5 w-28 rounded-md flex-shrink-0" />
         <Skeleton className="mr-2.5 h-5 w-40 rounded-md flex-shrink-0" />
       </div>

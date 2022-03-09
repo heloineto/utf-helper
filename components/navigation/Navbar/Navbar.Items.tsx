@@ -44,7 +44,7 @@ const NavbarItems = (props: Props) => {
                   current
                     ? 'text-slate-500 dark:text-slate-200'
                     : hover && 'text-slate-600 dark:text-slate-300',
-                  'flex justify-center items-center gap-x-1.5 px-3 h-9 text-sm'
+                  'flex justify-center items-center gap-x-1.5 px-2 sm:px-3 h-9 text-xs sm:text-sm'
                 )}
                 onMouseEnter={(e) => {
                   if (!wrapperRef.current) return;
@@ -70,7 +70,7 @@ const NavbarItems = (props: Props) => {
                 onClick={() => {}}
               >
                 <Icon
-                  className="h-[1.1rem] w-auto"
+                  className="h-4 sm:h-[1.1rem] w-auto"
                   weight={current ? 'fill' : 'regular'}
                 />
                 {label}
