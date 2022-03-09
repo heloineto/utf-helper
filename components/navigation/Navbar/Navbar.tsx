@@ -12,7 +12,7 @@ import { Skeleton } from '@mui/material';
 interface Props extends ComponentProps<'header'> {}
 
 const Navbar = ({ className }: Props) => {
-  const { userDetails, loading } = useContext(UserDataContext);
+  const { user, userDetails, loading } = useContext(UserDataContext);
 
   return (
     <header
@@ -33,7 +33,7 @@ const Navbar = ({ className }: Props) => {
         </div>
         {loading ? (
           <Skeleton className="mr-2.5 h-10 w-10 flex-shrink-0" variant="circular" />
-        ) : userDetails && !userDetails?.isAnonymous ? (
+        ) : userDetails && !user?.isAnonymous ? (
           <NavbarAvatar className="mr-2.5" userDetails={userDetails} />
         ) : (
           <NavbarGoogleSignIn className="mr-2.5" />

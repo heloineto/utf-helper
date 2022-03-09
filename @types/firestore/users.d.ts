@@ -14,7 +14,6 @@ interface UserDetails {
   email?: string;
   photoUrl?: string;
   name?: string;
-  isAnonymous?: boolean;
   campus?: string;
   course?: string;
   classes?: ClassMap<ClassObject>;

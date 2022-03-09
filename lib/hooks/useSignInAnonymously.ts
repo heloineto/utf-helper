@@ -23,7 +23,7 @@ const useSignInAnonymously = () => {
       converter<UserDetails>()
     );
 
-    await setDoc(userRef, { isAnonymous: true }).catch((error) => {
+    await setDoc(userRef, {}).catch((error) => {
       enqueueSnackbar('Não foi possível criar usuário no banco de dados', {
         variant: 'error',
       });

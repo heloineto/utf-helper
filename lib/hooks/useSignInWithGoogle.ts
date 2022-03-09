@@ -1,6 +1,10 @@
 import { auth, firestore, googleAuthProvider } from '@lib/firebase';
-import { converter, docExists } from '@lib/utils/firebase';
-import { signInWithPopup } from 'firebase/auth';
+import { converter } from '@lib/utils/firebase';
+import {
+  UserCredential,
+  linkWithPopup,
+  signInWithPopup,
+} from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { isNil, omitBy } from 'lodash';
 import { useSnackbar } from 'notistack';
@@ -9,16 +13,26 @@ const useSignInWithGoogle = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const signInWithGoogle = async () => {
-    const response = await signInWithPopup(auth, googleAuthProvider).catch((error) => {
-      enqueueSnackbar('Não foi possível entrar', { variant: 'error' });
+    let userCredential: void | UserCredential | undefined;
 
-      if (process.env.NODE_ENV === 'development') console.error(error);
-    });
+    if (auth.currentUser) {
+      userCredential = await linkWithPopup(auth.currentUser, googleAuthProvider).catch(
+        (error) => {
+          enqueueSnackbar('Erro ao atualizar conta anônima', { variant: 'error' });
 
-    if (!response) return;
+          if (process.env.NODE_ENV === 'development') console.error(error);
+        }
+      );
+    } else {
+      userCredential = await signInWithPopup(auth, googleAuthProvider).catch((error) => {
+        enqueueSnackbar('Não foi possível entrar', { variant: 'error' });
 
-    const user = response.user;
-    if (await docExists(`users/${user.uid}`)) return;
+        if (process.env.NODE_ENV === 'development') console.error(error);
+      });
+    }
+
+    if (!userCredential) return;
+    const user = userCredential.user;
 
     const userRef = doc(firestore, `users/${user.uid}`).withConverter(
       converter<UserDetails>()
@@ -29,7 +43,7 @@ const useSignInWithGoogle = () => {
       isNil
     );
 
-    await setDoc(userRef, userDetails).catch((error) => {
+    await setDoc(userRef, userDetails, { merge: true }).catch((error) => {
       enqueueSnackbar('Não foi possível criar usuário no banco de dados', {
         variant: 'error',
       });
