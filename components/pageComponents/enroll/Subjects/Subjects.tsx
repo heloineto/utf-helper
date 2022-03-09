@@ -7,6 +7,8 @@ import { orderBy } from 'firebase/firestore';
 import SubjectsEmptyState from './Subjects.EmptyState';
 import { isEmpty } from 'lodash';
 import SubjectsSelectedClasses from './Subjects.SelectedClasses';
+import { useMediaQuery, useTheme } from '@mui/material';
+import { useMemo } from 'react';
 
 interface Props {
   campus: string;
@@ -14,9 +16,22 @@ interface Props {
 }
 
 const Subjects = ({ campus, course }: Props) => {
+  const { breakpoints } = useTheme();
+  const mobile = useMediaQuery(breakpoints.down('sm'));
+
   const [subjects, loading, error] = useCollectionObject<Subject>(
     `campuses/${campus}/courses/${course}/subjects-2022-01`,
     orderBy('name')
+  );
+
+  const rows = useMemo(
+    () => ({
+      schedule: true,
+      teacher: true,
+      framing: true,
+      optional: !mobile,
+    }),
+    [mobile]
   );
 
   if (loading) {
@@ -41,7 +56,7 @@ const Subjects = ({ campus, course }: Props) => {
       <div className="min-w-min bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
         {Object.entries(subjects).map(([subjectCode, subject]) => (
           <div key={subjectCode}>
-            <div className="bg-slate-200/90 dark:bg-slate-600 px-6 py-3 flex items-center gap-x-2 text-md h-12 w-full font-medium tracking-wider">
+            <div className="bg-slate-200/90 dark:bg-slate-600 px-2 sm:px-6 flex items-center gap-x-1.5 sm:gap-x-2 text-md h-10 sm:h-12 w-full font-medium tracking-wider">
               <span className="bg-slate-300 dark:bg-slate-500 rounded-md p-1 text-sm text-slate-500 dark:text-slate-300">
                 {subject.code}
               </span>
@@ -53,17 +68,27 @@ const Subjects = ({ campus, course }: Props) => {
             <table className="w-full">
               <tbody className="w-full">
                 <tr className="bg-slate-100 dark:bg-slate-900 text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                  <SubjectsTableHeader className="w-[5%]">Turma</SubjectsTableHeader>
-                  <SubjectsTableHeader className="w-[45%]">
-                    Horário &amp; Local
-                  </SubjectsTableHeader>
-                  <SubjectsTableHeader className="w-[20%]">Professor</SubjectsTableHeader>
-                  <SubjectsTableHeader className="w-[5%] text-center">
-                    Enquadramento
-                  </SubjectsTableHeader>
-                  <SubjectsTableHeader className="w-[20%] text-right">
-                    Optativa
-                  </SubjectsTableHeader>
+                  <SubjectsTableHeader className="w-[2%]">Turma</SubjectsTableHeader>
+                  {rows.schedule && (
+                    <SubjectsTableHeader className="w-[45%]">
+                      Horário &amp; Local
+                    </SubjectsTableHeader>
+                  )}
+                  {rows.teacher && (
+                    <SubjectsTableHeader className="w-[20%]">
+                      {mobile ? 'Prof.' : 'Professor (a)'}
+                    </SubjectsTableHeader>
+                  )}
+                  {rows.framing && (
+                    <SubjectsTableHeader className="w-[5%] text-center">
+                      {mobile ? 'Enquad.' : 'Enquadramento'}
+                    </SubjectsTableHeader>
+                  )}
+                  {rows.optional && (
+                    <SubjectsTableHeader className="w-[20%] text-right">
+                      Optativa
+                    </SubjectsTableHeader>
+                  )}
                 </tr>
                 {Object.entries(subject.classes).map(([classCode, classObject]) => (
                   <SubjectsTableRow
@@ -72,6 +97,7 @@ const Subjects = ({ campus, course }: Props) => {
                     subject={subject}
                     campus={campus}
                     course={course}
+                    rows={rows}
                   />
                 ))}
               </tbody>

@@ -17,9 +17,15 @@ type Props = {
   subject: Subject;
   campus: string;
   course: string;
+  rows: {
+    schedule: boolean;
+    teacher: boolean;
+    framing: boolean;
+    optional: boolean;
+  };
 };
 
-const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
+const SubjectsTableRow = ({ classObject, subject, campus, course, rows }: Props) => {
   const { highlights, addHighlights, removeHighlights } = useHighlights();
 
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
@@ -88,41 +94,49 @@ const SubjectsTableRow = ({ classObject, subject, campus, course }: Props) => {
         >
           {classObject.code}
         </SubjectsTableData>
-        <SubjectsTableData className="break-words">
-          {classObject.schedule.map(({ dayTimeCode, locationCode }, index) => (
-            <SubjectsDayTimeCell
-              key={index}
-              className="relative"
-              dayTimeCode={dayTimeCode}
-              locationCode={locationCode}
-            />
-          ))}
-        </SubjectsTableData>
-        <SubjectsTableData className="whitespace-pre-line">
-          {classObject.teacher}
-        </SubjectsTableData>
-        <SubjectsTableData className="text-slate-500 font-normal text-center">
-          {classObject.framing && (
-            <Tooltip title={getFramingDescription(classObject.framing)} arrow>
-              <IconButton
-                className={classNames(
-                  classObject.framing === 'P' &&
-                    'bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-100 border-emerald-300 dark:border-emerald-800',
-                  classObject.framing === 'H' &&
-                    'bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-100 border-sky-300 dark:border-sky-800',
-                  classObject.framing === 'R' &&
-                    'bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-100 border-orange-300 dark:border-orange-800',
-                  'p-0 h-9 w-9 text-sm font-extrabold border-solid border'
-                )}
-              >
-                {classObject.framing}
-              </IconButton>
-            </Tooltip>
-          )}
-        </SubjectsTableData>
-        <SubjectsTableData className="text-right break-words w-80">
-          {classObject.optional}
-        </SubjectsTableData>
+        {rows.schedule && (
+          <SubjectsTableData className="break-words">
+            {classObject.schedule.map(({ dayTimeCode, locationCode }, index) => (
+              <SubjectsDayTimeCell
+                key={index}
+                className="relative"
+                dayTimeCode={dayTimeCode}
+                locationCode={locationCode}
+              />
+            ))}
+          </SubjectsTableData>
+        )}
+        {rows.teacher && (
+          <SubjectsTableData className="whitespace-pre-line">
+            {classObject.teacher}
+          </SubjectsTableData>
+        )}
+        {rows.framing && (
+          <SubjectsTableData className="text-slate-500 font-normal text-center">
+            {classObject.framing && (
+              <Tooltip title={getFramingDescription(classObject.framing)} arrow>
+                <IconButton
+                  className={classNames(
+                    classObject.framing === 'P' &&
+                      'bg-emerald-100 dark:bg-emerald-900 text-emerald-800 dark:text-emerald-100 border-emerald-300 dark:border-emerald-800',
+                    classObject.framing === 'H' &&
+                      'bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-100 border-sky-300 dark:border-sky-800',
+                    classObject.framing === 'R' &&
+                      'bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-100 border-orange-300 dark:border-orange-800',
+                    'p-0 h-9 w-9 text-sm font-extrabold border-solid border'
+                  )}
+                >
+                  {classObject.framing}
+                </IconButton>
+              </Tooltip>
+            )}
+          </SubjectsTableData>
+        )}
+        {rows.optional && (
+          <SubjectsTableData className="text-right break-words w-80">
+            {classObject.optional}
+          </SubjectsTableData>
+        )}
       </tr>
       <SubjectsConfictsDialog
         open={conflictsDialogOpen}
