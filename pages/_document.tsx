@@ -8,13 +8,24 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.jpg" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.jpg" />
           <link rel="manifest" href="/manifest.json" />
           <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+
+          <meta name="application-name" content="UTF Helper" />
+          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+          <meta name="apple-mobile-web-app-title" content="UTF Helper" />
+          <meta
+            name="description"
+            content="O UTF Helper é um site de aulo para aluno que facilita sua vida universitária na UTFPR"
+          />
+          <meta name="format-detection" content="telephone=no" />
+          <meta name="mobile-web-app-capable" content="yes" />
           <meta name="msapplication-TileColor" content="#2d89ef" />
-          <meta name="theme-color" content="#ffffff" />
+          <meta name="theme-color" content="#0ea5e9" />
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {(this.props as any).emotionStyleTags}
         </Head>
