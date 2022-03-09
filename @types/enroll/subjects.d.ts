@@ -53,6 +53,7 @@ interface PA {
 interface Lesson {
   index: string;
   date: string;
+  dateStr: string;
   type: string;
   isSync: boolean;
   numberOfLessonsOrWeight: string;

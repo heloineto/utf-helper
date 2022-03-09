@@ -5,6 +5,8 @@ import { DialogProps } from '@mui/material';
 import { DateTime } from 'luxon';
 import { useContext } from 'react';
 import { useColor } from '@lib/hooks';
+import PrimaryButton from '../buttons/PrimaryButton';
+import SecondaryButton from '../buttons/SecondaryButton';
 
 interface Props extends Omit<DialogProps, 'color'> {
   lesson: CompleteLesson;
@@ -21,7 +23,7 @@ const LessonDialog = ({ lesson, ...muiDialogProps }: Props) => {
 
   return (
     <CustomDialog {...muiDialogProps}>
-      <div className="p-3 flex items-center justify-start gap-x-3 border-b border-slate-200 dark:border-slate-700">
+      <div className="px-6 py-8 flex items-center justify-start gap-x-3 border-b border-slate-200 dark:border-slate-700">
         <div
           className="rounded h-14 w-20 flex-shrink-0 pt-full ring-1 ring-inset ring-slate-900/5 dark:ring-0 dark:highlight-white/10 flex flex-col justify-center items-center text-sm font-bold"
           style={{
@@ -50,15 +52,54 @@ const LessonDialog = ({ lesson, ...muiDialogProps }: Props) => {
           </div>
         </div>
       </div>
-      <div className="p-3">
-        <div>
-          <div className="text-[0.9rem] font-medium text-slate-500 dark:text-slate-100">
-            Conteúdo Previsto
+      <div className="px-6 py-8">
+        <dl className="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-4">
+          <div className="sm:col-span-4">
+            <dt className="text-sm text-slate-500 dark:text-slate-400">
+              Conteúdo Previsto
+            </dt>
+            <dd className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">
+              {lesson?.description}
+            </dd>
           </div>
-          <div className="mt-1 text-sm text-slate-900 dark:text-slate-300 font-light">
-            {lesson.description}
+          <div className="sm:col-span-1">
+            <dt className="text-sm text-slate-500 dark:text-slate-400">Data Prevista</dt>
+            <dd className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">
+              {lesson?.dateStr}
+            </dd>
           </div>
-        </div>
+          <div className="sm:col-span-1">
+            <dt className="text-sm text-slate-500 dark:text-slate-400">Tipo</dt>
+            <dd className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">
+              {lesson?.type}
+            </dd>
+          </div>
+          <div className="sm:col-span-1">
+            <dt className="text-sm text-slate-500 dark:text-slate-400">#</dt>
+            <dd className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">
+              {lesson?.index}
+            </dd>
+          </div>
+          <div className="sm:col-span-1">
+            <dt className="text-sm text-slate-500 dark:text-slate-400">Aulas/peso</dt>
+            <dd className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">
+              {lesson?.numberOfLessonsOrWeight}
+            </dd>
+          </div>
+          <div className="sm:col-span-1">
+            <dt className="text-sm text-slate-500 dark:text-slate-400">
+              Quant. de Aulas Síncronas
+            </dt>
+            <dd className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">
+              {lesson?.numberOfSyncLessons}
+            </dd>
+          </div>
+        </dl>
+      </div>
+      <div className="px-6 py-8 border-t border-slate-200 dark:border-slate-700 flex justify-between flex-row gap-5 ">
+        <SecondaryButton className="w-1/3">Ver PA</SecondaryButton>
+
+        <PrimaryButton className="w-1/3 ">Ok</PrimaryButton>
       </div>
     </CustomDialog>
   );
