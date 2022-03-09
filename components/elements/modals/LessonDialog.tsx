@@ -21,9 +21,9 @@ const LessonDialog = ({ lesson, ...muiDialogProps }: Props) => {
 
   return (
     <CustomDialog {...muiDialogProps}>
-      <div className="p-3 flex items-center justify-start gap-x-3">
+      <div className="p-3 flex items-center justify-start gap-x-3 border-b border-slate-200 dark:border-slate-700">
         <div
-          className="rounded h-10 w-16 flex-shrink-0 pt-full ring-1 ring-inset ring-slate-900/5 dark:ring-0 dark:highlight-white/10 flex flex-col justify-center items-center text-xs font-bold"
+          className="rounded h-14 w-20 flex-shrink-0 pt-full ring-1 ring-inset ring-slate-900/5 dark:ring-0 dark:highlight-white/10 flex flex-col justify-center items-center text-sm font-bold"
           style={{
             background: color
               ? `linear-gradient(225deg, ${color[400]} 0%, ${color[300]} 100%)`
@@ -35,20 +35,18 @@ const LessonDialog = ({ lesson, ...muiDialogProps }: Props) => {
           <div>{classObject.code}</div>
         </div>
         <div>
-          <div className="text-slate-900 dark:text-slate-100">
+          <div className="text-slate-900 dark:text-slate-100 text-xl">
             {classObject.subjectName}
           </div>
           <div className="flex justify-start items-center gap-x-2">
-            <div className="text-slate-900 text-sm dark:text-slate-100">
+            <div className="text-slate-900 dark:text-slate-100">
               {isInPerson ? (
                 <div className="underline">Aula Presencial</div>
               ) : (
                 <div>Aula Remota {lesson.isSync ? 'Síncrona' : 'Assíncrona'}</div>
               )}
             </div>
-            {dateStr && (
-              <div className="text-sm leading-6 dark:text-slate-500">{dateStr}</div>
-            )}
+            {dateStr && <div className="leading-6 dark:text-slate-500">{dateStr}</div>}
           </div>
         </div>
       </div>

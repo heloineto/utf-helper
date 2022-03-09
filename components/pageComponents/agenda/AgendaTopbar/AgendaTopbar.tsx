@@ -32,6 +32,7 @@ const AgendaTopbar = (props: Props) => {
         <Tooltip title={todayStr} arrow>
           <div>
             <SecondaryButton
+              className="h-9"
               size="small"
               onClick={() => {
                 setDisplayDate?.(today);

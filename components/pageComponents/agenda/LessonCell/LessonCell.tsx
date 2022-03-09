@@ -41,6 +41,9 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
     if (!divElem) return;
 
     const handleMouseOver = (event: MouseEvent) => {
+      const muiModal = document.querySelector('.MuiModal-root');
+      if (muiModal) return;
+
       const { x, y, height, width } = divElem.getBoundingClientRect();
       const { pageX, pageY } = event;
 
@@ -51,6 +54,9 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
     };
 
     const handleClick = (event: MouseEvent) => {
+      const muiModal = document.querySelector('.MuiModal-root');
+      if (muiModal) return;
+
       const { x, y, height, width } = divElem.getBoundingClientRect();
       const { pageX, pageY } = event;
 
@@ -133,7 +139,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
       />
       <LessonCellDialog
         open={dialogOpen}
-        onClose={() => setDialogOpen(true)}
+        onClose={() => setDialogOpen(false)}
         lesson={lesson}
       />
     </div>
