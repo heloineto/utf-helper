@@ -3,8 +3,6 @@ import twColors from 'tailwindcss/colors';
 import { TailwindColorGroup } from 'tailwindcss/tailwind-config';
 
 const useColor = (str: string) => {
-  if (!twColors) return [undefined, undefined];
-
   const colorNames: (keyof TailwindColorGroup)[] = [
     'lime',
     'blue',
@@ -28,9 +26,11 @@ const useColor = (str: string) => {
 
   const colorName = colorNames[Math.abs(hash(str) % colorNames.length)];
   //@ts-ignore /* No index signature with a parameter of type 'string' was found on type 'TailwindColors' */
-  const color: TailwindColorGroup = twColors[colorName];
+  let color: TailwindColorGroup = twColors[colorName];
 
-  return [color, colorName] as [typeof color, typeof colorName];
+  if (!color) color = twColors.slate;
+
+  return { color, colorName };
 };
 
 export default useColor;

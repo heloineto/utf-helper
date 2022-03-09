@@ -12,7 +12,7 @@ type Props = {
 
 const SubjectsConflictBadge = ({ classObject, dayTimeCodes, onRemove }: Props) => {
   const { code, subjectCode, subjectName } = classObject;
-  const [color] = useColor(subjectCode);
+  const { color } = useColor(subjectCode);
   const { darkMode } = useContext(SettingsContext);
 
   return (

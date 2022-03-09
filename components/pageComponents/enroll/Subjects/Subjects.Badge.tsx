@@ -9,7 +9,7 @@ interface Props extends ComponentProps<'span'> {
 
 const SubjectsBadge = ({ subject, className }: Props) => {
   const { darkMode } = useContext(SettingsContext);
-  const [color] = useColor(subject.code);
+  const { color } = useColor(subject.code);
 
   return (
     <span

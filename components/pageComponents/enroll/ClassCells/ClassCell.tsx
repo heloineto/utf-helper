@@ -15,9 +15,7 @@ interface Props extends ComponentProps<'div'> {
 
 const ClassCell = ({ classObject, timeCode, dayCode, length, ...divProps }: Props) => {
   const { darkMode } = useContext(SettingsContext);
-  let [color] = useColor(classObject.subjectCode);
-
-  if (!color) color = twColors.slate;
+  const { color } = useColor(classObject.subjectCode);
 
   return (
     <Portal

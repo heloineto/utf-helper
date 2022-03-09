@@ -6,6 +6,7 @@ import LessonCellPopper from './LessonCell.Popper';
 import classNames from 'clsx';
 import twColors from 'tailwindcss/colors';
 import { colord } from 'colord';
+import LessonCellDialog from '../../../elements/modals/LessonDialog';
 
 interface Props extends ComponentProps<'div'> {
   lesson: CompleteLesson;
@@ -20,9 +21,9 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
 
   const { darkMode } = useContext(SettingsContext);
   const [hover, setHover] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
-  let [color] = useColor(classObject.subjectCode);
-  if (!color) color = twColors['slate'];
+  const { color } = useColor(classObject.subjectCode);
 
   const getStrippedBackground = (hexColor: string) => {
     const color = colord(hexColor);
@@ -49,10 +50,23 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
       setHover(testX && textY);
     };
 
+    const handleClick = (event: MouseEvent) => {
+      const { x, y, height, width } = divElem.getBoundingClientRect();
+      const { pageX, pageY } = event;
+
+      const testX = pageX >= x && pageX <= x + width;
+      const textY = pageY >= y && pageY <= y + height;
+
+      setDialogOpen(testX && textY);
+      setHover(false);
+    };
+
     document.addEventListener('mousemove', handleMouseOver);
+    document.addEventListener('click', handleClick);
 
     return () => {
       document.removeEventListener('mousemove', handleMouseOver);
+      document.removeEventListener('click', handleClick);
     };
   }, []);
 
@@ -116,6 +130,11 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
         placement={'right'}
         lesson={lesson}
         color={color}
+      />
+      <LessonCellDialog
+        open={dialogOpen}
+        onClose={() => setDialogOpen(true)}
+        lesson={lesson}
       />
     </div>
   );
