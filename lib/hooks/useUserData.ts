@@ -3,7 +3,7 @@ import { auth, firestore } from '@lib/firebase';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
-const useUserDataNew = () => {
+const useUserData = () => {
   const [user, _loading] = useAuthState(auth);
   const [loading, setLoading] = useState(true);
   const [userDetails, setUserDetails] = useState<UserDetailsWithRef | null>(null);
@@ -44,4 +44,4 @@ const useUserDataNew = () => {
   return { user, loading, userDetails };
 };
 
-export default useUserDataNew;
+export default useUserData;
