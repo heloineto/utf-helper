@@ -48,7 +48,7 @@ const NavbarCampus = ({ className, ...buttonProps }: Props) => {
           <p className="text-sky-500 dark:text-sky-400 text-sm font-medium">
             {campus ? campuses[campus].label : 'Selecione um Campus'}
           </p>
-          <p className="text-slate-700 dark:text-slate-500 text-sm font-medium">
+          <p className="text-slate-700 dark:text-slate-500 text-xs md:text-sm font-medium">
             {campus && course
               ? campuses[campus].courses[course].label
               : 'Selecione um Curso'}
