@@ -67,6 +67,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
     >
       <div
         className={classNames(
+          !lesson.isSync && 'border-dotted',
           'w-full h-full rounded mx-1 p-1 text-left flex flex-col border-2'
         )}
         style={{
@@ -75,7 +76,7 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
             : getStrippedBackground(color[darkMode ? 600 : 200]),
           backgroundColor: isInPerson ? color[darkMode ? 600 : 200] : undefined,
           borderColor: color[darkMode ? 500 : 300],
-          opacity: lesson.isSync ? undefined : darkMode ? 0.75 : 0.85,
+          opacity: lesson.isSync ? undefined : darkMode ? 0.85 : 0.95,
         }}
       >
         <div

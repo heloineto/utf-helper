@@ -2,6 +2,8 @@ import { DateTime } from 'luxon';
 import { Popper, PopperProps } from '@mui/material';
 import { getDateStr } from '@lib/utils/luxon';
 import { TailwindColorGroup } from 'tailwindcss/tailwind-config';
+import { useContext } from 'react';
+import { SettingsContext } from '@lib/context';
 
 interface Props extends Omit<PopperProps, 'color'> {
   lesson: CompleteLesson;
@@ -9,6 +11,7 @@ interface Props extends Omit<PopperProps, 'color'> {
 }
 
 const LessonCellPopper = ({ lesson, color, ...popperProps }: Props) => {
+  const { darkMode } = useContext(SettingsContext);
   const timeCode = lesson.scheduleCell.startTimeCode;
   const length = lesson.scheduleCell.length;
   const { classObject, dayCode } = lesson;
@@ -66,7 +69,10 @@ const LessonCellPopper = ({ lesson, color, ...popperProps }: Props) => {
       {/* {JSON.stringify(lesson, null, 2)} */}
       <div
         className="w-full h-6 text-xs flex justify-center items-center"
-        style={{ backgroundColor: color[800] }}
+        style={{
+          backgroundColor: color[darkMode ? 800 : 300],
+          color: color[darkMode ? 200 : 800],
+        }}
       >
         Clique para ver mais
       </div>
