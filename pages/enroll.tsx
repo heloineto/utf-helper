@@ -21,7 +21,7 @@ const EnrollPage: NextPage = () => {
   }, [mobile, setDirection]);
 
   return (
-    <MainShell>
+    <>
       <EnrollTopbar />
       <div
         className={classNames(
@@ -41,7 +41,7 @@ const EnrollPage: NextPage = () => {
           <Schedule />
         </div>
       </div>
-    </MainShell>
+    </>
   );
 };
 

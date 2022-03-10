@@ -13,6 +13,7 @@ import { SettingsContext, UserDataContext } from '@lib/context';
 import { useSettings, useUserData } from '@lib/hooks';
 import CustomSnackbarProvider from '@components/feedback/CustomSnackbarProvider';
 import useMuiTheme from '@lib/hooks/useMuiTheme';
+import MainShell from '@components/appShells/MainShell';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -40,7 +41,9 @@ export default function MyApp(props: MyAppProps) {
         <SettingsContext.Provider value={settings}>
           <UserDataContext.Provider value={userData}>
             <CustomSnackbarProvider>
-              <Component {...pageProps} />
+              <MainShell>
+                <Component {...pageProps} />
+              </MainShell>
             </CustomSnackbarProvider>
           </UserDataContext.Provider>
         </SettingsContext.Provider>
