@@ -13,7 +13,6 @@ const useColor = (str: string) => {
     'sky',
     'pink',
     'amber',
-    'slate',
     'cyan',
     'green',
     'violet',
