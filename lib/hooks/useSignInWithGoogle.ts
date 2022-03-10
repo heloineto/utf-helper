@@ -1,10 +1,6 @@
 import { auth, firestore, googleAuthProvider } from '@lib/firebase';
 import { converter } from '@lib/utils/firebase';
-import {
-  UserCredential,
-  linkWithPopup,
-  signInWithPopup,
-} from 'firebase/auth';
+import { UserCredential, linkWithPopup, signInWithPopup } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { isNil, omitBy } from 'lodash';
 import { useSnackbar } from 'notistack';

@@ -19,6 +19,7 @@ const Subjects = ({ campus, course }: Props) => {
   const { breakpoints } = useTheme();
   const mobile = useMediaQuery(breakpoints.down('sm'));
 
+  //! See if this is causing too many reads
   const [subjects, loading, error] = useCollectionObject<Subject>(
     `campuses/${campus}/courses/${course}/subjects-2022-01`,
     orderBy('name')
