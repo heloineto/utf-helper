@@ -22,11 +22,6 @@ const Subjects = ({ campus, course }: Props) => {
   const mobile = useMediaQuery(breakpoints.down('sm'));
 
   //! See if this is causing too many reads
-  // const [subjects, loading, error] = useCollectionObject<Subject>(
-  //   `campuses/${campus}/courses/${course}/subjects-2022-01`,
-  //   orderBy('name')
-  // );
-
   const [subjects, loading, error] = useCollectionArray<Subject>(
     `campuses/${campus}/courses/${course}/subjects-2022-01`,
     orderBy('name')
@@ -113,7 +108,7 @@ const Subjects = ({ campus, course }: Props) => {
                           ([classCode, classObject]) => (
                             <SubjectsTableRow
                               key={classCode}
-                              className="h-36"
+                              className="h-[9rem] max-h-[9rem]"
                               classObject={classObject}
                               subject={subject}
                               campus={campus}

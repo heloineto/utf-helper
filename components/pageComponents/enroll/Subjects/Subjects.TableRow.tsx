@@ -1,6 +1,6 @@
 import { UserDataContext } from '@lib/context';
 import { useContext, useState } from 'react';
-import SubjectsDayTimeCell from './Subjects.DayTimeCell';
+import SubjectsDayTimeCells from './Subjects.DayTimeCells';
 import SubjectsTableData from './Subjects.TableData';
 import classNames from 'clsx';
 import { IconButton, Tooltip } from '@mui/material';
@@ -104,15 +104,8 @@ const SubjectsTableRow = ({
           {classObject.code}
         </SubjectsTableData>
         {rows.schedule && (
-          <SubjectsTableData className="break-words">
-            {classObject.schedule.map(({ dayTimeCode, locationCode }, index) => (
-              <SubjectsDayTimeCell
-                key={index}
-                className="relative"
-                dayTimeCode={dayTimeCode}
-                locationCode={locationCode}
-              />
-            ))}
+          <SubjectsTableData className="grid columns-2 max-h-[9rem] overflow-y-auto">
+            <SubjectsDayTimeCells className="relative" schedule={classObject.schedule} />
           </SubjectsTableData>
         )}
         {rows.teacher && (

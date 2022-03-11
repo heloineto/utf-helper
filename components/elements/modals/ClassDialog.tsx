@@ -3,7 +3,7 @@ import { useFirestoreOperations } from '@lib/hooks';
 import { Dialog, DialogProps } from '@mui/material';
 import { deleteField } from 'firebase/firestore';
 import { useContext } from 'react';
-import SubjectsDayTimeCell from '../../pageComponents/enroll/Subjects/Subjects.DayTimeCell';
+import SubjectsDayTimeCells from '../../pageComponents/enroll/Subjects/Subjects.DayTimeCells';
 import PrimaryButton from '../buttons/PrimaryButton';
 
 interface Props extends DialogProps {
@@ -133,7 +133,7 @@ const ClassDialog = ({
               </dt>
               <dd className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">
                 {classObject?.schedule.map(({ dayTimeCode, locationCode }, index) => (
-                  <SubjectsDayTimeCell
+                  <SubjectsDayTimeCells
                     key={index}
                     className="relative"
                     dayTimeCode={dayTimeCode}
