@@ -1,18 +1,19 @@
+import ClassDialog from '@components/elements/modals/ClassDialog';
 import { UserDataContext } from '@lib/context';
 import { scheduleStructure } from '@lib/utils/schedule';
 import { CircularProgress } from '@mui/material';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import ClassCell from '../ClassCell';
-import useSchedule from './lib/hooks/useSchedule';
+import useClassCells from './lib/hooks/useClassCells';
 
 type Props = {};
 
 const Schedule = ({}: Props) => {
   const { loading } = useContext(UserDataContext);
 
-  const schedule = useSchedule();
+  const classCells = useClassCells();
 
-  console.log(schedule);
+  const [selectedClassCell, setSelectedClassCell] = useState<ClassCell | null>(null);
 
   return (
     <div className="relative h-full w-full">
@@ -60,7 +61,7 @@ const Schedule = ({}: Props) => {
               <th className="font-medium text-slate-600 dark:text-slate-400">{start}</th>
               <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
               {Object.keys(days).map((dayCode) => {
-                const scheduleCell = schedule?.[timeCode]?.[dayCode];
+                const classCell = classCells?.[timeCode]?.[dayCode];
 
                 return (
                   <td
@@ -68,10 +69,11 @@ const Schedule = ({}: Props) => {
                     id={`schedule-${dayCode}${timeCode}`}
                     className="relative"
                   >
-                    {scheduleCell && (
+                    {classCell && (
                       <ClassCell
-                        length={scheduleCell.length}
-                        classObject={scheduleCell.classObject}
+                        length={classCell.length}
+                        classObject={classCell.classObject}
+                        onClick={() => setSelectedClassCell(classCell)}
                       />
                     )}
                   </td>
@@ -81,6 +83,15 @@ const Schedule = ({}: Props) => {
           ))}
         </tbody>
       </table>
+      {selectedClassCell && (
+        <ClassDialog
+          campus={selectedClassCell.campus}
+          course={selectedClassCell.course}
+          classObject={selectedClassCell.classObject}
+          open={!!selectedClassCell}
+          onClose={() => setSelectedClassCell(null)}
+        />
+      )}
     </div>
   );
 };

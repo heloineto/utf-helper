@@ -5,7 +5,6 @@ import SubjectsLoading from './Subjects.Loading';
 import { orderBy } from 'firebase/firestore';
 import SubjectsEmptyState from './Subjects.EmptyState';
 import { isEmpty } from 'lodash';
-import SubjectsSelectedClasses from './Subjects.SelectedClasses';
 import { useMediaQuery, useTheme } from '@mui/material';
 import { useMemo } from 'react';
 import Badge from '@components/elements/feedback/Badge';
@@ -53,7 +52,6 @@ const Subjects = ({ campus, course }: Props) => {
 
   return (
     <>
-      <SubjectsSelectedClasses />
       <div className="min-w-min bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
         {Object.entries(subjects).map(([subjectCode, subject]) => (
           <div key={subjectCode}>

@@ -1,14 +1,14 @@
 import { UserDataContext } from '@lib/context';
 import { useContext, useMemo } from 'react';
 
-const useSchedule = () => {
+const useClassCells = () => {
   const { userDetails } = useContext(UserDataContext);
   const classes = userDetails?.classes;
 
-  const schedule = useMemo(() => {
+  const classCells = useMemo(() => {
     if (!classes) return;
 
-    const schedule: any = {};
+    const classCells: { [k: string]: { [k: string]: ClassCell } } = {};
 
     Object.entries(classes).forEach(([campusKey, campus]) => {
       Object.entries(campus).forEach(([courseKey, course]) => {
@@ -18,11 +18,16 @@ const useSchedule = () => {
 
             Object.entries(classObject.scheduleCells).forEach(([dayCode, cellInfo]) => {
               cellInfo.forEach(({ startTimeCode, length }) => {
-                if (!schedule?.[startTimeCode]) {
-                  schedule[startTimeCode] = {};
+                if (!classCells?.[startTimeCode]) {
+                  classCells[startTimeCode] = {};
                 }
 
-                schedule[startTimeCode][dayCode] = { classObject, length };
+                classCells[startTimeCode][dayCode] = {
+                  classObject,
+                  length,
+                  campus: campusKey,
+                  course: courseKey,
+                };
               });
             });
           });
@@ -30,10 +35,10 @@ const useSchedule = () => {
       });
     });
 
-    return schedule;
+    return classCells;
   }, [classes]);
 
-  return schedule;
+  return classCells;
 };
 
-export default useSchedule;
+export default useClassCells;
