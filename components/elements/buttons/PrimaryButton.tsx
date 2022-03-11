@@ -13,7 +13,7 @@ const PrimaryButton = ({ className, colorName = 'sky', ...muiButtonProps }: Prop
   const color = twColors[colorName] as any;
   const { darkMode } = useContext(SettingsContext);
 
-  const ColorButton = useMemo(
+  const StyledButton = useMemo(
     () =>
       styled(Button)(() => ({
         backgroundColor: `${color[darkMode ? 700 : 100]} !important`,
@@ -29,7 +29,7 @@ const PrimaryButton = ({ className, colorName = 'sky', ...muiButtonProps }: Prop
   );
 
   return (
-    <ColorButton
+    <StyledButton
       className={classNames(
         className,
         'border-2 dark:border-none border-solid text-base py-2 font-semibold transition-colors duration-500'
