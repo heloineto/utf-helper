@@ -1,6 +1,6 @@
 import SubjectsTableHeader from './Subjects.TableHeader';
 import SubjectsTableRow from './Subjects.TableRow';
-import SubjectsWeeklyLessons from './Subjects.WeeklyLessons';
+import Badge from '../../../elements/feedback/Badge';
 import { useCollectionObject } from '@lib/hooks';
 import SubjectsLoading from './Subjects.Loading';
 import { orderBy } from 'firebase/firestore';
@@ -64,7 +64,7 @@ const Subjects = ({ campus, course }: Props) => {
               <span className="uppercase text-slate-700 dark:text-slate-300">
                 {subject.name}
               </span>
-              <SubjectsWeeklyLessons subject={subject} />
+              <Badge>{subject.weeklyLessons} Aulas Semanais</Badge>
             </div>
             <table className="w-full">
               <tbody className="w-full">
