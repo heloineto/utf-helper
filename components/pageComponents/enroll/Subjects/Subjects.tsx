@@ -20,7 +20,6 @@ const Subjects = ({ campus, course }: Props) => {
   const { breakpoints } = useTheme();
   const mobile = useMediaQuery(breakpoints.down('sm'));
 
-  //! See if this is causing too many reads
   const [subjects, loading, error] = useCollectionArray<Subject>(
     `campuses/${campus}/courses/${course}/subjects-2022-01`,
     orderBy('name')
@@ -71,7 +70,7 @@ const Subjects = ({ campus, course }: Props) => {
                   <div style={style}>
                     <div
                       className="bg-slate-200/90 dark:bg-slate-600 px-2 sm:px-6 flex items-center gap-x-1.5 sm:gap-x-2 text-md w-full font-medium tracking-wider"
-                      style={{ height: 48 }}
+                      style={{ height: 48, maxHeight: 48 }}
                     >
                       <span className="bg-slate-300 dark:bg-slate-500 rounded-md p-1 text-sm text-slate-500 dark:text-slate-300">
                         {subject.code}
