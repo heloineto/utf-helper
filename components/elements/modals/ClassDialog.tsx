@@ -158,8 +158,8 @@ const ClassDialog = ({
         </div>
         <div className="border-t border-slate-200 dark:border-slate-700 -mx-8 px-8 mt-3 pt-6 flex justify-between flex-row gap-5 ">
           <PrimaryButton
-            className="w-1/3 sm:w-1/4 border-red-500 text-red-500 bg-red-100 hover:bg-red-200 hover:border-red-600 dark:bg-red-600 dark:text-red-200 dark:hover:!bg-red-700 dark:border-transparent"
-            variant="outlined"
+            className="w-1/3 sm:w-1/4"
+            colorName="red"
             onClick={async () => {
               if (!userDetails?.ref || !classObject) return;
 
@@ -174,7 +174,7 @@ const ClassDialog = ({
             Remover
           </PrimaryButton>
           <PrimaryButton
-            className="w-1/3 sm:w-1/4 border-sky-500 text-sky-500 bg-sky-100 hover:bg-sky-200 hover:border-sky-600 dark:bg-sky-600 dark:text-sky-200 dark:hover:bg-sky-700 dark:border-transparent"
+            className="w-1/3 sm:w-1/4"
             variant="outlined"
             onClick={onClose as any}
             type="submit"

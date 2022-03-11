@@ -17,12 +17,12 @@ const PrimaryButton = ({ className, colorName = 'sky', ...muiButtonProps }: Prop
     () =>
       styled(Button)(() => ({
         backgroundColor: `${color[darkMode ? 700 : 100]} !important`,
-        color: color[darkMode ? 300 : 500],
+        color: color[darkMode ? 200 : 500],
         borderColor: color[400],
         '&:hover': {
           backgroundColor: `${color[darkMode ? 600 : 200]} !important`,
           borderColor: color[500],
-          color: color[darkMode ? 200 : 600],
+          color: color[darkMode ? 100 : 600],
         },
       })),
     [darkMode, color]
