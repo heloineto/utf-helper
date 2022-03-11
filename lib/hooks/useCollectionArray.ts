@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react';
 import { QueryConstraint, collection, query } from 'firebase/firestore';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { firestore } from '@lib/firebase';
-import { isEmpty } from 'lodash';
 
 const useCollectionArray = <T>(path: string, ...queryConstraints: QueryConstraint[]) => {
   const colRef = collection(firestore, path);

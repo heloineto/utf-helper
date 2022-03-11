@@ -8,7 +8,6 @@ import { useFirestoreOperations } from '@lib/hooks';
 import { getConflicts, getFramingDescription } from '@lib/utils/schedule';
 import { deleteField } from 'firebase/firestore';
 import SubjectsConfictsDialog from './Subjects.ConfictsDialog';
-
 import useHighlights from '@lib/hooks/useHighlights';
 import Highlights from '@components/elements/feedback/Highlights';
 
@@ -31,6 +30,7 @@ const SubjectsTableRow = ({
   campus,
   course,
   rows,
+  className,
   ...trProps
 }: Props) => {
   const { highlights, addHighlights, removeHighlights } = useHighlights();
@@ -71,10 +71,10 @@ const SubjectsTableRow = ({
 
   return (
     <>
-      {/* //! Restore */}
-      {/* {highlights && <Highlights highlights={highlights} />} */}
+      {highlights && <Highlights highlights={highlights} />}
       <tr
         className={classNames(
+          className,
           selected
             ? 'bg-sky-500/30 hover:bg-sky-300 dark:hover:bg-sky-700/80'
             : 'hover:bg-sky-100 dark:hover:bg-sky-900/50 odd:bg-slate-100/90 dark:odd:bg-slate-900/30',
@@ -97,7 +97,7 @@ const SubjectsTableRow = ({
         <SubjectsTableData
           className={classNames(
             selected &&
-              'first:after:top-0 first:after:absolute first:after:left-0 first:after:h-full first:after:w-full first:after:border-2 first:after:border-sky-500',
+              'first:after:z-50 first:after:top-0 first:after:absolute first:after:left-0 first:after:h-full first:after:w-full first:after:border-2 first:after:border-sky-500',
             'text-center'
           )}
         >
