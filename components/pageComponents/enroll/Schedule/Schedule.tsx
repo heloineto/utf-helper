@@ -2,11 +2,17 @@ import { UserDataContext } from '@lib/context';
 import { scheduleStructure } from '@lib/utils/schedule';
 import { CircularProgress } from '@mui/material';
 import { useContext } from 'react';
+import ClassCell from '../ClassCell';
+import useSchedule from './lib/hooks/useSchedule';
 
 type Props = {};
 
 const Schedule = ({}: Props) => {
   const { loading } = useContext(UserDataContext);
+
+  const schedule = useSchedule();
+
+  console.log(schedule);
 
   return (
     <div className="relative h-full w-full">
@@ -53,13 +59,22 @@ const Schedule = ({}: Props) => {
               </td>
               <th className="font-medium text-slate-600 dark:text-slate-400">{start}</th>
               <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
-              {Object.entries(days).map(([dayCode, classObject]) => {
+              {Object.keys(days).map((dayCode) => {
+                const scheduleCell = schedule?.[timeCode]?.[dayCode];
+
                 return (
                   <td
                     key={dayCode}
                     id={`schedule-${dayCode}${timeCode}`}
                     className="relative"
-                  />
+                  >
+                    {scheduleCell && (
+                      <ClassCell
+                        length={scheduleCell.length}
+                        classObject={scheduleCell.classObject}
+                      />
+                    )}
+                  </td>
                 );
               })}
             </tr>
