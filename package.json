@@ -24,6 +24,7 @@
     "framer-motion": "^6.2.8",
     "lodash": "^4.17.21",
     "luxon": "^2.3.0",
+    "minisearch": "^4.0.3",
     "mui-rff": "^5.0.0",
     "next": "latest",
     "next-pwa": "^5.4.5",
