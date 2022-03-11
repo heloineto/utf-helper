@@ -81,7 +81,13 @@ const CampusForm = ({ afterSubmit }: Props) => {
       }}
     >
       {({ handleSubmit, submitting, submitError, values }) => (
-        <form className="flex flex-col w-full gap-y-4 p-8" onSubmit={handleSubmit}>
+        <form
+          //! This id is used to fix a bug on the LessonCell Component
+          //! Remove if a better way of registering clicks is found
+          id="campus-course-form"
+          className="flex flex-col w-full gap-y-4 p-8"
+          onSubmit={handleSubmit}
+        >
           <div className="flex justify-center items-center text-slate-800 dark:text-slate-200 text-2xl font-semibold border-b border-slate-200 dark:border-slate-700 -mx-8 -mt-8 p-4">
             Selecionar Câmpus e Curso
           </div>
