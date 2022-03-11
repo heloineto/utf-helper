@@ -18,7 +18,7 @@ const SubjectsDayTimeCells = ({ schedule, className }: Props & ComponentProps<'d
       <div
         className={classNames(className, 'grid gap-0.5')}
         style={{
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min-content, 4rem))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min-content, 5rem))',
         }}
       >
         {schedule.map(({ dayTimeCode, locationCode }, index) => (

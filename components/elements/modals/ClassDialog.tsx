@@ -132,14 +132,12 @@ const ClassDialog = ({
                 Horário (dia/turno/aula)
               </dt>
               <dd className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">
-                {classObject?.schedule.map(({ dayTimeCode, locationCode }, index) => (
+                {classObject?.schedule && (
                   <SubjectsDayTimeCells
-                    key={index}
                     className="relative"
-                    dayTimeCode={dayTimeCode}
-                    locationCode={locationCode}
+                    schedule={classObject.schedule}
                   />
-                ))}
+                )}
               </dd>
             </div>
             <div className="sm:col-span-2">
