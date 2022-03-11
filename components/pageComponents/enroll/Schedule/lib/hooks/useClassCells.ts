@@ -12,8 +12,8 @@ const useClassCells = () => {
 
     Object.entries(classes).forEach(([campusKey, campus]) => {
       Object.entries(campus).forEach(([courseKey, course]) => {
-        Object.entries(course).forEach(([subjectKey, subject]) => {
-          Object.entries(subject).forEach(([classKey, classObject]) => {
+        Object.values(course).forEach((subject) => {
+          Object.values(subject).forEach((classObject) => {
             if (!classObject?.scheduleCells) return;
 
             Object.entries(classObject.scheduleCells).forEach(([dayCode, cellInfo]) => {
