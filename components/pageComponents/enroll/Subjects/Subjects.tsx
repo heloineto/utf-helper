@@ -1,6 +1,5 @@
 import SubjectsTableHeader from './Subjects.TableHeader';
 import SubjectsTableRow from './Subjects.TableRow';
-import Badge from '../../../elements/feedback/Badge';
 import { useCollectionObject } from '@lib/hooks';
 import SubjectsLoading from './Subjects.Loading';
 import { orderBy } from 'firebase/firestore';
@@ -9,6 +8,7 @@ import { isEmpty } from 'lodash';
 import SubjectsSelectedClasses from './Subjects.SelectedClasses';
 import { useMediaQuery, useTheme } from '@mui/material';
 import { useMemo } from 'react';
+import Badge from '@components/elements/feedback/Badge';
 
 interface Props {
   campus: string;

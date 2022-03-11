@@ -1,5 +1,5 @@
 import PrimaryButton from '@components/elements/buttons/PrimaryButton';
-import { Button, DialogProps } from '@mui/material';
+import { DialogProps } from '@mui/material';
 import CustomDialog from '../CustomDialog';
 import ReviewDialogClasses from './ReviewDialog.Classes';
 

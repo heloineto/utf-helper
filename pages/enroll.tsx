@@ -1,4 +1,3 @@
-import MainShell from '@components/appShells/MainShell';
 import Divider from '@components/pageComponents/enroll/Resizer';
 import Schedule from '@components/pageComponents/enroll/Schedule';
 import Subjects, { SubjectsSafeguard } from '@components/pageComponents/enroll/Subjects';

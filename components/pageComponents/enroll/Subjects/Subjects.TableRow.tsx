@@ -12,7 +12,7 @@ import SubjectsConfictsDialog from './Subjects.ConfictsDialog';
 import useHighlights from '@lib/hooks/useHighlights';
 import Highlights from '@components/elements/feedback/Highlights';
 
-type Props = {
+interface Props extends ComponentProps<'tr'> {
   classObject: ClassObject;
   subject: Subject;
   campus: string;
@@ -23,9 +23,16 @@ type Props = {
     framing: boolean;
     optional: boolean;
   };
-};
+}
 
-const SubjectsTableRow = ({ classObject, subject, campus, course, rows }: Props) => {
+const SubjectsTableRow = ({
+  classObject,
+  subject,
+  campus,
+  course,
+  rows,
+  ...trProps
+}: Props) => {
   const { highlights, addHighlights, removeHighlights } = useHighlights();
 
   const [conflicts, setConflicts] = useState<Conflict[] | null>(null);
@@ -64,7 +71,8 @@ const SubjectsTableRow = ({ classObject, subject, campus, course, rows }: Props)
 
   return (
     <>
-      {highlights && <Highlights highlights={highlights} />}
+      {/* //! Restore */}
+      {/* {highlights && <Highlights highlights={highlights} />} */}
       <tr
         className={classNames(
           selected
@@ -84,6 +92,7 @@ const SubjectsTableRow = ({ classObject, subject, campus, course, rows }: Props)
           !selected &&
           removeHighlights(classObject.schedule.map(({ dayTimeCode }) => dayTimeCode))
         }
+        {...trProps}
       >
         <SubjectsTableData
           className={classNames(
