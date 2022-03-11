@@ -12,7 +12,7 @@ const useCollectionObject = <T>(path: string, ...queryConstraints: QueryConstrai
     | {
         [key: string]: T & { ref: DocumentReference };
       }
-    | undefined = undefined;
+    | undefined;
 
   if (colQuerySnapshot !== undefined) {
     const _collectionObj: {

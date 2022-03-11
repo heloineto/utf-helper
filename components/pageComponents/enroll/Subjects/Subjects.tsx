@@ -8,6 +8,7 @@ import { isEmpty } from 'lodash';
 import { useMediaQuery, useTheme } from '@mui/material';
 import { useMemo } from 'react';
 import Badge from '@components/elements/feedback/Badge';
+import { FixedSizeList as List } from 'react-window';
 
 interface Props {
   campus: string;
@@ -53,56 +54,60 @@ const Subjects = ({ campus, course }: Props) => {
   return (
     <>
       <div className="min-w-min bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
-        {Object.entries(subjects).map(([subjectCode, subject]) => (
-          <div key={subjectCode}>
-            <div className="bg-slate-200/90 dark:bg-slate-600 px-2 sm:px-6 flex items-center gap-x-1.5 sm:gap-x-2 text-md h-10 sm:h-12 w-full font-medium tracking-wider">
-              <span className="bg-slate-300 dark:bg-slate-500 rounded-md p-1 text-sm text-slate-500 dark:text-slate-300">
-                {subject.code}
-              </span>
-              <span className="uppercase text-slate-700 dark:text-slate-300">
-                {subject.name}
-              </span>
-              <Badge>{subject.weeklyLessons} Aulas Semanais</Badge>
-            </div>
-            <table className="w-full">
-              <tbody className="w-full">
-                <tr className="bg-slate-100 dark:bg-slate-900 text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                  <SubjectsTableHeader className="w-[2%]">Turma</SubjectsTableHeader>
-                  {rows.schedule && (
-                    <SubjectsTableHeader className="w-[45%]">
-                      Horário &amp; Local
-                    </SubjectsTableHeader>
-                  )}
-                  {rows.teacher && (
-                    <SubjectsTableHeader className="w-[20%]">
-                      {mobile ? 'Prof.' : 'Professor (a)'}
-                    </SubjectsTableHeader>
-                  )}
-                  {rows.framing && (
-                    <SubjectsTableHeader className="w-[5%] text-center">
-                      {mobile ? 'Enquad.' : 'Enquadramento'}
-                    </SubjectsTableHeader>
-                  )}
-                  {rows.optional && (
-                    <SubjectsTableHeader className="w-[20%] text-right">
-                      Optativa
-                    </SubjectsTableHeader>
-                  )}
-                </tr>
-                {Object.entries(subject.classes).map(([classCode, classObject]) => (
-                  <SubjectsTableRow
-                    key={classCode}
-                    classObject={classObject}
-                    subject={subject}
-                    campus={campus}
-                    course={course}
-                    rows={rows}
-                  />
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ))}
+        <List height={150} itemCount={1000} itemSize={35} width={300}>
+          {() => {
+            return (
+              <div key={subjectCode}>
+                <div className="bg-slate-200/90 dark:bg-slate-600 px-2 sm:px-6 flex items-center gap-x-1.5 sm:gap-x-2 text-md h-10 sm:h-12 w-full font-medium tracking-wider">
+                  <span className="bg-slate-300 dark:bg-slate-500 rounded-md p-1 text-sm text-slate-500 dark:text-slate-300">
+                    {subject.code}
+                  </span>
+                  <span className="uppercase text-slate-700 dark:text-slate-300">
+                    {subject.name}
+                  </span>
+                  <Badge>{subject.weeklyLessons} Aulas Semanais</Badge>
+                </div>
+                <table className="w-full">
+                  <tbody className="w-full">
+                    <tr className="bg-slate-100 dark:bg-slate-900 text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                      <SubjectsTableHeader className="w-[2%]">Turma</SubjectsTableHeader>
+                      {rows.schedule && (
+                        <SubjectsTableHeader className="w-[45%]">
+                          Horário &amp; Local
+                        </SubjectsTableHeader>
+                      )}
+                      {rows.teacher && (
+                        <SubjectsTableHeader className="w-[20%]">
+                          {mobile ? 'Prof.' : 'Professor (a)'}
+                        </SubjectsTableHeader>
+                      )}
+                      {rows.framing && (
+                        <SubjectsTableHeader className="w-[5%] text-center">
+                          {mobile ? 'Enquad.' : 'Enquadramento'}
+                        </SubjectsTableHeader>
+                      )}
+                      {rows.optional && (
+                        <SubjectsTableHeader className="w-[20%] text-right">
+                          Optativa
+                        </SubjectsTableHeader>
+                      )}
+                    </tr>
+                    {Object.entries(subject.classes).map(([classCode, classObject]) => (
+                      <SubjectsTableRow
+                        key={classCode}
+                        classObject={classObject}
+                        subject={subject}
+                        campus={campus}
+                        course={course}
+                        rows={rows}
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            );
+          }}
+        </List>
       </div>
     </>
   );
