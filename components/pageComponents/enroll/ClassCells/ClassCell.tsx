@@ -22,9 +22,7 @@ const ClassCell = ({ classObject, timeCode, dayCode, length, ...divProps }: Prop
     >
       <div
         className={classNames('flex absolute top-0 left-0 w-full cursor-pointer py-1')}
-        style={{
-          height: `${100 * length}%`,
-        }}
+        style={{ height: `${100 * length}%` }}
         {...divProps}
       >
         <div
