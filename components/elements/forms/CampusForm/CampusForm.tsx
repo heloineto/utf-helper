@@ -7,6 +7,7 @@ import { UserDataContext } from '@lib/context';
 import { useFirestoreOperations, useSignInAnonymously } from '@lib/hooks';
 import * as yup from 'yup';
 import { makeValidate } from 'mui-rff';
+import PrimaryButton from '@components/elements/buttons/PrimaryButton';
 
 type CampusFormValues = {
   campus: string;
@@ -100,13 +101,7 @@ const CampusForm = ({ afterSubmit }: Props) => {
             disableClearable
           />
           <div className="mt-5 dark:border-slate-700 flex flex-row justify-end">
-            <Button
-              className="border-sky-500 text-sky-500 bg-sky-100 hover:bg-sky-200 hover:border-sky-600 dark:bg-sky-600 dark:text-sky-200 dark:hover:bg-sky-700 dark:border-transparent"
-              variant="outlined"
-              type="submit"
-            >
-              Confirmar
-            </Button>
+            <PrimaryButton type="submit">Confirmar</PrimaryButton>
           </div>
           {process.env.NODE_ENV === 'development' && (
             <pre>{JSON.stringify(values, null, 2)}</pre>

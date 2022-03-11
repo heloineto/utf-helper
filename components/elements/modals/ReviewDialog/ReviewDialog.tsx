@@ -1,3 +1,4 @@
+import PrimaryButton from '@components/elements/buttons/PrimaryButton';
 import { Button, DialogProps } from '@mui/material';
 import CustomDialog from '../CustomDialog';
 import ReviewDialogClasses from './ReviewDialog.Classes';
@@ -19,14 +20,14 @@ const ReviewDialog = ({ onClose, classes, ...dialogProps }: Props) => {
           <ReviewDialogClasses classes={classes} />
         </div>
         <div className="px-8 py-6 border-t border-slate-200 dark:border-slate-700 pt-6 flex flex-row justify-end gap-5 ">
-          <Button
-            className="w-1/4 border-sky-500 text-sky-500 bg-sky-100 hover:bg-sky-200 hover:border-sky-600 dark:bg-sky-600 dark:text-sky-200 dark:hover:bg-sky-700 dark:border-transparent"
+          <PrimaryButton
+            className="w-1/4"
             variant="outlined"
             onClick={onClose}
             type="submit"
           >
             Ok
-          </Button>
+          </PrimaryButton>
         </div>
       </div>
     </CustomDialog>
