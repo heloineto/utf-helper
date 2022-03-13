@@ -50,7 +50,7 @@ const Subjects = ({ campus, course }: Props) => {
 
       return false;
     });
-  }, [subjects]);
+  }, [subjects, searchTerm]);
 
   const rows = useMemo(
     () => ({

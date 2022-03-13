@@ -1,16 +1,11 @@
-import CustomDialog from '@components/elements/modals/CustomDialog';
 import {
   IconButton,
   InputAdornment,
   OutlinedTextFieldProps,
   TextField,
-  Tooltip,
-  useMediaQuery,
-  useTheme,
 } from '@mui/material';
 import { merge } from 'lodash';
 import { MagnifyingGlass } from 'phosphor-react';
-import { useState } from 'react';
 import classNames from 'clsx';
 
 interface Props extends OutlinedTextFieldProps {}
