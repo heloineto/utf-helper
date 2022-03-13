@@ -1,6 +1,7 @@
 import PrimaryButton from '@components/elements/buttons/PrimaryButton';
 import Searchbar from '@components/elements/inputs/Searchbar';
 import CustomDialog from '@components/elements/modals/CustomDialog';
+import { EnrollContext } from '@lib/context';
 import {
   IconButton,
   InputAdornment,
@@ -11,15 +12,16 @@ import {
   useTheme,
 } from '@mui/material';
 import { MagnifyingGlass } from 'phosphor-react';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 interface Props {}
 
 const SearchBar = ({}: Props) => {
   const { breakpoints } = useTheme();
   const mobile = useMediaQuery(breakpoints.down('sm'));
-  const [value, setValue] = useState('');
+
   const [modalOpen, setModalOpen] = useState(false);
+  const { searchTerm, setSearchTerm } = useContext(EnrollContext);
 
   if (mobile) {
     return (
@@ -39,8 +41,8 @@ const SearchBar = ({}: Props) => {
               className=""
               variant="outlined"
               InputProps={{
-                value: value,
-                onChange: (e) => setValue(e.currentTarget.value),
+                value: searchTerm,
+                onChange: (e) => setSearchTerm?.(e.currentTarget.value),
               }}
             />
             <PrimaryButton className="w-1/3 ml-auto" onClick={() => setModalOpen(false)}>
@@ -57,8 +59,8 @@ const SearchBar = ({}: Props) => {
       className="w-64 "
       variant="outlined"
       InputProps={{
-        value: value,
-        onChange: (e) => setValue(e.currentTarget.value),
+        value: searchTerm,
+        onChange: (e) => setSearchTerm?.(e.currentTarget.value),
       }}
     />
   );
