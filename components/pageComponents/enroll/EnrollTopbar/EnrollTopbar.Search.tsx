@@ -1,3 +1,6 @@
+import PrimaryButton from '@components/elements/buttons/PrimaryButton';
+import Searchbar from '@components/elements/inputs/Searchbar';
+import CustomDialog from '@components/elements/modals/CustomDialog';
 import {
   IconButton,
   InputAdornment,
@@ -10,9 +13,9 @@ import {
 import { MagnifyingGlass } from 'phosphor-react';
 import { useState } from 'react';
 
-interface Props extends OutlinedTextFieldProps {}
+interface Props {}
 
-const SearchBar = ({ ...muiTextFieldProps }: Props) => {
+const SearchBar = ({}: Props) => {
   const { breakpoints } = useTheme();
   const mobile = useMediaQuery(breakpoints.down('sm'));
   const [value, setValue] = useState('');
@@ -29,32 +32,34 @@ const SearchBar = ({ ...muiTextFieldProps }: Props) => {
             <MagnifyingGlass className="h-6" />
           </IconButton>
         </Tooltip>
+        <CustomDialog open={modalOpen} onClose={() => setModalOpen(false)}>
+          <div className="p-5 flex flex-col gap-y-2.5">
+            <Searchbar
+              size="medium"
+              className=""
+              variant="outlined"
+              InputProps={{
+                value: value,
+                onChange: (e) => setValue(e.currentTarget.value),
+              }}
+            />
+            <PrimaryButton className="w-1/3 ml-auto" onClick={() => setModalOpen(false)}>
+              Ok
+            </PrimaryButton>
+          </div>
+        </CustomDialog>
       </>
     );
   }
 
   return (
-    <TextField
-      size="small"
-      name="search"
-      className="w-64 group text-sm font-normal"
-      placeholder="Pesquisar"
+    <Searchbar
+      className="w-64 "
+      variant="outlined"
       InputProps={{
-        className: 'text-sm font-normal',
         value: value,
         onChange: (e) => setValue(e.currentTarget.value),
-        startAdornment: (
-          <InputAdornment position="start">
-            <IconButton
-              className="text-slate-200 dark:text-slate-400 hover:text-sky-600 group-focus-within:text-sky-600"
-              edge="start"
-            >
-              <MagnifyingGlass className="h-6 w-6" />
-            </IconButton>
-          </InputAdornment>
-        ),
       }}
-      {...muiTextFieldProps}
     />
   );
 };

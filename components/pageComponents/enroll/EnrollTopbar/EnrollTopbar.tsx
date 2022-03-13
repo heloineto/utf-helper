@@ -12,7 +12,7 @@ const EnrollTopbar = (props: Props) => {
     <Topbar className="!flex-row">
       <div className="h-full w-2/3 flex items-center gap-x-2">
         <EnrollTopbarTotalHours />
-        <SearchBar variant="outlined" />
+        <SearchBar />
       </div>
 
       <div className="h-full w-full xl:w-1/3 flex items-center flex-row-reverse sm:flex-row sm:justify-end gap-x-1 sm:gap-x-2">

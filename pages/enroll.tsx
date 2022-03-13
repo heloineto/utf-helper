@@ -1,8 +1,8 @@
 import Divider from '@components/pageComponents/enroll/Resizer';
 import Schedule from '@components/pageComponents/enroll/Schedule';
 import Subjects, { SubjectsSafeguard } from '@components/pageComponents/enroll/Subjects';
-import { SettingsContext, UserDataContext } from '@lib/context';
-import { useResize } from '@lib/hooks';
+import { EnrollContext, SettingsContext, UserDataContext } from '@lib/context';
+import { useEnroll, useResize } from '@lib/hooks';
 import { useContext, useEffect } from 'react';
 import classNames from 'clsx';
 import EnrollTopbar from '@components/pageComponents/enroll/EnrollTopbar';
@@ -14,13 +14,14 @@ const EnrollPage: NextPage = () => {
   const { handleRef, resize1Ref, resize2Ref, resizing } = useResize(direction);
   const { breakpoints } = useTheme();
   const mobile = useMediaQuery(breakpoints.down('xl'));
+  const value = useEnroll();
 
   useEffect(() => {
     if (mobile) setDirection?.('vertical');
   }, [mobile, setDirection]);
 
   return (
-    <>
+    <EnrollContext.Provider value={value}>
       <EnrollTopbar />
       <div
         className={classNames(
@@ -40,7 +41,7 @@ const EnrollPage: NextPage = () => {
           <Schedule />
         </div>
       </div>
-    </>
+    </EnrollContext.Provider>
   );
 };
 
