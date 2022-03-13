@@ -11,7 +11,7 @@ const SubjectsEmptyState = (props: Props) => {
     <>
       <EmptyState
         className="h-full"
-        title="Nenhuma Matéria para esse Curso"
+        title="Nenhuma Matéria Encontrada"
         subtitle="No nosso sistema"
         Icon={FileX}
       ></EmptyState>

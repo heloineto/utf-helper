@@ -21,6 +21,7 @@
     "colord": "^2.9.2",
     "final-form": "^4.20.6",
     "firebase": "^9.6.7",
+    "flexsearch": "^0.7.21",
     "framer-motion": "^6.2.8",
     "lodash": "^4.17.21",
     "luxon": "^2.3.0",
@@ -39,6 +40,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@types/flexsearch": "^0.7.2",
     "@types/lodash": "^4.14.178",
     "@types/luxon": "^2.0.9",
     "@types/node": "^17.0.13",

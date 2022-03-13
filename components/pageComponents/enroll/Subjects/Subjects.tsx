@@ -5,11 +5,14 @@ import { orderBy } from 'firebase/firestore';
 import SubjectsEmptyState from './Subjects.EmptyState';
 import { isEmpty } from 'lodash';
 import { useMediaQuery, useTheme } from '@mui/material';
-import { useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 import Badge from '@components/elements/feedback/Badge';
 import { VariableSizeList as List } from 'react-window';
 import useCollectionArray from '@lib/hooks/useCollectionArray';
 import AutoSizer from 'react-virtualized-auto-sizer';
+import { EnrollContext } from '@lib/context';
+import MiniSearch from 'minisearch';
+import { Index, Document, Worker } from 'flexsearch';
 
 interface Props {
   campus: string;
@@ -19,11 +22,37 @@ interface Props {
 const Subjects = ({ campus, course }: Props) => {
   const { breakpoints } = useTheme();
   const mobile = useMediaQuery(breakpoints.down('sm'));
+  const { searchTerm } = useContext(EnrollContext);
 
   const [subjects, loading, error] = useCollectionArray<Subject>(
     `campuses/${campus}/courses/${course}/subjects-2022-01`,
     orderBy('name')
   );
+
+  const subjectsFiltered = useMemo(() => {
+    if (!searchTerm || !subjects) return subjects;
+
+    const parsedTerm = searchTerm
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+    return subjects.filter((subject) => {
+      if (
+        subject.name
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .includes(parsedTerm)
+      )
+        return true;
+      if (subject.code.toLowerCase().includes(parsedTerm)) return true;
+      for (const key in subject.classes) {
+        if (subject.classes[key].code.toLowerCase().includes(parsedTerm)) return true;
+      }
+
+      return false;
+    });
+  }, [subjects]);
 
   const rows = useMemo(
     () => ({
@@ -43,7 +72,7 @@ const Subjects = ({ campus, course }: Props) => {
     );
   }
 
-  if (!subjects || isEmpty(subjects)) {
+  if (!subjectsFiltered || isEmpty(subjectsFiltered)) {
     return (
       <div className="h-full grid place-items-center">
         <SubjectsEmptyState />
@@ -59,13 +88,13 @@ const Subjects = ({ campus, course }: Props) => {
             <List
               height={height}
               width={width}
-              itemCount={subjects.length}
+              itemCount={subjectsFiltered.length}
               itemSize={(index) =>
-                Object.keys(subjects[index].classes).length * 144 + 48 + 24
+                Object.keys(subjectsFiltered[index].classes).length * 144 + 48 + 24
               }
             >
               {({ index, style }) => {
-                const subject = subjects[index];
+                const subject = subjectsFiltered[index];
                 return (
                   <div style={style}>
                     <div
