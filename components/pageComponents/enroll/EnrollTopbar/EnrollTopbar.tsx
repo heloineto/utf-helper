@@ -9,15 +9,15 @@ type Props = {};
 
 const EnrollTopbar = (props: Props) => {
   return (
-    <Topbar>
-      <div className="h-full w-2/3 hidden xl:flex items-center gap-x-2">
+    <Topbar className="!flex-row">
+      <div className="h-full w-2/3 flex items-center gap-x-2">
         <EnrollTopbarTotalHours />
-        <div className="w-64">
+        {/* <div className="w-64">
           <SearchBar variant="outlined" placeholder="Pesquisar" />
-        </div>
+        </div> */}
       </div>
 
-      <div className="h-full w-full xl:w-1/3 flex items-center justify-between flex-row-reverse sm:flex-row sm:justify-end gap-x-2">
+      <div className="h-full w-full xl:w-1/3 flex items-center flex-row-reverse sm:flex-row sm:justify-end gap-x-1 sm:gap-x-2">
         <EnrollTopbarDirectionButton />
         <EnrollTopbarReviewButton />
         <EnrollTopbarResetButton />
