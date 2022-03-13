@@ -11,8 +11,6 @@ import { VariableSizeList as List } from 'react-window';
 import useCollectionArray from '@lib/hooks/useCollectionArray';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { EnrollContext } from '@lib/context';
-import MiniSearch from 'minisearch';
-import { Index, Document, Worker } from 'flexsearch';
 
 interface Props {
   campus: string;
