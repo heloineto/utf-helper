@@ -77,7 +77,7 @@ const SubjectsTableRow = ({
           className,
           selected
             ? 'bg-sky-500/30 hover:bg-sky-300 dark:hover:bg-sky-700/80'
-            : 'hover:bg-sky-100 dark:hover:bg-sky-900/50 odd:bg-slate-100/90 dark:odd:bg-slate-900/30',
+            : 'bg-white dark:bg-slate-800 hover:bg-sky-100 dark:hover:bg-sky-900/50 odd:bg-slate-100/90 dark:odd:bg-slate-800/80',
           'cursor-pointer relative'
         )}
         onClick={toggleSelected}

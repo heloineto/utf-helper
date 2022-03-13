@@ -53,7 +53,7 @@ const Subjects = ({ campus, course }: Props) => {
 
   return (
     <>
-      <div className="h-full bg-white dark:bg-slate-800 divide-y divide-slate-200 dark:divide-slate-700">
+      <div className="h-full bg-slate-200/90 dark:bg-slate-600 divide-y divide-slate-200 dark:divide-slate-700">
         <AutoSizer>
           {({ height, width }) => (
             <List
@@ -69,13 +69,13 @@ const Subjects = ({ campus, course }: Props) => {
                 return (
                   <div style={style}>
                     <div
-                      className="bg-slate-200/90 dark:bg-slate-600 px-2 sm:px-6 flex items-center gap-x-1.5 sm:gap-x-2 text-md w-full font-medium tracking-wider"
+                      className="min-w-min w-full px-2 sm:px-6 flex items-center gap-x-1.5 sm:gap-x-2 text-md font-medium tracking-wider"
                       style={{ height: 48, maxHeight: 48 }}
                     >
                       <span className="bg-slate-300 dark:bg-slate-500 rounded-md p-1 text-sm text-slate-500 dark:text-slate-300">
                         {subject.code}
                       </span>
-                      <span className="uppercase text-slate-700 dark:text-slate-300">
+                      <span className="uppercase text-slate-700 dark:text-slate-300 whitespace-nowrap text-ellipsis">
                         {subject.name}
                       </span>
                       <Badge>{subject.weeklyLessons} Aulas Semanais</Badge>
