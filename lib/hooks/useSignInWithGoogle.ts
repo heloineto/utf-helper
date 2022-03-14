@@ -5,6 +5,8 @@ import {
   linkWithPopup,
   signInWithPopup,
   signInWithRedirect,
+  linkWithRedirect,
+  User,
 } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { isNil, omitBy } from 'lodash';
@@ -13,40 +15,67 @@ import { useSnackbar } from 'notistack';
 const useSignInWithGoogle = () => {
   const { enqueueSnackbar } = useSnackbar();
 
-  const signInWithGoogle = async () => {
+  const signIn = async () => {
     let userCredential: void | UserCredential | undefined;
-    let errorCode: string | undefined;
+    let authError: any;
 
-    if (auth.currentUser) {
-      userCredential = await linkWithPopup(auth.currentUser, googleAuthProvider).catch(
+    userCredential = await signInWithPopup(auth, googleAuthProvider).catch((error) => {
+      if (process.env.NODE_ENV === 'development') console.error(error);
+
+      authError = error;
+    });
+
+    if (authError?.code === 'auth/popup-blocked') {
+      userCredential = await signInWithRedirect(auth, googleAuthProvider).catch(
         (error) => {
-          enqueueSnackbar('Erro ao atualizar conta anônima', { variant: 'error' });
-
           if (process.env.NODE_ENV === 'development') console.error(error);
 
-          errorCode = error?.code;
+          authError = error;
         }
       );
-    } else {
-      userCredential = await signInWithPopup(auth, googleAuthProvider).catch((error) => {
-        enqueueSnackbar('Não foi possível entrar', { variant: 'error' });
+    }
 
+    if (!userCredential) {
+      enqueueSnackbar('Não foi possível entrar', { variant: 'error' });
+      return;
+    }
+
+    return userCredential;
+  };
+
+  const link = async (user: User) => {
+    let userCredential: void | UserCredential | undefined;
+    let authError: any;
+
+    userCredential = await linkWithPopup(user, googleAuthProvider).catch((error) => {
+      if (process.env.NODE_ENV === 'development') console.error(error);
+
+      authError = error;
+    });
+
+    if (authError?.code === 'auth/popup-blocked') {
+      userCredential = await linkWithRedirect(user, googleAuthProvider).catch((error) => {
         if (process.env.NODE_ENV === 'development') console.error(error);
 
-        errorCode = error?.code;
+        authError = error;
       });
     }
 
-    if (errorCode === 'auth/popup-blocked') {
-      userCredential = await signInWithRedirect(auth, googleAuthProvider).catch(
-        (error) => {
-          enqueueSnackbar('Não foi possível entrar', { variant: 'error' });
+    if (!userCredential) {
+      enqueueSnackbar('Erro ao atualizar conta anônima', { variant: 'error' });
+      return;
+    }
 
-          if (process.env.NODE_ENV === 'development') console.error(error);
+    return userCredential;
+  };
 
-          errorCode = error?.code;
-        }
-      );
+  const signInWithGoogle = async () => {
+    let userCredential: void | UserCredential | undefined;
+
+    if (auth.currentUser) {
+      userCredential = await link(auth.currentUser);
+    } else {
+      userCredential = await signIn();
     }
 
     if (!userCredential) return;
