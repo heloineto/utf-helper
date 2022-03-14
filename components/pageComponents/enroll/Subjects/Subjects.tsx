@@ -33,7 +33,9 @@ const Subjects = ({ campus, course }: Props) => {
     const parsedTerm = searchTerm
       .toLowerCase()
       .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '');
+      .replace(/[\u0300-\u036f]/g, '')
+      .trim();
+
     return subjects.filter((subject) => {
       if (
         subject.name
