@@ -109,7 +109,7 @@ const SubjectsTableRow = ({
           </SubjectsTableData>
         )}
         {rows.teacher && (
-          <SubjectsTableData className="whitespace-pre-line">
+          <SubjectsTableData className="break-all text-[0.8rem]">
             {classObject.teacher}
           </SubjectsTableData>
         )}
