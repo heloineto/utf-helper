@@ -29,20 +29,20 @@ const EnrollTopbarTotalHours = (props: Props) => {
   }, [classes]);
 
   return (
-    <div className="w-52 justify-center sm:w-auto text-[0.7rem] sm:text-[0.8rem] h-9 font-medium gap-x-2 text-slate-700 dark:text-slate-300 bg-slate-400/10 rounded-md px-1.5 sm:px-3 flex items-center">
-      <GraduationCap className="h-4 w-auto" weight="bold" />
-      <span>{totalTime} Aulas Semanais</span>
+    <div className="justify-center flex-col sm:flex-row items-center sm:w-auto text-[0.7rem] sm:text-[0.8rem] h-9 font-medium gap-x-2 text-slate-700 dark:text-slate-300 bg-slate-400/10 rounded-md px-2 sm:px-3 flex">
+      <GraduationCap className="h-4 w-auto hidden sm:block" weight="bold" />
+      <span className="whitespace-nowrap">{totalTime} Aulas Semanais</span>
       <svg
+        className="hidden sm:block text-slate-700 dark:text-slate-300/70"
         width="2"
         height="2"
         fill="currentColor"
         aria-hidden="true"
-        className="text-slate-700 dark:text-slate-300/70"
       >
         <circle cx="1" cy="1" r="1"></circle>
       </svg>
 
-      <span className="">{totalTime * 15}h Total</span>
+      <span className="whitespace-nowrap">{totalTime * 15}h Total</span>
     </div>
   );
 };
