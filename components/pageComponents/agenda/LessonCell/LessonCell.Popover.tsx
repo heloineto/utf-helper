@@ -1,9 +1,6 @@
 import { DateTime } from 'luxon';
 import { Popover, PopoverProps } from '@mui/material';
-import { CircleIcon, TriangleIcon } from '@components/decoration/icons/outlined';
-import { colord } from 'colord';
 import { getDateStr } from '@lib/utils/luxon';
-import { useColor } from '@lib/hooks';
 import { useContext } from 'react';
 import { SettingsContext } from '@lib/context';
 import { TailwindColorGroup } from 'tailwindcss/tailwind-config';

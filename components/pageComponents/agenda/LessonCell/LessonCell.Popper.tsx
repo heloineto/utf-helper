@@ -20,7 +20,7 @@ const LessonCellPopper = ({ lesson, color, ...popperProps }: Props) => {
 
   return (
     <Popper
-      className="relative overflow-hidden text-base bg-slate-50 text-left w-[28rem] rounded-xl shadow-xl ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10 divide-y divide-slate-100 my-auto dark:divide-slate-200/5 dark:highlight-white/10"
+      className="overflow-hidden text-base bg-slate-50 text-left w-[28rem] rounded-xl shadow-xl ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10 divide-y divide-slate-100 my-auto dark:divide-slate-200/5 dark:highlight-white/10"
       {...popperProps}
     >
       <div className="p-3 flex items-center justify-start gap-x-3">

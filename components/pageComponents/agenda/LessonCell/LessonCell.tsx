@@ -1,8 +1,7 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { SettingsContext } from '@lib/context';
 import { useColor } from '@lib/hooks';
 import { limitText } from '@lib/utils/typescript';
-import LessonCellPopper from './LessonCell.Popper';
 import classNames from 'clsx';
 import { colord } from 'colord';
 import LessonCellDialog from '../../../elements/modals/LessonDialog';
@@ -38,68 +37,70 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
   const divRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div
-      className="flex absolute top-0 left-0 w-full cursor-pointer py-1 z-10"
-      style={{ height: `${100 * length}%` }}
-      ref={divRef}
-      onClick={() => {
-        setDialogOpen(true);
-        setHover(false);
-      }}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      {...divProps}
-    >
+    <>
       <div
-        className={classNames(
-          !lesson.isSync && 'border-dotted',
-          'w-full h-full rounded mx-1 p-1 text-left flex flex-col border-2'
-        )}
-        style={{
-          background: isInPerson
-            ? undefined
-            : getStrippedBackground(color[darkMode ? 600 : 200]),
-          backgroundColor: isInPerson ? color[darkMode ? 600 : 200] : undefined,
-          borderColor: color[darkMode ? 500 : 300],
-          opacity: lesson.isSync ? undefined : darkMode ? 0.85 : 0.95,
+        className="flex absolute top-0 left-0 w-full cursor-pointer py-1 z-10"
+        style={{ height: `${100 * length}%` }}
+        ref={divRef}
+        onClick={() => {
+          setDialogOpen(true);
+          setHover(false);
         }}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        {...divProps}
       >
         <div
-          className="font-semibold break-all overflow-hidden text-ellipsis"
+          className={classNames(
+            !lesson.isSync && 'border-dotted',
+            'w-full h-full rounded mx-1 p-1 text-left flex flex-col border-2'
+          )}
           style={{
-            color: color[darkMode ? 100 : 800],
-            lineHeight: '.9rem',
+            background: isInPerson
+              ? undefined
+              : getStrippedBackground(color[darkMode ? 600 : 200]),
+            backgroundColor: isInPerson ? color[darkMode ? 600 : 200] : undefined,
+            borderColor: color[darkMode ? 500 : 300],
+            opacity: lesson.isSync ? undefined : darkMode ? 0.85 : 0.95,
           }}
         >
-          {limitText(classObject.subjectName, 50)}
-        </div>
-        <div
-          className="text-xs font-medium"
-          style={{ color: color[darkMode ? 200 : 600] }}
-        >
-          {scheduleCell?.locationCodes ? (
-            <div className="flex items-center gap-x-1">
-              <MapPin weight="fill" />
-              {scheduleCell?.locationCodes?.join(' ou ')}
-            </div>
-          ) : (
-            `${classObject.subjectCode} - ${classObject.code}`
-          )}
-        </div>
-        <div
-          className="text-xs font-medium -mt-0.5"
-          style={{ color: color[darkMode ? 200 : 600] }}
-        >
-          {isInPerson ? (
-            <div className="underline font-semibold">Aula Presencial</div>
-          ) : (
-            <div>Aula Remota {lesson.isSync ? 'Síncrona' : 'Assíncrona'}</div>
-          )}
+          <div
+            className="font-semibold break-all overflow-hidden text-ellipsis"
+            style={{
+              color: color[darkMode ? 100 : 800],
+              lineHeight: '.9rem',
+            }}
+          >
+            {limitText(classObject.subjectName, 50)}
+          </div>
+          <div
+            className="text-xs font-medium"
+            style={{ color: color[darkMode ? 200 : 600] }}
+          >
+            {scheduleCell?.locationCodes ? (
+              <div className="flex items-center gap-x-1">
+                <MapPin weight="fill" />
+                {scheduleCell?.locationCodes?.join(' ou ')}
+              </div>
+            ) : (
+              `${classObject.subjectCode} - ${classObject.code}`
+            )}
+          </div>
+          <div
+            className="text-xs font-medium -mt-0.5"
+            style={{ color: color[darkMode ? 200 : 600] }}
+          >
+            {isInPerson ? (
+              <div className="underline font-semibold">Aula Presencial</div>
+            ) : (
+              <div>Aula Remota {lesson.isSync ? 'Síncrona' : 'Assíncrona'}</div>
+            )}
+          </div>
         </div>
       </div>
       <LessonCellPopover
         anchorEl={divRef.current}
-        open={hover}
+        open={!dialogOpen && hover}
         sx={{ pointerEvents: 'none' }}
         anchorOrigin={{
           vertical: 'center',
@@ -114,12 +115,12 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
         color={color}
       />
       <LessonCellDialog
-        id="lesson-cell-dialog"
         open={dialogOpen}
         onClose={() => setDialogOpen(false)}
         lesson={lesson}
+        color={color}
       />
-    </div>
+    </>
   );
 };
 

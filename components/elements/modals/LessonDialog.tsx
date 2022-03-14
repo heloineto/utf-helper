@@ -4,20 +4,20 @@ import { getDateStr } from '@lib/utils/luxon';
 import { DialogProps } from '@mui/material';
 import { DateTime } from 'luxon';
 import { useContext } from 'react';
-import { useColor } from '@lib/hooks';
 import PrimaryButton from '../buttons/PrimaryButton';
 import SecondaryButton from '../buttons/SecondaryButton';
+import { TailwindColorGroup } from 'tailwindcss/tailwind-config';
 
 interface Props extends Omit<DialogProps, 'color'> {
   lesson: CompleteLesson;
   onClose: () => void;
+  color: TailwindColorGroup;
 }
 
-const LessonDialog = ({ lesson, onClose, ...muiDialogProps }: Props) => {
+const LessonDialog = ({ lesson, onClose, color, ...muiDialogProps }: Props) => {
   const { darkMode } = useContext(SettingsContext);
   const { classObject, dayCode } = lesson;
 
-  const { color } = useColor(classObject.subjectCode);
   const isInPerson = classObject.framing !== 'R' && lesson.isSync;
 
   const dateStr = lesson?.date && getDateStr(DateTime.fromISO(lesson.date));
