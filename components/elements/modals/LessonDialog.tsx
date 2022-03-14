@@ -121,7 +121,6 @@ const LessonDialog = ({ lesson, onClose, ...muiDialogProps }: Props) => {
             href={`https://sistemas2.utfpr.edu.br/dpls/sistema/aluno06/mpPlanejamentoAula.pcPlanejFinalizado?p_turmidvc=${classObject.paCode}&p_print=1`}
             target="_blank"
             className="w-1/3"
-            rel="noreferrer"
           >
             <SecondaryButton>Ver PA</SecondaryButton>
           </a>

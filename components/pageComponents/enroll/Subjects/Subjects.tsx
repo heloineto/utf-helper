@@ -118,26 +118,38 @@ const Subjects = ({ campus, course }: Props) => {
                             maxHeight: 24,
                           }}
                         >
-                          <SubjectsTableHeader className="w-[2%]">
+                          <SubjectsTableHeader className="w-[2%]" title="Turma">
                             Turma
                           </SubjectsTableHeader>
                           {rows.schedule && (
-                            <SubjectsTableHeader className="w-[45%]">
+                            <SubjectsTableHeader
+                              className="w-[45%]"
+                              title="Horário & Local"
+                            >
                               Horário &amp; Local
                             </SubjectsTableHeader>
                           )}
                           {rows.teacher && (
-                            <SubjectsTableHeader className="w-[20%]">
+                            <SubjectsTableHeader
+                              className="w-[20%]"
+                              title="Professor (a)"
+                            >
                               Prof.
                             </SubjectsTableHeader>
                           )}
                           {rows.framing && (
-                            <SubjectsTableHeader className="w-[5%] text-center">
-                              {mobile ? 'Enquad.' : 'Enquadramento'}
+                            <SubjectsTableHeader
+                              className="w-[5%] text-center"
+                              title="Enquadramento"
+                            >
+                              Enquad.
                             </SubjectsTableHeader>
                           )}
                           {rows.optional && (
-                            <SubjectsTableHeader className="w-[20%] text-right">
+                            <SubjectsTableHeader
+                              className="w-[20%] text-right"
+                              title="Optativa"
+                            >
                               Optativa
                             </SubjectsTableHeader>
                           )}

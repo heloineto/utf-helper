@@ -9,14 +9,15 @@ interface Props extends ComponentProps<'div'> {
   length: number;
 }
 
-const ClassCell = ({ classObject, length, ...divProps }: Props) => {
+const ClassCell = ({ classObject, length, onClick, ...divProps }: Props) => {
   const { darkMode } = useContext(SettingsContext);
   const { color } = useColor(classObject.subjectCode);
 
   return (
     <div
-      className={classNames('flex absolute top-0 left-0 w-full cursor-pointer py-1')}
+      className={classNames('flex absolute top-0 left-0 w-full cursor-pointer py-1 z-50')}
       style={{ height: `${100 * length}%` }}
+      onClick={onClick}
       {...divProps}
     >
       <div

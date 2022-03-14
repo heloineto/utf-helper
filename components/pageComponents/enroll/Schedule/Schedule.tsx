@@ -22,7 +22,6 @@ const Schedule = ({}: Props) => {
           <CircularProgress />
         </div>
       )}
-
       <table
         className="h-full w-full bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-800 text-xs flex-grow min-w-[55rem] min-h-[50rem]"
         cellSpacing={0}
@@ -30,36 +29,36 @@ const Schedule = ({}: Props) => {
       >
         <tbody className="divide-y divide-slate-200/50 dark:divide-slate-700/50 text-center">
           <tr className="bg-slate-200 dark:bg-slate-700 shadow">
-            <td className="w-[calc(100%/47)]" />
-            <td className="font-bold w-[calc(100%*2/47)] text-sm text-slate-700 dark:text-slate-300">
+            <th className="w-[calc(100%/47)]" />
+            <th className="font-bold w-[calc(100%*2/47)] text-sm text-slate-700 dark:text-slate-300">
               Início
-            </td>
-            <td className="font-bold w-[calc(100%*2/47)] text-sm text-slate-700 dark:text-slate-300">
+            </th>
+            <th className="font-bold w-[calc(100%*2/47)] text-sm text-slate-700 dark:text-slate-300">
               Térm.
-            </td>
+            </th>
             {['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'].map(
               (day, index) => (
-                <td key={day} className="text-sm w-[calc(100%*7/47)] h-8">
+                <th key={day} className="text-sm w-[calc(100%*7/47)] h-8">
                   <span className="text-slate-600 dark:text-slate-300 font-medium">
                     {day}
                   </span>
                   <span className="text-slate-800 dark:text-slate-100 ml-1 font-bold">
                     {index + 2}
                   </span>
-                </td>
+                </th>
               )
             )}
           </tr>
           {Object.entries(scheduleStructure).map(([timeCode, { start, end, days }]) => (
             <tr
               key={timeCode}
-              className="divide-x divide-slate-200 dark:divide-slate-700"
+              className="divide-x divide-slate-200 dark:divide-slate-700 relative"
             >
               <td className="font-semibold text-slate-800 dark:text-slate-100">
                 {timeCode}
               </td>
-              <th className="font-medium text-slate-600 dark:text-slate-400">{start}</th>
-              <th className="font-medium text-slate-600 dark:text-slate-400">{end}</th>
+              <td className="font-medium text-slate-600 dark:text-slate-400">{start}</td>
+              <td className="font-medium text-slate-600 dark:text-slate-400">{end}</td>
               {Object.keys(days).map((dayCode) => {
                 const classCell = classCells?.[timeCode]?.[dayCode];
 
