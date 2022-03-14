@@ -1,27 +1,36 @@
 import { DateTime } from 'luxon';
-import { Popper, PopperProps } from '@mui/material';
+import { Popover, PopoverProps } from '@mui/material';
+import { CircleIcon, TriangleIcon } from '@components/decoration/icons/outlined';
+import { colord } from 'colord';
 import { getDateStr } from '@lib/utils/luxon';
-import { TailwindColorGroup } from 'tailwindcss/tailwind-config';
+import { useColor } from '@lib/hooks';
 import { useContext } from 'react';
 import { SettingsContext } from '@lib/context';
+import { TailwindColorGroup } from 'tailwindcss/tailwind-config';
 
-interface Props extends Omit<PopperProps, 'color'> {
+interface Props extends Omit<PopoverProps, 'color'> {
   lesson: CompleteLesson;
   color: TailwindColorGroup;
 }
 
-const LessonCellPopper = ({ lesson, color, ...popperProps }: Props) => {
-  const { darkMode } = useContext(SettingsContext);
+const LessonCellPopover = ({ lesson, color, ...popoverProps }: Props) => {
+  const timeCode = lesson.scheduleCell.startTimeCode;
+  const length = lesson.scheduleCell.length;
   const { classObject, dayCode } = lesson;
 
   const isInPerson = classObject.framing !== 'R' && lesson.isSync;
 
+  const { darkMode } = useContext(SettingsContext);
+
   const dateStr = lesson?.date && getDateStr(DateTime.fromISO(lesson.date));
 
   return (
-    <Popper
-      className="relative overflow-hidden text-base bg-slate-50 text-left w-[28rem] rounded-xl shadow-xl ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10 divide-y divide-slate-100 my-auto dark:divide-slate-200/5 dark:highlight-white/10"
-      {...popperProps}
+    <Popover
+      classes={{
+        paper:
+          'overflow-hidden text-base bg-slate-50 text-left w-[28rem] rounded-xl shadow-xl ring-1 ring-slate-700/5 dark:bg-slate-900 dark:ring-white/10 divide-y divide-slate-100 my-auto dark:divide-slate-200/5 dark:highlight-white/10',
+      }}
+      {...popoverProps}
     >
       <div className="p-3 flex items-center justify-start gap-x-3">
         <div
@@ -74,8 +83,8 @@ const LessonCellPopper = ({ lesson, color, ...popperProps }: Props) => {
       >
         Clique para ver mais
       </div>
-    </Popper>
+    </Popover>
   );
 };
 
-export default LessonCellPopper;
+export default LessonCellPopover;

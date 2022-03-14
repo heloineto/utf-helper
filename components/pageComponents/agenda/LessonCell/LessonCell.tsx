@@ -7,6 +7,7 @@ import classNames from 'clsx';
 import { colord } from 'colord';
 import LessonCellDialog from '../../../elements/modals/LessonDialog';
 import { MapPin } from 'phosphor-react';
+import LessonCellPopover from './LessonCell.Popover';
 
 interface Props extends ComponentProps<'div'> {
   lesson: CompleteLesson;
@@ -36,51 +37,17 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
 
   const divRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const divElem = divRef.current;
-    if (!divElem) return;
-
-    const handleMouseOver = (event: MouseEvent) => {
-      const muiModal = document.getElementById('lesson-cell-dialog');
-      if (muiModal) return;
-
-      const { x, y, height, width } = divElem.getBoundingClientRect();
-      const { pageX, pageY } = event;
-
-      const testX = pageX >= x && pageX <= x + width;
-      const textY = pageY >= y && pageY <= y + height;
-
-      setHover(testX && textY);
-    };
-
-    const handleClick = (event: MouseEvent) => {
-      const muiModal = document.getElementById('lesson-cell-dialog');
-      if (muiModal) return;
-
-      const { x, y, height, width } = divElem.getBoundingClientRect();
-      const { pageX, pageY } = event;
-
-      const testX = pageX >= x && pageX <= x + width;
-      const textY = pageY >= y && pageY <= y + height;
-
-      setDialogOpen(testX && textY);
-      setHover(false);
-    };
-
-    document.addEventListener('mousemove', handleMouseOver);
-    document.addEventListener('click', handleClick);
-
-    return () => {
-      document.removeEventListener('mousemove', handleMouseOver);
-      document.removeEventListener('click', handleClick);
-    };
-  }, []);
-
   return (
     <div
-      className="flex absolute top-0 left-0 w-full cursor-pointer py-1"
+      className="flex absolute top-0 left-0 w-full cursor-pointer py-1 z-10"
       style={{ height: `${100 * length}%` }}
       ref={divRef}
+      onClick={() => {
+        setDialogOpen(true);
+        setHover(false);
+      }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
       {...divProps}
     >
       <div
@@ -130,11 +97,19 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
           )}
         </div>
       </div>
-      <LessonCellPopper
-        disablePortal
+      <LessonCellPopover
         anchorEl={divRef.current}
         open={hover}
-        placement={'right'}
+        sx={{ pointerEvents: 'none' }}
+        anchorOrigin={{
+          vertical: 'center',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+        disableRestoreFocus
         lesson={lesson}
         color={color}
       />
