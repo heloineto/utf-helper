@@ -5,12 +5,11 @@ import { useRouter } from 'next/router';
 import { indexOfNth } from '@lib/utils/typescript';
 import useNavItems from '@lib/hooks/useNavItems';
 import { Logomark } from '@components/decoration/logos/utfHelper';
+import PrimaryButton from '@components/elements/buttons/PrimaryButton';
 
-interface Props {
-  expanded: boolean;
-}
+interface Props {}
 
-const SidebarNavItems = ({ expanded }: Props) => {
+const SidebarNavItems = ({}: Props) => {
   const navItems = useNavItems();
 
   const { pathname } = useRouter();
@@ -18,17 +17,7 @@ const SidebarNavItems = ({ expanded }: Props) => {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <div
-        className={classNames(
-          expanded
-            ? 'justify-start items-end pb-[0.8rem] gap-x-3'
-            : 'justify-center items-center',
-          'h-20 flex'
-        )}
-      >
-        <Logomark />
-        {expanded && <Logomark />}
-      </div>
+      <Logomark className="h-20 w-20" />
       <div className="flex-1 mt-2 w-full px-2 space-y-1">
         {Object.entries(navItems).map(([key, { label, Icon, href }]) => {
           const current = href === currentHref;
@@ -40,36 +29,21 @@ const SidebarNavItems = ({ expanded }: Props) => {
               aria-current={current ? 'page' : 'false'}
               passHref
             >
-              <Button
+              <PrimaryButton
                 className={classNames(
-                  current
-                    ? 'bg-primary-200 text-primary-800'
-                    : 'text-gray-800 hover:text-primary-800',
-                  expanded ? 'h-12 px-4 text-sm' : 'h-16 text-xs',
-                  'group w-full hover:bg-primary-100'
+                  current ? '' : '',
+                  'h-16 text-xs font-semibold tracking-wide group flex-col gap-y-1 justify-center flex items-center bg-white rounded-lg shadow ring-1 ring-slate-700/5 dark:!bg-slate-900 dark:ring-white/10'
                 )}
-                classes={{
-                  // label: classNames(
-                  //   expanded
-                  //     ? 'flex-row gap-x-2 justify-start text-'
-                  //     : 'flex-col gap-y-1 justify-center',
-                  //   'static flex items-center'
-                  // ),
-                  startIcon: 'static m-0',
-                }}
+                classes={{ startIcon: 'm-0' }}
                 startIcon={
                   <Icon
-                    className={classNames(
-                      current
-                        ? 'text-primary-900'
-                        : 'text-gray-700 group-hover:text-primary-900',
-                      expanded ? 'h-7 w-auto' : 'h-6 w-auto'
-                    )}
+                    className={classNames(current ? '' : '', 'h-6 w-auto')}
+                    weight={current ? 'fill' : 'regular'}
                   />
                 }
               >
                 {label}
-              </Button>
+              </PrimaryButton>
             </Link>
           );
         })}

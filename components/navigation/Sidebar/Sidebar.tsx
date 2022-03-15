@@ -13,14 +13,17 @@ const Sidebar = ({ className, open, onClose }: Props) => {
   return (
     <div className={className}>
       <Drawer
+        className="w-3/12"
+        classes={{
+          paper: 'static bg-slate-50 dark:bg-slate-900/80 xl:dark:bg-slate-900/50 p-2.5',
+        }}
         variant="temporary"
         anchor={'left'}
         open={open}
         onClose={onClose}
-        classes={{ paper: 'w-28' }}
         ModalProps={{ keepMounted: true }}
       >
-        <SidebarNavItems expanded={false} />
+        <SidebarNavItems />
       </Drawer>
     </div>
   );
