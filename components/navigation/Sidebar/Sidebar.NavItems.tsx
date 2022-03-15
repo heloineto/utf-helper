@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import classNames from 'clsx';
-import { Button } from '@mui/material';
 import { useRouter } from 'next/router';
 import { indexOfNth } from '@lib/utils/typescript';
 import useNavItems from '@lib/hooks/useNavItems';

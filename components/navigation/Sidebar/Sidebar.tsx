@@ -1,4 +1,4 @@
-import { Drawer, useMediaQuery, useTheme } from '@mui/material';
+import { Drawer } from '@mui/material';
 import SidebarNavItems from './Sidebar.NavItems';
 
 interface Props {
