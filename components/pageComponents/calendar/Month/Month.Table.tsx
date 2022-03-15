@@ -1,6 +1,6 @@
 import { useContext, useMemo, useState } from 'react';
 import { DateTime, Interval } from 'luxon';
-import { Tooltip } from '@mui/material';
+import { Tooltip, useMediaQuery, useTheme } from '@mui/material';
 import { MonthContext } from './lib/context';
 import { getWeekdaysStr } from '@lib/utils/luxon';
 import Day, { DayPopover } from '../Day';
@@ -104,12 +104,12 @@ const MonthTable = ({ monthInfo }: Props) => {
           pointerEvents: 'none',
         }}
         anchorOrigin={{
-          vertical: 'center',
-          horizontal: 'right',
+          vertical: 'bottom',
+          horizontal: 'center',
         }}
         transformOrigin={{
-          vertical: 'center',
-          horizontal: 'left',
+          vertical: 'top',
+          horizontal: 'center',
         }}
         disableRestoreFocus
         dayInfo={dayInfo}
