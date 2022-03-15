@@ -23,16 +23,13 @@ const SidebarNavItems = ({}: Props) => {
           const current = href === currentHref;
 
           return (
-            <Link
-              key={key}
-              href={href}
-              aria-current={current ? 'page' : 'false'}
-              passHref
-            >
+            <Link key={key} href={href} passHref>
               <PrimaryButton
                 className={classNames(
-                  current ? '' : '',
-                  'h-16 text-xs font-semibold tracking-wide group flex-col gap-y-1 justify-center flex items-center bg-white rounded-lg shadow ring-1 ring-slate-700/5 dark:!bg-slate-900 dark:ring-white/10'
+                  current
+                    ? 'dark:ring-sky-500 dark:text-sky-300 dark:shadow-md dark:shadow-sky-800/50'
+                    : 'dark:ring-white/10 !bg-white text-sky-400',
+                  'h-16 text-xs font-semibold tracking-wide group flex-col gap-y-1 justify-center flex items-center rounded-lg shadow dark:ring-1 ring-slate-700/5 dark:!bg-slate-900 dark:hover:!bg-sky-900/50'
                 )}
                 classes={{ startIcon: 'm-0' }}
                 startIcon={
