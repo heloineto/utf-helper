@@ -1,12 +1,12 @@
 import { auth, firestore, googleAuthProvider } from '@lib/firebase';
 import { converter } from '@lib/utils/firebase';
 import {
+  User,
   UserCredential,
   linkWithPopup,
+  linkWithRedirect,
   signInWithPopup,
   signInWithRedirect,
-  linkWithRedirect,
-  User,
 } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { isNil, omitBy } from 'lodash';

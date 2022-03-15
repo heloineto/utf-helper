@@ -8,7 +8,7 @@ const NavbarContributeButton = (props: Props) => {
       className="group h-7 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full px-3 flex items-center hover:bg-sky-400/20"
       target="_blank"
       href="https://github.com/heloineto/utf-helper"
-      rel="noopener"
+      rel="noopener noreferrer"
     >
       <GithubLogo className="h-4 w-auto" weight="bold" />
       <svg

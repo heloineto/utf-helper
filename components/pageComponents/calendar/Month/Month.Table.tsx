@@ -1,6 +1,6 @@
 import { useContext, useMemo, useState } from 'react';
 import { DateTime, Interval } from 'luxon';
-import { Tooltip, useMediaQuery, useTheme } from '@mui/material';
+import { Tooltip } from '@mui/material';
 import { MonthContext } from './lib/context';
 import { getWeekdaysStr } from '@lib/utils/luxon';
 import Day, { DayPopover } from '../Day';

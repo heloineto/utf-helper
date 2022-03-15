@@ -1,11 +1,9 @@
 import { GoogleLogomark } from '@components/decoration/logos/google';
 import PrimaryButton from '@components/elements/buttons/PrimaryButton';
 import { SettingsContext } from '@lib/context';
-import { auth, googleAuthProvider } from '@lib/firebase';
 import { useSignInWithGoogle } from '@lib/hooks';
 import { ButtonProps, Tooltip } from '@mui/material';
 import classNames from 'clsx';
-import { signInWithPopup } from 'firebase/auth';
 import { useContext } from 'react';
 
 interface Props extends ButtonProps {}

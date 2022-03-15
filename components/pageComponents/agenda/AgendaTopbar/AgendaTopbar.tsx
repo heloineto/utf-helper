@@ -4,7 +4,7 @@ import { DateTime } from 'luxon';
 import { getDateStr } from '@lib/utils/luxon';
 import { useContext } from 'react';
 import { AgendaContext } from '../Agenda/lib/context';
-import { List } from 'phosphor-react';
+import { Calendar } from 'phosphor-react';
 import Topbar from '@components/navigation/Topbar';
 
 type Props = {};
@@ -25,7 +25,7 @@ const AgendaTopbar = (props: Props) => {
             onClick={() => setSidebarOpen?.(true)}
             edge="start"
           >
-            <List className="h-7 w-auto" />
+            <Calendar className="h-7 w-auto" />
           </IconButton>
         )}
 
