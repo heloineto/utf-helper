@@ -16,8 +16,8 @@ const SidebarNavItems = ({}: Props) => {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <Logomark className="h-20 w-20" />
-      <div className="flex-1 mt-2 w-full px-2 space-y-1">
+      <Logomark className="h-20 w-20 mb-2.5" />
+      <div className="flex-1 mt-2 w-full space-y-1.5">
         {Object.entries(navItems).map(([key, { label, Icon, href }]) => {
           const current = href === currentHref;
 

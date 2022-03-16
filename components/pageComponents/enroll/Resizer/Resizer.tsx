@@ -27,7 +27,7 @@ const Resizer = (
             ? 'cursor-col-resize w-6 h-8 hover:w-12 hover:h-12'
             : 'cursor-row-resize w-8 h-6 hover:w-12 hover:h-12',
           resizing && '!w-12 !h-12',
-          'absolute group bg-white dark:bg-slate-400 transition-all ease-in-out flex justify-center items-center rounded-full ring-1 ring-slate-900/10 shadow'
+          'absolute group bg-white dark:bg-slate-400 transition-all ease-in-out flex justify-center items-center rounded-full ring-1 ring-slate-900/10 shadow z-[100]'
         )}
         ref={ref}
       >
