@@ -38,12 +38,16 @@ const Navbar = ({ className }: Props) => {
             <>
               <IconButton
                 className="text-sky-600 h-11"
-                onClick={() => setSidebarOpen?.(true)}
+                onClick={() => setSidebarOpen(true)}
                 edge="start"
               >
                 <List className="h-7 w-auto" />
               </IconButton>
-              <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+              <Sidebar
+                open={sidebarOpen}
+                onOpen={() => setSidebarOpen(true)}
+                onClose={() => setSidebarOpen(false)}
+              />
             </>
           )}
           <NavbarCampus className="text-left lg:text-right" />
