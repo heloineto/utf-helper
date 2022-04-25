@@ -4,6 +4,8 @@
 
 UTF Helper is a student made site that makes your university life easier at the Federal University of Technology – Paraná (UTFPR)
 
+Access it here: [utf-helper.vercel.app](https://utf-helper.vercel.app/)
+
 ## Enrollment
 Plan your schedule with an interactive and easy-to-use interface
 
