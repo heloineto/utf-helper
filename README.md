@@ -12,3 +12,9 @@ Academic calendar with important dates, holidays, and more
 
 ## Schedule
 See which of your classes are on-site or remote, synchronous or asynchronous
+
+&nbsp;
+
+<div align="center">
+  <img src="https://i.imgur.com/D2WOJwt.png" alt="UTF Helper Logo"/>
+</div>
