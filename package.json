@@ -38,7 +38,6 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@types/flexsearch": "^0.7.2",
     "@types/lodash": "^4.14.178",
     "@types/luxon": "^2.0.9",
     "@types/node": "^17.0.13",

@@ -23,7 +23,7 @@ const Subjects = ({ campus, course }: Props) => {
   const { searchTerm } = useContext(EnrollContext);
 
   const [subjects, loading, error] = useCollectionArray<Subject>(
-    `campuses/${campus}/courses/${course}/subjects-2022-01`,
+    `campuses/${campus}/courses/${course}/subjects-2022-02`,
     orderBy('name')
   );
 

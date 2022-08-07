@@ -11,7 +11,7 @@ import NoAutoCompleteBackground from '@components/styledJsx/NoAutoCompleteBackgr
 import CustomScrollBar from '@components/styledJsx/CustomScrollBar';
 import { SettingsContext, UserDataContext } from '@lib/context';
 import { useSettings, useUserData } from '@lib/hooks';
-import CustomSnackbarProvider from '@components/feedback/CustomSnackbarProvider';
+import CustomSnackbarProvider from '@components/elements/feedback/CustomSnackbarProvider';
 import useMuiTheme from '@lib/hooks/useMuiTheme';
 import MainShell from '@components/appShells/MainShell';
 
