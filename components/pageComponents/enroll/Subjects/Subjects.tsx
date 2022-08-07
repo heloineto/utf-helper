@@ -90,25 +90,46 @@ const Subjects = ({ campus, course }: Props) => {
               width={width}
               itemCount={subjectsFiltered.length}
               itemSize={(index) =>
-                Object.keys(subjectsFiltered[index].classes).length * 144 + 48 + 24
+                Object.keys(subjectsFiltered[index].classes).length * 144 +
+                (mobile ? 120 : 48) +
+                24
               }
             >
               {({ index, style }) => {
                 const subject = subjectsFiltered[index];
                 return (
                   <div style={style}>
-                    <div
-                      className="bg-slate-200/90 dark:bg-slate-600 px-2 sm:px-6 flex items-center gap-x-1.5 sm:gap-x-2 text-md w-full font-medium tracking-wider"
-                      style={{ height: 48, maxHeight: 48 }}
-                    >
-                      <span className="bg-slate-300 dark:bg-slate-500 rounded-md p-1 text-sm text-slate-500 dark:text-slate-300">
-                        {subject.code}
-                      </span>
-                      <span className="uppercase text-slate-700 dark:text-slate-300">
-                        {subject.name}
-                      </span>
-                      <Badge>{subject.weeklyLessons} Aulas Semanais</Badge>
-                    </div>
+                    {mobile ? (
+                      <div
+                        className="bg-slate-200/90 dark:bg-slate-600 flex flex-col items-center gap-x-1 text-md w-full font-medium tracking-wider"
+                        style={{ minHeight: 120, maxHeight: 120 }}
+                      >
+                        <div className="flex-grow w-full flex items-center">
+                          <div className="uppercase text-slate-700 dark:text-slate-300 px-2 sm:px-6">
+                            {subject.name}
+                          </div>
+                        </div>
+                        <div className="flex w-full bg-slate-900 px-2 sm:px-6 py-2">
+                          <span className="bg-slate-300 dark:bg-slate-500 rounded-md p-1 text-sm text-slate-500 dark:text-slate-300">
+                            {subject.code}
+                          </span>
+                          <Badge>{subject.weeklyLessons} Aulas Semanais</Badge>
+                        </div>
+                      </div>
+                    ) : (
+                      <div
+                        className="bg-slate-200/90 dark:bg-slate-600 px-2 sm:px-6 flex items-center gap-x-1.5 sm:gap-x-2 text-md w-full font-medium tracking-wider"
+                        style={{ minHeight: 48, maxHeight: 48 }}
+                      >
+                        <span className="bg-slate-300 dark:bg-slate-500 rounded-md p-1 text-sm text-slate-500 dark:text-slate-300">
+                          {subject.code}
+                        </span>
+                        <span className="uppercase text-slate-700 dark:text-slate-300">
+                          {subject.name}
+                        </span>
+                        <Badge>{subject.weeklyLessons} Aulas Semanais</Badge>
+                      </div>
+                    )}
                     <table className="w-full">
                       <tbody className="w-full">
                         <tr

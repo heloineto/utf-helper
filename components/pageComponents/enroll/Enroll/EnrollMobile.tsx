@@ -48,7 +48,7 @@ const EnrollMobile = (props: Props) => {
       <Tooltip title={`Mostrar ${showSubjects ? 'cronograma' : 'matérias'}`} arrow>
         <IconButton
           className={classNames(
-            'h-12 w-12 absolute bottom-2.5 right-2.5 shadow-xl z-50',
+            'h-14 w-14 absolute bottom-5 right-5 shadow-xl z-50 text-white',
             showSubjects
               ? 'bg-orange-500 hover:bg-orange-600'
               : 'bg-purple-500 hover:bg-purple-600'
