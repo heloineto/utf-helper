@@ -1,12 +1,22 @@
-# UTF Helper
+# [UTF Helper](https://utf-helper.vercel.app/)
 
-O UTF Helper é um site de aulo para aluno que facilita sua vida universitária na UTFPR
+![utf helper website preview](https://i.imgur.com/5XDrEGW.png "UTF Helper Preview")
 
-## Matrícula
-Planeje a sua grade com uma interface interativa e fácil de usar
+UTF Helper is a student made site that makes your university life easier at the Federal University of Technology – Paraná (UTFPR)
 
-## Calendário
-Calendário acadêmico com datas importantes, férias, entre outros
+Access it here: [utf-helper.vercel.app](https://utf-helper.vercel.app/)
 
-## Agenda
-Veja quais das suas aulas são presenciais ou remotas
+## Enrollment
+Plan your schedule with an interactive and easy-to-use interface
+
+## Calendar
+Academic calendar with important dates, holidays, and more
+
+## Schedule
+See which of your classes are on-site or remote, synchronous or asynchronous
+
+&nbsp;
+
+<div align="center">
+  <img src="https://i.imgur.com/D2WOJwt.png" alt="UTF Helper Logo"/>
+</div>
