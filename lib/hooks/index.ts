@@ -6,7 +6,6 @@ export { default as useEnroll } from './useEnroll';
 export { default as useFirestoreOperations } from './useFirestoreOperations';
 export { default as useLocalStorage } from './useLocalStorage';
 export { default as useNavItems } from './useNavItems';
-export { default as useResize } from './useResize';
 export { default as useSettings } from './useSettings';
 export { default as useSignInAnonymously } from './useSignInAnonymously';
 export { default as useSignInWithGoogle } from './useSignInWithGoogle';

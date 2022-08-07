@@ -1,16 +1,75 @@
 import classNames from 'clsx';
 import { ArrowsDownUp } from 'phosphor-react';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
+
+const setStylesOnElement = function (styles: any, element: HTMLElement) {
+  Object.assign(element.style, styles);
+};
 
 interface Props extends ComponentProps<'div'> {
   direction?: Direction;
-  resizing: boolean;
 }
 
 const Resizer = forwardRef<HTMLButtonElement, Props>(function Resizer(
-  { direction = 'vertical', resizing, ...divProps },
+  { direction = 'vertical', ...divProps },
   ref
 ) {
+  const [resizing, setResizing] = useState(false);
+  const firstRef = useRef<HTMLDivElement>(null);
+  const secondRef = useRef<HTMLDivElement>(null);
+
+  const resizeStart = () => {
+    document.body.classList.add('select-none');
+
+    setResizing(true);
+  };
+
+  useEffect(() => {
+    const firstElem = document.getElementById('first') as HTMLElement;
+    const secondElem = document.getElementById('second') as HTMLElement;
+
+    if (!firstElem || !secondElem) return;
+
+    const resize = (e: MouseEvent) => {
+      if (!resizing) return;
+
+      if (direction === 'horizontal') {
+        const percentage = (e.clientX * 100) / window.innerWidth;
+
+        secondElem.style.width = `${100 - percentage}%`;
+
+        return;
+      }
+
+      const percentage = (e.clientY * 100) / window.innerHeight;
+
+      secondElem.style.height = `${100 - percentage}%`;
+    };
+
+    const resizeEnd = (e: MouseEvent) => {
+      document.body.classList.remove('select-none');
+      setResizing(false);
+
+      if (direction === 'horizontal') {
+        const percentage = (e.clientX * 100) / window.innerWidth;
+        firstElem.style.width = `${percentage}%`;
+
+        return;
+      }
+
+      const percentage = (e.clientY * 100) / window.innerHeight;
+      firstElem.style.height = `${percentage}%`;
+    };
+
+    window.addEventListener('pointermove', resize);
+    window.addEventListener('pointerup', resizeEnd);
+
+    return () => {
+      window.removeEventListener('pointermove', resize);
+      window.removeEventListener('pointerup', resizeEnd);
+    };
+  }, [resizing, firstRef, secondRef, direction]);
+
   return (
     <div
       className={classNames(
@@ -22,7 +81,7 @@ const Resizer = forwardRef<HTMLButtonElement, Props>(function Resizer(
       {...divProps}
     >
       <button
-        ref={ref}
+        onPointerDown={resizeStart}
         className={classNames(
           direction === 'horizontal'
             ? 'cursor-col-resize w-6 h-8 hover:w-12 hover:h-12'
