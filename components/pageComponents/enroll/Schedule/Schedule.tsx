@@ -16,7 +16,7 @@ const Schedule = ({}: Props) => {
   const [selectedClassCell, setSelectedClassCell] = useState<ClassCell | null>(null);
 
   return (
-    <div className="relative h-full w-full">
+    <div className="relative flex-grow">
       {loading && (
         <div className="absolute top-0 left-0 w-full h-full grid place-items-center">
           <CircularProgress />

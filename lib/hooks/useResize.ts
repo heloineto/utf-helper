@@ -1,28 +1,50 @@
 import { useEffect, useRef, useState } from 'react';
 
+const getDefaultSecondStyles = (direction: Direction): CSSProperties => {
+  return direction === 'horizontal'
+    ? {
+        flexDirection: 'row',
+        position: 'absolute',
+        right: 0,
+        width: '50%',
+        height: '100%',
+      }
+    : {
+        flexDirection: 'column',
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        height: '50%',
+      };
+};
+
 const useResize = (direction: Direction = 'vertical') => {
   const [resizing, setResizing] = useState(false);
-  const handleRef = useRef<HTMLDivElement>(null);
-  const resize1Ref = useRef<HTMLDivElement>(null);
-  const resize2Ref = useRef<HTMLDivElement>(null);
+  const resizeButtonRef = useRef<HTMLButtonElement>(null);
+  const firstRef = useRef<HTMLDivElement>(null);
+  const secondRef = useRef<HTMLDivElement>(null);
+
+  console.log(resizing);
+
+  const [secondStyles, setSecondStyles] = useState<CSSProperties>(
+    getDefaultSecondStyles(direction)
+  );
 
   useEffect(() => {
-    const handleElem = handleRef.current;
-    const resize1Elem = resize1Ref.current;
-    const resize2Elem = resize2Ref.current;
+    setSecondStyles(getDefaultSecondStyles(direction));
+  }, [direction]);
 
-    if (!resize1Elem || !resize2Elem || !handleElem) return;
+  useEffect(() => {
+    const buttonElem = resizeButtonRef.current;
+    const firstElem = firstRef.current;
+    const secondElem = secondRef.current;
 
-    if (direction === 'horizontal') {
-      resize1Elem.style.height = `100%`;
-      resize2Elem.style.height = `100%`;
-    } else {
-      resize1Elem.style.width = `100%`;
-      resize2Elem.style.width = `100%`;
-    }
+    if (!firstElem || !secondElem || !buttonElem) return;
 
     const resizeStart = (e: MouseEvent) => {
       document.body.classList.add('select-none');
+      console.log('hi');
+
       setResizing(true);
     };
 
@@ -32,35 +54,45 @@ const useResize = (direction: Direction = 'vertical') => {
       if (direction === 'horizontal') {
         const percentage = (e.clientX * 100) / window.innerWidth;
 
-        resize1Elem.style.width = `${percentage}%`;
-        resize2Elem.style.width = `${100 - percentage}%`;
+        // resize1Elem.style.width = `${percentage}%`;
+
+        console.log(percentage);
+
+        setSecondStyles({
+          flexDirection: 'row',
+          position: 'absolute',
+          right: 0,
+          width: `${100 - percentage}%`,
+          height: '100%',
+        });
 
         return;
       }
 
       const percentage = (e.clientY * 100) / window.innerHeight;
 
-      resize1Elem.style.height = `${percentage}%`;
-      resize2Elem.style.height = `${100 - percentage}%`;
+      // resize1Elem.style.height = `${percentage}%`;
+      secondElem.style.height = `${100 - percentage}%`;
     };
 
     const resizeEnd = () => {
       document.body.classList.remove('select-none');
+      secondElem.style.position = 'block';
       setResizing(false);
     };
 
-    handleElem.addEventListener('mousedown', resizeStart);
-    window.addEventListener('mousemove', resize);
-    window.addEventListener('mouseup', resizeEnd);
+    buttonElem.addEventListener('pointerdown', resizeStart);
+    window.addEventListener('pointermove', resize);
+    window.addEventListener('pointerup', resizeEnd);
 
     return () => {
-      handleElem.removeEventListener('mousedown', resizeStart);
-      window.removeEventListener('mousemove', resize);
-      window.removeEventListener('mouseup', resizeEnd);
+      buttonElem.removeEventListener('pointerdown', resizeStart);
+      window.removeEventListener('pointermove', resize);
+      window.removeEventListener('pointerup', resizeEnd);
     };
-  }, [resizing, resize1Ref, resize2Ref, handleRef, direction]);
+  }, [resizing, firstRef, secondRef, resizeButtonRef, direction]);
 
-  return { handleRef, resize1Ref, resize2Ref, resizing };
+  return { resizeButtonRef, firstRef, secondRef, resizing, secondStyles };
 };
 
 export default useResize;

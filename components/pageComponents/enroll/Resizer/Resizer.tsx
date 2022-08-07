@@ -1,16 +1,16 @@
 import classNames from 'clsx';
 import { ArrowsDownUp } from 'phosphor-react';
-import { ForwardedRef, forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-type Props = {
+interface Props extends ComponentProps<'div'> {
   direction?: Direction;
   resizing: boolean;
-};
+}
 
-const Resizer = (
-  { direction = 'vertical', resizing, ...divProps }: Props & ComponentProps<'div'>,
-  ref: ForwardedRef<any>
-) => {
+const Resizer = forwardRef<HTMLButtonElement, Props>(function Resizer(
+  { direction = 'vertical', resizing, ...divProps },
+  ref
+) {
   return (
     <div
       className={classNames(
@@ -21,7 +21,8 @@ const Resizer = (
       )}
       {...divProps}
     >
-      <div
+      <button
+        ref={ref}
         className={classNames(
           direction === 'horizontal'
             ? 'cursor-col-resize w-6 h-8 hover:w-12 hover:h-12'
@@ -29,7 +30,6 @@ const Resizer = (
           resizing && '!w-12 !h-12',
           'absolute group bg-white dark:bg-slate-400 transition-all ease-in-out flex justify-center items-center rounded-full ring-1 ring-slate-900/10 shadow z-[100]'
         )}
-        ref={ref}
       >
         <ArrowsDownUp
           className={classNames(
@@ -39,9 +39,9 @@ const Resizer = (
           )}
           weight="bold"
         />
-      </div>
+      </button>
     </div>
   );
-};
+});
 
-export default forwardRef(Resizer);
+export default Resizer;

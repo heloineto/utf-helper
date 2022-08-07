@@ -63,6 +63,7 @@ const Day = ({
       )}
       style={{
         boxShadow: hover ? `0 0 40px 0 ${color}` : undefined,
+        zIndex: hover ? '100' : undefined,
         background:
           color && !isAnotherMonth
             ? `linear-gradient(225deg, ${color} 0%, ${lighterColor} 100%)`
