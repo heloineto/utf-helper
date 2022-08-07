@@ -1,10 +1,7 @@
+import { useMediaQuery, useTheme } from '@mui/material';
 import classNames from 'clsx';
 import { ArrowsDownUp } from 'phosphor-react';
 import { forwardRef, useEffect, useRef, useState } from 'react';
-
-const setStylesOnElement = function (styles: any, element: HTMLElement) {
-  Object.assign(element.style, styles);
-};
 
 interface Props extends ComponentProps<'div'> {
   direction?: Direction;
@@ -17,6 +14,9 @@ const Resizer = forwardRef<HTMLButtonElement, Props>(function Resizer(
   const [resizing, setResizing] = useState(false);
   const firstRef = useRef<HTMLDivElement>(null);
   const secondRef = useRef<HTMLDivElement>(null);
+
+  const { breakpoints } = useTheme();
+  const mobile = useMediaQuery(breakpoints.down('xl'));
 
   const resizeStart = () => {
     document.body.classList.add('select-none');
