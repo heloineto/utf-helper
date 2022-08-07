@@ -28,8 +28,10 @@ export const getWeekdaysStr = (
 };
 
 export const getWeekInterval = (date: DateTime) => {
-  const startDay = date.startOf('week');
-  const endDay = date.endOf('week');
+  const refDate = date.weekday === 7 ? date.plus({ days: 1 }) : date;
+
+  const startDay = refDate.startOf('week');
+  const endDay = refDate.endOf('week');
 
   return Interval.fromDateTimes(startDay, endDay);
 };
