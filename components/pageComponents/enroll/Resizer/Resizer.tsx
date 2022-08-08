@@ -47,6 +47,8 @@ const Resizer = forwardRef<HTMLButtonElement, Props>(function Resizer(
     };
 
     const resizeEnd = (e: MouseEvent) => {
+      if (!resizing) return;
+
       document.body.classList.remove('select-none');
       setResizing(false);
 

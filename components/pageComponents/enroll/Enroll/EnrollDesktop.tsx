@@ -7,7 +7,7 @@ import Resizer from '@components/pageComponents/enroll/Resizer';
 interface Props {}
 
 const EnrollDesktop = (props: Props) => {
-  const { direction, setDirection } = useContext(SettingsContext);
+  const { direction } = useContext(SettingsContext);
   const { userDetails } = useContext(UserDataContext);
 
   return (

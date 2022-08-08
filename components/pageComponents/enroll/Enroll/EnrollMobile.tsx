@@ -12,7 +12,7 @@ interface Props {}
 const EnrollMobile = (props: Props) => {
   const { userDetails } = useContext(UserDataContext);
 
-  const [showSubjects, setShowSubjects] = useState(false);
+  const [showSubjects, setShowSubjects] = useState(true);
   const [animating, setAnimating] = useState(false);
 
   return (
