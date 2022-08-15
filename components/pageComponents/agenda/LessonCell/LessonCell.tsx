@@ -7,6 +7,7 @@ import { colord } from 'colord';
 import LessonCellDialog from '../../../elements/modals/LessonDialog';
 import { MapPin } from 'phosphor-react';
 import LessonCellPopover from './LessonCell.Popover';
+import { uniq } from 'lodash';
 
 interface Props extends ComponentProps<'div'> {
   lesson: CompleteLesson;
@@ -35,6 +36,12 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
   };
 
   const divRef = useRef<HTMLDivElement>(null);
+
+  console.log({ lesson });
+
+  const locationCodes = uniq(
+    classObject.schedule.map(({ locationCode }) => locationCode)
+  );
 
   return (
     <>
@@ -77,10 +84,10 @@ const LessonCell = ({ lesson, ...divProps }: Props) => {
             className="text-xs font-medium"
             style={{ color: color[darkMode ? 200 : 600] }}
           >
-            {scheduleCell?.locationCodes ? (
+            {locationCodes ? (
               <div className="flex items-center gap-x-1">
                 <MapPin weight="fill" />
-                {scheduleCell?.locationCodes?.join(' ou ')}
+                {locationCodes?.join(' ou ')}
               </div>
             ) : (
               `${classObject.subjectCode} - ${classObject.code}`

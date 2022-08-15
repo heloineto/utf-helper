@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import PrimaryButton from '../buttons/PrimaryButton';
 import SecondaryButton from '../buttons/SecondaryButton';
 import { TailwindColorGroup } from 'tailwindcss/tailwind-config';
+import { uniq } from 'lodash';
 
 interface Props extends Omit<DialogProps, 'color'> {
   lesson: CompleteLesson;
@@ -21,6 +22,10 @@ const LessonDialog = ({ lesson, onClose, color, ...muiDialogProps }: Props) => {
   const isInPerson = classObject.framing !== 'R' && lesson.isSync;
 
   const dateStr = lesson?.date && getDateStr(DateTime.fromISO(lesson.date));
+
+  const locationCodes = uniq(
+    classObject.schedule.map(({ locationCode }) => locationCode)
+  );
 
   return (
     <CustomDialog onClose={onClose} {...muiDialogProps}>
@@ -67,11 +72,11 @@ const LessonDialog = ({ lesson, onClose, color, ...muiDialogProps }: Props) => {
               {lesson?.description}
             </dd>
           </div>
-          {lesson?.scheduleCell?.locationCodes && (
+          {locationCodes && (
             <div className="sm:col-span-1">
               <dt className="text-sm text-slate-500 dark:text-slate-400">Localização</dt>
               <dd className="mt-1 text-sm font-medium text-slate-900 dark:text-slate-100">
-                {lesson?.scheduleCell?.locationCodes.join(' ou ')}
+                {locationCodes.join(' ou ')}
               </dd>
             </div>
           )}
