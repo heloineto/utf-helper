@@ -1,4 +1,3 @@
-export { default as useCalendarData } from './useCalendarData';
 export { default as useCampuses } from './useCampuses';
 export { default as useCollectionObject } from './useCollectionObject';
 export { default as useColor } from './useColor';
